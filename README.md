@@ -1,4 +1,4 @@
-# {Course Name}
+# Introduction to R, Season 1
 
 This course was created from [this GitHub template](https://github.com/jhudsl/OTTR_Template).
 
@@ -8,14 +8,7 @@ If you would like to contribute to this course material, take a look at the [OTT
 
 ## About this course
 
-This course introduces {info on what this course introduces}
-
-## Learning Objectives
-
-This course will teach learners to:  
-
-- {You can use https://www.bobpikegroup.com/trainer-blog/5-steps-to-writing-clear-and-measurable-learning-objectives to define some learning objectives here}
-- {More learning objectives}
+The course covers fundamentals of R, a high-level programming language, and use it to wrangle data for analysis and visualization. The programming skills you will learn are transferable to learn more about R independently and other high-level languages such as Python. At the end of the class, you will be reproducing analysis from a scientific publication!
 
 ## Encountering problems?
 
