@@ -3,17 +3,13 @@
 
 # Introduction
 
-
-## Motivation
-
-
 ## Target Audience  
 
-The course is intended for ...
+The course is intended for researchers who want to learn coding for the first time with a data science application, or have explored programming and want to focus on fundamentals.
 
 ## Curriculum  
 
-The course covers...
+The course covers fundamentals of R, a high-level programming language, and use it to wrangle data for analysis and visualization. The programming skills you will learn are transferable to learn more about R independently and other high-level languages such as Python. At the end of the class, you will be reproducing analysis from a scientific publication!
 
 
 
@@ -32,7 +28,7 @@ devtools::session_info()
 ##  collate  en_US.UTF-8                 
 ##  ctype    en_US.UTF-8                 
 ##  tz       Etc/UTC                     
-##  date     2023-05-24                  
+##  date     2023-09-28                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
 ##  package     * version date       lib source                            
