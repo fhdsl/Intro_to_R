@@ -1,4 +1,4 @@
-book_filename: "Season 1 Introduction to R"
+book_filename: "Introduction to R, Season 1"
 chapter_name: "Chapter "
 repo: https://github.com/jhudsl/OTTR_Template/
 rmd_files: ["01-intro.Rmd",

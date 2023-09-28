@@ -13,5 +13,6 @@ output:
       toc: true
 ---
 
-# About this Course {-}
+# About this Course
 
+The course covers fundamentals of R, a high-level programming language, and use it to wrangle data for analysis and visualization. 
