@@ -1,16 +1,7 @@
-
-# A new chapter
-
-If you haven't yet read the getting started Wiki pages; [start there](https://www.ottrproject.org/getting_started.html).
-
-To see the rendered version of this chapter and the rest of the template, see here: https://jhudatascience.org/OTTR_Template/.
-
-Every chapter needs to start out with this chunk of code:
-
-
 ```{r, include = FALSE}
 ottrpal::set_knitr_image_path()
 ```
+
 # W1: Intro to Computing
 
 ## Goals of the course
@@ -141,7 +132,7 @@ x = 18 + 21
 
 If you enter this in the Console, you will see that in the Environment, the variable `x` has a value of `39`.
 
-::: {.callout-tip}
+::: callout-tip
 ## Execution rule for variable assignment
 
 Evaluate the expression to the right of `=`.
@@ -168,7 +159,7 @@ y = x * 2
 
 A function has a **function name**, **arguments**, and **returns** a data type.
 
-::: {.callout-tip}
+::: callout-tip
 ## Execution rule for functions:
 
 Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
@@ -214,7 +205,6 @@ Common errors:
 
 -   It did something else than I expected!
 
-
 Solutions:
 
 -   Where is the problem?
@@ -222,5 +212,3 @@ Solutions:
 -   What kind of problem is it?
 
 -   Explain your problem to someone!
-
-
