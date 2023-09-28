@@ -1,8 +1,4 @@
-```{r, include = FALSE}
-ottrpal::set_knitr_image_path()
-```
-
-# W1: Intro to Computing
+# Intro to Computing
 
 ## Goals of the course
 
