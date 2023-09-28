@@ -128,17 +128,15 @@ x = 18 + 21
 
 If you enter this in the Console, you will see that in the Environment, the variable `x` has a value of `39`.
 
-::: callout-tip
-## Execution rule for variable assignment
+### Execution rule for variable assignment
 
-Evaluate the expression to the right of `=`.
-
-Bind variable to the left of `=` to the resulting value.
-
-The variable is stored in the environment.
-
-`<-` is okay too!
-:::
+> Evaluate the expression to the right of `=`.
+>
+> Bind variable to the left of `=` to the resulting value.
+>
+> The variable is stored in the environment.
+>
+> `<-` is okay too!
 
 The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.
 
@@ -155,13 +153,11 @@ y = x * 2
 
 A function has a **function name**, **arguments**, and **returns** a data type.
 
-::: callout-tip
-## Execution rule for functions:
+### Execution rule for functions:
 
-Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
-
-The output of functions is called the **returned value**.
-:::
+> Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
+>
+> The output of functions is called the **returned value**.
 
 ```{r}
 sqrt(nchar("hello"))
