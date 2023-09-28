@@ -1,9 +1,7 @@
-available-course-formats
 introduction
 target-audience
 curriculum
-a-new-chapter
-w1-intro-to-computing
+intro-to-computing
 goals-of-the-course
 what-is-a-computer-program
 a-programming-language-has-following-elements
