@@ -1,5 +1,7 @@
 # Intro to Computing
 
+*Slides that go with this lesson can be found [here](slides/lesson1_slides.html).*
+
 ## Goals of the course
 
 -   Fundamental concepts in high-level programming languages (R, Python, Julia, WDL, etc.) that is transferable: *How do programs run, and how do we solve problems using functions and data structures?*
