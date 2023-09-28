@@ -1,6 +1,6 @@
-introduction
-target-audience
+about-this-course
 curriculum
+target-audience
 intro-to-computing
 goals-of-the-course
 what-is-a-computer-program
