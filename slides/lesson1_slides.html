@@ -420,7 +420,7 @@
 <h2>Goals of the course</h2>
 <div class="fragment">
 <ul>
-<li>Fundamental concepts in high-level programming languages: <em>How do programs run, and how do we solve problems using functions and data structures?</em></li>
+<li>Fundamental concepts in programming languages: <em>How do programs run, and how do we solve problems effectively using functions and data structures?</em></li>
 </ul>
 </div>
 <div class="fragment">
@@ -491,7 +491,7 @@
 </div>
 <div class="fragment">
 <ul>
-<li>Certification quiz at the end of the course</li>
+<li>Certification at the end of the course</li>
 </ul>
 </div>
 </section>
@@ -531,19 +531,9 @@
 <li>Means of abstraction for modular and reusable content (data structures, functions)</li>
 </ul>
 </div>
-<div class="fragment">
-<ul>
-<li>Culture (emphasis on open-source, collaborative, reproducible code)</li>
-</ul>
-</div>
 </section>
 <section id="what-is-r-and-why-should-i-use-it" class="slide level2">
 <h2>What is R and why should I use it?</h2>
-<div class="fragment">
-<ul>
-<li>Dynamic programming interpreter</li>
-</ul>
-</div>
 <div class="fragment">
 <ul>
 <li>Highly used for data science, visualization, statistics, bioinformatics</li>
@@ -557,10 +547,11 @@
 </section>
 <section id="setting-up-posit-cloud-and-trying-out-your-first-analysis" class="slide level2">
 <h2>Setting up Posit Cloud and trying out your first analysis!</h2>
-<p>link here</p>
 </section>
 <section id="break" class="slide level2">
 <h2>Break</h2>
+<p>Let’s find times for office hours, as well as time for people to work together!</p>
+<p>https://www.when2meet.com/?21640707-kwIMj</p>
 </section>
 <section id="grammar-structure-1-evaluation-of-expressions" class="slide level2">
 <h2>Grammar Structure 1: Evaluation of Expressions</h2>
@@ -571,7 +562,7 @@
 </div>
 <div class="fragment">
 <ul>
-<li>Operations and functions combine <strong>data types</strong> to return another data type.</li>
+<li>Operations and functions take in <strong>data types</strong> and return another data type.</li>
 </ul>
 </div>
 <div class="fragment">
@@ -622,11 +613,11 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">length</span>(<span class="st">"ATCG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">nchar</span>(<span class="st">"ATCG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 </div>
 <aside class="notes">
@@ -643,14 +634,6 @@
           display:block!important;
       }</style></aside>
 </div>
-</section>
-<section id="data-types" class="slide level2">
-<h2>Data types</h2>
-<ul>
-<li><p><strong>Numeric</strong>: 18, 21, 65, 1.25</p></li>
-<li><p><strong>Character</strong>: “ATCG”, “Whatever”, “948-293-0000”</p></li>
-<li><p><strong>Logical</strong>: TRUE, FALSE</p></li>
-</ul>
 </section>
 <section id="function-machine-from-algebra-class" class="slide level2">
 <h2>Function machine from algebra class</h2>
@@ -691,6 +674,14 @@
           display:block!important;
       }</style></aside>
 </div>
+</section>
+<section id="data-types" class="slide level2">
+<h2>Data types</h2>
+<ul>
+<li><p><strong>Numeric</strong>: 18, 21, 65, 1.25</p></li>
+<li><p><strong>Character</strong>: “ATCG”, “Whatever”, “948-293-0000”</p></li>
+<li><p><strong>Logical</strong>: TRUE, FALSE</p></li>
+</ul>
 </section>
 <section id="grammar-structure-2-storing-data-types-in-the-global-environment" class="slide level2">
 <h2>Grammar Structure 2: Storing data types in the global environment</h2>
@@ -772,7 +763,7 @@
 <p><strong>Execution rule for functions:</strong></p>
 </div>
 <div class="callout-content">
-<p>Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.</p>
+<p>Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.</p>
 <p>The output of functions is called the <strong>returned value</strong>.</p>
 </div>
 </div>
