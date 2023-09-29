@@ -1,7 +1,5 @@
 # Intro to Computing
 
-*Slides that go with this lesson can be found [here](slides/lesson1_slides.html).*
-
 ## Goals of the course
 
 -   Fundamental concepts in high-level programming languages (R, Python, Julia, WDL, etc.) that is transferable: *How do programs run, and how do we solve problems using functions and data structures?*
@@ -124,11 +122,11 @@ max(18 + 21, 65)
 ```
 
 ```r
-length("ATCG")
+nchar("ATCG")
 ```
 
 ```
-## [1] 1
+## [1] 4
 ```
 
 Here, our input **data types** to the operation are **numeric** in lines 1-4 and our input data type to the function is **character** in line 5.
@@ -176,6 +174,18 @@ If an expression is made out of multiple, nested operations, what is the proper 
 ```
 
 Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes [abstraction and modular thinking](#a-programming-language-has-following-elements), a foundation in any programming language.
+
+
+### Data types
+
+Here are some data types that we will be using in this course:
+
+-   **Numeric**: 18, 21, 65, 1.25
+
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+
+-   **Logical**: TRUE, FALSE
+
 
 ## Grammar Structure 2: Storing data types in the global environment
 
@@ -244,101 +254,6 @@ sqrt(nchar("hello"))
 ## [1] 18
 ```
 
-## Functions to read in data
-
-We are going to read in a Comma Separated Value (CSV) spreadsheet, that contains information about cancer cell lines.
-
-The first line calls the function `read.csv()` with a string argument representing the file path to the CSV file (we are using an URL online, but this is typically done locally), and the returned data type is stored in `metadata` variable. The resulting `metadata` variable is a new data type you have never seen before. It is a **data structure** called a **data frame** that we will be exploring next week. It holds a table of several data types that we can explore.
-
-We run a few functions on `metadata`.
-
-
-```r
-metadata = read.csv("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
-head(metadata)
-```
-
-```
-##      ModelID PatientID CellLineName StrippedCellLineName Age SourceType
-## 1 ACH-000001 PT-gj46wT  NIH:OVCAR-3            NIHOVCAR3  60 Commercial
-## 2 ACH-000002 PT-5qa3uk        HL-60                 HL60  36 Commercial
-## 3 ACH-000003 PT-puKIyc        CACO2                CACO2  72 Commercial
-## 4 ACH-000004 PT-q4K2cp          HEL                  HEL  30 Commercial
-## 5 ACH-000005 PT-q4K2cp   HEL 92.1.7              HEL9217  30 Commercial
-## 6 ACH-000006 PT-ej13Dz   MONO-MAC-6             MONOMAC6  64 Commercial
-##   SangerModelID      RRID DepmapModelType AgeCategory GrowthPattern
-## 1     SIDM00105 CVCL_0465           HGSOC       Adult      Adherent
-## 2     SIDM00829 CVCL_0002             AML       Adult    Suspension
-## 3     SIDM00891 CVCL_0025            COAD       Adult      Adherent
-## 4     SIDM00594 CVCL_0001             AML       Adult    Suspension
-## 5     SIDM00593 CVCL_2481             AML       Adult         Mixed
-## 6     SIDM01023 CVCL_1426            AMOL       Adult    Suspension
-##   LegacyMolecularSubtype PrimaryOrMetastasis               SampleCollectionSite
-## 1                                 Metastatic                            ascites
-## 2                                    Primary haematopoietic_and_lymphoid_tissue
-## 3                                    Primary                              Colon
-## 4                                    Primary haematopoietic_and_lymphoid_tissue
-## 5                                                                   bone_marrow
-## 6                                    Primary haematopoietic_and_lymphoid_tissue
-##      Sex SourceDetail  LegacySubSubtype CatalogNumber
-## 1 Female         ATCC high_grade_serous        HTB-71
-## 2 Female         ATCC                M3       CCL-240
-## 3   Male         ATCC                          HTB-37
-## 4   Male         DSMZ                M6        ACC 11
-## 5   Male         ATCC                M6       HEL9217
-## 6   Male         DSMZ                M5       ACC 124
-##                                      CCLEName COSMICID PublicComments
-## 1                             NIHOVCAR3_OVARY   905933               
-## 2     HL60_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE   905938               
-## 3                       CACO2_LARGE_INTESTINE       NA               
-## 4      HEL_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE   907053               
-## 5  HEL9217_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE       NA               
-## 6 MONOMAC6_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE   908148               
-##   WTSIMasterCellID EngineeredModel TreatmentStatus OnboardedMedia PlateCoating
-## 1             2201                                     MF-001-041         None
-## 2               55                                     MF-005-001         None
-## 3               NA                         Unknown     MF-015-009         None
-## 4              783                  Post-treatment     MF-001-001         None
-## 5               NA                                     MF-001-001         None
-## 6             2167                                     MF-001-001         None
-##   OncotreeCode                      OncotreeSubtype    OncotreePrimaryDisease
-## 1        HGSOC     High-Grade Serous Ovarian Cancer  Ovarian Epithelial Tumor
-## 2          AML               Acute Myeloid Leukemia    Acute Myeloid Leukemia
-## 3         COAD                 Colon Adenocarcinoma Colorectal Adenocarcinoma
-## 4          AML               Acute Myeloid Leukemia    Acute Myeloid Leukemia
-## 5          AML               Acute Myeloid Leukemia    Acute Myeloid Leukemia
-## 6         AMOL Acute Monoblastic/Monocytic Leukemia    Acute Myeloid Leukemia
-##        OncotreeLineage
-## 1 Ovary/Fallopian Tube
-## 2              Myeloid
-## 3                Bowel
-## 4              Myeloid
-## 5              Myeloid
-## 6              Myeloid
-```
-
-```r
-nrow(metadata)
-```
-
-```
-## [1] 1864
-```
-
-```r
-ncol(metadata)
-```
-
-```
-## [1] 30
-```
-
-If you don't know what a function does, ask for help:
-
-
-```r
-?nrow
-```
 
 ## Tips on Exercises / Debugging
 
