@@ -1,8 +1,8 @@
 ---
 title: "W1: Intro to Computing"
 format: revealjs
-  smaller: true
-  scrollable: true
+  #smaller: true
+  #scrollable: true
 execute:
   echo: true
 output-location: fragment
@@ -30,7 +30,7 @@ output-location: fragment
 
 . . .
 
--   Fundamental concepts in high-level programming languages: *How do programs run, and how do we solve problems using functions and data structures?*
+-   Fundamental concepts in programming languages: *How do programs run, and how do we solve problems effectively using functions and data structures?*
 
 . . .
 
@@ -79,7 +79,7 @@ output-location: fragment
 
 . . .
 
--   Certification quiz at the end of the course
+-   Certification at the end of the course
 
 ## What is a computer program?
 
@@ -125,9 +125,12 @@ More importantly: **How we organize ideas \<-\> Instructing a computer to do som
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
-link here
 
 ## Break
+
+Let's find times for office hours, as well as time for people to work together!
+
+https://www.when2meet.com/?21640707-kwIMj
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -137,7 +140,7 @@ link here
 
 . . .
 
--   Operations and functions combine **data types** to return another data type.
+-   Operations and functions take in **data types** and return another data type.
 
 . . .
 
@@ -170,20 +173,13 @@ max(18 + 21, 65)
 . . .
 
 ```{r}
-length("ATCG")
+nchar("ATCG")
 ```
 
 ::: notes
 If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 :::
 
-## Data types
-
--   **Numeric**: 18, 21, 65, 1.25
-
--   **Character**: "ATCG", "Whatever", "948-293-0000"
-
--   **Logical**: TRUE, FALSE
 
 ## Function machine from algebra class
 
@@ -208,6 +204,15 @@ sum(18, sum(21, 65))
 ::: notes
 Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
 :::
+
+## Data types
+
+-   **Numeric**: 18, 21, 65, 1.25
+
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+
+-   **Logical**: TRUE, FALSE
+
 
 ## Grammar Structure 2: Storing data types in the global environment
 
@@ -263,7 +268,7 @@ A function has a **function name**, **arguments**, and **returns** a data type.
 ::: callout-tip
 ## Execution rule for functions:
 
-Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
+Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.
 
 The output of functions is called the **returned value**.
 :::

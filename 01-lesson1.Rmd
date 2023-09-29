@@ -1,6 +1,6 @@
 # Intro to Computing
 
-*Slides that go with this lesson can be found [here](slides/lesson1_slides.html).*
+Slides that go with this lesson can be found [here](slides/lesson1_slides.html).
 
 ## Goals of the course
 
@@ -95,7 +95,7 @@ For instance, consider the following expressions entered to the R Console:
 max(18, 21)
 max(18 + 21, 65)
 18 + (21 + 65)
-length("ATCG")
+nchar("ATCG")
 ```
 
 Here, our input **data types** to the operation are **numeric** in lines 1-4 and our input data type to the function is **character** in line 5.
@@ -119,6 +119,18 @@ If an expression is made out of multiple, nested operations, what is the proper 
 ```
 
 Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes [abstraction and modular thinking](#a-programming-language-has-following-elements), a foundation in any programming language.
+
+
+### Data types
+
+Here are some data types that we will be using in this course:
+
+-   **Numeric**: 18, 21, 65, 1.25
+
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+
+-   **Logical**: TRUE, FALSE
+
 
 ## Grammar Structure 2: Storing data types in the global environment
 
@@ -166,26 +178,6 @@ sqrt(nchar("hello"))
 (nchar("hello") + 4) * 2
 ```
 
-## Functions to read in data
-
-We are going to read in a Comma Separated Value (CSV) spreadsheet, that contains information about cancer cell lines.
-
-The first line calls the function `read.csv()` with a string argument representing the file path to the CSV file (we are using an URL online, but this is typically done locally), and the returned data type is stored in `metadata` variable. The resulting `metadata` variable is a new data type you have never seen before. It is a **data structure** called a **data frame** that we will be exploring next week. It holds a table of several data types that we can explore.
-
-We run a few functions on `metadata`.
-
-```{r}
-metadata = read.csv("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
-head(metadata)
-nrow(metadata)
-ncol(metadata)
-```
-
-If you don't know what a function does, ask for help:
-
-```{r}
-?nrow
-```
 
 ## Tips on Exercises / Debugging
 
