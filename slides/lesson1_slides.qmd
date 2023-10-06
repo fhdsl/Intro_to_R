@@ -125,14 +125,13 @@ More importantly: **How we organize ideas \<-\> Instructing a computer to do som
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
-
 ## Break
 
 Let's find times for office hours, as well as time for people to work together!
 
 https://www.when2meet.com/?21640707-kwIMj
 
-A pre-course survey: 
+A pre-course survey:
 
 https://forms.gle/Qz3X9jqpgwowp9Qb8
 
@@ -184,7 +183,6 @@ nchar("ATCG")
 If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 :::
 
-
 ## Function machine from algebra class
 
 . . .
@@ -216,7 +214,6 @@ Lastly, a note on the use of functions: a programmer should not need to know how
 -   **Character**: "ATCG", "Whatever", "948-293-0000"
 
 -   **Logical**: TRUE, FALSE
-
 
 ## Grammar Structure 2: Storing data types in the global environment
 
@@ -295,21 +292,15 @@ sqrt(nchar("hello"))
 
 Common errors:
 
--   Syntax error.
-
-. . .
-
--   The function or operation does not accept the input data type.
-
-. . .
-
--   Changing a variable without realizing you did so.
+-   Syntax error
 
 . . .
 
 -   It did something else than I expected!
 
-. . .
+    -   The function or operation does not accept the input data type.
+
+    -   Changing a variable without realizing you did so.
 
 ## Solutions:
 

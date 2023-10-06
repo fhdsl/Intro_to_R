@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lesson1_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lesson1_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lesson1_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lesson1_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="lesson1_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lesson2_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lesson2_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lesson2_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lesson2_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="lesson2_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>W1: Intro to Computing</title>
+  <title>W2: Working with data structures</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,11 +94,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -389,241 +389,20 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">W1: Intro to Computing</h1>
+  <h1 class="title">W2: Working with data structures</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="introductions" class="slide level2">
-<h2>Introductions</h2>
-<ul>
-<li>Who am I?</li>
-</ul>
+<section id="data-structures" class="slide level2">
+<h2>Data structures</h2>
+<p><strong>Data structures</strong> stores information about data types.</p>
 <div class="fragment">
-<ul>
-<li>What is DaSL?</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>Who are you?</p>
-<ul>
-<li><p>Name, pronouns, group you work in</p></li>
-<li><p>What you want to get out of the class</p></li>
-<li><p>Favorite fall activity</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="goals-of-the-course" class="slide level2">
-<h2>Goals of the course</h2>
-<div class="fragment">
-<ul>
-<li>Fundamental concepts in programming languages: <em>How do programs run, and how do we solve problems effectively using functions and data structures?</em></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>Beginning of data science fundamentals: <em>How do you translate your scientific question to a data wrangling problem and answer it?</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550"></p>
-<figcaption>Data science workflow</figcaption>
-</figure>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="culture-of-the-course" class="slide level2">
-<h2>Culture of the course</h2>
-<div class="fragment">
-<ul>
-<li>Learning on the job is challenging
-<ul>
-<li>I will move at learner’s pace; collaborative learning encouraged</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Various exposure to programming and data science
-<ul>
-<li>Take what you need: some will be new, some will be familiar</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Various personal goals and applications
-<ul>
-<li>Curate content towards end of the course</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Respect Code of Conduct</li>
-</ul>
-</div>
-</section>
-<section id="format-of-the-course" class="slide level2">
-<h2>Format of the course</h2>
-<div class="fragment">
-<ul>
-<li>6 classes, come to 5 of them in-person if you can</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Streamed online, recordings will be available</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>1-2 hour exercises after each session are strongly encouraged as they provide practice and preview the next class</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Online discussion on Slack</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Certification at the end of the course</li>
-</ul>
-</div>
-</section>
-<section id="what-is-a-computer-program" class="slide level2">
-<h2>What is a computer program?</h2>
-<div class="fragment">
-<ul>
-<li>A sequence of instructions to manipulate data for the computer to execute.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>A series of translations: English &lt;-&gt; Programming Code for Interpreter &lt;-&gt; Machine Code for Central Processing Unit (CPU)</li>
-</ul>
-</div>
-<div class="fragment">
-<p>We will focus on English &lt;-&gt; Programming Code for R Interpreter in this class.</p>
-</div>
-<div class="fragment">
-<p>More importantly: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something</strong>.</p>
-</div>
-</section>
-<section id="a-programming-language-has-following-themes" class="slide level2">
-<h2>A programming language has following themes:</h2>
-<div class="fragment">
-<ul>
-<li>Grammar structure (simple building blocks)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Means of combination to analyze and create content (examples around genomics)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Means of abstraction for modular and reusable content (data structures, functions)</li>
-</ul>
-</div>
-</section>
-<section id="what-is-r-and-why-should-i-use-it" class="slide level2">
-<h2>What is R and why should I use it?</h2>
-<div class="fragment">
-<ul>
-<li>Highly used for data science, visualization, statistics, bioinformatics</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Open-source and free; easy to create and distribute your content; kind, quirky culture</li>
-</ul>
-</div>
-</section>
-<section id="setting-up-posit-cloud-and-trying-out-your-first-analysis" class="slide level2">
-<h2>Setting up Posit Cloud and trying out your first analysis!</h2>
-</section>
-<section id="break" class="slide level2">
-<h2>Break</h2>
-<p>Let’s find times for office hours, as well as time for people to work together!</p>
-<p>https://www.when2meet.com/?21640707-kwIMj</p>
-<p>A pre-course survey:</p>
-<p>https://forms.gle/Qz3X9jqpgwowp9Qb8</p>
-</section>
-<section id="grammar-structure-1-evaluation-of-expressions" class="slide level2">
-<h2>Grammar Structure 1: Evaluation of Expressions</h2>
-<div class="fragment">
-<ul>
-<li><strong>Expressions</strong> are be built out of <strong>operations</strong> or <strong>functions</strong>.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Operations and functions take in <strong>data types</strong> and return another data type.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.</li>
-</ul>
-</div>
-</section>
-<section id="examples" class="slide level2">
-<h2>Examples</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 39</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">max</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 21</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">max</span>(<span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span>, <span class="dv">65</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 65</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">18</span> <span class="sc">+</span> (<span class="dv">21</span> <span class="sc">+</span> <span class="dv">65</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 104</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">nchar</span>(<span class="st">"ATCG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
+<p><strong>Vector</strong> is a ordered collection of a data type. Each <em>element</em> of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.</p>
 <aside class="notes">
-<p>If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.</p>
+<p>There is no limit on how big a vector can be, as long the memory use of it is within the computer’s memory (RAM).</p>
+<p>We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -637,191 +416,392 @@
       }</style></aside>
 </div>
 </section>
-<section id="function-machine-from-algebra-class" class="slide level2">
-<h2>Function machine from algebra class</h2>
-<div class="fragment">
-<p><img data-src="https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png" alt="Function machine from algebra class." width="300"></p>
-</div>
-<div class="fragment">
-<p>Operations are just functions. We could have written:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 39</code></pre>
-</div>
-</div>
-</div>
+<section id="vector-example" class="slide level2">
+<h2>Vector example</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="fu">sum</span>(<span class="dv">21</span>, <span class="dv">65</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 104</code></pre>
-</div>
-</div>
-<aside class="notes">
-<p>Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="data-types" class="slide level2">
-<h2>Data types</h2>
-<ul>
-<li><p><strong>Numeric</strong>: 18, 21, 65, 1.25</p></li>
-<li><p><strong>Character</strong>: “ATCG”, “Whatever”, “948-293-0000”</p></li>
-<li><p><strong>Logical</strong>: TRUE, FALSE</p></li>
-</ul>
-</section>
-<section id="grammar-structure-2-storing-data-types-in-the-global-environment" class="slide level2">
-<h2>Grammar Structure 2: Storing data types in the global environment</h2>
-<div class="fragment">
-<p>To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>x <span class="ot">=</span> <span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"shasta"</span>, <span class="st">"jeff"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>chrNum <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>If we try to create a vector with mixed data types, R will try to make them be the same data type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"shasta"</span>, <span class="dv">123</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Execution rule for variable assignment</strong></p>
-</div>
-<div class="callout-content">
-<p>Evaluate the expression to the right of <code>=</code>.</p>
-<p>Bind variable to the left of <code>=</code> to the resulting value.</p>
-<p>The variable is stored in the environment.</p>
-<p><code>&lt;-</code> is okay too!</p>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris"  "shasta" "123"   </code></pre>
 </div>
 </div>
 </div>
-<aside class="notes">
-<p>The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.</p>
-<p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="fragment">
+<p>😱</p>
 </div>
 </section>
-<section id="downstream" class="slide level2">
-<h2>Downstream</h2>
-<p>Look, now <code>x</code> can be reused downstream:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>x <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 37</code></pre>
-</div>
+<section id="using-operations-on-vectors" class="slide level2">
+<h2>Using operations on vectors</h2>
+<div class="fragment">
+<p>Operations and functions combine <strong>data structures</strong> to return another data structure (or data type!).</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>y <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>chrNum <span class="ot">=</span> chrNum <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>chrNum </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 78</code></pre>
+<pre><code>[1] 6 9 3</code></pre>
 </div>
+</div>
+</div>
+<div class="fragment">
+<p>Multiplication has a new meaning when used on a numeric vector and numeric data type!</p>
+</div>
+<div class="fragment">
+<p>😮</p>
+</div>
+</section>
+<section id="operator-overloading" class="slide level2">
+<h2>Operator overloading</h2>
+<p>Multiplication is an operation that can be used for multiple data types or data structures: we call this property <strong>operator overloading</strong>.</p>
+<div class="fragment">
+<p>How about numeric vector multiplied by numeric vector?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>chrNum <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12 18  0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>a numeric vector added to a character vector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#chrNum + staff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+
 </div>
 </div>
 </section>
-<section id="grammar-structure-3-evaluation-of-functions" class="slide level2">
-<h2>Grammar Structure 3: Evaluation of Functions</h2>
-<p>A function has a <strong>function name</strong>, <strong>arguments</strong>, and <strong>returns</strong> a data type.</p>
+<section id="subsetting-vectors" class="slide level2">
+<h2>Subsetting vectors</h2>
+<p>We subset vectors using the bracket <code>[ ]</code> operation.</p>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Execution rule for functions:</strong></p>
-</div>
-<div class="callout-content">
-<p>Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.</p>
-<p>The output of functions is called the <strong>returned value</strong>.</p>
-</div>
-</div>
-</div>
+<p>Inside the bracket is either a single numeric value or an a <strong>numerical indexing vector</strong> containing numerical values. They dictate which elements of the vector to return.</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">sqrt</span>(<span class="fu">nchar</span>(<span class="st">"hello"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>staff[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.236068</code></pre>
+<pre><code>[1] "shasta"</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>(<span class="fu">nchar</span>(<span class="st">"hello"</span>) <span class="sc">+</span> <span class="dv">4</span>) <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18</code></pre>
+<pre><code>[1] "chris"  "shasta"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span>
+<span id="cb13-2"><a href="#cb13-2"></a>small_staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris"  "shasta"</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="tips-on-exercises-debugging" class="slide level2">
-<h2>Tips on Exercises / Debugging</h2>
+<section id="subsetting-vectors-1" class="slide level2">
+<h2>Subsetting vectors</h2>
+<p>Alternatively, instead of using numerical indexing vectors, we can use a <strong>logical indexing vector</strong>.</p>
 <div class="fragment">
-<p>Common errors:</p>
-<ul>
-<li>Syntax error</li>
-</ul>
+<p>The logical indexing vector must be the <em>same length</em> as the vector to be subsetted, with <code>TRUE</code> indicating an element to keep, and <code>FALSE</code> indicating an element to drop.</p>
 </div>
 <div class="fragment">
-<ul>
-<li><p>It did something else than I expected!</p></li>
-<li><p>The function or operation does not accept the input data type.</p></li>
-<li><p>Changing a variable without realizing you did so.</p></li>
-</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris"  "shasta"</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span>
+<span id="cb19-2"><a href="#cb19-2"></a>small_staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris"  "shasta"</code></pre>
+</div>
+</div>
 </div>
 </section>
-<section id="solutions" class="slide level2">
-<h2>Solutions:</h2>
+<section id="explicit-vs.-implicit-subsetting" class="slide level2">
+<h2>Explicit vs.&nbsp;implicit subsetting</h2>
 <ul>
-<li>Where is the problem?</li>
+<li><p><strong>Explicit subsetting</strong>: Given a 100-length vector of people’s ages, and subset to the first 10 elements.</p></li>
+<li><p><strong>Implicit subsetting</strong>: Given a 100-length vector of people’s ages, and subset to elements &lt; 18 age.</p></li>
 </ul>
 <div class="fragment">
-<ul>
-<li>What kind of problem is it?</li>
-</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>age <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="dv">100</span>))</span>
+<span id="cb21-3"><a href="#cb21-3"></a>first_ten_age <span class="ot">=</span> age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb21-4"><a href="#cb21-4"></a>first_ten_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 29 79 41 88 94  6 53 89 56 46</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="implicit-subsetting" class="slide level2">
+<h2>Implicit subsetting</h2>
+<p>We don’t know which elements to subset off the top of our head! If we know which elements have less than 18, then we can give the elements for an explicit subset.</p>
+<div class="fragment">
+<p>Create a logical indexing vector using a <strong>comparison operator</strong>:</p>
 </div>
 <div class="fragment">
-<ul>
-<li>Explain your problem to someone!</li>
-</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>indexing_vector <span class="ot">=</span> age <span class="sc">&lt;</span> <span class="dv">18</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>indexing_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+ [13] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+ [25] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+ [37] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+ [49] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE
+ [61] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [73] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+ [85]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="implicit-subsetting-1" class="slide level2">
+<h2>Implicit subsetting</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>indexing_vector <span class="ot">=</span> age <span class="sc">&lt;</span> <span class="dv">18</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>age_young <span class="ot">=</span> age[indexing_vector]</span>
+<span id="cb25-3"><a href="#cb25-3"></a>age_young</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  6 11  5 16  3 15 16 15  6 13 14 10  1 12 11 14 10</code></pre>
+</div>
+</div>
+</section>
+<section id="other-comparison-operators" class="slide level2">
+<h2>Other comparison operators:</h2>
+<p><code>&lt;</code> less than</p>
+<p><code>&lt;=</code> less or equal than</p>
+<p><code>&gt;</code> greater than</p>
+<p><code>&gt;=</code> greater than or equal to</p>
+<p><code>==</code> equal to</p>
+<p><code>!=</code> not equal to</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>staff <span class="sc">!=</span> <span class="st">"chris"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>staff[staff <span class="sc">!=</span> <span class="st">"chris"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "shasta" "123"   </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframes" class="slide level2">
+<h2>Dataframes</h2>
+<div class="fragment">
+<p>A <strong>dataframe</strong> is a spreadsheet such that each column must have the same data type; a bunch of vectors organized as columns.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"</span>))</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">nrow</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1864</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ncol</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">dim</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1864   30</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><code>head(metadata)</code></p>
+<p><code>View(metadata)</code></p>
+</div>
+</section>
+<section id="column-names-of-dataframes" class="slide level2">
+<h2>Column names of dataframes</h2>
+<p>The <strong>column name</strong> is a character vector that corresponds to the columns of the dataframe.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">colnames</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ModelID"                "PatientID"              "CellLineName"          
+ [4] "StrippedCellLineName"   "Age"                    "SourceType"            
+ [7] "SangerModelID"          "RRID"                   "DepmapModelType"       
+[10] "AgeCategory"            "GrowthPattern"          "LegacyMolecularSubtype"
+[13] "PrimaryOrMetastasis"    "SampleCollectionSite"   "Sex"                   
+[16] "SourceDetail"           "LegacySubSubtype"       "CatalogNumber"         
+[19] "CCLEName"               "COSMICID"               "PublicComments"        
+[22] "WTSIMasterCellID"       "EngineeredModel"        "TreatmentStatus"       
+[25] "OnboardedMedia"         "PlateCoating"           "OncotreeCode"          
+[28] "OncotreeSubtype"        "OncotreePrimaryDisease" "OncotreeLineage"       </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="subsetting-a-column-from-a-dataframe" class="slide level2">
+<h2>Subsetting a column from a dataframe</h2>
+<div class="fragment">
+<p>The <code>dataframe$column_name</code> operation selects for a column by its column name and returns the column as a vector:</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Ovary/Fallopian Tube" "Myeloid"              "Bowel"               
+[4] "Myeloid"              "Myeloid"             </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 60 36 72 30 30</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">"Myeloid"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+ [8] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[15] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[22] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[29] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[36] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[43] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[50] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[57] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[64] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
+[71] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="how-we-organize-ideas---instructing-a-computer" class="slide level2">
+<h2><u>How we organize ideas</u> &lt;-&gt; Instructing a computer</h2>
+<div class="fragment">
+<p><em>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</em></p>
+</div>
+<div class="fragment">
+<p>✅ Implicit: “I want to filter for rows (cell lines) that are breast cancer and look at the Age and Sex.”</p>
+<p>🚫 Explicit: “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
+</div>
+<div class="fragment">
+<p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
+</div>
+</section>
+<section id="convert-this-to-code" class="slide level2">
+<h2>Convert this to code:</h2>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb45-2"><a href="#cb45-2"></a></span>
+<span id="cb45-3"><a href="#cb45-3"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
+<span id="cb45-4"><a href="#cb45-4"></a>brca_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="fu">head</span>(brca_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>     ModelID Age    Sex
+1 ACH-000017  43 Female
+2 ACH-000019  69 Female
+3 ACH-000028  69 Female
+4 ACH-000044  47 Female
+5 ACH-000097  63 Female
+6 ACH-000111  41 Female</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package.</p>
 <div class="footer footer-default">
 
 </div>
@@ -831,19 +811,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lesson1_slides_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lesson1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lesson1_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
