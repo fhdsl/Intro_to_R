@@ -1,4 +1,4 @@
-# W2: Working with data structures
+# Working with data structures
 
 ## Vectors
 
@@ -76,11 +76,7 @@ When we work with operations and functions, we must be mindful what inputs the o
 
 In the exercise this past week, you looked at a new operation to subset elements of a vector using brackets.
 
-**Execution rule for vector brackets**:
-
-*Evaluate the expression in the bracket first. The return value of the expression in the bracket, which must be a numeric or a numeric vector, dictates which elements of the vector to return.*
-
-Inside the bracket is either a single numeric value or an a **numerical indexing vector** containing numerical values.
+Inside the bracket is either a single numeric value or an a **numerical indexing vector** containing numerical values. They dictate which elements of the vector to return.
 
 
 ```r
@@ -105,7 +101,7 @@ small_staff = staff[c(1, 2)]
 
 In the last line, we created a new vector `small_staff` that is a subset of the staff given the indexing vector `c(1, 2)`. We have three vectors referenced in one line of code. This is tricky and we need to always refer to our rules step-by-step: evaluate the expression right of the `=`, which contains a vector bracket. Follow the rule of the vector bracket. Then store the returning value to the variable left of `=`.
 
-Alternatively, instead of using numerical indexing vectors, we can use a **logical indexing vector**. The logical indexing vector must be the *same length* as the vector to be subsetted, with TRUE indicating an element to keep, and FALSE indicating an element to drop. The following block of code gives the same value as before:
+Alternatively, instead of using numerical indexing vectors, we can use a **logical indexing vector**. The logical indexing vector must be the *same length* as the vector to be subsetted, with `TRUE` indicating an element to keep, and `FALSE` indicating an element to drop. The following block of code gives the same value as before:
 
 
 ```r
@@ -255,7 +251,7 @@ For the most part, we load in dataframes from a file path (although they are som
 
 
 ```r
-metadata = read.csv("classroom_data/CCLE_metadata.csv")
+load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
 ### Using functions and operations on dataframes
