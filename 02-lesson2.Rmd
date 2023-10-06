@@ -1,4 +1,4 @@
-# W2: Working with data structures
+# Working with data structures
 
 ## Vectors
 
