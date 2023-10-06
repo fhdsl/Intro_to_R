@@ -183,11 +183,11 @@ Common errors:
 
 -   Syntax error.
 
--   Changing a variable without realizing you did so.
-
--   The function or operation does not accept the input data type.
-
 -   It did something else than I expected!
+
+    -   The function or operation does not accept the input data type.
+
+    -   Changing a variable without realizing you did so.
 
 Solutions:
 
