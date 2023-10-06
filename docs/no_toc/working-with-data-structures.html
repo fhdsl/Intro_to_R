@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Working with data structures | Introduction to R, Season 1</title>
+  <meta name="description" content="Chapter 3 Working with data structures | Introduction to R, Season 1" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Working with data structures | Introduction to R, Season 1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Working with data structures | Introduction to R, Season 1" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="intro-to-computing.html"/>
+<link rel="next" href="about-the-authors.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this Course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#curriculum"><i class="fa fa-check"></i><b>1.1</b> Curriculum</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>1.2</b> Target Audience</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>2</b> Intro to Computing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#goals-of-the-course"><i class="fa fa-check"></i><b>2.1</b> Goals of the course</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-a-computer-program"><i class="fa fa-check"></i><b>2.2</b> What is a computer program?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-computing.html"><a href="intro-to-computing.html#a-programming-language-has-following-elements"><i class="fa fa-check"></i><b>2.3</b> A programming language has following elements:</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-r-and-why-should-i-use-it"><i class="fa fa-check"></i><b>2.4</b> What is R and why should I use it?</a></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#r-vs.-python-as-a-first-language"><i class="fa fa-check"></i><b>2.5</b> R vs. Python as a first language</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#posit-cloud-setup"><i class="fa fa-check"></i><b>2.6</b> Posit Cloud Setup</a></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-computing.html"><a href="intro-to-computing.html#using-quarto-for-your-work"><i class="fa fa-check"></i><b>2.7</b> Using Quarto for your work</a></li>
+<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 1: Evaluation of Expressions</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>2.8.1</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-global-environment"><i class="fa fa-check"></i><b>2.9</b> Grammar Structure 2: Storing data types in the global environment</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>2.9.1</b> Execution rule for variable assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions"><i class="fa fa-check"></i><b>2.10</b> Grammar Structure 3: Evaluation of Functions</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>2.10.1</b> Execution rule for functions:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-exercises-debugging"><i class="fa fa-check"></i><b>2.11</b> Tips on Exercises / Debugging</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>3</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
+<li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.2.1</b> Using functions and operations on dataframes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.2.2</b> “What do you want to do with this dataframe”?</a></li>
+<li class="chapter" data-level="3.2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#filter-rows"><i class="fa fa-check"></i><b>3.2.3</b> Filter rows</a></li>
+<li class="chapter" data-level="3.2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#select-columns"><i class="fa fa-check"></i><b>3.2.4</b> Select columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R, Season 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/dasl_thin_main_image.png">
+</div>
+<div id="working-with-data-structures" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Working with data structures</h1>
+<div id="vectors" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Vectors</h2>
+<p>In the first exercise, you started to explore <strong>data structures</strong>, which store information about data types. You played around with <strong>vectors</strong>, which is a ordered collection of a data type. Each <em>element</em> of a vector contains a data type, and there is no limit on how big a vector can be, as long the memory use of it is within the computer’s memory (RAM).</p>
+<p>We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once! This fits with the <em>theme of abstraction and modular organization</em> described in the first lesson!</p>
+<p>We often create vectors using the combine function, <code>c()</code> :</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="working-with-data-structures.html#cb27-1" aria-hidden="true" tabindex="-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;chris&quot;</span>, <span class="st">&quot;shasta&quot;</span>, <span class="st">&quot;jeff&quot;</span>)</span>
+<span id="cb27-2"><a href="working-with-data-structures.html#cb27-2" aria-hidden="true" tabindex="-1"></a>chrNum <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p>If we try to create a vector with mixed data types, R will try to make them be the same data type, or give an error:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-with-data-structures.html#cb28-1" aria-hidden="true" tabindex="-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;chris&quot;</span>, <span class="st">&quot;shasta&quot;</span>, <span class="dv">123</span>)</span>
+<span id="cb28-2"><a href="working-with-data-structures.html#cb28-2" aria-hidden="true" tabindex="-1"></a>staff</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot; &quot;123&quot;</code></pre>
+<p>Our numeric got converted to character so that the entire vector is all characters.</p>
+<div id="using-operations-on-vectors" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Using operations on vectors</h3>
+<p>Recall from the first class:</p>
+<ul>
+<li><p>Expressions are be built out of <strong>operations</strong> or <strong>functions</strong>.</p></li>
+<li><p>Operations and functions combine <strong>data types</strong> to return another data type.</p></li>
+</ul>
+<p>Now that we are working with data structures, the same principle applies:</p>
+<ul>
+<li>Operations and functions combine <strong>data structures</strong> to return another data structure (or data type!).</li>
+</ul>
+<p>What happens if we use some familiar operations we used for numerics on a numerical vector? If we multiply a numerical vector by a numeric, what do we get?</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-with-data-structures.html#cb30-1" aria-hidden="true" tabindex="-1"></a>chrNum <span class="ot">=</span> chrNum <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb30-2"><a href="working-with-data-structures.html#cb30-2" aria-hidden="true" tabindex="-1"></a>chrNum </span></code></pre></div>
+<pre><code>## [1] 6 9 3</code></pre>
+<p>All of <code>chrNum</code>’s elements tripled! Our multiplication operation, when used on a <em>numeric vector with a numeric</em>, has a <em>new</em> meaning: it multiplied all the elements by 3. Multiplication is an operation that can be used for multiple data types or data structures: we call this property <strong>operator overloading</strong>. Here’s another example: <em>numeric vector multiplied by another numeric vector</em>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-with-data-structures.html#cb32-1" aria-hidden="true" tabindex="-1"></a>chrNum <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 12 18  0</code></pre>
+<p>but there are also limits: a numeric vector added to a character vector creates an error:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="working-with-data-structures.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#chrNum + staff</span></span></code></pre></div>
+<p>When we work with operations and functions, we must be mindful what inputs the operation or function takes in, and what outputs it gives, no matter how “intuitive” the operation or function name is.</p>
+</div>
+<div id="subsetting-vectors-explicitly" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Subsetting vectors explicitly</h3>
+<p>In the exercise this past week, you looked at a new operation to subset elements of a vector using brackets.</p>
+<p>Inside the bracket is either a single numeric value or an a <strong>numerical indexing vector</strong> containing numerical values. They dictate which elements of the vector to return.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="working-with-data-structures.html#cb35-1" aria-hidden="true" tabindex="-1"></a>staff[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="working-with-data-structures.html#cb37-1" aria-hidden="true" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="working-with-data-structures.html#cb39-1" aria-hidden="true" tabindex="-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<p>In the last line, we created a new vector <code>small_staff</code> that is a subset of the staff given the indexing vector <code>c(1, 2)</code>. We have three vectors referenced in one line of code. This is tricky and we need to always refer to our rules step-by-step: evaluate the expression right of the <code>=</code>, which contains a vector bracket. Follow the rule of the vector bracket. Then store the returning value to the variable left of <code>=</code>.</p>
+<p>Alternatively, instead of using numerical indexing vectors, we can use a <strong>logical indexing vector</strong>. The logical indexing vector must be the <em>same length</em> as the vector to be subsetted, with <code>TRUE</code> indicating an element to keep, and <code>FALSE</code> indicating an element to drop. The following block of code gives the same value as before:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-with-data-structures.html#cb40-1" aria-hidden="true" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="working-with-data-structures.html#cb42-1" aria-hidden="true" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="working-with-data-structures.html#cb44-1" aria-hidden="true" tabindex="-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+</div>
+<div id="subsetting-vectors-implicitly" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Subsetting vectors implicitly</h3>
+<p>Here are two applications of subsetting on vectors that need distinction to write the correct code:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Explicit subsetting</strong>: Suppose someone approaches you a 100-length vector of people’s ages, and say that they want to subset to the first 10 elements.</p></li>
+<li><p><strong>Implicit subsetting</strong>: Suppose someone approaches you a 100-length vector of people’s ages, and say that they want to subset to elements &lt; 18 age.</p></li>
+</ol>
+<p>We already know how to explicitly subset:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co">#don&#39;t worry about this function</span></span>
+<span id="cb45-2"><a href="working-with-data-structures.html#cb45-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="dv">100</span>)) <span class="co">#don&#39;t worry about these functions</span></span>
+<span id="cb45-3"><a href="working-with-data-structures.html#cb45-3" aria-hidden="true" tabindex="-1"></a>first_ten_age <span class="ot">=</span> age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<p>For implicit subsetting, we don’t know which elements to select off the top of our head! If we know which elements have less than 18, then we can give the elements for an explicit subset. Therefore, we need to create a logical indexing vector using a <strong>comparison operator</strong>:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="working-with-data-structures.html#cb46-1" aria-hidden="true" tabindex="-1"></a>indexing_vector <span class="ot">=</span> age <span class="sc">&lt;</span> <span class="dv">18</span></span>
+<span id="cb46-2"><a href="working-with-data-structures.html#cb46-2" aria-hidden="true" tabindex="-1"></a>indexing_vector</span></code></pre></div>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [13] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [25] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+##  [37] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+##  [49] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE
+##  [61] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [73] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+##  [85]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [97] FALSE  TRUE FALSE FALSE</code></pre>
+<p>The comparison operator <code>&lt;</code> compared the numeric value of <code>age</code> to see which elements of age is less than 18, and then returned a logical vector that has <code>TRUE</code> if age is less than 18 at that element and <code>FALSE</code> otherwise.</p>
+<p>Then,</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="working-with-data-structures.html#cb48-1" aria-hidden="true" tabindex="-1"></a>age_young <span class="ot">=</span> age[indexing_vector]</span>
+<span id="cb48-2"><a href="working-with-data-structures.html#cb48-2" aria-hidden="true" tabindex="-1"></a>age_young</span></code></pre></div>
+<pre><code>##  [1]  6 11  5 16  3 15 16 15  6 13 14 10  1 12 11 14 10</code></pre>
+<p>We could have done this all in one line without storing the indexing vector as a variable in the environment:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="working-with-data-structures.html#cb50-1" aria-hidden="true" tabindex="-1"></a>age_young <span class="ot">=</span> age[age <span class="sc">&lt;</span> <span class="dv">18</span>]</span></code></pre></div>
+<p>We have the following comparison operators in R:</p>
+<p><code>&lt;</code> less than</p>
+<p><code>&lt;=</code> less or equal than</p>
+<p><code>==</code> equal to</p>
+<p><code>!=</code> not equal to</p>
+<p><code>&gt;</code> greater than</p>
+<p><code>&gt;=</code> greater than or equal to</p>
+<p>You can also put these comparison operators together to form more complex statements, which you will explore in this week’s exercise.</p>
+<p>Another example:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="working-with-data-structures.html#cb51-1" aria-hidden="true" tabindex="-1"></a>age_90 <span class="ot">=</span> age[age <span class="sc">==</span> <span class="dv">90</span>]</span>
+<span id="cb51-2"><a href="working-with-data-structures.html#cb51-2" aria-hidden="true" tabindex="-1"></a>age_90</span></code></pre></div>
+<pre><code>## [1] 90 90 90</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="working-with-data-structures.html#cb53-1" aria-hidden="true" tabindex="-1"></a>age_not_90 <span class="ot">=</span> age[age <span class="sc">!=</span> <span class="dv">90</span>]</span>
+<span id="cb53-2"><a href="working-with-data-structures.html#cb53-2" aria-hidden="true" tabindex="-1"></a>age_not_90</span></code></pre></div>
+<pre><code>##  [1] 29 79 41 88 94  6 53 89 56 46 96 46 68 58 11 25  5 33 95 89 70 64 99 66 71
+## [26] 55 60 30 16 96 69 80  3 48 76 22 32 24 15 42 42 38 16 15 24 47 27 86  6 45
+## [51] 80 13 57 21 14 76 38 67 10 39 28 82 45 81 81 80 45 76 63 71  1 48 23 39 62
+## [76] 36 12 25 67 42 79 11 44 99 89 89 18 14 66 35 66 33 20 78 10 47 52</code></pre>
+<p>For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don’t need to know what your vector contains to do something with it! This technique is related to <em>abstraction</em> in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of <em>hard-coding</em> the value explicitly, it generalizes your code to handle a wider variety of situations.</p>
+</div>
+</div>
+<div id="dataframes" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Dataframes</h2>
+<p>Before we dive into dataframes, check that the <code>tidyverse</code> package is properly installed by loading it in your R Console:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="working-with-data-structures.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
+<p>Here is the data structure you have been waiting for: the <strong>dataframe</strong>. A dataframe is a spreadsheet such that each column must have the same data type. Think of a bunch of vectors organized as columns, and you get a dataframe.</p>
+<p>For the most part, we load in dataframes from a file path (although they are sometimes created by combining several vectors of the same length, but we won’t be covering that here):</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<div id="using-functions-and-operations-on-dataframes" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Using functions and operations on dataframes</h3>
+<p>We can run some useful functions on dataframes to get some useful properties, similar to how we used <code>length()</code> for vectors:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="working-with-data-structures.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 1864</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="working-with-data-structures.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="working-with-data-structures.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 1864   30</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="working-with-data-structures.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metadata)</span></code></pre></div>
+<pre><code>##  [1] &quot;ModelID&quot;                &quot;PatientID&quot;              &quot;CellLineName&quot;          
+##  [4] &quot;StrippedCellLineName&quot;   &quot;Age&quot;                    &quot;SourceType&quot;            
+##  [7] &quot;SangerModelID&quot;          &quot;RRID&quot;                   &quot;DepmapModelType&quot;       
+## [10] &quot;AgeCategory&quot;            &quot;GrowthPattern&quot;          &quot;LegacyMolecularSubtype&quot;
+## [13] &quot;PrimaryOrMetastasis&quot;    &quot;SampleCollectionSite&quot;   &quot;Sex&quot;                   
+## [16] &quot;SourceDetail&quot;           &quot;LegacySubSubtype&quot;       &quot;CatalogNumber&quot;         
+## [19] &quot;CCLEName&quot;               &quot;COSMICID&quot;               &quot;PublicComments&quot;        
+## [22] &quot;WTSIMasterCellID&quot;       &quot;EngineeredModel&quot;        &quot;TreatmentStatus&quot;       
+## [25] &quot;OnboardedMedia&quot;         &quot;PlateCoating&quot;           &quot;OncotreeCode&quot;          
+## [28] &quot;OncotreeSubtype&quot;        &quot;OncotreePrimaryDisease&quot; &quot;OncotreeLineage&quot;</code></pre>
+<p>The last function, <code>colnames()</code> returns a character vector of the column names of the dataframe. This is an important property of dataframes that we will make use of to subset on it.</p>
+<p>We introduce an operation for dataframes: the <code>dataframe$column_name</code> operation selects for a column by its column name and returns the column as a vector. For instance:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="working-with-data-structures.html#cb68-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Ovary/Fallopian Tube&quot; &quot;Myeloid&quot;              &quot;Bowel&quot;               
+## [4] &quot;Myeloid&quot;              &quot;Myeloid&quot;</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="working-with-data-structures.html#cb70-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 60 36 72 30 30</code></pre>
+<p>We treat the resulting value as a vector, so we can perform implicit subsetting:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="working-with-data-structures.html#cb72-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Myeloid&quot;</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+##  [8] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [15] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [22] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [29] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [36] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [43] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [50] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [57] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [64] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [71] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;</code></pre>
+<p>Lastly, try running <code>View(metadata)</code> in RStudio Console…whew, a nice way to examine your dataframe like a spreadsheet program!</p>
+</div>
+<div id="what-do-you-want-to-do-with-this-dataframe" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> “What do you want to do with this dataframe”?</h3>
+<p>Before diving into the technical part of subsetting dataframes, we will use different mindset to think about what we want to do with this dataframe as scientists.</p>
+<p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
+<p>Until now, we haven’t focused too much on how we organize our scientific ideas to interact with what we can do with code. Let’s write our code driven by our scientific curiosity.</p>
+<p>Here’s a starting prompt:</p>
+<blockquote>
+<p>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</p>
+</blockquote>
+<p>Use the implicit subsetting mindset here: ie. “I want to filter for rows (cell lines) that are breast cancer and look at the Age and Sex.” and <em>not</em> “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
+<p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
+<p>(This is because we are guaranteed to have column names in dataframes. Some dataframes have row names, but because the data types are not guranteed to have the same data type, it makes describing by row properties difficult.)</p>
+<p>Let’s convert this into code!</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="working-with-data-structures.html#cb74-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
+<span id="cb74-2"><a href="working-with-data-structures.html#cb74-2" aria-hidden="true" tabindex="-1"></a>brca_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb74-3"><a href="working-with-data-structures.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(brca_metadata)</span></code></pre></div>
+<pre><code>##      ModelID Age    Sex
+## 1 ACH-000017  43 Female
+## 2 ACH-000019  69 Female
+## 3 ACH-000028  69 Female
+## 4 ACH-000044  47 Female
+## 5 ACH-000097  63 Female
+## 6 ACH-000111  41 Female</code></pre>
+<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package.</p>
+</div>
+<div id="filter-rows" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Filter rows</h3>
+<p>Let’s carefully a look what how the R Console is interpreting the <code>filter()</code> function:</p>
+<ul>
+<li><p>We evaluate the expression right of <code>=</code>.</p></li>
+<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
+<li><p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable <code>OncotreeLineage</code> does not exist in our environment! Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong> in the context of the dataframe <code>metadata</code>. So, we make a comparsion operation on the column <code>OncotreeLineage</code> from <code>metadata</code> and its resulting logical indexing vector is the input to the second argument.</p>
+<ul>
+<li><p>How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It’s not clear cut, but here’s a rule of thumb: most functions from the <code>tidyverse</code> package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.</p></li>
+<li><p>This encourages more <em>readable</em> code at the expense of consistency of referring to variables in the environment. The authors of this package <a href="https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables">describes this trade-off</a>.</p></li>
+</ul></li>
+<li><p>Putting it together, <code>filter()</code> takes in a dataframe, and an logical indexing vector described by data variables as arguments, and returns a data frame with rows that match condition described by the logical indexing vector.</p></li>
+<li><p>Store this in <code>metadata_filtered</code> variable.</p></li>
+</ul>
+</div>
+<div id="select-columns" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Select columns</h3>
+<p>Let’s carefully a look what how the R Console is interpreting the <code>select()</code> function:</p>
+<ul>
+<li><p>We evaluate the expression right of <code>=</code>.</p></li>
+<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
+<li><p>The second and third arguments are data variables referring the columns of <code>metadata</code>.</p>
+<ul>
+<li>For certain functions like <code>filter()</code>, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.</li>
+</ul></li>
+<li><p>Putting it together, <code>select()</code> takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.</p></li>
+<li><p>Store this in <code>brca_metadata</code> variable.</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+      <a href="https://hutchdatascience.org/" target="_blank"><img src="https://hutchdatascience.org/images/crazy-idea-wide.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
