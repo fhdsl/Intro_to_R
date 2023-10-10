@@ -384,8 +384,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>(This is because we are guaranteed to have column names in dataframes. Some dataframes have row names, but because the data types are not guranteed to have the same data type, it makes describing by row properties difficult.)</p>
 <p>Let’s convert this into code!</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="working-with-data-structures.html#cb74-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb74-2"><a href="working-with-data-structures.html#cb74-2" aria-hidden="true" tabindex="-1"></a>brca_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb74-3"><a href="working-with-data-structures.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(brca_metadata)</span></code></pre></div>
+<span id="cb74-2"><a href="working-with-data-structures.html#cb74-2" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb74-3"><a href="working-with-data-structures.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
 <pre><code>##      ModelID Age    Sex
 ## 1 ACH-000017  43 Female
 ## 2 ACH-000019  69 Female
@@ -401,7 +401,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>We evaluate the expression right of <code>=</code>.</p></li>
 <li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
-<li><p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable <code>OncotreeLineage</code> does not exist in our environment! Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong> in the context of the dataframe <code>metadata</code>. So, we make a comparsion operation on the column <code>OncotreeLineage</code> from <code>metadata</code> and its resulting logical indexing vector is the input to the second argument.</p>
+<li><p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable <code>OncotreeLineage</code> does not exist in our environment! Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong> in the context of the dataframe <code>metadata</code>. So, we make a comparison operation on the column <code>OncotreeLineage</code> from <code>metadata</code> and its resulting logical indexing vector is the input to the second argument.</p>
 <ul>
 <li><p>How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It’s not clear cut, but here’s a rule of thumb: most functions from the <code>tidyverse</code> package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.</p></li>
 <li><p>This encourages more <em>readable</em> code at the expense of consistency of referring to variables in the environment. The authors of this package <a href="https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables">describes this trade-off</a>.</p></li>
@@ -421,7 +421,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>For certain functions like <code>filter()</code>, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.</li>
 </ul></li>
 <li><p>Putting it together, <code>select()</code> takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.</p></li>
-<li><p>Store this in <code>brca_metadata</code> variable.</p></li>
+<li><p>Store this in <code>breast_metadata</code> variable.</p></li>
 </ul>
 
 </div>
