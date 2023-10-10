@@ -108,8 +108,8 @@ staff[c(1, 2)]
 . . .
 
 ```{r}
-small_staff = staff[c(1, 2)]
-small_staff
+chrNum = rep(2, 22)
+chrNum[1:10]
 ```
 
 ## Subsetting vectors
@@ -141,9 +141,9 @@ small_staff
 
 ## Explicit vs. implicit subsetting
 
--   **Explicit subsetting**: Given a 100-length vector of people's ages, and subset to the first 10 elements.
+. . .
 
--   **Implicit subsetting**: Given a 100-length vector of people's ages, and subset to elements \< 18 age.
+-   **Explicit subsetting**: Given a 100-length vector of people's ages, and subset to the first 10 elements.
 
 . . .
 
@@ -154,26 +154,32 @@ first_ten_age = age[1:10]
 first_ten_age
 ```
 
+. . .
+
+
+-   **Implicit subsetting**: Given a 100-length vector of people's ages, and subset to elements \< 18 age.
+
+
 ## Implicit subsetting
 
 We don't know which elements to subset off the top of our head! If we know which elements have less than 18, then we can give the elements for an explicit subset.
 
 . . .
 
-Create a logical indexing vector using a **comparison operator**:
+Use a **comparison operator** to create a logical indexing vector:
 
 . . .
 
 ```{r}
-indexing_vector = age < 18
-indexing_vector
+logical_indexing_vector = age < 18
+logical_indexing_vector
 ```
 
 ## Implicit subsetting
 
 ```{r}
-indexing_vector = age < 18
-age_young = age[indexing_vector]
+logical_indexing_vector = age < 18
+age_young = age[logical_indexing_vector]
 age_young
 ```
 
@@ -201,6 +207,15 @@ staff != "chris"
 
 ```{r}
 staff[staff != "chris"]
+```
+
+
+## Functions on vectors
+
+How many elements are in this vector?
+
+```{r}
+length(staff)
 ```
 
 ## Dataframes
@@ -294,11 +309,32 @@ metadata$OncotreeLineage[metadata$OncotreeLineage == "Myeloid"]
 library(tidyverse)
 
 metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
-brca_metadata = select(metadata_filtered, ModelID, Age, Sex)
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
 
-head(brca_metadata)
+head(breast_metadata)
 ```
 
 . . .
 
 Here, `filter()` and `select()` are functions from the `tidyverse` package.
+
+## Comments on `filter()` and `select()`
+
+`metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
+
+. . .
+
+The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator.
+
+. . .
+
+But the variable `OncotreeLineage` does not exist in our environment! 
+
+. . .
+
+Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**.
+
+. . .
+
+The input arguments for `select()` are also **data variables**.
+
