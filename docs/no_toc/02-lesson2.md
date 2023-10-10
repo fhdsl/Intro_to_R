@@ -368,8 +368,8 @@ Let's convert this into code!
 
 ```r
 metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
-brca_metadata = select(metadata_filtered, ModelID, Age, Sex)
-head(brca_metadata)
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
+head(breast_metadata)
 ```
 
 ```
@@ -392,7 +392,7 @@ Let's carefully a look what how the R Console is interpreting the `filter()` fun
 
 -   The first argument of `filter()` is a dataframe, which we give `metadata`.
 
--   The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable `OncotreeLineage` does not exist in our environment! Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable** in the context of the dataframe `metadata`. So, we make a comparsion operation on the column `OncotreeLineage` from `metadata` and its resulting logical indexing vector is the input to the second argument.
+-   The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable `OncotreeLineage` does not exist in our environment! Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable** in the context of the dataframe `metadata`. So, we make a comparison operation on the column `OncotreeLineage` from `metadata` and its resulting logical indexing vector is the input to the second argument.
 
     -   How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It's not clear cut, but here's a rule of thumb: most functions from the `tidyverse` package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.
 
@@ -416,4 +416,4 @@ Let's carefully a look what how the R Console is interpreting the `select()` fun
 
 -   Putting it together, `select()` takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.
 
--   Store this in `brca_metadata` variable.
+-   Store this in `breast_metadata` variable.
