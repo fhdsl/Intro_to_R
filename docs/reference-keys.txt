@@ -26,4 +26,16 @@ using-functions-and-operations-on-dataframes
 what-do-you-want-to-do-with-this-dataframe
 filter-rows
 select-columns
+w3-functions-and-pipes
+functions-deep-dive
+anatomy-of-a-function-definition
+local-and-global-environments
+a-step-by-step-example
+function-arguments-create-modularity
+exercises
+pipes
+exercises-1
+modifying-and-creating-new-columns-in-dataframes
+all-together-now
+alternative-creating-and-modifying-columns-via
 references
