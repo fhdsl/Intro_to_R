@@ -9,11 +9,13 @@ Today, we will understand deeply how functions work, and continue learning more 
 We write functions for two main, often overlapping, reasons:
 
 1.  Following DRY (Don't Repeat Yourself) principle: If you find yourself repeating similar patterns of code, you should write a function that executes that pattern. This saves time and the risk of mistakes.
+
 2.  Create modular structure and abstraction: Having all of your code in one place becomes increasingly complicated as your program grows. Think of the function as a mini-program that can perform without the rest of the program. Organizing your code by functions gives modular structure, as well as abstraction: you only need to know the function name, inputs, and output to use it and don't have to worry how it works.
 
-Some useful mantra on writing functions:
+Some advice on writing functions:
 
 -   Code that has a well-defined set of inputs and outputs make a good function.
+
 -   A function should do only one, well-defined task.
 
 ### Anatomy of a function definition
