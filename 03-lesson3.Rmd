@@ -1,4 +1,4 @@
-# W3: Functions and pipes
+# Functions and pipes
 
 Today, we will understand deeply how functions work, and continue learning more functions on dataframes.
 
