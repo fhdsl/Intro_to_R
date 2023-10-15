@@ -26,7 +26,7 @@ using-functions-and-operations-on-dataframes
 what-do-you-want-to-do-with-this-dataframe
 filter-rows
 select-columns
-w3-functions-and-pipes
+functions-and-pipes
 functions-deep-dive
 anatomy-of-a-function-definition
 local-and-global-environments
