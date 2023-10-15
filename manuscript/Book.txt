@@ -1,0 +1,6 @@
+1-About-this-Course.md
+2-Intro-to-Computing.md
+3-Working-with-data-structures.md
+4-W3:-Functions-and-pipes.md
+5-References.md
+About-the-Authors.md
