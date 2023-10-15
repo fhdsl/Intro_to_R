@@ -1,0 +1,238 @@
+---
+title: "W3: Functions and Pipes"
+format: revealjs
+  #smaller: true
+  #scrollable: true
+execute:
+  echo: true
+output-location: fragment
+---
+
+## Subsetting review
+
+```{r}
+age = c(10, 35, 24, 70, 84)
+age_young = age[age < 18]
+age_young
+```
+
+. . .
+
+```{r}
+medicaid_eligible = age
+
+medicaid_eligible[medicaid_eligible < 65] = 0
+medicaid_eligible[medicaid_eligible >= 65] = 1
+medicaid_eligible
+```
+
+## Functions motivation
+
+![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
+
+. . .
+
+We write functions for two main, often overlapping, reasons:
+
+. . .
+
+1.  Following DRY (Don't Repeat Yourself) principle:
+
+. . .
+
+2.  Creates modular structure and abstraction
+
+## How to define a function
+
+. . .
+
+::: callout-tip
+# 
+
+Assign a **function name** with a "function" statement that has a comma-separated list of named **function arguments**. Within the body of the function there is optionally a **return expression**. The function name is stored as a variable in the global environment.
+:::
+
+. . .
+
+```{r}
+addFunction = function(num1, num2) {
+  result = num1 + num2 
+  return(result)
+}
+```
+
+. . .
+
+```{r}
+addFunction(3, 4)
+```
+
+## How to define a function
+
+```{r}
+addFunction = function(num1, num2) {
+  result = num1 + num2 
+  return(result)
+}
+addFunction(3, 4)
+```
+
+. . .
+
+With function definitions, not all code runs from top to bottom. The first 4 lines defines the function, but the function is never run.
+
+. . .
+
+When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function.
+
+## Ways to call the function
+
+. . .
+
+```{r}
+addFunction(3, 4)
+```
+
+. . .
+
+```{r}
+addFunction(num1 = 3, num2 = 4)
+```
+
+. . .
+
+```{r}
+addFunction(num2 = 4, num1 = 3)
+```
+
+. . .
+
+But this *could* give a different result:
+
+```{r}
+addFunction(4, 3)
+```
+
+## Variable scoping
+
+. . .
+
+::: callout-tip
+# Local and global environments
+
+Within each { }, if variables are defined, they are stored in a **local environment**, and is only accessible within { }. All function arguments are stored in the local environment. The overall environment of the program is called the **global environment** and can be also accessed within { }.
+:::
+
+. . .
+
+Local environments make functions more modular.
+
+## Is this function modular?
+
+```{r}
+x = 3
+y = 4
+addFunction = function(num1, num2) {
+    result = x + y 
+    return(result)
+}
+```
+
+. . .
+
+```{r}
+addFunction(x, y)
+```
+
+. . .
+
+```{r}
+addFunction(10, -5)
+```
+
+## Exercise 1
+
+Create a function, called `add_and_raise_power` in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value.
+
+Use case: `add_and_raise_power(1, 2, 3) = 9` because the function will return this expression: `(1 + 2) ^ 3`.
+
+Another use case: `add_and_raise_power(3, 1, 2) = 16`
+
+## Exercise 2
+
+Create a function, called `divide_by` in which the function takes in two arguments: the first one is a numeric vector, and the second is a numeric. The function divides every element of the numeric vector (first argument) by the value of the second argument, and returns the resulting numeric vector.
+
+Use case: `divide_by(c(1, 2, 3), 2) = c(.5, 1, 1.5)`
+
+Another use case: `divide_by(c(3, 30, 300), 10) = c(.3, 3, 30)`
+
+## Exercise 3
+
+Create a function, called `medicaid_eligible` in which the function takes in one argument: a numeric vector called `age`. The function returns a numeric vector with the same length as `age`, in which elements are `0` for indices that are less than 65 in `age`, and `1` for indicies 65 or higher in `age`.
+
+Use case: `medicaid_eligible(c(30, 70)) = c(0, 1)`
+
+## Code readability
+
+When combining multiple functions in one expression, it gets harder to read:
+
+. . .
+
+```{r}
+#| echo: false
+library(tidyverse)
+load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+```
+
+```{r}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+```
+
+. . .
+
+Or, this: 🤨
+
+```         
+result2 = function1(function2(function3(dataframe)))
+```
+
+. . .
+
+Or... 🤕
+
+```         
+result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
+```
+
+. . .
+
+[R style guide](https://style.tidyverse.org/index.html)
+
+## Pipes to make nested functions readable
+
+. . .
+
+```         
+result2 = dataframe %>% function1 %>% function2 %>% function3
+```
+
+. . .
+
+```         
+result = function1(df_col5, arg1) %>%
+         function2(arg2) %>%
+         function3(df_col4, df_col2)
+```
+
+. . .
+
+Rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
+
+. . .
+
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                               select(ModelID, Age, Sex)
+```
+
+🤠
