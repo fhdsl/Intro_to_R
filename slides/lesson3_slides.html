@@ -395,16 +395,16 @@
 </div>
 
 </section>
-<section id="subsetting-review" class="slide level2">
-<h2>Subsetting review</h2>
+<section id="subsetting-vs.-modifying-part-of-a-vector" class="slide level2">
+<h2>Subsetting vs.&nbsp;Modifying part of a vector</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">35</span>, <span class="dv">24</span>, <span class="dv">70</span>, <span class="dv">84</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>age_young <span class="ot">=</span> age[age <span class="sc">&lt;</span> <span class="dv">18</span>]</span>
 <span id="cb1-3"><a href="#cb1-3"></a>age_young</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
+</div>
 </div>
 </div>
 <div class="fragment">
@@ -414,8 +414,6 @@
 <span id="cb3-3"><a href="#cb3-3"></a>medicaid_eligible[medicaid_eligible <span class="sc">&lt;</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>medicaid_eligible[medicaid_eligible <span class="sc">&gt;=</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">1</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>medicaid_eligible</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 0 0 1 1</code></pre>
 </div>
@@ -430,7 +428,7 @@
 </div>
 <div class="fragment">
 <ol type="1">
-<li>Following DRY (Don’t Repeat Yourself) principle:</li>
+<li>Following DRY (Don’t Repeat Yourself) principle</li>
 </ol>
 </div>
 <div class="fragment">
@@ -463,15 +461,10 @@
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">return</span>(result)</span>
 <span id="cb5-4"><a href="#cb5-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
-
-</div>
 </div>
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -486,8 +479,6 @@
 <span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">return</span>(result)</span>
 <span id="cb8-4"><a href="#cb8-4"></a>}</span>
 <span id="cb8-5"><a href="#cb8-5"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -504,8 +495,6 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -514,8 +503,6 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">addFunction</span>(<span class="at">num1 =</span> <span class="dv">3</span>, <span class="at">num2 =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -524,8 +511,6 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">addFunction</span>(<span class="at">num2 =</span> <span class="dv">4</span>, <span class="at">num1 =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -535,8 +520,6 @@
 <p>But this <em>could</em> give a different result:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">addFunction</span>(<span class="dv">4</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -555,7 +538,7 @@
 <p><strong>Local and global environments</strong></p>
 </div>
 <div class="callout-content">
-<p>Within each { }, if variables are defined, they are stored in a <strong>local environment</strong>, and is only accessible within { }. All function arguments are stored in the local environment. The overall environment of the program is called the <strong>global environment</strong> and can be also accessed within { }.</p>
+<p>All function arguments are stored in the <strong>local environment</strong>. Any additional variables defined within <code>{ }</code> is also stored in the local environment. The overall environment of the program is called the <strong>global environment</strong> and can be also accessed within { }. The local environment is erased after <code>}</code> is reached.</p>
 </div>
 </div>
 </div>
@@ -574,14 +557,9 @@
 <span id="cb18-5"><a href="#cb18-5"></a>    <span class="fu">return</span>(result)</span>
 <span id="cb18-6"><a href="#cb18-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
-
-</div>
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">addFunction</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -590,8 +568,6 @@
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">addFunction</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
@@ -606,9 +582,8 @@
 </section>
 <section id="exercise-2" class="slide level2">
 <h2>Exercise 2</h2>
-<p>Create a function, called <code>divide_by</code> in which the function takes in two arguments: the first one is a numeric vector, and the second is a numeric. The function divides every element of the numeric vector (first argument) by the value of the second argument, and returns the resulting numeric vector.</p>
-<p>Use case: <code>divide_by(c(1, 2, 3), 2) = c(.5, 1, 1.5)</code></p>
-<p>Another use case: <code>divide_by(c(3, 30, 300), 10) = c(.3, 3, 30)</code></p>
+<p>Create a function, called <code>my_dim</code> in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the <code>dim</code> function. How can you leverage existing functions such as <code>nrow</code> and <code>ncol</code>?</p>
+<p>Use case: <code>my_dim(metadata) = c(1864, 30)</code></p>
 </section>
 <section id="exercise-3" class="slide level2">
 <h2>Exercise 3</h2>
@@ -620,13 +595,7 @@
 <p>When combining multiple functions in one expression, it gets harder to read:</p>
 <div class="fragment">
 <div class="cell">
-
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>), ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-
 </div>
 </div>
 <div class="fragment">
@@ -658,9 +627,6 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>                               <span class="fu">select</span>(ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-
 </div>
 <p>🤠</p>
 <div class="footer footer-default">

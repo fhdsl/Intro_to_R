@@ -1,14 +1,14 @@
 ---
 title: "W3: Functions and Pipes"
 format: revealjs
-  #smaller: true
-  #scrollable: true
 execute:
   echo: true
-output-location: fragment
 ---
 
-## Subsetting review
+
+## Subsetting vs. Modifying part of a vector
+
+. . .
 
 ```{r}
 age = c(10, 35, 24, 70, 84)
@@ -36,7 +36,7 @@ We write functions for two main, often overlapping, reasons:
 
 . . .
 
-1.  Following DRY (Don't Repeat Yourself) principle:
+1.  Following DRY (Don't Repeat Yourself) principle
 
 . . .
 
@@ -120,7 +120,7 @@ addFunction(4, 3)
 ::: callout-tip
 # Local and global environments
 
-Within each { }, if variables are defined, they are stored in a **local environment**, and is only accessible within { }. All function arguments are stored in the local environment. The overall environment of the program is called the **global environment** and can be also accessed within { }.
+All function arguments are stored in the **local environment**. Any additional variables defined within `{ }` is also stored in the local environment. The overall environment of the program is called the **global environment** and can be also accessed within { }. The local environment is erased after `}` is reached.
 :::
 
 . . .
@@ -160,11 +160,9 @@ Another use case: `add_and_raise_power(3, 1, 2) = 16`
 
 ## Exercise 2
 
-Create a function, called `divide_by` in which the function takes in two arguments: the first one is a numeric vector, and the second is a numeric. The function divides every element of the numeric vector (first argument) by the value of the second argument, and returns the resulting numeric vector.
+Create a function, called `my_dim` in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the `dim` function. How can you leverage existing functions such as `nrow` and `ncol`?
 
-Use case: `divide_by(c(1, 2, 3), 2) = c(.5, 1, 1.5)`
-
-Another use case: `divide_by(c(3, 30, 300), 10) = c(.3, 3, 30)`
+Use case: `my_dim(metadata) = c(1864, 30)`
 
 ## Exercise 3
 

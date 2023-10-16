@@ -789,7 +789,7 @@
 <p><em>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</em></p>
 </div>
 <div class="fragment">
-<p>✅ Implicit: “I want to filter for rows (cell lines) that are breast cancer and look at the Age and Sex.”</p>
+<p>✅ Implicit: “I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex.”</p>
 <p>🚫 Explicit: “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
 </div>
 <div class="fragment">
@@ -823,17 +823,17 @@
 <p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package.</p>
 </div>
 </section>
-<section id="comments-on-filter-and-select" class="slide level2">
-<h2>Comments on <code>filter()</code> and <code>select()</code></h2>
+<section id="filter-and-select" class="slide level2">
+<h2><code>filter()</code> and <code>select()</code></h2>
 <p><code>metadata_filtered = filter(metadata, OncotreeLineage == "Breast")</code>:</p>
 <div class="fragment">
-<p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator.</p>
+<p>The second argument: a logical indexing vector built from a comparison operator?</p>
 </div>
 <div class="fragment">
 <p>But the variable <code>OncotreeLineage</code> does not exist in our environment!</p>
 </div>
 <div class="fragment">
-<p>Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong>.</p>
+<p>Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong>. We can directly refer to the column vector <code>metadata$OncotreeLineage</code> with just <code>OncotreeLineage</code>.</p>
 </div>
 <div class="fragment">
 <p>The input arguments for <code>select()</code> are also <strong>data variables</strong>.</p>
