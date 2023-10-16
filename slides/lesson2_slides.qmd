@@ -293,7 +293,7 @@ metadata$OncotreeLineage[metadata$OncotreeLineage == "Myeloid"]
 
 . . .
 
-✅ Implicit: "I want to filter for rows (cell lines) that are breast cancer and look at the Age and Sex."
+✅ Implicit: "I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex."
 
 🚫 Explicit: "I want to filter for rows 20-50 and select columns 2 and 8".
 
@@ -318,13 +318,13 @@ head(breast_metadata)
 
 Here, `filter()` and `select()` are functions from the `tidyverse` package.
 
-## Comments on `filter()` and `select()`
+## `filter()` and `select()`
 
 `metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
 
 . . .
 
-The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator.
+The second argument: a logical indexing vector built from a comparison operator?
 
 . . .
 
@@ -332,7 +332,7 @@ But the variable `OncotreeLineage` does not exist in our environment!
 
 . . .
 
-Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**.
+Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`. 
 
 . . .
 

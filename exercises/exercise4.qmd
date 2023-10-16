@@ -1,0 +1,18 @@
+# W4 Exercises
+
+## Part 1: Recreating our analysis figure
+
+![](images/kras-01.png){width="450"}
+
+```{r, message=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+load(url("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+
+metadata_expression = full_join(metadata, expression, by = "ModelID")
+metadata_expression_mutation = full_join(metadata_expression, mutation, by = "ModelID")
+
+lung = metadata_expression_mutation |> filter(OncotreeLineage == "Lung")
+
+ggplot(drop_na(lung), aes(x = KRAS_Mut, y = KRAS_Exp)) + geom_boxplot() + ggtitle("Lung") + theme_bw()
+```

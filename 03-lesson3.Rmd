@@ -107,7 +107,7 @@ The function did not work as expected because we used hard-coded variables from 
 
 -   Create a function, called `add_and_raise_power` in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value. Here is a use case: `add_and_raise_power(1, 2, 3) = 9` because the function will return this expression: `(1 + 2) ^ 3`. Another use case: `add_and_raise_power(3, 1, 2) = 16` because of the expression `(3 + 1) ^ 2`. Confirm with that these use cases work.
 
--   Create a function, called `divide_by` in which the function takes in two arguments: the first one is a numeric vector, and the second is a numeric. The function divides every element of the numeric vector (first argument) by the value of the second argument, and returns the resulting numeric vector. Use cases: `divide_by(c(1, 2, 3), 2) = c(.5, 1, 1.5)`, `divide_by(c(3, 30, 300), 10) = c(.3, 3, 30)`
+-   Create a function, called `my_dim` in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the `dim` function. How can you leverage existing functions such as `nrow` and `ncol`? Use case: `my_dim(metadata) = c(1864, 30)`
 
 -   Create a function, called `medicaid_eligible` in which the function takes in one argument: a numeric vector called `age`. The function returns a numeric vector with the same length as `age`, in which elements are `0` for indicies that are less than 65 in `age`, and `1` for indicies 65 or higher in `age`. Use cases: `medicaid_eligible(c(30, 70)) = c(0, 1)`
 
@@ -166,17 +166,6 @@ metadata2 = mutate(metadata, newAge = Age + 10)
 metadata2$newAge[1:10]
 ```
 
-We can also use our `divide_by()` function we wrote:
-
-```{r}
-divide_by = function(vec, d) {
-  return(vec / d)
-}
-
-metadata$Age[1:10]
-metadata2 = mutate(metadata, newAge = divide_by(Age, 2))
-metadata2$newAge[1:10]
-```
 
 or `medicaid_eligible()`:
 

@@ -1,0 +1,197 @@
+# W3 Exercises
+
+## Part 1: Summary statistics
+
+Let's take a short break from looking at cancer cell lines for the moment. Let's consider a sample of penguins.
+
+Let's load it in, and take a look.
+
+```{r, warnings=F, message=F}
+library(tidyverse)
+library(palmerpenguins)
+head(penguins)
+```
+
+Let's examine some summary statistics of this dataset: **pick a few columns of interest, and summarize the column via the following functions**:
+
+If the columns of interest are numeric, then you can try functions such as `mean()`, `median()`, or `summary()`.
+
+If the columns of interest is character or logical, then you can try the `table()` function.
+
+Within the column, if there are `NA` (a special value indicating "Not Available") elements present, some of these functions will return with a value of `NA`. To remove the `NA` value before computing, some of these function have a `na.rm` argument that you can set to `TRUE`.
+
+All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the `$` operation.
+
+```{r}
+mean(penguins$body_mass_g, na.rm=T) #example
+
+#your analysis here
+```
+
+Then, pick one of the columns you analyzed and reanalyze it for each of the three species (Adelie, Chinstrap, Gentoo). You will have to at least use the `filter()` function. Do you see any difference across species?
+
+```{r}
+adelie = penguins %>% filter(species == "Adelie")
+chinstrap = penguins %>% filter(species == "Chinstrap")
+gentoo = penguins %>% filter(species == "Gentoo")
+mean(adelie$body_mass_g, na.rm=T)
+mean(chinstrap$body_mass_g, na.rm=T)
+mean(gentoo$body_mass_g, na.rm=T)
+```
+
+## Part 2: Interpreting functions
+
+Consider this function, `penguin_bmi()`, that calculates the BMI of a penguin (not actual scientific way of doing it, just a toy example here).
+
+```{r}
+penguin_bmi = function(b_length, b_depth, f_length, mass) {
+  #takes in beak length, beak depth, fin length, and mass and returns the BMI.
+  return(mass / (b_length * b_depth + f_length))
+}
+```
+
+Write down what data types or data structures the input arguments can take in without running into errors:
+
+*All numeric, or all numeric vectors of the same length.*
+
+Write down what data type or data structure the returning value should be:
+
+*Numeric or numeric vector.*
+
+To confirm this, try writing a piece of code that uses the `penguin_bmi` function:
+
+```{r}
+
+```
+
+#### Creating new columns
+
+The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a new or existing data variable that is defined in terms of other data variables.
+
+We create a new column `body_mass_kg` that that gives us the mass of penguins in kilograms instead of grams:
+
+```{r}
+penguins$body_mass_g[1:10]
+penguins2 = mutate(penguins, body_mass_kg = body_mass_g / 1000)
+penguins2$body_mass_kg[1:10]
+```
+
+Here's another way of doing it, using the `$` symbol:
+
+```{r}
+penguins2$body_mass_kg = penguins$body_mass_g / 1000
+```
+
+Create a new column in `penguins` called `bmi` and use `penguin_bmi()` function to compute it, and store the resulting dataframe as a new variable. You can do it via the `mutate()` function, *or* via the `$` symbol.
+
+```{r}
+penguins_w_bmi = penguins %>% mutate(bmi = penguin_bmi(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g))
+#or
+penguins_w_bmi = penguins
+penguins_w_bmi$bmi = penguin_bmi(penguins_w_bmi$bill_length_mm, penguins_w_bmi$bill_depth_mm, penguins_w_bmi$flipper_length_mm, penguins_w_bmi$body_mass_g)
+```
+
+What is the mean BMI for each of the three species? (Hint: Look at what you did in Part 1.)
+
+```{r}
+adelie = penguins_w_bmi %>% filter(species == "Adelie")
+chinstrap = penguins_w_bmi %>% filter(species == "Chinstrap")
+gentoo = penguins_w_bmi %>% filter(species == "Gentoo")
+mean(adelie$bmi, na.rm=T)
+mean(chinstrap$bmi, na.rm=T)
+mean(gentoo$bmi, na.rm=T)
+```
+
+## Part 3: Writing your own function
+
+Suppose that there is a BMI adjustment factor that should be made. Write the function `penguin_bmi_adj()` so that it takes in the same arguments as `penguin_bmi()` and returns .8 times the return value of `penguin_bmi()` function. You should reference `penguin_bmi()` in your function: you can build a function on top of existing functions.
+
+```{r}
+penguin_bmi_adj = function(b_length, b_depth, f_length, mass) {
+  return(.8 * penguin_bmi(b_length, b_depth, f_length, mass))
+}
+```
+
+Create a new column in `penguins` called `bmi_adj` and use `penguin_bmi_adj()` to compute it, and store the resulting dataframe as a new variable. You can do it via the `mutate()` function, *or* via the `$` symbol.
+
+```{r}
+penguins_w_bmi_adj = penguins %>% mutate(bmi_adj = penguin_bmi_adj(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g))
+```
+
+## Part 4: Conditional Statements
+
+Sometimes, our code needs to run a certain way if a condition is met. We have seen example of this via the conditional operator, but we need a more general form. Here, we introduce **conditional statements**. Here's a metaphor of what they do: imagine that each line of code is taking you down a path. At some point, the path splits, and you have a choose a path in the split depending what your variables are in your environment.
+
+*In a conditional statement, if the logical value tested (often by a comparison operation) is evaluated as `TRUE`, then the body code within the local environment will run. If the logical value tested is evaluated as `FALSE`, then the body code within the local environment will not run. Longer conditional statements can be built from `else if` and `else` conditional statements.*
+
+Here are some examples of conditional statement syntax structure:
+
+```         
+if(logical_value) {
+    ...
+}
+```
+
+```         
+if(logical_value_1) {
+    ...
+}else if(logical_value_2) {
+    ...
+}else {
+  ...
+}
+```
+
+Conditional statements are incredibly useful when writing functions. Often, we want to make sure that a function works with only a certain data type or data structure, and gives the user error otherwise. We make improvements to our `penguin_bmi` function: if all of our input arguments are numeric, we compute it. Otherwise, we stop and give an error message.
+
+```{r}
+penguin_bmi = function(b_length, b_depth, f_length, mass) {
+  #takes in beak length, beak depth, fin length, and mass and returns the BMI.
+  if(class(b_length) == "numeric" & class(b_depth) == "numeric" & class(f_length) == "numeric" & class(mass) == "numeric") {
+    return(mass / (b_length * b_depth + f_length))
+  }else {
+    stop("Numeric data type expected for all arguments.")
+  }
+}
+```
+
+We can further improve this function by requiring that the length of these four arguments to be identical.
+
+Play around with this new function and see what happens if you enter a non-numeric input:
+
+```{r}
+
+```
+
+Your turn: write a function, called `human_chr_test`, that takes in one argument that is a numeric vector. If the length of the input argument is 23, return the character `"human"`. Otherwise, return the character `"non-human"`.
+
+Use case: `human_chr_test(c(2, 3, 2, 2)) = "non-human"` .
+
+Another use case: `human_chr_test(rep(2, 23)) = "human"` .
+
+```{r}
+human_chr_test = function(numChrs) {
+  if(length(numChrs) == 23) {
+  	return("human")
+  }else{
+  	return("non-human")
+  }
+}
+  
+human_chr_test(c(2, 3, 2, 2))
+human_chr_test(rep(2, 23))
+```
+
+## Feedback!
+
+How many hours did you spend on this exercise?
+
+```{r}
+time_spent = 0 
+```
+
+If you worked with other peers, write their names down in the following character vector: each element is one person's name.
+
+```{r}
+peers = c("myself")
+```
