@@ -169,6 +169,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
 <li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
 <li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vs.-modifying-part-of-a-vector"><i class="fa fa-check"></i><b>3.1.4</b> Subsetting vs. Modifying part of a vector</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
 <ul>
@@ -334,7 +335,7 @@ w = addFunction(10, -5)</code></pre>
 <h3><span class="header-section-number">4.1.5</span> Exercises</h3>
 <ul>
 <li><p>Create a function, called <code>add_and_raise_power</code> in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value. Here is a use case: <code>add_and_raise_power(1, 2, 3) = 9</code> because the function will return this expression: <code>(1 + 2) ^ 3</code>. Another use case: <code>add_and_raise_power(3, 1, 2) = 16</code> because of the expression <code>(3 + 1) ^ 2</code>. Confirm with that these use cases work.</p></li>
-<li><p>Create a function, called <code>divide_by</code> in which the function takes in two arguments: the first one is a numeric vector, and the second is a numeric. The function divides every element of the numeric vector (first argument) by the value of the second argument, and returns the resulting numeric vector. Use cases: <code>divide_by(c(1, 2, 3), 2) = c(.5, 1, 1.5)</code>, <code>divide_by(c(3, 30, 300), 10) = c(.3, 3, 30)</code></p></li>
+<li><p>Create a function, called <code>my_dim</code> in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the <code>dim</code> function. How can you leverage existing functions such as <code>nrow</code> and <code>ncol</code>? Use case: <code>my_dim(metadata) = c(1864, 30)</code></p></li>
 <li><p>Create a function, called <code>medicaid_eligible</code> in which the function takes in one argument: a numeric vector called <code>age</code>. The function returns a numeric vector with the same length as <code>age</code>, in which elements are <code>0</code> for indicies that are less than 65 in <code>age</code>, and <code>1</code> for indicies 65 or higher in <code>age</code>. Use cases: <code>medicaid_eligible(c(30, 70)) = c(0, 1)</code></p></li>
 </ul>
 </div>
@@ -342,9 +343,9 @@ w = addFunction(10, -5)</code></pre>
 <div id="pipes" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Pipes</h2>
 <p>Sometimes, in data analysis, we want to transform our dataframe in multiple steps via different functions. In your exercise, you started combining <code>filter()</code> and <code>select()</code> using one line of code:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="functions-and-pipes.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb80-2"><a href="functions-and-pipes.html#cb80-2" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="functions-and-pipes.html#cb81-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="functions-and-pipes.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb81-2"><a href="functions-and-pipes.html#cb81-2" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="functions-and-pipes.html#cb82-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
 <p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
 <pre><code>result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
 <p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>
@@ -368,45 +369,35 @@ w = addFunction(10, -5)</code></pre>
 <p>To put together what we have learned today, we will modify and create new columns in dataframes.</p>
 <p>The <code>mutate()</code> function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a new or existing data variable that is defined in terms of other data variables.</p>
 <p>We create a new column <code>newAge</code> that is 10 years older than the original <code>Age</code> column.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="functions-and-pipes.html#cb84-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="functions-and-pipes.html#cb85-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 60 36 72 30 30 64 63 56 72 53</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="functions-and-pipes.html#cb86-1" aria-hidden="true" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">newAge =</span> Age <span class="sc">+</span> <span class="dv">10</span>)</span>
-<span id="cb86-2"><a href="functions-and-pipes.html#cb86-2" aria-hidden="true" tabindex="-1"></a>metadata2<span class="sc">$</span>newAge[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="functions-and-pipes.html#cb87-1" aria-hidden="true" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">newAge =</span> Age <span class="sc">+</span> <span class="dv">10</span>)</span>
+<span id="cb87-2"><a href="functions-and-pipes.html#cb87-2" aria-hidden="true" tabindex="-1"></a>metadata2<span class="sc">$</span>newAge[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 70 46 82 40 40 74 73 66 82 63</code></pre>
-<p>We can also use our <code>divide_by()</code> function we wrote:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="functions-and-pipes.html#cb88-1" aria-hidden="true" tabindex="-1"></a>divide_by <span class="ot">=</span> <span class="cf">function</span>(vec, d) {</span>
-<span id="cb88-2"><a href="functions-and-pipes.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(vec <span class="sc">/</span> d)</span>
-<span id="cb88-3"><a href="functions-and-pipes.html#cb88-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb88-4"><a href="functions-and-pipes.html#cb88-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-5"><a href="functions-and-pipes.html#cb88-5" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
-<pre><code>##  [1] 60 36 72 30 30 64 63 56 72 53</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="functions-and-pipes.html#cb90-1" aria-hidden="true" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">newAge =</span> <span class="fu">divide_by</span>(Age, <span class="dv">2</span>))</span>
-<span id="cb90-2"><a href="functions-and-pipes.html#cb90-2" aria-hidden="true" tabindex="-1"></a>metadata2<span class="sc">$</span>newAge[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
-<pre><code>##  [1] 30.0 18.0 36.0 15.0 15.0 32.0 31.5 28.0 36.0 26.5</code></pre>
 <p>or <code>medicaid_eligible()</code>:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="functions-and-pipes.html#cb92-1" aria-hidden="true" tabindex="-1"></a>medicaid_eligible <span class="ot">=</span> <span class="cf">function</span>(age) {</span>
-<span id="cb92-2"><a href="functions-and-pipes.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&lt;</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb92-3"><a href="functions-and-pipes.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&gt;=</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb92-4"><a href="functions-and-pipes.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(age)</span>
-<span id="cb92-5"><a href="functions-and-pipes.html#cb92-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb92-6"><a href="functions-and-pipes.html#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-7"><a href="functions-and-pipes.html#cb92-7" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="functions-and-pipes.html#cb89-1" aria-hidden="true" tabindex="-1"></a>medicaid_eligible <span class="ot">=</span> <span class="cf">function</span>(age) {</span>
+<span id="cb89-2"><a href="functions-and-pipes.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&lt;</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb89-3"><a href="functions-and-pipes.html#cb89-3" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&gt;=</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb89-4"><a href="functions-and-pipes.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(age)</span>
+<span id="cb89-5"><a href="functions-and-pipes.html#cb89-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb89-6"><a href="functions-and-pipes.html#cb89-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-7"><a href="functions-and-pipes.html#cb89-7" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 60 36 72 30 30 64 63 56 72 53</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="functions-and-pipes.html#cb94-1" aria-hidden="true" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">medicaid =</span> <span class="fu">medicaid_eligible</span>(Age))</span>
-<span id="cb94-2"><a href="functions-and-pipes.html#cb94-2" aria-hidden="true" tabindex="-1"></a>metadata2<span class="sc">$</span>medicaid[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="functions-and-pipes.html#cb91-1" aria-hidden="true" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">medicaid =</span> <span class="fu">medicaid_eligible</span>(Age))</span>
+<span id="cb91-2"><a href="functions-and-pipes.html#cb91-2" aria-hidden="true" tabindex="-1"></a>metadata2<span class="sc">$</span>medicaid[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 0 0 1 0 0 0 0 0 1 0</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="functions-and-pipes.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(metadata2<span class="sc">$</span>medicaid)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="functions-and-pipes.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(metadata2<span class="sc">$</span>medicaid)</span></code></pre></div>
 <pre><code>## 
 ##    0    1 
 ## 1148  348</code></pre>
 <div id="all-together-now" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> All together now</h3>
 <p>Let’s put all of our analysis together via pipes:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="functions-and-pipes.html#cb98-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="functions-and-pipes.html#cb98-2" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">select</span>(ModelID, Age, Sex) <span class="sc">%&gt;%</span></span>
-<span id="cb98-3"><a href="functions-and-pipes.html#cb98-3" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">mutate</span>(<span class="at">medicaid =</span> <span class="fu">medicaid_eligible</span>(Age))</span>
-<span id="cb98-4"><a href="functions-and-pipes.html#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-5"><a href="functions-and-pipes.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="functions-and-pipes.html#cb95-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="functions-and-pipes.html#cb95-2" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">select</span>(ModelID, Age, Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="functions-and-pipes.html#cb95-3" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">mutate</span>(<span class="at">medicaid =</span> <span class="fu">medicaid_eligible</span>(Age))</span>
+<span id="cb95-4"><a href="functions-and-pipes.html#cb95-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-5"><a href="functions-and-pipes.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
 <pre><code>##      ModelID Age    Sex medicaid
 ## 1 ACH-000017  43 Female        0
 ## 2 ACH-000019  69 Female        1
@@ -418,7 +409,7 @@ w = addFunction(10, -5)</code></pre>
 <div id="alternative-creating-and-modifying-columns-via" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Alternative: Creating and modifying columns via <code>$</code></h3>
 <p>Instead of <code>mutate()</code> function, we can also create a new or modify a column via the <code>$</code> symbol:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="functions-and-pipes.html#cb100-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>medicaid <span class="ot">=</span> <span class="fu">medicaid_eligible</span>(metadata<span class="sc">$</span>Age)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="functions-and-pipes.html#cb97-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>medicaid <span class="ot">=</span> <span class="fu">medicaid_eligible</span>(metadata<span class="sc">$</span>Age)</span></code></pre></div>
 
 </div>
 </div>
