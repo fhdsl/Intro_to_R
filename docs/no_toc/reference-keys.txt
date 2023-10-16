@@ -21,6 +21,7 @@ vectors
 using-operations-on-vectors
 subsetting-vectors-explicitly
 subsetting-vectors-implicitly
+subsetting-vs.-modifying-part-of-a-vector
 dataframes
 using-functions-and-operations-on-dataframes
 what-do-you-want-to-do-with-this-dataframe

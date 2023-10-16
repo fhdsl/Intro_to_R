@@ -224,6 +224,18 @@ age_not_90
 
 For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don't need to know what your vector contains to do something with it! This technique is related to *abstraction* in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of *hard-coding* the value explicitly, it generalizes your code to handle a wider variety of situations.
 
+### Subsetting vs. Modifying part of a vector
+
+We have seen how to subset a vector explicitly and implicitly. We can also modify part of a vector explicitly and implicitly:
+
+
+```r
+age[1:5] = c(20, 20, 30, 10, 5)
+age[age < 10] = 0
+```
+
+Notice that the `[ ]` operation for subsetting is on the left hand side of the equation now, as we want to modify part of a vector.
+
 ## Dataframes
 
 Before we dive into dataframes, check that the `tidyverse` package is properly installed by loading it in your R Console:
