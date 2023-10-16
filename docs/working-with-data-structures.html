@@ -169,6 +169,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
 <li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
 <li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vs.-modifying-part-of-a-vector"><i class="fa fa-check"></i><b>3.1.4</b> Subsetting vs. Modifying part of a vector</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
 <ul>
@@ -337,27 +338,34 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [76] 36 12 25 67 42 79 11 44 99 89 89 18 14 66 35 66 33 20 78 10 47 52</code></pre>
 <p>For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don’t need to know what your vector contains to do something with it! This technique is related to <em>abstraction</em> in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of <em>hard-coding</em> the value explicitly, it generalizes your code to handle a wider variety of situations.</p>
 </div>
+<div id="subsetting-vs.-modifying-part-of-a-vector" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Subsetting vs. Modifying part of a vector</h3>
+<p>We have seen how to subset a vector explicitly and implicitly. We can also modify part of a vector explicitly and implicitly:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="working-with-data-structures.html#cb55-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb55-2"><a href="working-with-data-structures.html#cb55-2" aria-hidden="true" tabindex="-1"></a>age[age <span class="sc">&lt;</span> <span class="dv">10</span>] <span class="ot">=</span> <span class="dv">0</span></span></code></pre></div>
+<p>Notice that the <code>[ ]</code> operation for subsetting is on the left hand side of the equation now, as we want to modify part of a vector.</p>
+</div>
 </div>
 <div id="dataframes" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Dataframes</h2>
 <p>Before we dive into dataframes, check that the <code>tidyverse</code> package is properly installed by loading it in your R Console:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="working-with-data-structures.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="working-with-data-structures.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
 <pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
 <p>Here is the data structure you have been waiting for: the <strong>dataframe</strong>. A dataframe is a spreadsheet such that each column must have the same data type. Think of a bunch of vectors organized as columns, and you get a dataframe.</p>
 <p>For the most part, we load in dataframes from a file path (although they are sometimes created by combining several vectors of the same length, but we won’t be covering that here):</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="working-with-data-structures.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
 <div id="using-functions-and-operations-on-dataframes" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Using functions and operations on dataframes</h3>
 <p>We can run some useful functions on dataframes to get some useful properties, similar to how we used <code>length()</code> for vectors:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="working-with-data-structures.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="working-with-data-structures.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(metadata)</span></code></pre></div>
 <pre><code>## [1] 1864</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="working-with-data-structures.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(metadata)</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="working-with-data-structures.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
 <pre><code>## [1] 1864   30</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="working-with-data-structures.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="working-with-data-structures.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metadata)</span></code></pre></div>
 <pre><code>##  [1] &quot;ModelID&quot;                &quot;PatientID&quot;              &quot;CellLineName&quot;          
 ##  [4] &quot;StrippedCellLineName&quot;   &quot;Age&quot;                    &quot;SourceType&quot;            
 ##  [7] &quot;SangerModelID&quot;          &quot;RRID&quot;                   &quot;DepmapModelType&quot;       
@@ -370,13 +378,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [28] &quot;OncotreeSubtype&quot;        &quot;OncotreePrimaryDisease&quot; &quot;OncotreeLineage&quot;</code></pre>
 <p>The last function, <code>colnames()</code> returns a character vector of the column names of the dataframe. This is an important property of dataframes that we will make use of to subset on it.</p>
 <p>We introduce an operation for dataframes: the <code>dataframe$column_name</code> operation selects for a column by its column name and returns the column as a vector. For instance:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="working-with-data-structures.html#cb68-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="working-with-data-structures.html#cb69-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Ovary/Fallopian Tube&quot; &quot;Myeloid&quot;              &quot;Bowel&quot;               
 ## [4] &quot;Myeloid&quot;              &quot;Myeloid&quot;</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="working-with-data-structures.html#cb70-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="working-with-data-structures.html#cb71-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 60 36 72 30 30</code></pre>
 <p>We treat the resulting value as a vector, so we can perform implicit subsetting:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="working-with-data-structures.html#cb72-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Myeloid&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="working-with-data-structures.html#cb73-1" aria-hidden="true" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Myeloid&quot;</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
 ##  [8] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
 ## [15] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
@@ -403,9 +411,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
 <p>(This is because we are guaranteed to have column names in dataframes. Some dataframes have row names, but because the data types are not guranteed to have the same data type, it makes describing by row properties difficult.)</p>
 <p>Let’s convert this into code!</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="working-with-data-structures.html#cb74-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb74-2"><a href="working-with-data-structures.html#cb74-2" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb74-3"><a href="working-with-data-structures.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="working-with-data-structures.html#cb75-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
+<span id="cb75-2"><a href="working-with-data-structures.html#cb75-2" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb75-3"><a href="working-with-data-structures.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
 <pre><code>##      ModelID Age    Sex
 ## 1 ACH-000017  43 Female
 ## 2 ACH-000019  69 Female
