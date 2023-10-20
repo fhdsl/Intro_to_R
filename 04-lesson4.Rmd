@@ -1,14 +1,15 @@
 # Data wrangling with Tidy data
 
+```{r, echo=F, message=F, warning=F, error=F}
+install.packages("palmerpenguins")
+```
+
 ## Datasets within DepMap Project
 
 The [Dependency Map project](https://depmap.org/portal/) is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access.
 
 -   Metadata
 
-```{=html}
-<!-- -->
-```
 -   Somatic mutations
 
 -   Gene expression
@@ -52,7 +53,7 @@ load(url("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData
 ```
 
 | Dataframe  | The observation is | Some variables are            | Some values are             |
-|-----------------|-----------------|--------------------|------------------|
+|------------------|------------------|--------------------|------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
 | expression |                    |                               |                             |
 | mutation   |                    |                               |                             |
