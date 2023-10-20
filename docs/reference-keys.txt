@@ -21,7 +21,6 @@ vectors
 using-operations-on-vectors
 subsetting-vectors-explicitly
 subsetting-vectors-implicitly
-subsetting-vs.-modifying-part-of-a-vector
 dataframes
 using-functions-and-operations-on-dataframes
 what-do-you-want-to-do-with-this-dataframe
@@ -39,4 +38,15 @@ exercises-1
 modifying-and-creating-new-columns-in-dataframes
 all-together-now
 alternative-creating-and-modifying-columns-via
+data-wrangling-with-tidy-data
+datasets-within-depmap-project
+data-science-workflow
+describing-a-tidy-dataset
+examples-of-tidy-data
+transform
+the-rows-and-columns-i-need-can-be-subsetted-from-the-dataframe.
+the-column-i-want-is-an-operation-or-function-of-other-columns-i-already-have-in-the-dataframe.
+the-columns-that-i-need-are-in-two-different-dataframes-with-a-common-column.-the-rows-observations-of-both-dataframes-represent-the-same-thing.
+the-rows-i-want-is-described-by-a-column.-the-columns-i-want-need-to-be-summarized-from-other-columns.
+tidy-data-tutor
 references
