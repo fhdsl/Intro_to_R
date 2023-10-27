@@ -215,8 +215,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data.html"><a href="data-wrangling-with-tidy-data.html#tidy-data-tutor"><i class="fa fa-check"></i><b>5.5</b> Tidy Data Tutor</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>6</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualization.html"><a href="data-visualization.html#common-plots"><i class="fa fa-check"></i><b>6.1</b> Common Plots</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization.html"><a href="data-visualization.html#univariate"><i class="fa fa-check"></i><b>6.1.1</b> Univariate</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization.html"><a href="data-visualization.html#bivariate"><i class="fa fa-check"></i><b>6.1.2</b> Bivariate</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>6.2</b> Grammar of Graphics</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>6.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>6.2.2</b> Bar plots</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>6.2.4</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot-1"><i class="fa fa-check"></i><b>6.2.5</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>6.2.6</b> Line plot?</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>6.2.7</b> Grouped Line plot?</a></li>
+<li class="chapter" data-level="6.2.8" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>6.2.8</b> Boxplot</a></li>
+<li class="chapter" data-level="6.2.9" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>6.2.9</b> Grouped Boxplot</a></li>
+<li class="chapter" data-level="6.2.10" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>6.2.10</b> Some additional options</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>6.3</b> Summary of options</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -363,15 +385,15 @@ w = addFunction(10, -5)</code></pre>
 <span id="cb80-2"><a href="functions-and-pipes.html#cb80-2" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="functions-and-pipes.html#cb81-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
 <p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
-<pre><code>result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
+<pre><code>result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
 <p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>
 <p>To make this more readable, programmers came up with an alternative syntax for function composition via the <strong>pipe</strong> metaphor. The ideas is that we push data through a chain of connected pipes, in which the output of a pipe becomes the input of the subsequent pipe.</p>
-<p>Instead of a syntax like <code>result2 = function1(function2(function3(dataframe)))</code>,</p>
+<p>Instead of a syntax like <code>result2 = function3(function2(function1(dataframe)))</code>,</p>
 <p>we linearize it with the <code>%&gt;%</code> symbol: <code>result2 = dataframe %&gt;% function1 %&gt;% function2 %&gt;% function3</code>.</p>
 <p>In the previous example,</p>
-<pre><code>result = function1(df_col5, arg1) %&gt;%
+<pre><code>result = dataframe %&gt;% function1(df_col4, df_col2) %&gt;%
          function2(arg2) %&gt;%
-         function3(df_col4, df_col2)</code></pre>
+         function3(df_col5, arg1)</code></pre>
 <p>Looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.</p>
 <div id="exercises-1" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Exercises</h3>
