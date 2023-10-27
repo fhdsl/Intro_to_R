@@ -4,6 +4,11 @@
 install.packages("palmerpenguins")
 ```
 
+```{r, echo=F, message=F, warning=F, error=F}
+library(tidyverse)
+library(palmerpenguins)
+```
+
 ## Common Plots
 
 ### Univariate
