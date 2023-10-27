@@ -1,0 +1,153 @@
+# Data Visualization
+
+```{r, echo=F, message=F, warning=F, error=F}
+install.packages("palmerpenguins")
+```
+
+## Common Plots
+
+### Univariate
+
+-   Numeric: histogram
+
+-   Character: bar plots
+
+### Bivariate
+
+-   Numeric vs. Numeric: Scatterplot, line plot
+
+-   Numeric vs. Character: Box plot
+
+Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.
+
+![Source: <https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml>](https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png)
+
+## Grammar of Graphics
+
+The syntax of the grammar of graphics breaks down into 4 sections.
+
+[Data]{style="color:orange"}
+
+[Mapping to data]{style="color:green"}
+
+[Geometry]{style="color:blue"}
+
+[Additional settings]{style="color:purple"}
+
+### Histogram
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram()]{style="color:blue"} + [theme_bw()]{style="color:purple"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram() + theme_bw()
+```
+
+With options:
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram(binwidth = 5)]{style="color:blue"} + [theme_bw()]{style="color:purple"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram(binwidth = 5) + theme_bw()
+```
+
+### Bar plots
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = species)]{style="color:green"} + [geom_bar()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = species) + geom_bar()
+```
+
+### Scatterplot
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_point()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_point()
+```
+
+### Multivaraite Scatterplot
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm, color = species) + geom_point()
+```
+
+### Multivaraite Scatterplot
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_point()]{style="color:blue"} + [facet_wrap(\~species)]{style="color:purple"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_point() + facet_wrap(~species)
+```
+
+### Line plot?
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_line()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_line()
+```
+
+### Grouped Line plot?
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, group = species)]{style="color:green"} + [geom_line()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm, group = species) + geom_line()
+```
+
+### Boxplot
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = species, y = bill_depth_mm) + geom_boxplot()
+```
+
+### Grouped Boxplot
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = species, y = bill_depth_mm, color = island) + geom_boxplot()
+```
+
+### Some additional options
+
+[ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60))]{style="color:purple"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(data = penguins) + geom_point(mapping = aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60))
+```
+
+## Summary of options
+
+[data]{style="color:orange"}
+
+\
+[geom_point]{style="color:blue"}: [x, y, color, shape]{style="color:green"}
+
+[geom_line]{style="color:blue"}: [x, y, group, color]{style="color:green"}
+
+[geom_histogram]{style="color:blue"}: [x, y, fill]{style="color:green"}
+
+[geom_bar]{style="color:blue"}: [x, fill]{style="color:green"}
+
+[geom_boxplot]{style="color:blue"}: [x, y, fill, color]{style="color:green"}
+
+\
+[facet_wrap]{style="color:purple"}
+
+\
+[labs]
+
+[scale_x_continuous]{style="color:purple"}
+
+[scale_y_continuous]{style="color:purple"}
+
+[scale_x_discrete]{style="color:purple"}
+
+[scale_y_discrete]{style="color:purple"}
+

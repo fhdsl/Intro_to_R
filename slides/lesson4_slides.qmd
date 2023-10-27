@@ -1,0 +1,279 @@
+---
+title: "W4: Pipes and Data Wrangling"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+---
+
+## Pipes and Data Wrangling
+
+![](../images/Intro_To_R_2.png)
+
+## Code readability
+
+When combining multiple functions in one expression, it gets harder to read: 😬
+
+. . .
+
+```{r}
+#| echo: false
+library(tidyverse)
+load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+```
+
+```{r}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+```
+
+. . .
+
+Or, this: 🤨
+
+```         
+result2 = function3(function2(function1(dataframe)))
+```
+
+. . .
+
+Or... 🤕
+
+```         
+result = function3(function2(function1(dataframe), arg2), arg_x, arg_y)
+```
+
+
+## Pipes to make nested functions readable
+
+. . .
+
+```
+result2 = function3(function2(function1(dataframe)))
+
+result2 = dataframe %>% function1 %>% function2 %>% function3
+```
+
+. . .
+
+</br>
+
+```         
+result = function3(function2(function1(dataframe), arg2), arg_x, arg_y)
+
+result = dataframe %>% function1() %>%
+         function2(arg2) %>%
+         function3(arg_x, arg_y)
+```
+
+</br>
+
+. . .
+
+```{r}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+```
+
+. . .
+
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                               select(ModelID, Age, Sex)
+```
+
+🤠
+
+
+## Data Science Workflow
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="300"}
+
+. . .
+
+We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
+
+## Describing a tidy dataset
+
+**Tidy data** is a standard of organizing data:
+
+. . .
+
+1.    Each variable is a column; each column is a variable.
+
+2.    Each observation is a row; each row is an observation.
+
+3.    Each value is a cell; each cell is a single value.
+
+. . .
+
+![](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
+
+
+## Dependency Map Project
+
+<https://depmap.org/>
+
+
+## Transform: `select`, `filter`, `mutate`
+
+*"The rows and columns I need can be subsetted from the dataframe."*
+
+. . .
+
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                             select(ModelID, Age, Sex)
+```
+
+. . .
+
+*"The column I want is an operation or function of other columns I already have in the dataframe."*
+
+. . .
+
+```{r}
+expression = expression %>% mutate(log_PIK3CA_Exp = log(PIK3CA_Exp))
+#or
+expression$log_PIK3CA_Exp = log(expression$PIK3CA_Exp)
+```
+
+## Transform: `_join`
+
+. . .
+
+`expression`
+
+| ModelID      | PIK3CA_Exp | log_PIK3CA_Exp |
+|--------------|------------|----------------|
+| "ACH-001113" | 5.138733   | 1.636806       |
+| "ACH-001289" | 3.184280   | 1.158226       |
+| "ACH-001339" | 3.165108   | 1.152187       |
+
+. . .
+
+`metadata`
+
+| ModelID      | OncotreeLineage | Age |
+|--------------|-----------------|-----|
+| "ACH-001113" | "Lung"          | 69  |
+| "ACH-001289" | "CNS/Brain"     | NA  |
+| "ACH-001339" | "Skin"          | 14  |
+
+. . .
+
+I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
+
+| ModelID      | PIK3CA_Exp | log_PIK3CA_Exp | OncotreeLineage | Age |
+|--------------|------------|----------------|-----------------|-----|
+| "ACH-001113" | 5.138733   | 1.636806       | "Lung"          | 69  |
+| "ACH-001289" | 3.184280   | 1.158226       | "CNS/Brain"     | NA  |
+| "ACH-001339" | 3.165108   | 1.152187       | "Skin"          | 14  |
+
+## Transform: `_join`
+
+We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
+
+```{r}
+merged = full_join(metadata, expression, by = "ModelID")
+```
+
+. . .
+
+Let's take a look at the dimensions:
+
+. . .
+
+```{r}
+dim(metadata)
+```
+
+. . .
+
+```{r}
+dim(expression)
+```
+
+. . .
+
+```{r}
+dim(merged)
+```
+
+. . .
+
+`full_join()` keeps all observations common to both dataframes based on the common column defined via the `by` argument.
+
+. . .
+
+Therefore, we expect to see `NA` values in `merged`, as there are some cell lines that are not in `expression` dataframe.
+
+## Transform: `_join` variations
+
+![](../images/join.png)
+
+. . .
+
+Given `xxx_join(x, y, by = "common_col")`,
+
+-   `full_join()` keeps all observations.
+
+-   `left_join()` keeps all observations in `x`.
+
+-   `right_join()` keeps all observations in `y`.
+
+-   `inner_join()` keeps observations common to both `x` and `y`.
+
+## `group_by` and `summarise`
+
+. . .
+
+| ModelID      | OncotreeLineage | Age |
+|--------------|-----------------|-----|
+| "ACH-001113" | "Lung"          | 69  |
+| "ACH-001289" | "Lung"          | 23  |
+| "ACH-001339" | "Skin"          | 14  |
+| "ACH-002342" | "Brain"         | 23  |
+| "ACH-004854" | "Brain"         | 56  |
+| "ACH-002921" | "Brain"         | 67  |
+
+. . .
+
+Desired rows: cancer subtype.
+
+Desired columns: mean age.
+
+| OncotreeLineage | MeanAge | Count |
+|-----------------|---------|-------|
+| "Lung"          | 46      | 2     |
+| "Skin"          | 14      | 1     |
+| "Brain"         | 48.67   | 3     |
+
+. . .
+
+*The rows I want is described by a column. The columns I want need to be summarized from other columns.*
+
+
+## `group_by` and `summarise`
+
+
+```{r}
+metadata_grouped = group_by(metadata, OncotreeLineage)
+metadata_type = summarise(metadata_grouped, MeanAge = mean(Age, na.rm = TRUE), Count = n())
+```
+
+. . .
+
+With pipes:
+
+```{r}
+metadata_by_type = metadata %>% 
+                   group_by(OncotreeLineage) %>% 
+                   summarise(MeanAge = mean(Age, na.rm = TRUE),
+                             Count = n())
+```
+
+. . .
+
+```{r}
+head(metadata_type)
+```

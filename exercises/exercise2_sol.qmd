@@ -38,15 +38,16 @@ Using comparison operators, write 3 expressions so that the returned value is `T
 
 ```{r}
 staff1 != "jeff"
-
-
+staff1 == "chris"
+chr3 == 1
 ```
 
 Using comparison operators, write 3 expressions so that the returned value is `FALSE`:
 
 ```{r}
 chr1 > 2
-
+chr3 == 0
+chr3 > 1000
 
 ```
 
@@ -76,7 +77,10 @@ Similarly, the "or" `|` operator returns `TRUE` if at least one of the inputs ar
 Using `a`, `b`, `c`, `d` as before, apply them to the `|` operator and see what you get.
 
 ```{r}
-
+a | b
+c | d
+a | c
+b | d
 
 
 
@@ -104,7 +108,7 @@ age = round(runif(100, 1, 100)) #don't worry about these functions
 Create a compound comparison operation that looks returns a logical vector so that the elements are `TRUE` if `age` is between 18 and 65.
 
 ```{r}
-
+age > 18 & age < 65
 ```
 
 ## Part 2: Subsetting vectors
@@ -112,13 +116,13 @@ Create a compound comparison operation that looks returns a logical vector so th
 Let's practice explicit subsetting. Can you subset for the first 20 elements of `age`?
 
 ```{r}
-
+age[1:20]
 ```
 
 Now, on to implicit subsetting. Can you subset for all `age` greater than 65?
 
 ```{r}
-
+age[age > 65]
 ```
 
 We will now look at subsetting using compound comparison operators: We will subset for ages between 18 and 22 in two ways:
@@ -126,32 +130,34 @@ We will now look at subsetting using compound comparison operators: We will subs
 Method 1: first, create a logical indexing vector via compound comparison operators that gives `TRUE` if `age` is between 18 and 22 and `FALSE` otherwise. You should use the `&` operator.
 
 ```{r}
-
+vec = age > 18 & age < 22
 ```
 
 Then, subset `age` by your indexing vector and store it as a new variable called `college_age`.
 
 ```{r}
-
+college_age = age[vec]
 ```
 
 Method 2: can you do all of this in one expression and store it as a variable called `college_age_also`? ie. write it so that you don't store your indexing vector as a variable in the environment. I have given a hint in the code comment below:
 
 ```{r}
-#college_age_also = college_age[compound_comparision_operator_goes_here]
+#college_age_also = age[compound_comparision_operator_goes_here]
+
+college_age_also = age[age > 18 & age < 22]
 ```
 
 Check the lengths of `college_age` and `college_age_also`. Are they the same?
 
 ```{r}
-
-
+length(college_age)
+length(college_age_also)
 ```
 
 Confirm that the elements of the two vectors are all identical by using the comparison operation `==` on `college_age` and `college_age_also`: type in `college_age == college_age_also`. What is the resulting data structure? Does it make sense to you? This is another example of **operator overloading**: we have seen how comparison operators work for single data types, how comparison operators work between vectors and a single data type, and now we see how comparison operators work for two vectors of the same length.
 
 ```{r}
-
+college_age == college_age_also
 ```
 
 What you have just done is to make sure that two slightly different method of computation resulted in the same vector of same length and values. This kind of validation as you try different ways to solve problems is fundamental to programming: we write testing code to make sure what we are programming is doing what we expect it to do.
@@ -179,25 +185,33 @@ Formulate a new question for the dataset, this time using a compound comparison 
 
 Your scientific question:
 
+Filter: Myeloid cancers,
+
+Select: treatment and growth pattern
+
 Method 1:
 
 ```{r}
-
-
+metadata_filtered = filter(metadata, OncotreeLineage == "Myeloid")
+myeloid_metadata = select(metadata_filtered, ModelID, TreatmentStatus, GrowthPattern)
 ```
 
 Method 2:
 
 ```{r}
 
-
+result = select(filter(metadata, OncotreeLineage == "Myeloid"), ModelID, TreatmentStatus, GrowthPattern)
 ```
 
 Let's check that Method 1 and 2 are doing the same thing. Run `ncol()` and `nrow()` to compare, and any other useful functions you think of.
 
 ```{r}
 
+nrow(myeloid_metadata)
+ncol(myeloid_metadata)
 
+nrow(result)
+ncol(result)
 ```
 
 ## Optional: Summary statistics
