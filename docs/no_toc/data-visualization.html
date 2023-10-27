@@ -349,12 +349,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="grouped-boxplot" class="section level3" number="6.2.9">
 <h3><span class="header-section-number">6.2.9</span> Grouped Boxplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm)</span> + <span style="color:blue">geom_boxplot()</span></p>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm, color = island)</span> + <span style="color:blue">geom_boxplot()</span></p>
 <p><img src="05-lesson5_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="some-additional-options" class="section level3" number="6.2.10">
 <h3><span class="header-section-number">6.2.10</span> Some additional options</h3>
-<p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60))</span></p>
+<p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60))</span></p>
 <p><img src="05-lesson5_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 </div>
@@ -370,11 +370,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><br />
 <span style="color:purple">facet_wrap</span></p>
 <p><br />
-[labs]</p>
+<span style="color:purple">labs</span></p>
 <p><span style="color:purple">scale_x_continuous</span></p>
 <p><span style="color:purple">scale_y_continuous</span></p>
 <p><span style="color:purple">scale_x_discrete</span></p>
 <p><span style="color:purple">scale_y_discrete</span></p>
+<p>Consider the <code>esquisse</code> package to help generate your ggplot code via drag and drop.</p>
 
 </div>
 </div>
