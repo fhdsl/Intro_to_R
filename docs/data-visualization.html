@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 References | Introduction to R, Season 1</title>
-  <meta name="description" content="Chapter 7 References | Introduction to R, Season 1" />
+  <title>Chapter 6 Data Visualization | Introduction to R, Season 1</title>
+  <meta name="description" content="Chapter 6 Data Visualization | Introduction to R, Season 1" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 References | Introduction to R, Season 1" />
+  <meta property="og:title" content="Chapter 6 Data Visualization | Introduction to R, Season 1" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 References | Introduction to R, Season 1" />
+  <meta name="twitter:title" content="Chapter 6 Data Visualization | Introduction to R, Season 1" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="about-the-authors.html"/>
-
+<link rel="prev" href="data-wrangling-with-tidy-data.html"/>
+<link rel="next" href="about-the-authors.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -273,9 +273,110 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="references" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> References</h1>
+<div id="data-visualization" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Visualization</h1>
+<div id="common-plots" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Common Plots</h2>
+<div id="univariate" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Univariate</h3>
+<ul>
+<li><p>Numeric: histogram</p></li>
+<li><p>Character: bar plots</p></li>
+</ul>
+</div>
+<div id="bivariate" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Bivariate</h3>
+<ul>
+<li><p>Numeric vs. Numeric: Scatterplot, line plot</p></li>
+<li><p>Numeric vs. Character: Box plot</p></li>
+</ul>
+<p>Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.</p>
+<div class="figure">
+<img src="https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png" alt="" />
+<p class="caption">Source: <a href="https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml" class="uri">https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml</a></p>
+</div>
+</div>
+</div>
+<div id="grammar-of-graphics" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Grammar of Graphics</h2>
+<p>The syntax of the grammar of graphics breaks down into 4 sections.</p>
+<p><span style="color:orange">Data</span></p>
+<p><span style="color:green">Mapping to data</span></p>
+<p><span style="color:blue">Geometry</span></p>
+<p><span style="color:purple">Additional settings</span></p>
+<div id="histogram" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Histogram</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram()</span> + <span style="color:purple">theme_bw()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>With options:</p>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram(binwidth = 5)</span> + <span style="color:purple">theme_bw()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="bar-plots" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Bar plots</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species)</span> + <span style="color:blue">geom_bar()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="scatterplot" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Scatterplot</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="multivaraite-scatterplot" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Multivaraite Scatterplot</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="multivaraite-scatterplot-1" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Multivaraite Scatterplot</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">facet_wrap(~species)</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="line-plot" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Line plot?</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_line()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="grouped-line-plot" class="section level3" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Grouped Line plot?</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, group = species)</span> + <span style="color:blue">geom_line()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="boxplot" class="section level3" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> Boxplot</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm)</span> + <span style="color:blue">geom_boxplot()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="grouped-boxplot" class="section level3" number="6.2.9">
+<h3><span class="header-section-number">6.2.9</span> Grouped Boxplot</h3>
+<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm)</span> + <span style="color:blue">geom_boxplot()</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="some-additional-options" class="section level3" number="6.2.10">
+<h3><span class="header-section-number">6.2.10</span> Some additional options</h3>
+<p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60))</span></p>
+<p><img src="05-lesson5_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="summary-of-options" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Summary of options</h2>
+<p><span style="color:orange">data</span></p>
+<p><br />
+<span style="color:blue">geom_point</span>: <span style="color:green">x, y, color, shape</span></p>
+<p><span style="color:blue">geom_line</span>: <span style="color:green">x, y, group, color</span></p>
+<p><span style="color:blue">geom_histogram</span>: <span style="color:green">x, y, fill</span></p>
+<p><span style="color:blue">geom_bar</span>: <span style="color:green">x, fill</span></p>
+<p><span style="color:blue">geom_boxplot</span>: <span style="color:green">x, y, fill, color</span></p>
+<p><br />
+<span style="color:purple">facet_wrap</span></p>
+<p><br />
+[labs]</p>
+<p><span style="color:purple">scale_x_continuous</span></p>
+<p><span style="color:purple">scale_y_continuous</span></p>
+<p><span style="color:purple">scale_x_discrete</span></p>
+<p><span style="color:purple">scale_y_discrete</span></p>
 
+</div>
 </div>
 <hr>
 <center> 
@@ -291,8 +392,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="about-the-authors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-wrangling-with-tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

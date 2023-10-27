@@ -28,11 +28,11 @@ We are now equipped with enough fundamental programming skills to apply it to va
 
 Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of **tidy data**, developed by Hadley Wickham:
 
-1.  Each variable must have its own column.
+1.  Each variable is a column; each column is a variable.
 
-2.  Each observation must have its own row.
+2.  Each observation is a row; each row is an observation.
 
-3.  Each value must have its own cell.
+3.  Each value is a cell; each cell is a single value.
 
 If you want to be technical about what variables and observations are, Hadley Wickham describes:
 
@@ -67,7 +67,7 @@ load(url("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData
 ```
 
 | Dataframe  | The observation is | Some variables are            | Some values are             |
-|------------------|------------------|--------------------|------------------|
+|------------------|------------------|-------------------|------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
 | expression |                    |                               |                             |
 | mutation   |                    |                               |                             |
@@ -76,7 +76,7 @@ load(url("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData
 
 ## Transform
 
-When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perforom our analysis and visualization. Here are some common transformation tasks:
+When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perform our analysis and visualization. Here are some common transformation tasks:
 
 ### "The rows and columns I need can be subsetted from the dataframe."
 
@@ -187,7 +187,7 @@ Given `xxx_join(x, y, by = "common_col")`,
 
 ### "The rows I want is described by a column. The columns I want need to be summarized from other columns."
 
-In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in `metadata`, the observation is cell lines. However, perhaps we want to understand properties of `metadata` in which the observation is the cancer type, `OncotreeLineage`. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type. This is a scenario in which the *desired rows are described by a column*, `OncotreeLineage`, and the columns, such as mean age, need to be summarized from other columns.
+In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in `metadata`, the observation is cell lines. However, perhaps we want to understand properties of `metadata` in which the observation is the cancer type, `OncotreeLineage`. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type. This is a scenario in which the *desired rows are described by a column*, `OncotreeLineage`, and the columns, such as mean age, need to be *summarized from other columns.*
 
 As an example, this dataframe is transformed from:
 

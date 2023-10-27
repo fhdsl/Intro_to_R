@@ -30,7 +30,7 @@
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="functions-and-pipes.html"/>
-<link rel="next" href="about-the-authors.html"/>
+<link rel="next" href="data-visualization.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -215,8 +215,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data.html"><a href="data-wrangling-with-tidy-data.html#tidy-data-tutor"><i class="fa fa-check"></i><b>5.5</b> Tidy Data Tutor</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>6</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualization.html"><a href="data-visualization.html#common-plots"><i class="fa fa-check"></i><b>6.1</b> Common Plots</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization.html"><a href="data-visualization.html#univariate"><i class="fa fa-check"></i><b>6.1.1</b> Univariate</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization.html"><a href="data-visualization.html#bivariate"><i class="fa fa-check"></i><b>6.1.2</b> Bivariate</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>6.2</b> Grammar of Graphics</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>6.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>6.2.2</b> Bar plots</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>6.2.4</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot-1"><i class="fa fa-check"></i><b>6.2.5</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>6.2.6</b> Line plot?</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>6.2.7</b> Grouped Line plot?</a></li>
+<li class="chapter" data-level="6.2.8" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>6.2.8</b> Boxplot</a></li>
+<li class="chapter" data-level="6.2.9" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>6.2.9</b> Grouped Boxplot</a></li>
+<li class="chapter" data-level="6.2.10" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>6.2.10</b> Some additional options</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>6.3</b> Summary of options</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -274,9 +296,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.3</span> Describing a tidy dataset</h2>
 <p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
 <ol style="list-style-type: decimal">
-<li><p>Each variable must have its own column.</p></li>
-<li><p>Each observation must have its own row.</p></li>
-<li><p>Each value must have its own cell.</p></li>
+<li><p>Each variable is a column; each column is a variable.</p></li>
+<li><p>Each observation is a row; each row is an observation.</p></li>
+<li><p>Each value is a cell; each cell is a single value.</p></li>
 </ol>
 <p>If you want to be technical about what variables and observations are, Hadley Wickham describes:</p>
 <blockquote>
@@ -295,11 +317,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-wrangling-with-tidy-data.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb101-2"><a href="data-wrangling-with-tidy-data.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
-<table>
+<table style="width:100%;">
 <colgroup>
 <col width="24%" />
 <col width="24%" />
-<col width="27%" />
+<col width="26%" />
 <col width="24%" />
 </colgroup>
 <thead>
@@ -347,7 +369,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="transform" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Transform</h2>
-<p>When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perforom our analysis and visualization. Here are some common transformation tasks:</p>
+<p>When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perform our analysis and visualization. Here are some common transformation tasks:</p>
 <div id="the-rows-and-columns-i-need-can-be-subsetted-from-the-dataframe." class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> “The rows and columns I need can be subsetted from the dataframe.”</h3>
 <p>We use <code>filter()</code> and <code>select()</code> as we have learned already.</p>
@@ -478,7 +500,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="the-rows-i-want-is-described-by-a-column.-the-columns-i-want-need-to-be-summarized-from-other-columns." class="section level3" number="5.4.4">
 <h3><span class="header-section-number">5.4.4</span> “The rows I want is described by a column. The columns I want need to be summarized from other columns.”</h3>
-<p>In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in <code>metadata</code>, the observation is cell lines. However, perhaps we want to understand properties of <code>metadata</code> in which the observation is the cancer type, <code>OncotreeLineage</code>. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type. This is a scenario in which the <em>desired rows are described by a column</em>, <code>OncotreeLineage</code>, and the columns, such as mean age, need to be summarized from other columns.</p>
+<p>In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in <code>metadata</code>, the observation is cell lines. However, perhaps we want to understand properties of <code>metadata</code> in which the observation is the cancer type, <code>OncotreeLineage</code>. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type. This is a scenario in which the <em>desired rows are described by a column</em>, <code>OncotreeLineage</code>, and the columns, such as mean age, need to be <em>summarized from other columns.</em></p>
 <p>As an example, this dataframe is transformed from:</p>
 <table>
 <thead>
@@ -579,7 +601,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="functions-and-pipes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

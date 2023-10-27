@@ -129,23 +129,23 @@ breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID,
 This is a bit hard to read. A computer doesn't care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:
 
 ```         
-result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
+result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
 ```
 
 To untangle this, you have to look into the middle of this code, and slowly step out of it.
 
 To make this more readable, programmers came up with an alternative syntax for function composition via the **pipe** metaphor. The ideas is that we push data through a chain of connected pipes, in which the output of a pipe becomes the input of the subsequent pipe.
 
-Instead of a syntax like `result2 = function1(function2(function3(dataframe)))`,
+Instead of a syntax like `result2 = function3(function2(function1(dataframe)))`,
 
 we linearize it with the `%>%` symbol: `result2 = dataframe %>% function1 %>% function2 %>% function3`.
 
 In the previous example,
 
 ```         
-result = function1(df_col5, arg1) %>%
+result = dataframe %>% function1(df_col4, df_col2) %>%
          function2(arg2) %>%
-         function3(df_col4, df_col2)
+         function3(df_col5, arg1)
 ```
 
 Looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.
