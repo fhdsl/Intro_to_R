@@ -90,13 +90,13 @@ With options:
 
 ### Grouped Boxplot
 
-[ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
+[ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm, color = island)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
 
 ![](05-lesson5_files/figure-docx/unnamed-chunk-12-1.png)<!-- -->
 
 ### Some additional options
 
-[ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60))]{style="color:purple"}
+[ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} + [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60))]{style="color:purple"}
 
 ![](05-lesson5_files/figure-docx/unnamed-chunk-13-1.png)<!-- -->
 
@@ -119,7 +119,7 @@ With options:
 [facet_wrap]{style="color:purple"}
 
 \
-[labs]
+[labs]{style="color:purple"}
 
 [scale_x_continuous]{style="color:purple"}
 
@@ -128,4 +128,7 @@ With options:
 [scale_x_discrete]{style="color:purple"}
 
 [scale_y_discrete]{style="color:purple"}
+
+Consider the `esquisse` package to help generate your ggplot code via drag and drop. 
+
 
