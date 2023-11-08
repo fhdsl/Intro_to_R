@@ -1,0 +1,61 @@
+---
+title: "Final class"
+format: revealjs
+editor: visual
+---
+
+## Last class!
+
+![](images/Intro_To_R_2.png)
+
+## What's next?
+
+-   Stickers!
+
+    -   Record your presence, add it to the wall of DaSL students
+
+    -   Designed stickers coming soon, write down your mailing address in survey
+
+. . .
+
+-   Certification of course completion
+
+## Working on your own projects
+
+-   Download and install R and RStudio
+
+. . .
+
+-   Install and load relevant packages
+
+    -   `install.packages("tidyverse")`
+
+    -   `library(tidyverse)`
+
+. . .
+
+-   Loading your own data in: R for Data Science has a great section on it.
+
+## Continuing your education
+
+-   Reference texts:
+
+    -   [Hands-on Programming with R, by Garrett Grolemund](https://rstudio-education.github.io/hopr/)
+
+    -   [R for Data Science, by Hadley Wickham](https://r4ds.hadley.nz/)
+
+. . .
+
+-   DaSL Data House Calls
+
+. . .
+
+-   Future course offerings:
+
+    -   Intermediate R
+
+    -   Scaling your analysis on the cluster
+
+## Please fill out survey!
+
+It makes a huge difference for us.
