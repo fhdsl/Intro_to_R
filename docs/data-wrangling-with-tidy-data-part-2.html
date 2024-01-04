@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Visualization | Introduction to R, Season 2</title>
-  <meta name="description" content="Chapter 6 Data Visualization | Introduction to R, Season 2" />
+  <title>Chapter 5 Data Wrangling with Tidy Data, Part 2 | Introduction to R, Season 2</title>
+  <meta name="description" content="Chapter 5 Data Wrangling with Tidy Data, Part 2 | Introduction to R, Season 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Visualization | Introduction to R, Season 2" />
+  <meta property="og:title" content="Chapter 5 Data Wrangling with Tidy Data, Part 2 | Introduction to R, Season 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Visualization | Introduction to R, Season 2" />
+  <meta name="twitter:title" content="Chapter 5 Data Wrangling with Tidy Data, Part 2 | Introduction to R, Season 2" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="data-wrangling-with-tidy-data-part-2.html"/>
-<link rel="next" href="about-the-authors.html"/>
+<link rel="prev" href="data-wrangling-with-tidy-data-part-1.html"/>
+<link rel="next" href="data-visualization.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -272,110 +272,313 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="data-visualization" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Data Visualization</h1>
-<div id="common-plots" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Common Plots</h2>
-<div id="univariate" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Univariate</h3>
+<div id="data-wrangling-with-tidy-data-part-2" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data Wrangling with Tidy Data, Part 2</h1>
+<div id="datasets-within-depmap-project" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Datasets within DepMap Project</h2>
+<p>The <a href="https://depmap.org/portal/">Dependency Map project</a> is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access.</p>
 <ul>
-<li><p>Numeric: histogram</p></li>
-<li><p>Character: bar plots</p></li>
+<li><p>Metadata</p></li>
+<li><p>Somatic mutations</p></li>
+<li><p>Gene expression</p></li>
+<li><p>Drug sensitivity</p></li>
+<li><p>CRISPR knockout</p></li>
+<li><p>and more…</p></li>
 </ul>
 </div>
-<div id="bivariate" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Bivariate</h3>
-<ul>
-<li><p>Numeric vs. Numeric: Scatterplot, line plot</p></li>
-<li><p>Numeric vs. Character: Box plot</p></li>
-</ul>
-<p>Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.</p>
+<div id="data-science-workflow" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Data Science Workflow</h2>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" /></p>
+<p>We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “tidy format”. First, we need to understand what it means for a data to be “tidy”.</p>
+</div>
+<div id="describing-a-tidy-dataset" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Describing a tidy dataset</h2>
+<p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
+<ol style="list-style-type: decimal">
+<li><p>Each variable is a column; each column is a variable.</p></li>
+<li><p>Each observation is a row; each row is an observation.</p></li>
+<li><p>Each value is a cell; each cell is a single value.</p></li>
+</ol>
+<p>If you want to be technical about what variables and observations are, Hadley Wickham describes:</p>
+<blockquote>
+<p>A <strong>variable</strong> contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across attributes.</p>
+</blockquote>
 <div class="figure">
-<img src="https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png" alt="" />
-<p class="caption">Source: <a href="https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml" class="uri">https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml</a></p>
+<img src="https://r4ds.hadley.nz/images/tidy-1.png" width="800" alt="" />
+<p class="caption">A tidy dataframe.</p>
+</div>
+<div id="examples-of-tidy-data" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Examples of Tidy data</h3>
+<p>Let’s practice describing the observations, variables, and values of tidy dataframes:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb101-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="24%" />
+<col width="24%" />
+<col width="26%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataframe</th>
+<th>The observation is</th>
+<th>Some variables are</th>
+<th>Some values are</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>metadata</td>
+<td>Cell line</td>
+<td>ModelID, Age, OncotreeLineage</td>
+<td>“ACH-000001”, 60, “Myeloid”</td>
+</tr>
+<tr class="even">
+<td>expression</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>mutation</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>penguins</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>table1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+<div id="transform" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Transform</h2>
+<p>When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perform our analysis and visualization. Here are some common transformation tasks:</p>
+<div id="the-rows-and-columns-i-need-can-be-subsetted-from-the-dataframe." class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> “The rows and columns I need can be subsetted from the dataframe.”</h3>
+<p>We use <code>filter()</code> and <code>select()</code> as we have learned already.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb102-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb102-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb102-2" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">select</span>(ModelID, Age, Sex)</span></code></pre></div>
 </div>
-<div id="grammar-of-graphics" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Grammar of Graphics</h2>
-<p>The syntax of the grammar of graphics breaks down into 4 sections.</p>
-<p><span style="color:orange">Data</span></p>
-<p><span style="color:green">Mapping to data</span></p>
-<p><span style="color:blue">Geometry</span></p>
-<p><span style="color:purple">Additional settings</span></p>
-<div id="histogram" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Histogram</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram()</span> + <span style="color:purple">theme_bw()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>With options:</p>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram(binwidth = 5)</span> + <span style="color:purple">theme_bw()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div id="the-column-i-want-is-an-operation-or-function-of-other-columns-i-already-have-in-the-dataframe." class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> “The column I want is an operation or function of other columns I already have in the dataframe.”</h3>
+<p>We use <code>mutate()</code> or <code>$</code> operation as we have learned already.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb103-1" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">=</span> expression <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">log_PIK3CA_Exp =</span> <span class="fu">log</span>(PIK3CA_Exp))</span>
+<span id="cb103-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb103-3"><a href="data-wrangling-with-tidy-data-part-2.html#cb103-3" aria-hidden="true" tabindex="-1"></a>expression<span class="sc">$</span>log_PIK3CA_Exp <span class="ot">=</span> <span class="fu">log</span>(expression<span class="sc">$</span>PIK3CA_Exp)</span></code></pre></div>
 </div>
-<div id="bar-plots" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Bar plots</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species)</span> + <span style="color:blue">geom_bar()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="the-columns-that-i-need-are-in-two-different-dataframes-with-a-common-column.-the-rows-observations-of-both-dataframes-represent-the-same-thing." class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> “The columns that I need are in two different dataframes with a common column. The rows (observations) of both dataframes represent the same thing.”</h3>
+<p>Suppose we have the following dataframes:</p>
+<p><code>expression</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>ModelID</th>
+<th>PIK3CA_Exp</th>
+<th>log_PIK3CA_Exp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“ACH-001113”</td>
+<td>5.138733</td>
+<td>1.636806</td>
+</tr>
+<tr class="even">
+<td>“ACH-001289”</td>
+<td>3.184280</td>
+<td>1.158226</td>
+</tr>
+<tr class="odd">
+<td>“ACH-001339”</td>
+<td>3.165108</td>
+<td>1.152187</td>
+</tr>
+</tbody>
+</table>
+<p><code>metadata</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>ModelID</th>
+<th>OncotreeLineage</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“ACH-001113”</td>
+<td>“Lung”</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>“ACH-001289”</td>
+<td>“CNS/Brain”</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>“ACH-001339”</td>
+<td>“Skin”</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that I want to compare the relationship between <code>OncotreeLineage</code> and <code>PIK3CA_Exp</code>, but they are columns in different dataframes. We want a new dataframe that looks like this:</p>
+<table>
+<thead>
+<tr class="header">
+<th>ModelID</th>
+<th>PIK3CA_Exp</th>
+<th>log_PIK3CA_Exp</th>
+<th>OncotreeLineage</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“ACH-001113”</td>
+<td>5.138733</td>
+<td>1.636806</td>
+<td>“Lung”</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>“ACH-001289”</td>
+<td>3.184280</td>
+<td>1.158226</td>
+<td>“CNS/Brain”</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>“ACH-001339”</td>
+<td>3.165108</td>
+<td>1.152187</td>
+<td>“Skin”</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>We see that in both dataframes, the rows (observations) represent cell lines with a common column <code>ModelID</code>, so let’s merge these two dataframes together, using <code>full_join()</code>:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb104-1" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">=</span> <span class="fu">full_join</span>(metadata, expression, <span class="at">by =</span> <span class="st">&quot;ModelID&quot;</span>)</span></code></pre></div>
+<p>The number of rows and columns of <code>metadata</code>:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 1864   30</code></pre>
+<p>The number of rows and columns of <code>expression</code>:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(expression)</span></code></pre></div>
+<pre><code>## [1] 1450  537</code></pre>
+<p>The number of rows and columns of <code>merged</code>:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(merged)</span></code></pre></div>
+<pre><code>## [1] 1864  566</code></pre>
+<p>We see that the number of <em>columns</em> in <code>merged</code> combines the number of columns in <code>metadata</code> and <code>expression</code>, while the number of <em>rows</em> in <code>merged</code> is the larger of the number of rows in <code>metadata</code> and <code>expression</code> : <code>full_join()</code> keeps all observations common to both dataframes based on the common column defined via the <code>by</code> argument.</p>
+<p>Therefore, we expect to see <code>NA</code> values in <code>merged</code>, as there are some cell lines that are not in <code>expression</code> dataframe.</p>
+<p>There are variations of this function depending on your application:</p>
+<p><img src="images/join.png" /></p>
+<p>Given <code>xxx_join(x, y, by = "common_col")</code>,</p>
+<ul>
+<li><p><code>full_join()</code> keeps all observations.</p></li>
+<li><p><code>left_join()</code> keeps all observations in <code>x</code>.</p></li>
+<li><p><code>right_join()</code> keeps all observations in <code>y</code>.</p></li>
+<li><p><code>inner_join()</code> keeps observations common to both <code>x</code> and <code>y</code>.</p></li>
+</ul>
 </div>
-<div id="scatterplot" class="section level3" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Scatterplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-</div>
-<div id="multivaraite-scatterplot" class="section level3" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Multivaraite Scatterplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-</div>
-<div id="multivaraite-scatterplot-1" class="section level3" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> Multivaraite Scatterplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">facet_wrap(~species)</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-</div>
-<div id="line-plot" class="section level3" number="6.2.6">
-<h3><span class="header-section-number">6.2.6</span> Line plot?</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_line()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-</div>
-<div id="grouped-line-plot" class="section level3" number="6.2.7">
-<h3><span class="header-section-number">6.2.7</span> Grouped Line plot?</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, group = species)</span> + <span style="color:blue">geom_line()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-</div>
-<div id="boxplot" class="section level3" number="6.2.8">
-<h3><span class="header-section-number">6.2.8</span> Boxplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm)</span> + <span style="color:blue">geom_boxplot()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-</div>
-<div id="grouped-boxplot" class="section level3" number="6.2.9">
-<h3><span class="header-section-number">6.2.9</span> Grouped Boxplot</h3>
-<p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm, color = island)</span> + <span style="color:blue">geom_boxplot()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-</div>
-<div id="some-additional-options" class="section level3" number="6.2.10">
-<h3><span class="header-section-number">6.2.10</span> Some additional options</h3>
-<p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60))</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-</div>
-</div>
-<div id="summary-of-options" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Summary of options</h2>
-<p><span style="color:orange">data</span></p>
-<p><br />
-<span style="color:blue">geom_point</span>: <span style="color:green">x, y, color, shape</span></p>
-<p><span style="color:blue">geom_line</span>: <span style="color:green">x, y, group, color</span></p>
-<p><span style="color:blue">geom_histogram</span>: <span style="color:green">x, y, fill</span></p>
-<p><span style="color:blue">geom_bar</span>: <span style="color:green">x, fill</span></p>
-<p><span style="color:blue">geom_boxplot</span>: <span style="color:green">x, y, fill, color</span></p>
-<p><br />
-<span style="color:purple">facet_wrap</span></p>
-<p><br />
-<span style="color:purple">labs</span></p>
-<p><span style="color:purple">scale_x_continuous</span></p>
-<p><span style="color:purple">scale_y_continuous</span></p>
-<p><span style="color:purple">scale_x_discrete</span></p>
-<p><span style="color:purple">scale_y_discrete</span></p>
-<p>Consider the <code>esquisse</code> package to help generate your ggplot code via drag and drop.</p>
+<div id="the-rows-i-want-is-described-by-a-column.-the-columns-i-want-need-to-be-summarized-from-other-columns." class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> “The rows I want is described by a column. The columns I want need to be summarized from other columns.”</h3>
+<p>In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in <code>metadata</code>, the observation is cell lines. However, perhaps we want to understand properties of <code>metadata</code> in which the observation is the cancer type, <code>OncotreeLineage</code>. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type. This is a scenario in which the <em>desired rows are described by a column</em>, <code>OncotreeLineage</code>, and the columns, such as mean age, need to be <em>summarized from other columns.</em></p>
+<p>As an example, this dataframe is transformed from:</p>
+<table>
+<thead>
+<tr class="header">
+<th>ModelID</th>
+<th>OncotreeLineage</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“ACH-001113”</td>
+<td>“Lung”</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>“ACH-001289”</td>
+<td>“Lung”</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>“ACH-001339”</td>
+<td>“Skin”</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>“ACH-002342”</td>
+<td>“Brain”</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>“ACH-004854”</td>
+<td>“Brain”</td>
+<td>56</td>
+</tr>
+<tr class="even">
+<td>“ACH-002921”</td>
+<td>“Brain”</td>
+<td>67</td>
+</tr>
+</tbody>
+</table>
+<p>into:</p>
+<table>
+<thead>
+<tr class="header">
+<th>OncotreeLineage</th>
+<th>MeanAge</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Lung”</td>
+<td>46</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>“Skin”</td>
+<td>14</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>“Brain”</td>
+<td>48.67</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>We use the functions <code>group_by()</code> and <code>summarise()</code> :</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb111-1" aria-hidden="true" tabindex="-1"></a>metadata_by_type <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> </span>
+<span id="cb111-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb111-2" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">group_by</span>(OncotreeLineage) <span class="sc">%&gt;%</span> </span>
+<span id="cb111-3"><a href="data-wrangling-with-tidy-data-part-2.html#cb111-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">summarise</span>(<span class="at">MeanAge =</span> <span class="fu">mean</span>(Age),</span>
+<span id="cb111-4"><a href="data-wrangling-with-tidy-data-part-2.html#cb111-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">Count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<p>The <code>group_by()</code> function returns the identical input dataframe but remembers which variable(s) have been marked as grouped.</p>
+<p>The <code>summarise()</code> returns one row for each combination of grouping variables, and one column for each of the summary statistics that you have specified.</p>
 
+</div>
 </div>
 </div>
 <hr>
@@ -392,8 +595,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data-wrangling-with-tidy-data-part-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-with-tidy-data-part-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
