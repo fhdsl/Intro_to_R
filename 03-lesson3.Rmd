@@ -1,4 +1,4 @@
-# Functions and pipes
+# Data Wrangling with Tidy Data, Part 1
 
 Today, we will understand deeply how functions work, and continue learning more functions on dataframes.
 
