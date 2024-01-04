@@ -6,6 +6,61 @@ execute:
 ---
 
 
+## [How we organize ideas]{.underline} \<-\> Instructing a computer
+
+. . .
+
+*In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*
+
+. . .
+
+✅ Implicit: "I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex."
+
+🚫 Explicit: "I want to filter for rows 20-50 and select columns 2 and 8".
+
+. . .
+
+*Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.*
+
+## Convert this to code:
+
+. . .
+
+```{r}
+library(tidyverse)
+
+metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
+
+head(breast_metadata)
+```
+
+. . .
+
+Here, `filter()` and `select()` are functions from the `tidyverse` package.
+
+## `filter()` and `select()`
+
+`metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
+
+. . .
+
+The second argument: a logical indexing vector built from a comparison operator?
+
+. . .
+
+But the variable `OncotreeLineage` does not exist in our environment! 
+
+. . .
+
+Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`. 
+
+. . .
+
+The input arguments for `select()` are also **data variables**.
+
+
+
 ## Subsetting vs. Modifying part of a vector
 
 . . .

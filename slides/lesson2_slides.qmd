@@ -8,6 +8,24 @@ execute:
 output-location: fragment
 ---
 
+## A programming language has following elements
+
+. . .
+
+-   Grammar structure to construct expressions
+
+. . .
+
+-   Combining expressions to create more complex expressions
+
+. . .
+
+-   Encapsulate complex expressions via functions to create modular and reusable tasks
+
+. . .
+
+-   Encapsulate complex data via data structures to allow efficient manipulation of data 
+
 ## Data structures
 
 **Data structures** stores information about data types.
@@ -227,7 +245,7 @@ A **dataframe** is a spreadsheet such that each column must have the same data t
 . . .
 
 ```{r}
-load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 nrow(metadata)
 ```
 
@@ -281,60 +299,44 @@ metadata$Age[1:5]
 
 . . .
 
+Challenge!
+
 ```{r}
 metadata$OncotreeLineage[metadata$OncotreeLineage == "Myeloid"]
 ```
 
-## [How we organize ideas]{.underline} \<-\> Instructing a computer
+## Subsetting columns and rows from a dataframe
 
-. . .
-
-*In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*
-
-. . .
-
-✅ Implicit: "I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex."
-
-🚫 Explicit: "I want to filter for rows 20-50 and select columns 2 and 8".
-
-. . .
-
-*Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.*
-
-## Convert this to code:
+`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`. 
 
 . . .
 
 ```{r}
-library(tidyverse)
-
-metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
-breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
-
-head(breast_metadata)
+metadata[1:5, c(1, 3)]
 ```
 
 . . .
 
-Here, `filter()` and `select()` are functions from the `tidyverse` package.
+We can refer to the column names directly:
 
-## `filter()` and `select()`
+```{r}
+metadata[1:5, c("ModelID", "CellLineName")]
+```
 
-`metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
 
-. . .
+## Subsetting columns and rows from a dataframe
 
-The second argument: a logical indexing vector built from a comparison operator?
 
-. . .
-
-But the variable `OncotreeLineage` does not exist in our environment! 
+We can leave the column index or row index empty to just subset columns or rows.
 
 . . .
 
-Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`. 
+```{r}
+metadata[1:5, ]
+```
 
 . . .
 
-The input arguments for `select()` are also **data variables**.
-
+```{r}
+metadata[, c("ModelID", "CellLineName")]
+```

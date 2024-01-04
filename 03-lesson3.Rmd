@@ -1,5 +1,70 @@
 # Data Wrangling with Tidy Data, Part 1
 
+
+### "What do you want to do with this dataframe"?
+
+Before diving into the technical part of subsetting dataframes, we will use different mindset to think about what we want to do with this dataframe as scientists.
+
+Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
+
+Until now, we haven't focused too much on how we organize our scientific ideas to interact with what we can do with code. Let's write our code driven by our scientific curiosity.
+
+Here's a starting prompt:
+
+> In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?
+
+Use the implicit subsetting mindset here: ie. "I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex." and *not* "I want to filter for rows 20-50 and select columns 2 and 8".
+
+*Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.*
+
+(This is because we are guaranteed to have column names in dataframes. Some dataframes have row names, but because the data types are not guaranteed to have the same data type, it makes describing by row properties difficult.)
+
+Let's convert this into code!
+
+```{r}
+metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
+head(breast_metadata)
+```
+
+Here, `filter()` and `select()` are functions from the `tidyverse` package.
+
+### Filter rows
+
+Let's carefully a look what how the R Console is interpreting the `filter()` function:
+
+-   We evaluate the expression right of `=`.
+
+-   The first argument of `filter()` is a dataframe, which we give `metadata`.
+
+-   The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable `OncotreeLineage` does not exist in our environment! Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable** in the context of the dataframe `metadata`. So, we make a comparison operation on the column `OncotreeLineage` from `metadata` and its resulting logical indexing vector is the input to the second argument.
+
+    -   How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It's not clear cut, but here's a rule of thumb: most functions from the `tidyverse` package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.
+
+    -   This encourages more *readable* code at the expense of consistency of referring to variables in the environment. The authors of this package [describes this trade-off](https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables).
+
+-   Putting it together, `filter()` takes in a dataframe, and an logical indexing vector described by data variables as arguments, and returns a data frame with rows that match condition described by the logical indexing vector.
+
+-   Store this in `metadata_filtered` variable.
+
+### Select columns
+
+Let's carefully a look what how the R Console is interpreting the `select()` function:
+
+-   We evaluate the expression right of `=`.
+
+-   The first argument of `filter()` is a dataframe, which we give `metadata`.
+
+-   The second and third arguments are data variables referring the columns of `metadata`.
+
+    -   For certain functions like `filter()`, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.
+
+-   Putting it together, `select()` takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.
+
+-   Store this in `breast_metadata` variable.
+
+
+
 Today, we will understand deeply how functions work, and continue learning more functions on dataframes.
 
 ## Functions deep dive

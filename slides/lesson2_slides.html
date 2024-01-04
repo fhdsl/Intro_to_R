@@ -395,6 +395,29 @@
 </div>
 
 </section>
+<section id="a-programming-language-has-following-elements" class="slide level2">
+<h2>A programming language has following elements</h2>
+<div class="fragment">
+<ul>
+<li>Grammar structure to construct expressions</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Combining expressions to create more complex expressions</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Encapsulate complex expressions via functions to create modular and reusable tasks</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Encapsulate complex data via data structures to allow efficient manipulation of data</li>
+</ul>
+</div>
+</section>
 <section id="data-structures" class="slide level2">
 <h2>Data structures</h2>
 <p><strong>Data structures</strong> stores information about data types.</p>
@@ -679,7 +702,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"</span>))</span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"</span>))</span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="fu">nrow</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
@@ -763,6 +786,7 @@
 </div>
 </div>
 <div class="fragment">
+<p>Challenge!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">"Myeloid"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -783,60 +807,39 @@
 </div>
 </div>
 </section>
-<section id="how-we-organize-ideas---instructing-a-computer" class="slide level2">
-<h2><u>How we organize ideas</u> &lt;-&gt; Instructing a computer</h2>
-<div class="fragment">
-<p><em>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</em></p>
-</div>
-<div class="fragment">
-<p>✅ Implicit: “I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex.”</p>
-<p>🚫 Explicit: “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
-</div>
-<div class="fragment">
-<p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
-</div>
-</section>
-<section id="convert-this-to-code" class="slide level2">
-<h2>Convert this to code:</h2>
+<section id="subsetting-columns-and-rows-from-a-dataframe" class="slide level2">
+<h2>Subsetting columns and rows from a dataframe</h2>
+<p><code>dataframe[row_idx, col_idx]</code> subsets the dataframe by a row indexing vector <code>row_idx</code>, and a column indexing vector <code>col_idx</code>.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb47-2"><a href="#cb47-2"></a></span>
-<span id="cb47-3"><a href="#cb47-3"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
-<span id="cb47-4"><a href="#cb47-4"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb47-5"><a href="#cb47-5"></a></span>
-<span id="cb47-6"><a href="#cb47-6"></a><span class="fu">head</span>(breast_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>     ModelID Age    Sex
-1 ACH-000017  43 Female
-2 ACH-000019  69 Female
-3 ACH-000028  69 Female
-4 ACH-000044  47 Female
-5 ACH-000097  63 Female
-6 ACH-000111  41 Female</code></pre>
+<pre><code>     ModelID CellLineName
+1 ACH-000001  NIH:OVCAR-3
+2 ACH-000002        HL-60
+3 ACH-000003        CACO2
+4 ACH-000004          HEL
+5 ACH-000005   HEL 92.1.7</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package.</p>
+<p>We can refer to the column names directly:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">"ModelID"</span>, <span class="st">"CellLineName"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="filter-and-select" class="slide level2">
-<h2><code>filter()</code> and <code>select()</code></h2>
-<p><code>metadata_filtered = filter(metadata, OncotreeLineage == "Breast")</code>:</p>
-<div class="fragment">
-<p>The second argument: a logical indexing vector built from a comparison operator?</p>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>     ModelID CellLineName
+1 ACH-000001  NIH:OVCAR-3
+2 ACH-000002        HL-60
+3 ACH-000003        CACO2
+4 ACH-000004          HEL
+5 ACH-000005   HEL 92.1.7</code></pre>
 </div>
-<div class="fragment">
-<p>But the variable <code>OncotreeLineage</code> does not exist in our environment!</p>
 </div>
-<div class="fragment">
-<p>Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong>. We can directly refer to the column vector <code>metadata$OncotreeLineage</code> with just <code>OncotreeLineage</code>.</p>
-</div>
-<div class="fragment">
-<p>The input arguments for <code>select()</code> are also <strong>data variables</strong>.</p>
 <div class="footer footer-default">
 
 </div>
