@@ -1,4 +1,4 @@
-# Introduction to R, Season 1
+# Introduction to R, Season 2
 
 This course was created from [this GitHub template](https://github.com/jhudsl/OTTR_Template).
 
