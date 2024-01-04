@@ -1,8 +1,0 @@
-1-About-this-Course.md
-2-Intro-to-Computing.md
-3-Working-with-data-structures.md
-4-Functions-and-pipes.md
-5-Data-wrangling-with-Tidy-data.md
-6-Data-Visualization.md
-7-References.md
-About-the-Authors.md
