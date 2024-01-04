@@ -1,4 +1,4 @@
-# Functions and pipes
+# Data Wrangling with Tidy Data, Part 1
 
 Today, we will understand deeply how functions work, and continue learning more functions on dataframes.
 
@@ -118,7 +118,7 @@ Sometimes, in data analysis, we want to transform our dataframe in multiple step
 
 ```r
 library(tidyverse)
-metadata = read.csv("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
+metadata = read.csv("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
 ```
 
 
