@@ -117,7 +117,7 @@ Sometimes, in data analysis, we want to transform our dataframe in multiple step
 
 ```{r, warning=F, message=F}
 library(tidyverse)
-metadata = read.csv("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
+metadata = read.csv("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
 ```
 
 ```{r}
