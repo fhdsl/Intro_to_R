@@ -1,4 +1,4 @@
-# Data wrangling with Tidy data
+# Data Wrangling with Tidy Data, Part 2
 
 
 
@@ -63,7 +63,7 @@ library(tidyverse)
 
 ```r
 library(palmerpenguins)
-load(url("https://github.com/caalo/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
 | Dataframe  | The observation is | Some variables are            | Some values are             |
@@ -221,7 +221,3 @@ metadata_by_type = metadata %>%
 The `group_by()` function returns the identical input dataframe but remembers which variable(s) have been marked as grouped.
 
 The `summarise()` returns one row for each combination of grouping variables, and one column for each of the summary statistics that you have specified.
-
-## Tidy Data Tutor
-
-Guest speaker: [Sean Kross](https://seankross.com/), author of [Tidy Data Tutor](https://tidydatatutor.com/).

@@ -26,7 +26,7 @@ using-functions-and-operations-on-dataframes
 what-do-you-want-to-do-with-this-dataframe
 filter-rows
 select-columns
-functions-and-pipes
+data-wrangling-with-tidy-data-part-1
 functions-deep-dive
 anatomy-of-a-function-definition
 local-and-global-environments
@@ -38,7 +38,7 @@ exercises-1
 modifying-and-creating-new-columns-in-dataframes
 all-together-now
 alternative-creating-and-modifying-columns-via
-data-wrangling-with-tidy-data
+data-wrangling-with-tidy-data-part-2
 datasets-within-depmap-project
 data-science-workflow
 describing-a-tidy-dataset
@@ -48,7 +48,6 @@ the-rows-and-columns-i-need-can-be-subsetted-from-the-dataframe.
 the-column-i-want-is-an-operation-or-function-of-other-columns-i-already-have-in-the-dataframe.
 the-columns-that-i-need-are-in-two-different-dataframes-with-a-common-column.-the-rows-observations-of-both-dataframes-represent-the-same-thing.
 the-rows-i-want-is-described-by-a-column.-the-columns-i-want-need-to-be-summarized-from-other-columns.
-tidy-data-tutor
 data-visualization
 common-plots
 univariate
