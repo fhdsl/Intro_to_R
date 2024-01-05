@@ -207,7 +207,7 @@ Lastly, a note on the use of functions: a programmer should not need to know how
 
 -   **Logical**: TRUE, FALSE
 
-## Grammar Structure 2: Storing data types in the global environment
+## Grammar Structure 2: Storing data types in the environment
 
 . . .
 

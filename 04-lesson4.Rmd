@@ -4,63 +4,59 @@
 install.packages("palmerpenguins")
 ```
 
-## Datasets within DepMap Project
+## Modifying and creating new columns in dataframes
 
-The [Dependency Map project](https://depmap.org/portal/) is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access.
+To put together what we have learned today, we will modify and create new columns in dataframes.
 
--   Metadata
+The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a new or existing data variable that is defined in terms of other data variables.
 
--   Somatic mutations
+We create a new column `newAge` that is 10 years older than the original `Age` column.
 
--   Gene expression
+```{r}
+metadata$Age[1:10]
+metadata2 = mutate(metadata, newAge = Age + 10)
+metadata2$newAge[1:10]
+```
 
--   Drug sensitivity
+or `medicaid_eligible()`:
 
--   CRISPR knockout
+```{r}
+medicaid_eligible = function(age) {
+  age[age < 65] = 0
+  age[age >= 65] = 1
+  return(age)
+}
 
--   and more...
+metadata$Age[1:10]
+metadata2 = mutate(metadata, medicaid = medicaid_eligible(Age))
+metadata2$medicaid[1:10]
+table(metadata2$medicaid)
 
-## Data Science Workflow
+```
 
-![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
+### All together now
 
-We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with *Transform* and *Visualize* with the assumption that our data is in a nice, "tidy format". First, we need to understand what it means for a data to be "tidy".
+Let's put all of our analysis together via pipes:
 
-## Describing a tidy dataset
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                             select(ModelID, Age, Sex) %>%
+                             mutate(medicaid = medicaid_eligible(Age))
 
-Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of **tidy data**, developed by Hadley Wickham:
+head(breast_metadata)
+```
 
-1.  Each variable is a column; each column is a variable.
+### Alternative: Creating and modifying columns via `$`
 
-2.  Each observation is a row; each row is an observation.
+Instead of `mutate()` function, we can also create a new or modify a column via the `$` symbol:
 
-3.  Each value is a cell; each cell is a single value.
-
-If you want to be technical about what variables and observations are, Hadley Wickham describes:
-
-> A **variable** contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all values measured on the same unit (like a person, or a day, or a race) across attributes.
-
-![A tidy dataframe.](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
+```{r}
+metadata$medicaid = medicaid_eligible(metadata$Age)
+```
 
 ### Examples of Tidy data
 
-Let's practice describing the observations, variables, and values of tidy dataframes:
-
-```{r, message=FALSE}
-library(tidyverse)
-library(palmerpenguins)
-load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
-```
-
-| Dataframe  | The observation is | Some variables are            | Some values are             |
-|------------------|------------------|-------------------|------------------|
-| metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
-| expression |                    |                               |                             |
-| mutation   |                    |                               |                             |
-| penguins   |                    |                               |                             |
-| table1     |                    |                               |                             |
-
-## Transform
+Transform
 
 When given a tidy dataset, we often still have to do some transformations on it to get it in a form so that we can perform our analysis and visualization. Here are some common transformation tasks:
 

@@ -6,9 +6,82 @@ execute:
 ---
 
 
-## [How we organize ideas]{.underline} \<-\> Instructing a computer
+## Data Science Workflow
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="275"}
+
+```{r, message=FALSE, echo=F}
+library(tidyverse)
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+```
 
 . . .
+
+We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
+
+## Describing a tidy dataset
+
+**Tidy data** is a standard of organizing data:
+
+. . .
+
+1.    Each variable must have its own column.
+
+2.    Each observation must have its own row.
+
+3.    Each value must have its own cell.
+
+. . .
+
+![](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
+
+## Examples and counter-examples
+
+```{r}
+table1
+```
+
+. . .
+
+This `table1` satisfies the the definition of Tidy Data. The observation is a country's year, and the variables are attributes of each country's year. 
+
+## Examples and counter-examples
+
+```{r}
+head(table2)
+```
+
+. . .
+
+Something is strange able `table2`. The observation is still a country's year, but "type" and "count" are not clear attributes of each country's year. 
+
+## Examples and counter-examples
+
+```{r}
+table3
+```
+
+. . .
+
+In `table3`, we have multiple values for each cell under the "rate" column.
+
+
+## Our working Tidy Data: DepMap Project
+
+<https://depmap.org/>
+
+We will work with `metadata`, `mutation`, and `expression` dataframes.
+
+
+## Transform: "What do you want to do with this dataframe"?
+
+Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
+
+. . .
+
+With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.
+
+## Transform: Subsetting a dataframe
 
 *In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*
 
@@ -49,193 +122,41 @@ The second argument: a logical indexing vector built from a comparison operator?
 
 . . .
 
-But the variable `OncotreeLineage` does not exist in our environment! 
+But the variable `OncotreeLineage` does not exist in our environment!
 
 . . .
 
-Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`. 
+Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`.
 
 . . .
 
 The input arguments for `select()` are also **data variables**.
 
+## Summary statistics
 
+Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! 
 
-## Subsetting vs. Modifying part of a vector
+. . .
+
+If the columns of interest are numeric, consider functions `mean()`, `median()`, `max()`, on a column.  
+
+. . .
+
+If the columns of interest is character or logical, consider `table()`.
 
 . . .
 
 ```{r}
-age = c(10, 35, 24, 70, 84)
-age_young = age[age < 18]
-age_young
+mean(breast_metadata$Age, na.rm = TRUE)
+table(breast_metadata$Sex)
 ```
 
-. . .
 
-```{r}
-medicaid_eligible = age
-
-medicaid_eligible[medicaid_eligible < 65] = 0
-medicaid_eligible[medicaid_eligible >= 65] = 1
-medicaid_eligible
-```
-
-## Functions motivation
-
-![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
-
-. . .
-
-We write functions for two main, often overlapping, reasons:
-
-. . .
-
-1.  Following DRY (Don't Repeat Yourself) principle
-
-. . .
-
-2.  Creates modular structure and abstraction
-
-## How to define a function
-
-. . .
-
-::: callout-tip
-# 
-
-Assign a **function name** with a "function" statement that has a comma-separated list of named **function arguments**. Within the body of the function there is optionally a **return expression**. The function name is stored as a variable in the global environment.
-:::
-
-. . .
-
-```{r}
-addFunction = function(num1, num2) {
-  result = num1 + num2 
-  return(result)
-}
-```
-
-. . .
-
-```{r}
-addFunction(3, 4)
-```
-
-## How to define a function
-
-```{r}
-addFunction = function(num1, num2) {
-  result = num1 + num2 
-  return(result)
-}
-addFunction(3, 4)
-```
-
-. . .
-
-With function definitions, not all code runs from top to bottom. The first 4 lines defines the function, but the function is never run.
-
-. . .
-
-When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function.
-
-## Ways to call the function
-
-. . .
-
-```{r}
-addFunction(3, 4)
-```
-
-. . .
-
-```{r}
-addFunction(num1 = 3, num2 = 4)
-```
-
-. . .
-
-```{r}
-addFunction(num2 = 4, num1 = 3)
-```
-
-. . .
-
-But this *could* give a different result:
-
-```{r}
-addFunction(4, 3)
-```
-
-## Variable scoping
-
-. . .
-
-::: callout-tip
-# Local and global environments
-
-All function arguments are stored in the **local environment**. Any additional variables defined within `{ }` is also stored in the local environment. The overall environment of the program is called the **global environment** and can be also accessed within { }. The local environment is erased after `}` is reached.
-:::
-
-. . .
-
-Local environments make functions more modular.
-
-## Is this function modular?
-
-```{r}
-x = 3
-y = 4
-addFunction = function(num1, num2) {
-    result = x + y 
-    return(result)
-}
-```
-
-. . .
-
-```{r}
-addFunction(x, y)
-```
-
-. . .
-
-```{r}
-addFunction(10, -5)
-```
-
-## Exercise 1
-
-Create a function, called `add_and_raise_power` in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value.
-
-Use case: `add_and_raise_power(1, 2, 3) = 9` because the function will return this expression: `(1 + 2) ^ 3`.
-
-Another use case: `add_and_raise_power(3, 1, 2) = 16`
-
-## Exercise 2
-
-Create a function, called `my_dim` in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the `dim` function. How can you leverage existing functions such as `nrow` and `ncol`?
-
-Use case: `my_dim(metadata) = c(1864, 30)`
-
-## Exercise 3
-
-Create a function, called `medicaid_eligible` in which the function takes in one argument: a numeric vector called `age`. The function returns a numeric vector with the same length as `age`, in which elements are `0` for indices that are less than 65 in `age`, and `1` for indicies 65 or higher in `age`.
-
-Use case: `medicaid_eligible(c(30, 70)) = c(0, 1)`
-
-## Code readability
+## Code readability with many nested functions
 
 When combining multiple functions in one expression, it gets harder to read:
 
 . . .
-
-```{r}
-#| echo: false
-library(tidyverse)
-load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
-```
 
 ```{r}
 breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)

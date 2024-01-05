@@ -340,3 +340,25 @@ metadata[1:5, ]
 ```{r}
 metadata[, c("ModelID", "CellLineName")]
 ```
+
+
+
+## Appendix: Subsetting vs. Modifying part of a vector
+
+. . .
+
+```{r}
+age = c(10, 35, 24, 70, 84)
+age_young = age[age < 18]
+age_young
+```
+
+. . .
+
+```{r}
+medicaid_eligible = age
+
+medicaid_eligible[medicaid_eligible < 65] = 0
+medicaid_eligible[medicaid_eligible >= 65] = 1
+medicaid_eligible
+```

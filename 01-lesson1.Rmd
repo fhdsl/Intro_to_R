@@ -107,7 +107,7 @@ Here are some data types that we will be using in this course:
 -   **Logical**: TRUE, FALSE
 
 
-## Grammar Structure 2: Storing data types in the global environment
+## Grammar Structure 2: Storing data types in the environment
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:
 

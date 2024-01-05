@@ -84,34 +84,7 @@ breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
 🤠
 
 
-## Data Science Workflow
 
-![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="300"}
-
-. . .
-
-We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
-
-## Describing a tidy dataset
-
-**Tidy data** is a standard of organizing data:
-
-. . .
-
-1.    Each variable is a column; each column is a variable.
-
-2.    Each observation is a row; each row is an observation.
-
-3.    Each value is a cell; each cell is a single value.
-
-. . .
-
-![](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
-
-
-## Dependency Map Project
-
-<https://depmap.org/>
 
 
 ## Transform: `select`, `filter`, `mutate`
