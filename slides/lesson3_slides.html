@@ -395,207 +395,181 @@
 </div>
 
 </section>
-<section id="subsetting-vs.-modifying-part-of-a-vector" class="slide level2">
-<h2>Subsetting vs.&nbsp;Modifying part of a vector</h2>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">35</span>, <span class="dv">24</span>, <span class="dv">70</span>, <span class="dv">84</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>age_young <span class="ot">=</span> age[age <span class="sc">&lt;</span> <span class="dv">18</span>]</span>
-<span id="cb1-3"><a href="#cb1-3"></a>age_young</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>medicaid_eligible <span class="ot">=</span> age</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>medicaid_eligible[medicaid_eligible <span class="sc">&lt;</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>medicaid_eligible[medicaid_eligible <span class="sc">&gt;=</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>medicaid_eligible</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0 0 0 1 1</code></pre>
-</div>
-</div>
+<section id="data-science-workflow" class="slide level2">
+<h2>Data Science Workflow</h2>
+
+<img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="275" class="r-stretch"><div class="fragment">
+<p>We start with <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, <strong>“tidy”</strong> state.</p>
 </div>
 </section>
-<section id="functions-motivation" class="slide level2">
-<h2>Functions motivation</h2>
-
-<img data-src="https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png" alt="Function machine from algebra class." width="300" class="r-stretch"><div class="fragment">
-<p>We write functions for two main, often overlapping, reasons:</p>
-</div>
+<section id="describing-a-tidy-dataset" class="slide level2">
+<h2>Describing a tidy dataset</h2>
+<p><strong>Tidy data</strong> is a standard of organizing data:</p>
 <div class="fragment">
 <ol type="1">
-<li>Following DRY (Don’t Repeat Yourself) principle</li>
+<li><p>Each variable must have its own column.</p></li>
+<li><p>Each observation must have its own row.</p></li>
+<li><p>Each value must have its own cell.</p></li>
 </ol>
 </div>
 <div class="fragment">
-<ol start="2" type="1">
-<li>Creates modular structure and abstraction</li>
-</ol>
+<p><img data-src="https://r4ds.hadley.nz/images/tidy-1.png" width="800"></p>
 </div>
 </section>
-<section id="how-to-define-a-function" class="slide level2">
-<h2>How to define a function</h2>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong></strong></p>
-</div>
-<div class="callout-content">
-<p>Assign a <strong>function name</strong> with a “function” statement that has a comma-separated list of named <strong>function arguments</strong>. Within the body of the function there is optionally a <strong>return expression</strong>. The function name is stored as a variable in the global environment.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
+<section id="examples-and-counter-examples" class="slide level2">
+<h2>Examples and counter-examples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>addFunction <span class="ot">=</span> <span class="cf">function</span>(num1, num2) {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  result <span class="ot">=</span> num1 <span class="sc">+</span> num2 </span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
 </div>
 </div>
+<div class="fragment">
+<p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
 </div>
 </section>
-<section id="how-to-define-a-function-1" class="slide level2">
-<h2>How to define a function</h2>
+<section id="examples-and-counter-examples-1" class="slide level2">
+<h2>Examples and counter-examples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>addFunction <span class="ot">=</span> <span class="cf">function</span>(num1, num2) {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  result <span class="ot">=</span> num1 <span class="sc">+</span> num2 </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>}</span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">head</span>(table2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code># A tibble: 6 × 4
+  country      year type           count
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
+1 Afghanistan  1999 cases            745
+2 Afghanistan  1999 population  19987071
+3 Afghanistan  2000 cases           2666
+4 Afghanistan  2000 population  20595360
+5 Brazil       1999 cases          37737
+6 Brazil       1999 population 172006362</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>With function definitions, not all code runs from top to bottom. The first 4 lines defines the function, but the function is never run.</p>
-</div>
-<div class="fragment">
-<p>When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function.</p>
+<p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
 </div>
 </section>
-<section id="ways-to-call-the-function" class="slide level2">
-<h2>Ways to call the function</h2>
-<div class="fragment">
+<section id="examples-and-counter-examples-2" class="slide level2">
+<h2>Examples and counter-examples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">addFunction</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
 </div>
 </div>
 <div class="fragment">
+<p>In <code>table3</code>, we have multiple values for each cell under the “rate” column.</p>
+</div>
+</section>
+<section id="our-working-tidy-data-depmap-project" class="slide level2">
+<h2>Our working Tidy Data: DepMap Project</h2>
+<p><a href="https://depmap.org/" class="uri">https://depmap.org/</a></p>
+<p>We will work with <code>metadata</code>, <code>mutation</code>, and <code>expression</code> dataframes.</p>
+</section>
+<section id="transform-what-do-you-want-to-do-with-this-dataframe" class="slide level2">
+<h2>Transform: “What do you want to do with this dataframe”?</h2>
+<p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
+<div class="fragment">
+<p>With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.</p>
+</div>
+</section>
+<section id="transform-subsetting-a-dataframe" class="slide level2">
+<h2>Transform: Subsetting a dataframe</h2>
+<p><em>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</em></p>
+<div class="fragment">
+<p>✅ Implicit: “I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex.”</p>
+<p>🚫 Explicit: “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
+</div>
+<div class="fragment">
+<p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
+</div>
+</section>
+<section id="convert-this-to-code" class="slide level2">
+<h2>Convert this to code:</h2>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">addFunction</span>(<span class="at">num1 =</span> <span class="dv">3</span>, <span class="at">num2 =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">head</span>(breast_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>     ModelID Age    Sex
+1 ACH-000017  43 Female
+2 ACH-000019  69 Female
+3 ACH-000028  69 Female
+4 ACH-000044  47 Female
+5 ACH-000097  63 Female
+6 ACH-000111  41 Female</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
+<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package.</p>
+</div>
+</section>
+<section id="filter-and-select" class="slide level2">
+<h2><code>filter()</code> and <code>select()</code></h2>
+<p><code>metadata_filtered = filter(metadata, OncotreeLineage == "Breast")</code>:</p>
+<div class="fragment">
+<p>The second argument: a logical indexing vector built from a comparison operator?</p>
+</div>
+<div class="fragment">
+<p>But the variable <code>OncotreeLineage</code> does not exist in our environment!</p>
+</div>
+<div class="fragment">
+<p>Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong>. We can directly refer to the column vector <code>metadata$OncotreeLineage</code> with just <code>OncotreeLineage</code>.</p>
+</div>
+<div class="fragment">
+<p>The input arguments for <code>select()</code> are also <strong>data variables</strong>.</p>
+</div>
+</section>
+<section id="summary-statistics" class="slide level2">
+<h2>Summary statistics</h2>
+<p>Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it!</p>
+<div class="fragment">
+<p>If the columns of interest are numeric, consider functions <code>mean()</code>, <code>median()</code>, <code>max()</code>, on a column.</p>
+</div>
+<div class="fragment">
+<p>If the columns of interest is character or logical, consider <code>table()</code>.</p>
+</div>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">addFunction</span>(<span class="at">num2 =</span> <span class="dv">4</span>, <span class="at">num1 =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 50.96104</code></pre>
 </div>
-</div>
-</div>
-<div class="fragment">
-<p>But this <em>could</em> give a different result:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">addFunction</span>(<span class="dv">4</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>
+ Female Unknown 
+     91       1 </code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="variable-scoping" class="slide level2">
-<h2>Variable scoping</h2>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Local and global environments</strong></p>
-</div>
-<div class="callout-content">
-<p>All function arguments are stored in the <strong>local environment</strong>. Any additional variables defined within <code>{ }</code> is also stored in the local environment. The overall environment of the program is called the <strong>global environment</strong> and can be also accessed within { }. The local environment is erased after <code>}</code> is reached.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Local environments make functions more modular.</p>
-</div>
-</section>
-<section id="is-this-function-modular" class="slide level2">
-<h2>Is this function modular?</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>y <span class="ot">=</span> <span class="dv">4</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>addFunction <span class="ot">=</span> <span class="cf">function</span>(num1, num2) {</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    result <span class="ot">=</span> x <span class="sc">+</span> y </span>
-<span id="cb18-5"><a href="#cb18-5"></a>    <span class="fu">return</span>(result)</span>
-<span id="cb18-6"><a href="#cb18-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">addFunction</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">addFunction</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-1" class="slide level2">
-<h2>Exercise 1</h2>
-<p>Create a function, called <code>add_and_raise_power</code> in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value.</p>
-<p>Use case: <code>add_and_raise_power(1, 2, 3) = 9</code> because the function will return this expression: <code>(1 + 2) ^ 3</code>.</p>
-<p>Another use case: <code>add_and_raise_power(3, 1, 2) = 16</code></p>
-</section>
-<section id="exercise-2" class="slide level2">
-<h2>Exercise 2</h2>
-<p>Create a function, called <code>my_dim</code> in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the <code>dim</code> function. How can you leverage existing functions such as <code>nrow</code> and <code>ncol</code>?</p>
-<p>Use case: <code>my_dim(metadata) = c(1864, 30)</code></p>
-</section>
-<section id="exercise-3" class="slide level2">
-<h2>Exercise 3</h2>
-<p>Create a function, called <code>medicaid_eligible</code> in which the function takes in one argument: a numeric vector called <code>age</code>. The function returns a numeric vector with the same length as <code>age</code>, in which elements are <code>0</code> for indices that are less than 65 in <code>age</code>, and <code>1</code> for indicies 65 or higher in <code>age</code>.</p>
-<p>Use case: <code>medicaid_eligible(c(30, 70)) = c(0, 1)</code></p>
-</section>
-<section id="code-readability" class="slide level2">
-<h2>Code readability</h2>
+<section id="code-readability-with-many-nested-functions" class="slide level2">
+<h2>Code readability with many nested functions</h2>
 <p>When combining multiple functions in one expression, it gets harder to read:</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>), ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>), ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -625,8 +599,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>                               <span class="fu">select</span>(ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>                               <span class="fu">select</span>(ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🤠</p>
 <div class="footer footer-default">

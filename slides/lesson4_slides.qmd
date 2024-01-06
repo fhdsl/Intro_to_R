@@ -1,143 +1,86 @@
 ---
-title: "W4: Pipes and Data Wrangling"
+title: "W4: Data Wrangling with Tidy Data, Part 2"
 format: 
   revealjs:
     smaller: true
     scrollable: true
     echo: true
 ---
-
-## Pipes and Data Wrangling
-
-![](../images/Intro_To_R_2.png)
-
-## Code readability
-
-When combining multiple functions in one expression, it gets harder to read: 😬
-
-. . .
-
-```{r}
-#| echo: false
+```{r, echo=F, message=F, warning=F, error=F}
+library(palmerpenguins)
 library(tidyverse)
-load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
-```{r}
-breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
-```
+## Modifying and creating new columns
 
 . . .
 
-Or, this: 🤨
-
-```         
-result2 = function3(function2(function1(dataframe)))
-```
-
-. . .
-
-Or... 🤕
-
-```         
-result = function3(function2(function1(dataframe), arg2), arg_x, arg_y)
-```
-
-
-## Pipes to make nested functions readable
-
-. . .
-
-```
-result2 = function3(function2(function1(dataframe)))
-
-result2 = dataframe %>% function1 %>% function2 %>% function3
-```
-
-. . .
-
-</br>
-
-```         
-result = function3(function2(function1(dataframe), arg2), arg_x, arg_y)
-
-result = dataframe %>% function1() %>%
-         function2(arg2) %>%
-         function3(arg_x, arg_y)
-```
-
-</br>
+The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a *new or existing data variable* that is defined in terms of *other data variables*.
 
 . . .
 
 ```{r}
-breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+metadata$Age[1:10]
 ```
 
 . . .
 
 ```{r}
-breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
-                               select(ModelID, Age, Sex)
+metadata2 = mutate(metadata, olderAge = Age + 10)
 ```
-
-🤠
-
-
-## Data Science Workflow
-
-![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="300"}
-
-. . .
-
-We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
-
-## Describing a tidy dataset
-
-**Tidy data** is a standard of organizing data:
-
-. . .
-
-1.    Each variable is a column; each column is a variable.
-
-2.    Each observation is a row; each row is an observation.
-
-3.    Each value is a cell; each cell is a single value.
-
-. . .
-
-![](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
-
-
-## Dependency Map Project
-
-<https://depmap.org/>
-
-
-## Transform: `select`, `filter`, `mutate`
-
-*"The rows and columns I need can be subsetted from the dataframe."*
 
 . . .
 
 ```{r}
-breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
-                             select(ModelID, Age, Sex)
+metadata2$olderAge[1:10]
 ```
 
 . . .
 
-*"The column I want is an operation or function of other columns I already have in the dataframe."*
+<br>
+
+
+```{r}
+expression$KRAS_Exp[1:10]
+```
 
 . . .
 
 ```{r}
-expression = expression %>% mutate(log_PIK3CA_Exp = log(PIK3CA_Exp))
-#or
-expression$log_PIK3CA_Exp = log(expression$PIK3CA_Exp)
+expression2 = mutate(expression, log_KRAS_Exp = log(KRAS_Exp))
 ```
 
-## Transform: `_join`
+. . .
+
+```{r}
+expression2$log_KRAS_Exp[1:10]
+```
+
+## Modifying and creating new columns
+
+. . .
+
+Instead of `mutate()` function, we can also create a new or modify a column via the `$` symbol:
+
+```{r}
+expression$KRAS_Exp[1:10]
+```
+
+. . .
+
+```{r}
+expression2 = expression
+expression2$log_KRAS_Exp = log(expression2$KRAS_Exp)
+```
+
+. . .
+
+```{r}
+expression2$log_KRAS_Exp[1:10]
+```
+
+## Merging two dataframes together
 
 . . .
 
@@ -169,7 +112,7 @@ I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
 | "ACH-001289" | 3.184280   | 1.158226       | "CNS/Brain"     | NA  |
 | "ACH-001339" | 3.165108   | 1.152187       | "Skin"          | 14  |
 
-## Transform: `_join`
+## Merging two dataframes together
 
 We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
 
@@ -207,7 +150,7 @@ dim(merged)
 
 Therefore, we expect to see `NA` values in `merged`, as there are some cell lines that are not in `expression` dataframe.
 
-## Transform: `_join` variations
+## Merging two dataframes together: variations
 
 ![](../images/join.png)
 
@@ -223,7 +166,7 @@ Given `xxx_join(x, y, by = "common_col")`,
 
 -   `inner_join()` keeps observations common to both `x` and `y`.
 
-## `group_by` and `summarise`
+## Grouping and summarizing dataframes
 
 . . .
 
@@ -253,7 +196,7 @@ Desired columns: mean age.
 *The rows I want is described by a column. The columns I want need to be summarized from other columns.*
 
 
-## `group_by` and `summarise`
+## Grouping and summarizing dataframes
 
 
 ```{r}
@@ -277,3 +220,182 @@ metadata_by_type = metadata %>%
 ```{r}
 head(metadata_type)
 ```
+
+## Grouping and summarizing dataframes
+
+The `group_by()` function returns the identical input dataframe but remembers which variable(s) have been marked as grouped.
+
+. . .
+
+The `summarise()` returns one row for each combination of grouping variables, and one column for each of the summary statistics that you have specified.
+
+. . .
+
+Functions you can use for `summarise()` must take in a vector and return a simple data type, such as any of our summary statistics functions: `mean()`, `median()`, `min()`, `max()`, etc.
+
+. . .
+
+The exception is `n()`, which returns the number of entries for each grouping variable's value.
+
+
+## Functions motivation
+
+![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
+
+. . .
+
+We write functions for two main, often overlapping, reasons:
+
+. . .
+
+1.  Following DRY (Don't Repeat Yourself) principle
+
+. . .
+
+2.  Creates modular structure and abstraction
+
+. . .
+
+Even if you are not writing functions, it is helpful to know how they are constructed to use them. 
+
+## How to define a function
+
+. . .
+
+::: callout-tip
+# 
+
+Assign a **function name** with a "function" statement that has a comma-separated list of named **function arguments**. Within the body of the function there is optionally a **return expression**. The function name is stored as a variable in the global environment.
+:::
+
+. . .
+
+```{r}
+addFunction = function(num1, num2) {
+  result = num1 + num2 
+  return(result)
+}
+```
+
+. . .
+
+```{r}
+addFunction(3, 4)
+```
+
+## How to define a function
+
+```{r}
+addFunction = function(num1, num2) {
+  result = num1 + num2 
+  return(result)
+}
+addFunction(3, 4)
+```
+
+. . .
+
+With function definitions, not all code runs from top to bottom. The first 4 lines defines the function, but the function is never run.
+
+. . .
+
+When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function. This ensures modularity. 
+
+## Is this function modular?
+
+```{r}
+x = 3
+y = 4
+addFunction = function(num1, num2) {
+    result = x + y 
+    return(result)
+}
+```
+
+. . .
+
+```{r}
+addFunction(x, y)
+```
+
+. . .
+
+```{r}
+addFunction(10, -5)
+```
+
+
+## Ways to call the function
+
+. . .
+
+```{r}
+addFunction(3, 4)
+```
+
+. . .
+
+```{r}
+addFunction(num1 = 3, num2 = 4)
+```
+
+. . .
+
+```{r}
+addFunction(num2 = 4, num1 = 3)
+```
+
+. . .
+
+But this *could* give a different result:
+
+```{r}
+addFunction(4, 3)
+```
+
+## Interpreting functions
+
+```         
+?mean
+
+Arithmetic Mean
+
+Description:
+
+     Generic function for the (trimmed) arithmetic mean.
+
+Usage:
+
+     mean(x, ...)
+     
+     ## Default S3 method:
+     mean(x, trim = 0, na.rm = FALSE, ...)
+     
+Arguments:
+
+       x: An R object.  Currently there are methods for numeric/logical
+          vectors and date, date-time and time interval objects.
+          Complex vectors are allowed for ‘trim = 0’, only.
+
+    trim: the fraction (0 to 0.5) of observations to be trimmed from
+          each end of ‘x’ before the mean is computed.  Values of trim
+          outside that range are taken as the nearest endpoint.
+
+   na.rm: a logical evaluating to ‘TRUE’ or ‘FALSE’ indicating whether
+          ‘NA’ values should be stripped before the computation
+          proceeds.
+
+     ...: further arguments passed to or from other methods.
+```
+
+## Interpreting functions
+
+Notice that the arguments `trim = 0`, `na.rm = FALSE` have default values. This means that these arguments are *optional* - you should provide it only if you want to. With this understanding, you can use `mean()` in a new way:
+
+. . .
+
+```{r}
+numbers = c(1, 2, NA, 4)
+mean(x = numbers, na.rm = TRUE)
+```
+

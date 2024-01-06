@@ -1,124 +1,159 @@
 # Data Wrangling with Tidy Data, Part 1
 
-Today, we will understand deeply how functions work, and continue learning more functions on dataframes.
-
-## Functions deep dive
-
-![Function machine from algebra class.](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png)
-
-We write functions for two main, often overlapping, reasons:
-
-1.  Following DRY (Don't Repeat Yourself) principle: If you find yourself repeating similar patterns of code, you should write a function that executes that pattern. This saves time and the risk of mistakes.
-
-2.  Create modular structure and abstraction: Having all of your code in one place becomes increasingly complicated as your program grows. Think of the function as a mini-program that can perform without the rest of the program. Organizing your code by functions gives modular structure, as well as abstraction: you only need to know the function name, inputs, and output to use it and don't have to worry how it works.
-
-Some advice on writing functions:
-
--   Code that has a well-defined set of inputs and outputs make a good function.
-
--   A function should do only one, well-defined task.
-
-### Anatomy of a function definition
-
-Recall that a function has a function name, input arguments, and a return value.
-
-*Function definition consists of assigning a **function name** with a "function" statement that has a comma-separated list of named **function arguments**, and a **return expression**. The function name is stored as a variable in the global environment.*
-
-In order to use the function, one defines or import it, then one calls it.
-
-Example:
-
-```         
-addFunction = function(argument1, argument2) {
-  result = argument1 + argument2 
-  return(result)
-}
-z = addFunction(3, 4)
+```{r, message=FALSE}
+library(tidyverse)
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
-With function definitions, not all code runs from top to bottom. The first four lines defines the function, but the function is never run. It is called on line 5, and the lines within the function are executed.
+## Data Science Workflow
 
-When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function and helps with the modular form. We need to introduce the concept of local and global environments to distinguish variables used only for a function from variables used for the entire program.
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
-Some syntax equivalents on calling the function:
+We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with *Transform* and *Visualize* with the assumption that our data is in a nice, "Tidy format". First, we need to understand what it means for a data to be "Tidy".
 
-```         
-addFunction(3, 4)
-addFunction(argument1 = 3, argument2 = 4)
-addFunction(argument2 = 4, argument1 = 3)
+## Tidy Data
+
+Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of **tidy data**, developed by Hadley Wickham:
+
+1.  Each variable must have its own column.
+
+2.  Each observation must have its own row.
+
+3.  Each value must have its own cell.
+
+If you want to be technical about what variables and observations are, Hadley Wickham describes:
+
+> A **variable** contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all values measured on the same unit (like a person, or a day, or a race) across attributes.
+
+![A tidy dataframe.](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
+
+## Examples and counter-examples of Tidy Data:
+
+Consider the following three datasets, which all contain the exact same information:
+
+```{r}
+table1
 ```
 
-but this *could* be different:
+This `table1` satisfies the the definition of Tidy Data. The observation is a country's year, and the variables are attributes of each country's year.
 
-```         
-addFunction(4, 3)
+```{r}
+head(table2)
 ```
 
-### Local and global environments
+Something is strange able `table2`. The observation is still a country's year, but "type" and "count" are not clear attributes of each country's year.
 
-*{ } represents variable scoping: within each { }, if variables are defined, they are stored in a **local environment**, and is only accessible within { }. All function arguments are stored in the local environment. The overall environment of the program is called the **global environment** and can be also accessed within { }.*
-
-The reason of having some of this "privacy" in the local environment is to make functions modular - they are independent little tools that should not interact with the rest of the global environment. Imagine someone writing a tool that they want to give someone else to use, but the tool depends on your environment, vice versa.
-
-### A step-by-step example
-
-Using the `addFunction` function, let's see step-by-step how the R interpreter understands our code:
-
-![We define the function in the global environment.](images/function1.png)
-
-![We call the function, and the function arguments 3, 4 are assigned to argument1 and argument2, respectively in the function's local environment.](images/function2.png)
-
-![We run the first line of code in the function body. The new variable "result" is stored in the local environment because it is within { }.](images/function3.png)
-
-![We run the second line of code in the function body to return a value.](images/function4.png)
-
-![The return value from the function is assigned to the variable z in the global environment. All local variables for the function are erased now that the function call is over.](images/function5.png)
-
-### Function arguments create modularity
-
-First time writers of functions might ask: why are variables we use for the arguments of a function *reassigned* for function arguments in the local environment? Here is an example when that process is skipped - what are the consequences?
-
-```         
-x = 3
-y = 4
-addFunction = function(argument1, argument2) {
-    result = x + y 
-    return(result)
-}
-z = addFunction(x, y)
-w = addFunction(10, -5)
+```{r}
+table3
 ```
 
-What do you expect the value of `z` to be? How about `w`?
+In `table3`, we have multiple values for each cell under the "rate" column.
 
-Here is the execution for `w`:
+## Our working Tidy Data: DepMap Project
 
-![We define the variables and function in the global environment.](images/function6.png)
+The [Dependency Map project](https://depmap.org/portal/) is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access. We have been looking at the metadata since last session.
 
-![We call the function, and the function arguments 10, -5 are assigned to argument1 and argument2, respectively in the function\'s local environment.](images/function7.png) ![We run the first line of code in the function body. The new variable "result" is stored in the local environment because it is within { }.](images/function8.png)
+-   Metadata
 
-![We run the second line of code in the function body to return a value.](images/function9.png)
+-   Somatic mutations
 
-![The return value from the function is assigned to the variable w in the global environment. All local variables for the function are erased now that the function call is over.](images/function10.png)
+-   Gene expression
 
-The function did not work as expected because we used hard-coded variables from the global environment and not function argument variables unique to the function use!
+-   Drug sensitivity
 
-### Exercises
+-   CRISPR knockout
 
--   Create a function, called `add_and_raise_power` in which the function takes in 3 numeric arguments. The function computes the following: the first two arguments are added together and raised to a power determined by the 3rd argument. The function returns the resulting value. Here is a use case: `add_and_raise_power(1, 2, 3) = 9` because the function will return this expression: `(1 + 2) ^ 3`. Another use case: `add_and_raise_power(3, 1, 2) = 16` because of the expression `(3 + 1) ^ 2`. Confirm with that these use cases work.
+-   and more...
 
--   Create a function, called `my_dim` in which the function takes in one argument: a dataframe. The function returns the following: a length-2 numeric vector in which the first element is the number of rows in the dataframe, and the second element is the number of columns in the dataframe. Your result should be identical as the `dim` function. How can you leverage existing functions such as `nrow` and `ncol`? Use case: `my_dim(metadata) = c(1864, 30)`
+Let's see how these datasets fit the definition of Tidy data:
 
--   Create a function, called `medicaid_eligible` in which the function takes in one argument: a numeric vector called `age`. The function returns a numeric vector with the same length as `age`, in which elements are `0` for indicies that are less than 65 in `age`, and `1` for indicies 65 or higher in `age`. Use cases: `medicaid_eligible(c(30, 70)) = c(0, 1)`
+```         
+```
+
+| Dataframe  | The observation is | Some variables are            | Some values are             |
+|------------------|------------------|-------------------|------------------|
+| metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
+| expression |                    |                               |                             |
+| mutation   |                    |                               |                             |
+
+## Transform: "What do you want to do with this dataframe"?
+
+Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
+
+Until now, we haven't focused too much on how we organize our scientific ideas to interact with what we can do with code. Let's pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform tidy data, starting with subsetting columns and rows.
+
+Here's a starting prompt:
+
+> In the `metadata` dataframe, which rows would you filter for and columns would you select that relate to a scientific question?
+
+We should use the implicit subsetting mindset here: ie. "I want to filter for rows such that the Subtype is breast cancer and look at the Age and Sex." and *not* "I want to filter for rows 20-50 and select columns 2 and 8".
+
+*Notice that when we filter for rows in an implicit way, we often formulate our criteria about the columns.*
+
+(This is because we are guaranteed to have column names in dataframes, but not usually row names. Some dataframes have row names, but because the data types are not guaranteed to have the same data type across rows, it makes describing by row properties difficult.)
+
+Let's convert our implicit subsetting criteria into code!
+
+```{r}
+metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
+
+head(breast_metadata)
+```
+
+Here, `filter()` and `select()` are functions from the `tidyverse` package, which we have to install and load in via `library(tidyverse`) before using these functions.
+
+### Filter rows
+
+Let's carefully a look what how the R Console is interpreting the `filter()` function:
+
+-   We evaluate the expression right of `=`.
+
+-   The first argument of `filter()` is a dataframe, which we give `metadata`.
+
+-   The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable `OncotreeLineage` does not exist in our environment! Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable** in the context of the dataframe `metadata`. So, we make a comparison operation on the column `OncotreeLineage` from `metadata` and its resulting logical indexing vector is the input to the second argument.
+
+    -   How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It's not clear cut, but here's a rule of thumb: most functions from the `tidyverse` package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.
+
+    -   This encourages more *readable* code at the expense of consistency of referring to variables in the environment. The authors of this package [describes this trade-off](https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables).
+
+-   Putting it together, `filter()` takes in a dataframe, and an logical indexing vector described by data variables as arguments, and returns a data frame with rows that match condition described by the logical indexing vector.
+
+-   Store this in `metadata_filtered` variable.
+
+### Select columns
+
+Let's carefully a look what how the R Console is interpreting the `select()` function:
+
+-   We evaluate the expression right of `=`.
+
+-   The first argument of `filter()` is a dataframe, which we give `metadata`.
+
+-   The second and third arguments are **data variables** referring the columns of `metadata`.
+
+    -   For certain functions like `filter()`, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.
+
+-   Putting it together, `select()` takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.
+
+-   Store this in `breast_metadata` variable.
+
+## Summary Statistics
+
+Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the observations of a variable in a numeric summary.
+
+If the columns of interest are numeric, then you can try functions such as `mean()`, `median()`, `mode()`, or `summary()` to get summary statistics of the column. If the columns of interest is character or logical, then you can try the `table()` function.
+
+All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the `$` operation.
+
+```{r}
+mean(breast_metadata$Age, na.rm = TRUE)
+
+table(breast_metadata$Sex)
+```
 
 ## Pipes
 
-Sometimes, in data analysis, we want to transform our dataframe in multiple steps via different functions. In your exercise, you started combining `filter()` and `select()` using one line of code:
-
-```{r, warning=F, message=F}
-library(tidyverse)
-metadata = read.csv("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE_metadata.csv")
-```
+Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:
 
 ```{r}
 breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
@@ -146,59 +181,6 @@ result = dataframe %>% function1(df_col4, df_col2) %>%
          function3(df_col5, arg1)
 ```
 
-Looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.
+This looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.
 
-### Exercises
-
--   Rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
-
-## Modifying and creating new columns in dataframes
-
-To put together what we have learned today, we will modify and create new columns in dataframes.
-
-The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a new or existing data variable that is defined in terms of other data variables.
-
-We create a new column `newAge` that is 10 years older than the original `Age` column.
-
-```{r}
-metadata$Age[1:10]
-metadata2 = mutate(metadata, newAge = Age + 10)
-metadata2$newAge[1:10]
-```
-
-
-or `medicaid_eligible()`:
-
-```{r}
-medicaid_eligible = function(age) {
-  age[age < 65] = 0
-  age[age >= 65] = 1
-  return(age)
-}
-
-metadata$Age[1:10]
-metadata2 = mutate(metadata, medicaid = medicaid_eligible(Age))
-metadata2$medicaid[1:10]
-table(metadata2$medicaid)
-
-```
-
-### All together now
-
-Let's put all of our analysis together via pipes:
-
-```{r}
-breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
-                             select(ModelID, Age, Sex) %>%
-                             mutate(medicaid = medicaid_eligible(Age))
-
-head(breast_metadata)
-```
-
-### Alternative: Creating and modifying columns via `$`
-
-Instead of `mutate()` function, we can also create a new or modify a column via the `$` symbol:
-
-```{r}
-metadata$medicaid = medicaid_eligible(metadata$Age)
-```
+Try to rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.

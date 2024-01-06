@@ -24,7 +24,7 @@ output-location: fragment
 
     -   What you want to get out of the class
 
-    -   Favorite fall activity
+    -   Favorite winter activity
 
 ## Goals of the course
 
@@ -43,12 +43,8 @@ output-location: fragment
 . . .
 
 -   Learning on the job is challenging
-    -   I will move at learner's pace; collaborative learning encouraged
-
-. . .
-
--   Various exposure to programming and data science
-    -   Take what you need: some will be new, some will be familiar
+    -   I will move at learner's pace
+    -   Teach not for mastery, but teach for empowerment to learn effectively.
 
 . . .
 
@@ -63,19 +59,21 @@ output-location: fragment
 
 . . .
 
--   6 classes, come to 5 of them in-person if you can
+-   6 classes: January 22, 29, February 5, 12, 26, and March 4.
 
 . . .
 
--   Streamed online, recordings will be available
+-   Streamed online, recordings will be available.
 
 . . .
 
--   1-2 hour exercises after each session are strongly encouraged as they provide practice and preview the next class
+-   1-2 hour exercises after each session are strongly encouraged as they provide practice.
+
+-   Optional time to work on exercises together on Tuesdays Noon - 1pm PT. 
 
 . . .
 
--   Online discussion on Slack
+-   Online discussion via Slack.
 
 . . .
 
@@ -97,39 +95,33 @@ We will focus on English \<-\> Programming Code for R Interpreter in this class.
 
 . . .
 
-More importantly: **How we organize ideas \<-\> Instructing a computer to do something**.
+Another way of putting it: **How we organize ideas \<-\> Instructing a computer to do something**.
 
-## A programming language has following themes:
-
-. . .
-
--   Grammar structure (simple building blocks)
+## A programming language has following features:
 
 . . .
 
--   Means of combination to analyze and create content (examples around genomics)
+-   Grammar structure to construct expressions
 
 . . .
 
--   Means of abstraction for modular and reusable content (data structures, functions)
-
-## What is R and why should I use it?
+-   Combining expressions to create more complex expressions
 
 . . .
 
--   Highly used for data science, visualization, statistics, bioinformatics
+-   Encapsulate complex expressions via functions to create modular and reusable tasks
 
 . . .
 
--   Open-source and free; easy to create and distribute your content; kind, quirky culture
+-   Encapsulate complex data via data structures to allow efficient manipulation of data 
+
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
+What's the connection between English \<-\> Programming Code for R Interpreter?
+
+
 ## Break
-
-Let's find times for office hours, as well as time for people to work together!
-
-https://www.when2meet.com/?21640707-kwIMj
 
 A pre-course survey:
 
@@ -139,7 +131,7 @@ https://forms.gle/Qz3X9jqpgwowp9Qb8
 
 . . .
 
--   **Expressions** are be built out of **operations** or **functions**.
+-   **Expressions** are built out of **operations** or **functions**.
 
 . . .
 
@@ -209,13 +201,13 @@ Lastly, a note on the use of functions: a programmer should not need to know how
 
 ## Data types
 
--   **Numeric**: 18, 21, 65, 1.25
+-   **Numeric**: 18, -21, 65, 1.25
 
 -   **Character**: "ATCG", "Whatever", "948-293-0000"
 
 -   **Logical**: TRUE, FALSE
 
-## Grammar Structure 2: Storing data types in the global environment
+## Grammar Structure 2: Storing data types in the environment
 
 . . .
 
@@ -286,30 +278,26 @@ sqrt(nchar("hello"))
 (nchar("hello") + 4) * 2
 ```
 
-## Tips on Exercises / Debugging
+## Tips on writing your first code
 
 . . .
 
-Common errors:
+`Computer = powerful + stupid`
 
--   Syntax error
-
-. . .
-
--   It did something else than I expected!
-
-    -   The function or operation does not accept the input data type.
-
-    -   Changing a variable without realizing you did so.
-
-## Solutions:
-
--   Where is the problem?
+Even the smallest spelling and formatting changes will cause unexpected output and errors!
 
 . . .
 
--   What kind of problem is it?
+-   Write incrementally, test often
 
 . . .
 
--   Explain your problem to someone!
+-   Check your assumptions, especially using new functions, operations, and new data types. 
+
+. . .
+
+-   Live environments are great for testing, but not great for reproducibility. 
+
+. . .
+
+-   Ask for help!
