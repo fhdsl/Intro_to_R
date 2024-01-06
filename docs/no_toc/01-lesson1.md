@@ -22,37 +22,14 @@ More importantly: **How we organize ideas \<-\> Instructing a computer to do som
 
 ## A programming language has following elements: {#a-programming-language-has-following-elements}
 
--   Grammar structure (simple building blocks)
+-   Grammar structure to construct expressions
 
--   Means of combination to analyze and create content (examples around genomics provided, and your scientific creativity is strongly encouraged!)
+-   Combining expressions to create more complex expressions
 
--   Means of abstraction for modular and reusable content (data structures, functions)
+-   Encapsulate complex expressions via functions to create modular and reusable tasks
 
--   Culture (emphasis on open-source, collaborative, reproducible code)
+-   Encapsulate complex data via data structures to allow efficient manipulation of data 
 
-Requires a lot of practice to be fluent!
-
-## What is R and why should I use it?
-
-It is a:
-
--   Dynamic programming interpreter
-
--   Highly used for data science, visualization, statistics, bioinformatics
-
--   Open-source and free; easy to create and distribute your content; quirky culture
-
-## R vs. Python as a first language
-
-In terms of our goals, recall:
-
--   Fundamental concepts in high-level programming languages
-
--   Beginning of data science fundamentals
-
-There are a lot of nuances and debates, but I argue that Python is a better learning environment for the former and R is better for the latter.
-
-Ultimately, either should be okay! Perhaps more importantly, *consider what your research group and collaborator are more comfortable with*.
 
 ## Posit Cloud Setup
 
@@ -74,7 +51,7 @@ Why should we use Quarto for data science work?
 
 -   Code, output from code, and prose combined together
 
--   Extendability to Python, Julia, and more.
+-   Extensions to Python, Julia, and more.
 
 More options and guides can be found in [Introduction to Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) .
 
@@ -187,7 +164,7 @@ Here are some data types that we will be using in this course:
 -   **Logical**: TRUE, FALSE
 
 
-## Grammar Structure 2: Storing data types in the global environment
+## Grammar Structure 2: Storing data types in the environment
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:
 
@@ -255,22 +232,16 @@ sqrt(nchar("hello"))
 ```
 
 
-## Tips on Exercises / Debugging
+## Tips on writing your first code
 
-Common errors:
+`Computer = powerful + stupid`
 
--   Syntax error.
+Even the smallest spelling and formatting changes will cause unexpected output and errors!
 
--   It did something else than I expected!
+-   Write incrementally, test often
 
-    -   The function or operation does not accept the input data type.
+-   Check your assumptions, especially using new functions, operations, and new data types. 
 
-    -   Changing a variable without realizing you did so.
+-   Live environments are great for testing, but not great for reproducibility. 
 
-Solutions:
-
--   Where is the problem?
-
--   What kind of problem is it?
-
--   Explain your problem to someone!
+-   Ask for help!
