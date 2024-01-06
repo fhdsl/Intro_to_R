@@ -1,5 +1,5 @@
 ---
-title: "W3: Functions and Pipes"
+title: "W3: Data Wrangling with Tidy Data, Part 1"
 format: revealjs
 execute:
   echo: true

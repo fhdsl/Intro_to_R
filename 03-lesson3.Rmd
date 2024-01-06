@@ -9,7 +9,7 @@ load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData
 
 ![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
-We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with *Transform* and *Visualize* with the assumption that our data is in a nice, "tidy format". First, we need to understand what it means for a data to be "tidy".
+We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with *Transform* and *Visualize* with the assumption that our data is in a nice, "Tidy format". First, we need to understand what it means for a data to be "Tidy".
 
 ## Tidy Data
 
