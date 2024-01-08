@@ -205,7 +205,7 @@ metadata[1:5, ]
 
 
 ```{r}
-metadata[, c("ModelID", "CellLineName")]
+head(metadata[, c("ModelID", "CellLineName")])
 ```
 
 The bracket operation on a dataframe can be difficult to interpret because multiple expression for the row and column indicies is a lot of information for one line of code. You will see easier-to-read functions for dataframe subsetting in the next lesson.
