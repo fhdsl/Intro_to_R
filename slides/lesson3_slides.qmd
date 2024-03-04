@@ -38,7 +38,7 @@ We start with *Transform* and *Visualize* with the assumption that our data is i
 ## Examples and counter-examples
 
 ```{r}
-table1
+head(table1)
 ```
 
 . . .
@@ -73,7 +73,7 @@ In `table3`, we have multiple values for each cell under the "rate" column.
 We will work with `metadata`, `mutation`, and `expression` dataframes.
 
 
-## Transform: "What do you want to do with this dataframe"?
+## What do you want to do with this dataframe?
 
 Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
 
@@ -81,7 +81,7 @@ Remember that a major theme of the course is about: **How we organize ideas \<-\
 
 With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.
 
-## Transform: Subsetting a dataframe
+## Subsetting a dataframe
 
 *In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*
 
@@ -95,7 +95,7 @@ With Tidy data, we can ponder how we want to transform our data that satisfies o
 
 *Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.*
 
-## Convert this to code:
+## How we do it:
 
 . . .
 

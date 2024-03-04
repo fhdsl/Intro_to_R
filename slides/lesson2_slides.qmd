@@ -8,6 +8,14 @@ execute:
 output-location: fragment
 ---
 
+## Data types
+
+-   **Numeric**: 18, -21, 65, 1.25
+
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+
+-   **Logical**: TRUE, FALSE
+
 ## A programming language has following elements
 
 . . .
@@ -24,7 +32,9 @@ output-location: fragment
 
 . . .
 
--   Encapsulate complex data via data structures to allow efficient manipulation of data 
+-   **Encapsulate complex data via data structures to allow efficient manipulation of data**
+
+
 
 ## Data structures
 
@@ -33,6 +43,10 @@ output-location: fragment
 . . .
 
 **Vector** is a ordered collection of a data type. Each *element* of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.
+
+. . .
+
+So, you can have **numeric vector**, **character vector**, and **logical vector**.
 
 ::: notes
 There is no limit on how big a vector can be, as long the memory use of it is within the computer's memory (RAM).
@@ -77,7 +91,7 @@ chrNum
 
 . . .
 
-Multiplication has a new meaning when used on a numeric vector and numeric data type!
+Multiplication has a new meaning when used on a numeric vector and numeric data type! This is called **operator overloading**.
 
 . . .
 
@@ -85,9 +99,6 @@ Multiplication has a new meaning when used on a numeric vector and numeric data 
 
 ## Operator overloading
 
-Multiplication is an operation that can be used for multiple data types or data structures: we call this property **operator overloading**.
-
-. . .
 
 How about numeric vector multiplied by numeric vector?
 
@@ -302,7 +313,7 @@ metadata$Age[1:5]
 Challenge!
 
 ```{r}
-metadata$OncotreeLineage[metadata$OncotreeLineage == "Myeloid"]
+metadata$Age[metadata$OncotreeLineage == "Myeloid"]
 ```
 
 ## Subsetting columns and rows from a dataframe

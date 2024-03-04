@@ -238,7 +238,7 @@ Functions you can use for `summarise()` must take in a vector and return a simpl
 The exception is `n()`, which returns the number of entries for each grouping variable's value.
 
 
-## Functions motivation
+## Appendix: Functions motivation
 
 ![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
 
