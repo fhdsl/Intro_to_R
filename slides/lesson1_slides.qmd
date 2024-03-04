@@ -8,6 +8,10 @@ execute:
 output-location: fragment
 ---
 
+## Welcome!
+
+![](images/R-3.1%20(Final).png)
+
 ## Introductions
 
 -   Who am I?
@@ -34,7 +38,7 @@ output-location: fragment
 
 . . .
 
--   Beginning of data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
+-   Data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
 
     ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
@@ -69,7 +73,7 @@ output-location: fragment
 
 -   1-2 hour exercises after each session are strongly encouraged as they provide practice.
 
--   Optional time to work on exercises together on Tuesdays Noon - 1pm PT. 
+-   Optional time to work on exercises together on Thursdays Noon - 1pm PT.
 
 . . .
 
@@ -77,7 +81,31 @@ output-location: fragment
 
 . . .
 
--   Certification at the end of the course
+-   Certification at the end of the course\*
+
+## Content of the course
+
+1.  Intro to Computing
+
+. . .
+
+2.  Data structures
+
+. . .
+
+3.  Data wrangling 1
+
+. . .
+
+4.  Data wrangling 2
+
+. . .
+
+5.  Data visualization
+
+. . .
+
+6.  Loading your own data in, celebratory lunch!!
 
 ## What is a computer program?
 
@@ -97,35 +125,15 @@ We will focus on English \<-\> Programming Code for R Interpreter in this class.
 
 Another way of putting it: **How we organize ideas \<-\> Instructing a computer to do something**.
 
-## A programming language has following features:
-
-. . .
-
--   Grammar structure to construct expressions
-
-. . .
-
--   Combining expressions to create more complex expressions
-
-. . .
-
--   Encapsulate complex expressions via functions to create modular and reusable tasks
-
-. . .
-
--   Encapsulate complex data via data structures to allow efficient manipulation of data 
-
-
 ## Setting up Posit Cloud and trying out your first analysis!
 
 What's the connection between English \<-\> Programming Code for R Interpreter?
-
 
 ## Break
 
 A pre-course survey:
 
-https://forms.gle/Qz3X9jqpgwowp9Qb8
+https://forms.gle/zCGzL1RH4UJzNAwr6
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -278,6 +286,24 @@ sqrt(nchar("hello"))
 (nchar("hello") + 4) * 2
 ```
 
+## A programming language has following features:
+
+. . .
+
+-   Grammar structure to construct expressions
+
+. . .
+
+-   Combining expressions to create more complex expressions
+
+. . .
+
+-   Encapsulate complex expressions via functions to create modular and reusable tasks
+
+. . .
+
+-   Encapsulate complex data via data structures to allow efficient manipulation of data
+
 ## Tips on writing your first code
 
 . . .
@@ -292,12 +318,16 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 
 . . .
 
--   Check your assumptions, especially using new functions, operations, and new data types. 
+-   Check your assumptions, especially using new functions, operations, and new data types.
 
 . . .
 
--   Live environments are great for testing, but not great for reproducibility. 
+-   Live environments are great for testing, but not great for reproducibility.
 
 . . .
 
--   Ask for help!
+-   **Ask for help!**
+
+## That's all!
+
+Maybe see you Thursday Noon - 1pm PT to practice together!

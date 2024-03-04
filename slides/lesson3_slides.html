@@ -10,7 +10,7 @@
 <link href="lesson3_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>W3: Functions and Pipes</title>
+  <title>W3: Data Wrangling with Tidy Data, Part 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -389,7 +389,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">W3: Functions and Pipes</h1>
+  <h1 class="title">W3: Data Wrangling with Tidy Data, Part 1</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -419,7 +419,7 @@
 <section id="examples-and-counter-examples" class="slide level2">
 <h2>Examples and counter-examples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">head</span>(table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country      year  cases population
@@ -481,15 +481,15 @@
 <p><a href="https://depmap.org/" class="uri">https://depmap.org/</a></p>
 <p>We will work with <code>metadata</code>, <code>mutation</code>, and <code>expression</code> dataframes.</p>
 </section>
-<section id="transform-what-do-you-want-to-do-with-this-dataframe" class="slide level2">
-<h2>Transform: “What do you want to do with this dataframe”?</h2>
+<section id="what-do-you-want-to-do-with-this-dataframe" class="slide level2">
+<h2>What do you want to do with this dataframe?</h2>
 <p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
 <div class="fragment">
 <p>With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.</p>
 </div>
 </section>
-<section id="transform-subsetting-a-dataframe" class="slide level2">
-<h2>Transform: Subsetting a dataframe</h2>
+<section id="subsetting-a-dataframe" class="slide level2">
+<h2>Subsetting a dataframe</h2>
 <p><em>In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?</em></p>
 <div class="fragment">
 <p>✅ Implicit: “I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex.”</p>
@@ -499,8 +499,8 @@
 <p><em>Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.</em></p>
 </div>
 </section>
-<section id="convert-this-to-code" class="slide level2">
-<h2>Convert this to code:</h2>
+<section id="how-we-do-it" class="slide level2">
+<h2>How we do it:</h2>
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(tidyverse)</span>
