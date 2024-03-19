@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2</title>
-  <meta name="description" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <title>Chapter 5 Working with Data Structures Exercises | Introduction to R, Season 2</title>
+  <meta name="description" content="Chapter 5 Working with Data Structures Exercises | Introduction to R, Season 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <meta property="og:title" content="Chapter 5 Working with Data Structures Exercises | Introduction to R, Season 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <meta name="twitter:title" content="Chapter 5 Working with Data Structures Exercises | Introduction to R, Season 2" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="working-with-data-structures-exercises.html"/>
-<link rel="next" href="data-wrangling-with-tidy-data-part-1-exercises.html"/>
+<link rel="prev" href="working-with-data-structures.html"/>
+<link rel="next" href="data-wrangling-with-tidy-data-part-1.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -285,199 +285,136 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="data-wrangling-with-tidy-data-part-1" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Data Wrangling with Tidy Data, Part 1</h1>
-<div id="data-science-workflow" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Data Science Workflow</h2>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" /></p>
-<p>We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “Tidy format”. First, we need to understand what it means for a data to be “Tidy”.</p>
-</div>
-<div id="tidy-data" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Tidy Data</h2>
-<p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
+<div id="working-with-data-structures-exercises" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Working with Data Structures Exercises</h1>
+<p>If you need to clear your environment and start from the beginning, this code chunk will do that:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="working-with-data-structures-exercises.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<div id="recap-from-class-subsetting-explicitly-and-implicitly" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Recap from class: subsetting explicitly and implicitly</h2>
+<p>In class, we looked at a numerical vector similar to this:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="working-with-data-structures-exercises.html#cb98-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">89</span>, <span class="dv">70</span>, <span class="dv">64</span>, <span class="dv">99</span>, <span class="dv">66</span>, <span class="dv">71</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">30</span>, <span class="dv">16</span>)</span></code></pre></div>
+<p>We could subset <code>age</code> <strong>explicitly</strong> two ways. Suppose we want to subset the 1st and 5th, and 9th elements. One can do it with numerical indexing vectors:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="working-with-data-structures-exercises.html#cb99-1" aria-hidden="true" tabindex="-1"></a>age[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>or by <strong>logical indexing vectors</strong>:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="working-with-data-structures-exercises.html#cb101-1" aria-hidden="true" tabindex="-1"></a>age[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>and you can do it in one step as we have done so, or two steps by storing the indexing vector as a variable. <em>Either ways is fine.</em></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="working-with-data-structures-exercises.html#cb103-1" aria-hidden="true" tabindex="-1"></a>num_idx <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)</span>
+<span id="cb103-2"><a href="working-with-data-structures-exercises.html#cb103-2" aria-hidden="true" tabindex="-1"></a>age[num_idx]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="working-with-data-structures-exercises.html#cb105-1" aria-hidden="true" tabindex="-1"></a>logical_idx <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb105-2"><a href="working-with-data-structures-exercises.html#cb105-2" aria-hidden="true" tabindex="-1"></a>age[logical_idx]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>Now, let’s subset this vector <strong>implicitly</strong>, in 3 steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Each variable must have its own column.</p></li>
-<li><p>Each observation must have its own row.</p></li>
-<li><p>Each value must have its own cell.</p></li>
+<li>Come up with a criteria for subsetting: “I want to subset to values greater than 50”.</li>
+<li>We can use a <strong>comparison operator</strong> to create a <strong>logical indexing vector</strong> that fits this criteria.</li>
 </ol>
-<p>If you want to be technical about what variables and observations are, Hadley Wickham describes:</p>
-<blockquote>
-<p>A <strong>variable</strong> contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across attributes.</p>
-</blockquote>
-<div class="figure">
-<img src="https://r4ds.hadley.nz/images/tidy-1.png" width="800" alt="" />
-<p class="caption">A tidy dataframe.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="working-with-data-structures-exercises.html#cb107-1" aria-hidden="true" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">50</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Use this logical indexing vector to subset.</li>
+</ol>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="working-with-data-structures-exercises.html#cb109-1" aria-hidden="true" tabindex="-1"></a>age[age <span class="sc">&gt;</span> <span class="dv">50</span>]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 99 66 71 55 60</code></pre>
+<p>And you are done.</p>
+<p>Alternatively, you could have done this in two steps:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="working-with-data-structures-exercises.html#cb111-1" aria-hidden="true" tabindex="-1"></a>another_idx <span class="ot">=</span> age <span class="sc">&gt;</span> <span class="dv">50</span></span>
+<span id="cb111-2"><a href="working-with-data-structures-exercises.html#cb111-2" aria-hidden="true" tabindex="-1"></a>age[another_idx]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 99 66 71 55 60</code></pre>
+<p>On to practicing yourself!</p>
 </div>
+<div id="part-1-comparison-operators-on-data-types" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Part 1: Comparison operators on data types</h2>
+<p>In class, we looked at comparison operators on vectors to create logical indexing vectors. We are going to first take a step back and see how comparison operators work on simpler data types. Here are the comparison operators common in R:</p>
+<p><code>&lt;</code> less than</p>
+<p><code>&lt;=</code> less or equal than</p>
+<p><code>==</code> equal to</p>
+<p><code>!=</code> not equal to</p>
+<p><code>&gt;</code> greater than</p>
+<p><code>&gt;=</code> greater than or equal to</p>
+<p>Consider the following variables:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="working-with-data-structures-exercises.html#cb113-1" aria-hidden="true" tabindex="-1"></a>chr1 <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb113-2"><a href="working-with-data-structures-exercises.html#cb113-2" aria-hidden="true" tabindex="-1"></a>chr2 <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb113-3"><a href="working-with-data-structures-exercises.html#cb113-3" aria-hidden="true" tabindex="-1"></a>chr3 <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb113-4"><a href="working-with-data-structures-exercises.html#cb113-4" aria-hidden="true" tabindex="-1"></a>staff1 <span class="ot">=</span> <span class="st">&quot;chris&quot;</span></span>
+<span id="cb113-5"><a href="working-with-data-structures-exercises.html#cb113-5" aria-hidden="true" tabindex="-1"></a>staff2 <span class="ot">=</span> <span class="st">&quot;shasta&quot;</span></span></code></pre></div>
+<p>We saw how we used comparison operators on vectors, but they can be used for any singular data type:</p>
+<p>Using comparison operators, write 3 expressions so that the returned value is <code>TRUE</code>. I’ll give one example:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="working-with-data-structures-exercises.html#cb114-1" aria-hidden="true" tabindex="-1"></a>staff1 <span class="sc">!=</span> <span class="st">&quot;jeff&quot;</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Using comparison operators, write 3 expressions so that the returned value is <code>FALSE</code>:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="working-with-data-structures-exercises.html#cb116-1" aria-hidden="true" tabindex="-1"></a>chr1 <span class="sc">&gt;</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>We can combine comparison operators together to form more complex statements:</p>
+<p>The “and” <code>&amp;</code> operator returns <code>TRUE</code> if both inputs have values of <code>TRUE</code>, and <code>FALSE</code> otherwise:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="working-with-data-structures-exercises.html#cb118-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="cn">TRUE</span></span>
+<span id="cb118-2"><a href="working-with-data-structures-exercises.html#cb118-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="cn">TRUE</span></span>
+<span id="cb118-3"><a href="working-with-data-structures-exercises.html#cb118-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb118-4"><a href="working-with-data-structures-exercises.html#cb118-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb118-5"><a href="working-with-data-structures-exercises.html#cb118-5" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&amp;</span> b</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="working-with-data-structures-exercises.html#cb120-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">&amp;</span> d</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="working-with-data-structures-exercises.html#cb122-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&amp;</span> c</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="working-with-data-structures-exercises.html#cb124-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">&amp;</span> d</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Therefore, we can create compound comparison operations like this:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="working-with-data-structures-exercises.html#cb126-1" aria-hidden="true" tabindex="-1"></a>chr1 <span class="sc">&gt;</span> chr3 <span class="sc">&amp;</span> chr1 <span class="sc">&lt;</span> chr2</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Similarly, the “or” <code>|</code> operator returns <code>TRUE</code> if at least one of the inputs are <code>TRUE</code>. Otherwise it returns <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="working-with-data-structures-exercises.html#cb128-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">|</span> b</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="working-with-data-structures-exercises.html#cb130-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">|</span> d</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="working-with-data-structures-exercises.html#cb132-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">|</span> c</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="working-with-data-structures-exercises.html#cb134-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">|</span> d</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Create 2 compound comparison operations using <code>|</code> so that one returns <code>TRUE</code> and the other returns <code>FALSE</code>. I’ll give you one example:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="working-with-data-structures-exercises.html#cb136-1" aria-hidden="true" tabindex="-1"></a>chr1 <span class="sc">&gt;</span> chr3 <span class="sc">|</span> chr1 <span class="sc">&lt;</span> chr2</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>You can extend these compound statements to contain multiple <code>&amp;</code> and <code>|</code> operations mixed together, and parentheses should be used to clarify your order of operation.</p>
+<p><strong>Now, let’s use comparison operators on vectors.</strong></p>
+<p>We create the <code>age</code> vector from our lesson.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="working-with-data-structures-exercises.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co">#don&#39;t worry about this function</span></span>
+<span id="cb138-2"><a href="working-with-data-structures-exercises.html#cb138-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="dv">100</span>)) <span class="co">#don&#39;t worry about these functions</span></span></code></pre></div>
+<p>Create a compound comparison operation that looks returns a logical vector so that the elements are <code>TRUE</code> if <code>age</code> is between 18 <em>and</em> 65.</p>
 </div>
-<div id="examples-and-counter-examples-of-tidy-data" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Examples and counter-examples of Tidy Data:</h2>
-<p>Consider the following three datasets, which all contain the exact same information:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb144-1" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 4
-##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
-## 1 Afghanistan  1999    745   19987071
-## 2 Afghanistan  2000   2666   20595360
-## 3 Brazil       1999  37737  172006362
-## 4 Brazil       2000  80488  174504898
-## 5 China        1999 212258 1272915272
-## 6 China        2000 213766 1280428583</code></pre>
-<p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 4
-##   country      year type           count
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;          &lt;int&gt;
-## 1 Afghanistan  1999 cases            745
-## 2 Afghanistan  1999 population  19987071
-## 3 Afghanistan  2000 cases           2666
-## 4 Afghanistan  2000 population  20595360
-## 5 Brazil       1999 cases          37737
-## 6 Brazil       1999 population 172006362</code></pre>
-<p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb148-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 3
-##   country      year rate             
-## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
-## 1 Afghanistan  1999 745/19987071     
-## 2 Afghanistan  2000 2666/20595360    
-## 3 Brazil       1999 37737/172006362  
-## 4 Brazil       2000 80488/174504898  
-## 5 China        1999 212258/1272915272
-## 6 China        2000 213766/1280428583</code></pre>
-<p>In <code>table3</code>, we have multiple values for each cell under the “rate” column.</p>
+<div id="part-2-subsetting-vectors" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Part 2: Subsetting vectors</h2>
+<p>Let’s practice explicit subsetting. Can you subset for the first 10 elements of <code>age</code> explicitly?</p>
+<p>We will now look at implicit subsetting using with a criteria of interest: “We want to subset <code>age</code> to have values less than 21 <em>or</em> greater than 40”.</p>
+<p>Then, the next step is to create the logical indexing vector via compound comparison operations. You should use the or <code>|</code> operation:</p>
+<p>The final step is to use this logical indexing vector to subset:</p>
+<p>Let’s do another practice: Can you subset for all <code>age</code> greater than 65?</p>
 </div>
-<div id="our-working-tidy-data-depmap-project" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Our working Tidy Data: DepMap Project</h2>
-<p>The <a href="https://depmap.org/portal/">Dependency Map project</a> is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access. We have been looking at the metadata since last session.</p>
-<ul>
-<li><p>Metadata</p></li>
-<li><p>Somatic mutations</p></li>
-<li><p>Gene expression</p></li>
-<li><p>Drug sensitivity</p></li>
-<li><p>CRISPR knockout</p></li>
-<li><p>and more…</p></li>
-</ul>
-<p>Let’s see how these datasets fit the definition of Tidy data:</p>
-<pre><code></code></pre>
-<table style="width:100%;">
-<colgroup>
-<col width="24%" />
-<col width="24%" />
-<col width="26%" />
-<col width="24%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dataframe</th>
-<th>The observation is</th>
-<th>Some variables are</th>
-<th>Some values are</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>metadata</td>
-<td>Cell line</td>
-<td>ModelID, Age, OncotreeLineage</td>
-<td>“ACH-000001”, 60, “Myeloid”</td>
-</tr>
-<tr class="even">
-<td>expression</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>mutation</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div id="part-3-dataframes" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Part 3: Dataframes</h2>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="working-with-data-structures-exercises.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb139-2"><a href="working-with-data-structures-exercises.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<p>Use the <code>colnames</code>, <code>dim</code>, <code>ncol</code>, and <code>nrow</code> functions to explore the basic properties of the dataframe <code>metadata</code>:</p>
+<p>Using the <code>$</code> operator, subset <code>OncotreeLineage</code> column from the <code>metadata</code> dataframe and store the result as a character vector called <code>lineage</code>:</p>
+<p>Then, subset for the first 10 elements of <code>lineage</code> explicitly:</p>
+<p>Create a logical indexing vector that gives <code>TRUE</code> if an element of <code>lineage</code> is “Myeloid”, and <code>FALSE</code> otherwise. You will need to use the <code>==</code> comparison operation. Store it as the variable <code>myeloid_idx</code>.</p>
+<p>We can now use this logical indexing vector to subset on the <em>rows</em> of <code>metadata</code>. Take a look (you need to remove the # comments the code):</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="working-with-data-structures-exercises.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co">#myeloid_metadata = metadata[myeloid_idx ,]</span></span>
+<span id="cb140-2"><a href="working-with-data-structures-exercises.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(myeloid_metadata)</span></span></code></pre></div>
 </div>
-<div id="transform-what-do-you-want-to-do-with-this-dataframe" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Transform: “What do you want to do with this dataframe”?</h2>
-<p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
-<p>Until now, we haven’t focused too much on how we organize our scientific ideas to interact with what we can do with code. Let’s pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform tidy data, starting with subsetting columns and rows.</p>
-<p>Here’s a starting prompt:</p>
-<blockquote>
-<p>In the <code>metadata</code> dataframe, which rows would you filter for and columns would you select that relate to a scientific question?</p>
-</blockquote>
-<p>We should use the implicit subsetting mindset here: ie. “I want to filter for rows such that the Subtype is breast cancer and look at the Age and Sex.” and <em>not</em> “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
-<p><em>Notice that when we filter for rows in an implicit way, we often formulate our criteria about the columns.</em></p>
-<p>(This is because we are guaranteed to have column names in dataframes, but not usually row names. Some dataframes have row names, but because the data types are not guaranteed to have the same data type across rows, it makes describing by row properties difficult.)</p>
-<p>Let’s convert our implicit subsetting criteria into code!</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb151-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-2" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb151-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
-<pre><code>##      ModelID Age    Sex
-## 1 ACH-000017  43 Female
-## 2 ACH-000019  69 Female
-## 3 ACH-000028  69 Female
-## 4 ACH-000044  47 Female
-## 5 ACH-000097  63 Female
-## 6 ACH-000111  41 Female</code></pre>
-<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package, which we have to install and load in via <code>library(tidyverse</code>) before using these functions.</p>
-<div id="filter-rows" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Filter rows</h3>
-<p>Let’s carefully a look what how the R Console is interpreting the <code>filter()</code> function:</p>
-<ul>
-<li><p>We evaluate the expression right of <code>=</code>.</p></li>
-<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
-<li><p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable <code>OncotreeLineage</code> does not exist in our environment! Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong> in the context of the dataframe <code>metadata</code>. So, we make a comparison operation on the column <code>OncotreeLineage</code> from <code>metadata</code> and its resulting logical indexing vector is the input to the second argument.</p>
-<ul>
-<li><p>How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It’s not clear cut, but here’s a rule of thumb: most functions from the <code>tidyverse</code> package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.</p></li>
-<li><p>This encourages more <em>readable</em> code at the expense of consistency of referring to variables in the environment. The authors of this package <a href="https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables">describes this trade-off</a>.</p></li>
-</ul></li>
-<li><p>Putting it together, <code>filter()</code> takes in a dataframe, and an logical indexing vector described by data variables as arguments, and returns a data frame with rows that match condition described by the logical indexing vector.</p></li>
-<li><p>Store this in <code>metadata_filtered</code> variable.</p></li>
-</ul>
+<div id="you-are-done-1" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> You are done!</h2>
+<p>Change the logical value of this variable to <code>TRUE</code>. That’s all you need to know about <strong>logicals</strong> for now!</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="working-with-data-structures-exercises.html#cb141-1" aria-hidden="true" tabindex="-1"></a>finished_with_exercise1 <span class="ot">=</span> <span class="cn">FALSE</span></span></code></pre></div>
 </div>
-<div id="select-columns" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Select columns</h3>
-<p>Let’s carefully a look what how the R Console is interpreting the <code>select()</code> function:</p>
-<ul>
-<li><p>We evaluate the expression right of <code>=</code>.</p></li>
-<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
-<li><p>The second and third arguments are <strong>data variables</strong> referring the columns of <code>metadata</code>.</p>
-<ul>
-<li>For certain functions like <code>filter()</code>, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.</li>
-</ul></li>
-<li><p>Putting it together, <code>select()</code> takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.</p></li>
-<li><p>Store this in <code>breast_metadata</code> variable.</p></li>
-</ul>
-</div>
-</div>
-<div id="summary-statistics" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Summary Statistics</h2>
-<p>Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the observations of a variable in a numeric summary.</p>
-<p>If the columns of interest are numeric, then you can try functions such as <code>mean()</code>, <code>median()</code>, <code>mode()</code>, or <code>summary()</code> to get summary statistics of the column. If the columns of interest is character or logical, then you can try the <code>table()</code> function.</p>
-<p>All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the <code>$</code> operation.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 50.96104</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
-<pre><code>## 
-##  Female Unknown 
-##      91       1</code></pre>
-</div>
-<div id="pipes" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Pipes</h2>
-<p>Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb157-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
-<p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
-<pre><code>result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
-<p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>
-<p>To make this more readable, programmers came up with an alternative syntax for function composition via the <strong>pipe</strong> metaphor. The ideas is that we push data through a chain of connected pipes, in which the output of a pipe becomes the input of the subsequent pipe.</p>
-<p>Instead of a syntax like <code>result2 = function3(function2(function1(dataframe)))</code>,</p>
-<p>we linearize it with the <code>%&gt;%</code> symbol: <code>result2 = dataframe %&gt;% function1 %&gt;% function2 %&gt;% function3</code>.</p>
-<p>In the previous example,</p>
-<pre><code>result = dataframe %&gt;% function1(df_col4, df_col2) %&gt;%
-         function2(arg2) %&gt;%
-         function3(df_col5, arg1)</code></pre>
-<p>This looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.</p>
-<p>Try to rewrite the <code>select()</code> and <code>filter()</code> function composition example above using the pipe metaphor and syntax.</p>
+<div id="feedback-1" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Feedback!</h2>
+<p>How many hours did you spend on this exercise?</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="working-with-data-structures-exercises.html#cb142-1" aria-hidden="true" tabindex="-1"></a>time_spent <span class="ot">=</span> <span class="dv">0</span> </span></code></pre></div>
+<p>If you worked with other peers, write their names down in the following character vector: each element is one person’s name.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="working-with-data-structures-exercises.html#cb143-1" aria-hidden="true" tabindex="-1"></a>peers <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Myself&quot;</span>)</span></code></pre></div>
+
 </div>
 </div>
 <hr>
@@ -494,8 +431,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="working-with-data-structures-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling-with-tidy-data-part-1-exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-wrangling-with-tidy-data-part-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
