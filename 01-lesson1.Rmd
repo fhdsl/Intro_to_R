@@ -244,7 +244,7 @@ Take what you just wrote above, and now add some parenthesizes to change the ord
 Here is a weird expression:
 
 ```{r}
-sqrt(chr1 * abs(-chr2 + chr3)) + nchar("chromosome")
+sqrt(chr1 * abs(-chr2 + chr1)) + nchar("chromosome")
 ```
 
 Explain in words how the R Console parse out this expression to give the resulting value. The `sqrt()` function computes the square root of a number, and `abs()` function computes the absolute value of a number. Try `?sqrt` and `?abs` in the R console for more information.
