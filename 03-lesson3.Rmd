@@ -1,6 +1,8 @@
 # Data Wrangling with Tidy Data, Part 1
 
-```{r, message=FALSE}
+```{r, echo=F, message=F, warning=F, error=F}
+install.packages("palmerpenguins")
+library(palmerpenguins)
 library(tidyverse)
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
