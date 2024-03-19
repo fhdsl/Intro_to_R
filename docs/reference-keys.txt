@@ -53,7 +53,7 @@ modifying-and-creating-new-columns-in-dataframes
 alternative-creating-and-modifying-columns-via
 merging-two-dataframes-together
 grouping-and-summarizing-dataframes
-how-functions-are-built
+appendix-how-functions-are-built
 data-wrangling-with-tidy-data-part-2-exercises
 part-1-creating-new-columns
 part-2-joining-multiple-dataframes
