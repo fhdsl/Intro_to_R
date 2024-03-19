@@ -218,7 +218,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>8.2</b> Merging two dataframes together</a></li>
 <li class="chapter" data-level="8.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>8.3</b> Grouping and summarizing dataframes</a></li>
-<li class="chapter" data-level="8.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#how-functions-are-built"><i class="fa fa-check"></i><b>8.4</b> How functions are built</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>8.4</b> Appendix: How functions are built</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling with Tidy Data, Part 2 Exercises</a>
 <ul>
@@ -319,55 +319,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="histogram" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Histogram</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram()</span> + <span style="color:purple">theme_bw()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>With options:</p>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm)</span> + <span style="color:blue">geom_histogram(binwidth = 5)</span> + <span style="color:purple">theme_bw()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="bar-plots" class="section level3" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Bar plots</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species)</span> + <span style="color:blue">geom_bar()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="scatterplot" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Scatterplot</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="multivaraite-scatterplot" class="section level3" number="10.2.4">
 <h3><span class="header-section-number">10.2.4</span> Multivaraite Scatterplot</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="multivaraite-scatterplot-1" class="section level3" number="10.2.5">
 <h3><span class="header-section-number">10.2.5</span> Multivaraite Scatterplot</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">facet_wrap(~species)</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="line-plot" class="section level3" number="10.2.6">
 <h3><span class="header-section-number">10.2.6</span> Line plot?</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm)</span> + <span style="color:blue">geom_line()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="grouped-line-plot" class="section level3" number="10.2.7">
 <h3><span class="header-section-number">10.2.7</span> Grouped Line plot?</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, group = species)</span> + <span style="color:blue">geom_line()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <div id="boxplot" class="section level3" number="10.2.8">
 <h3><span class="header-section-number">10.2.8</span> Boxplot</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm)</span> + <span style="color:blue">geom_boxplot()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="grouped-boxplot" class="section level3" number="10.2.9">
 <h3><span class="header-section-number">10.2.9</span> Grouped Boxplot</h3>
 <p><span style="color:orange">ggplot(penguins)</span> + <span style="color:green">aes(x = species, y = bill_depth_mm, color = island)</span> + <span style="color:blue">geom_boxplot()</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="some-additional-options" class="section level3" number="10.2.10">
 <h3><span class="header-section-number">10.2.10</span> Some additional options</h3>
 <p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60))</span></p>
-<p><img src="05-lesson5_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="05-data-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 </div>
 <div id="summary-of-options" class="section level2" number="10.3">
