@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2</title>
-  <meta name="description" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <title>Chapter 9 Data Wrangling with Tidy Data, Part 2 Exercises | Introduction to R, Season 2</title>
+  <meta name="description" content="Chapter 9 Data Wrangling with Tidy Data, Part 2 Exercises | Introduction to R, Season 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <meta property="og:title" content="Chapter 9 Data Wrangling with Tidy Data, Part 2 Exercises | Introduction to R, Season 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Wrangling with Tidy Data, Part 1 | Introduction to R, Season 2" />
+  <meta name="twitter:title" content="Chapter 9 Data Wrangling with Tidy Data, Part 2 Exercises | Introduction to R, Season 2" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="working-with-data-structures-exercises.html"/>
-<link rel="next" href="data-wrangling-with-tidy-data-part-1-exercises.html"/>
+<link rel="prev" href="data-wrangling-with-tidy-data-part-2.html"/>
+<link rel="next" href="data-visualization.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -285,199 +285,121 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="data-wrangling-with-tidy-data-part-1" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Data Wrangling with Tidy Data, Part 1</h1>
-<div id="data-science-workflow" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Data Science Workflow</h2>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" /></p>
-<p>We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “Tidy format”. First, we need to understand what it means for a data to be “Tidy”.</p>
+<div id="data-wrangling-with-tidy-data-part-2-exercises" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Data Wrangling with Tidy Data, Part 2 Exercises</h1>
+<p>To erase your environment and start from scratch:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb203-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb203-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<div id="part-1-creating-new-columns" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Part 1: Creating new columns</h2>
+<p>Consider the following dataframe:</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-1" aria-hidden="true" tabindex="-1"></a>simple_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;BBB&quot;</span>, <span class="st">&quot;CCC&quot;</span>, <span class="st">&quot;DDD&quot;</span>, <span class="st">&quot;EEE&quot;</span>),</span>
+<span id="cb204-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">case_control =</span> <span class="fu">c</span>(<span class="st">&quot;case&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;control&quot;</span>),</span>
+<span id="cb204-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">measurement1 =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="dv">9</span>, .<span class="dv">1</span>, <span class="fl">2.2</span>),</span>
+<span id="cb204-4"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">measurement2 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, .<span class="dv">5</span>, .<span class="dv">24</span>, .<span class="dv">003</span>),</span>
+<span id="cb204-5"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">measurement3 =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb204-6"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-7"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb204-7" aria-hidden="true" tabindex="-1"></a>simple_df</span></code></pre></div>
+<pre><code>##    id case_control measurement1 measurement2 measurement3
+## 1 AAA         case          2.5        0.000           80
+## 2 BBB         case          3.5        0.000            2
+## 3 CCC      control          9.0        0.500            1
+## 4 DDD      control          0.1        0.240            1
+## 5 EEE      control          2.2        0.003            2</code></pre>
+<p>Create a new column, named <code>sum_measurements</code>, via <code>mutate</code> or <code>$</code>, which is the sum of <code>measurement1</code>, <code>measurement2</code>, and <code>measurement3</code> columns.</p>
+<p>Filter simple_df to samples that have “case” in <code>case_control</code> column, and look at the <strong>mean</strong> of the <code>sum_measurements</code> column. Do the same for samples that have the “control” in <code>case_control</code> column. How do they compare?</p>
+<p>Let’s return back to the <code>metadata</code> dataframe. Here is a custom function <code>medicaid_eligible()</code> that takes a numeric vector <code>age</code> and makes some transformations: it returns 0 if <code>age</code> is less than 65 and 1 if <code>age</code> is equal or greater than 65. You don’t need to understand how the function is defined, but you should understand the example usages of the <code>medicaid_eligible()</code> function on a numeric vector.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-1" aria-hidden="true" tabindex="-1"></a>medicaid_eligible <span class="ot">=</span> <span class="cf">function</span>(age) {</span>
+<span id="cb206-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&lt;</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb206-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-3" aria-hidden="true" tabindex="-1"></a>  age[age <span class="sc">&gt;=</span> <span class="dv">65</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb206-4"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(age)</span>
+<span id="cb206-5"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb206-6"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-7"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-7" aria-hidden="true" tabindex="-1"></a><span class="co">#example usage:</span></span>
+<span id="cb206-8"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb206-8" aria-hidden="true" tabindex="-1"></a><span class="fu">medicaid_eligible</span>(<span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">95</span>))</span></code></pre></div>
+<pre><code>## [1] 0 1</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co">#another example:</span></span>
+<span id="cb208-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb208-2" aria-hidden="true" tabindex="-1"></a>my_family_ages <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">64</span>, <span class="dv">32</span>, <span class="dv">35</span>, <span class="dv">76</span>)</span>
+<span id="cb208-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="fu">medicaid_eligible</span>(my_family_ages)</span></code></pre></div>
+<pre><code>## [1] 0 0 0 0 1</code></pre>
+<p>Create a new column named <code>medicaid</code> that is the output of the <code>medicaid_eligible</code> function with input argument of the <code>Age</code> column.</p>
 </div>
-<div id="tidy-data" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Tidy Data</h2>
-<p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
-<ol style="list-style-type: decimal">
-<li><p>Each variable must have its own column.</p></li>
-<li><p>Each observation must have its own row.</p></li>
-<li><p>Each value must have its own cell.</p></li>
-</ol>
-<p>If you want to be technical about what variables and observations are, Hadley Wickham describes:</p>
-<blockquote>
-<p>A <strong>variable</strong> contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across attributes.</p>
-</blockquote>
-<div class="figure">
-<img src="https://r4ds.hadley.nz/images/tidy-1.png" width="800" alt="" />
-<p class="caption">A tidy dataframe.</p>
-</div>
-</div>
-<div id="examples-and-counter-examples-of-tidy-data" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Examples and counter-examples of Tidy Data:</h2>
-<p>Consider the following three datasets, which all contain the exact same information:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb144-1" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 4
-##   country      year  cases population
-##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
-## 1 Afghanistan  1999    745   19987071
-## 2 Afghanistan  2000   2666   20595360
-## 3 Brazil       1999  37737  172006362
-## 4 Brazil       2000  80488  174504898
-## 5 China        1999 212258 1272915272
-## 6 China        2000 213766 1280428583</code></pre>
-<p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 4
-##   country      year type           count
-##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;          &lt;int&gt;
-## 1 Afghanistan  1999 cases            745
-## 2 Afghanistan  1999 population  19987071
-## 3 Afghanistan  2000 cases           2666
-## 4 Afghanistan  2000 population  20595360
-## 5 Brazil       1999 cases          37737
-## 6 Brazil       1999 population 172006362</code></pre>
-<p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb148-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 3
-##   country      year rate             
-## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
-## 1 Afghanistan  1999 745/19987071     
-## 2 Afghanistan  2000 2666/20595360    
-## 3 Brazil       1999 37737/172006362  
-## 4 Brazil       2000 80488/174504898  
-## 5 China        1999 212258/1272915272
-## 6 China        2000 213766/1280428583</code></pre>
-<p>In <code>table3</code>, we have multiple values for each cell under the “rate” column.</p>
-</div>
-<div id="our-working-tidy-data-depmap-project" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Our working Tidy Data: DepMap Project</h2>
-<p>The <a href="https://depmap.org/portal/">Dependency Map project</a> is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access. We have been looking at the metadata since last session.</p>
+<div id="part-2-joining-multiple-dataframes" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Part 2: Joining multiple dataframes</h2>
+<p>Consider another dataframe related to <code>simple_df</code>, called <code>simple2_df</code>.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb210-1" aria-hidden="true" tabindex="-1"></a>simple2_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;EEE&quot;</span>, <span class="st">&quot;FFF&quot;</span>, <span class="st">&quot;GGG&quot;</span>, <span class="st">&quot;HHH&quot;</span>),</span>
+<span id="cb210-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb210-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">measurement4 =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">56</span>, <span class="dv">23</span>, <span class="dv">9</span>),</span>
+<span id="cb210-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb210-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">measurement5 =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>))</span></code></pre></div>
+<p>We want to join <code>simple_df</code> and <code>simple2_df</code> together using a common identifier column <code>id</code>. The function <code>full_join()</code> will keeps all observations common to both dataframes based on the common column defined via the <code>by</code> argument via a character.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(simple_df)</span></code></pre></div>
+<pre><code>## [1] 5 5</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(simple2_df)</span></code></pre></div>
+<pre><code>## [1] 5 3</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb215-1" aria-hidden="true" tabindex="-1"></a>simple_joined_df <span class="ot">=</span> <span class="fu">full_join</span>(simple_df, simple2_df, <span class="at">by =</span> <span class="st">&quot;id&quot;</span>)</span>
+<span id="cb215-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(simple_joined_df)</span></code></pre></div>
+<pre><code>## [1] 8 7</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb217-1" aria-hidden="true" tabindex="-1"></a>simple_joined_df</span></code></pre></div>
+<pre><code>##    id case_control measurement1 measurement2 measurement3 measurement4
+## 1 AAA         case          2.5        0.000           80           25
+## 2 BBB         case          3.5        0.000            2           NA
+## 3 CCC      control          9.0        0.500            1           NA
+## 4 DDD      control          0.1        0.240            1           NA
+## 5 EEE      control          2.2        0.003            2           23
+## 6 FFF         &lt;NA&gt;           NA           NA           NA           56
+## 7 GGG         &lt;NA&gt;           NA           NA           NA           23
+## 8 HHH         &lt;NA&gt;           NA           NA           NA            9
+##   measurement5
+## 1         TRUE
+## 2           NA
+## 3           NA
+## 4           NA
+## 5         TRUE
+## 6         TRUE
+## 7        FALSE
+## 8        FALSE</code></pre>
+<p>Notice that it is <code>by = "id"</code>, not <code>by = id</code> when referring to the <code>id</code> column common to both dataframes. In my opinion, this function’s design was not great, as it runs against the form we are used to.</p>
+<p>We see <code>NA</code> in some of our data, because not every entry in <code>simple_df</code> is in <code>simple2_df</code>, and vice versa.</p>
+<p>There are other variations of <code>full_join():</code></p>
 <ul>
-<li><p>Metadata</p></li>
-<li><p>Somatic mutations</p></li>
-<li><p>Gene expression</p></li>
-<li><p>Drug sensitivity</p></li>
-<li><p>CRISPR knockout</p></li>
-<li><p>and more…</p></li>
+<li><p><code>full_join(x, y, by = "common_col")</code> keeps all observations.</p></li>
+<li><p><code>left_join(x, y, by = "common_col")</code> keeps all observations in <code>x</code>.</p></li>
+<li><p><code>right_join(x, y, by = "common_col")</code> keeps all observations in <code>y</code>.</p></li>
+<li><p><code>inner_join(x, y, by = "common_col")</code> keeps observations common to both <code>x</code> and <code>y</code>.</p></li>
 </ul>
-<p>Let’s see how these datasets fit the definition of Tidy data:</p>
-<pre><code></code></pre>
-<table style="width:100%;">
-<colgroup>
-<col width="24%" />
-<col width="24%" />
-<col width="26%" />
-<col width="24%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dataframe</th>
-<th>The observation is</th>
-<th>Some variables are</th>
-<th>Some values are</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>metadata</td>
-<td>Cell line</td>
-<td>ModelID, Age, OncotreeLineage</td>
-<td>“ACH-000001”, 60, “Myeloid”</td>
-</tr>
-<tr class="even">
-<td>expression</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>mutation</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>Try some of the other join functions out yourself:</p>
+<p>Now, let’s apply what we learned here to our genomics dataframes.</p>
+<p>Using <code>full_join</code> twice, create a dataframe that has columns from <code>metadata</code>, <code>expression</code>, and <code>mutation</code>. You should use column <code>ModelID</code> that is common to all three dataframes as your identifier. How will you check your work to know that you did the join correctly?</p>
 </div>
-<div id="transform-what-do-you-want-to-do-with-this-dataframe" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Transform: “What do you want to do with this dataframe”?</h2>
-<p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
-<p>Until now, we haven’t focused too much on how we organize our scientific ideas to interact with what we can do with code. Let’s pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform tidy data, starting with subsetting columns and rows.</p>
-<p>Here’s a starting prompt:</p>
-<blockquote>
-<p>In the <code>metadata</code> dataframe, which rows would you filter for and columns would you select that relate to a scientific question?</p>
-</blockquote>
-<p>We should use the implicit subsetting mindset here: ie. “I want to filter for rows such that the Subtype is breast cancer and look at the Age and Sex.” and <em>not</em> “I want to filter for rows 20-50 and select columns 2 and 8”.</p>
-<p><em>Notice that when we filter for rows in an implicit way, we often formulate our criteria about the columns.</em></p>
-<p>(This is because we are guaranteed to have column names in dataframes, but not usually row names. Some dataframes have row names, but because the data types are not guaranteed to have the same data type across rows, it makes describing by row properties difficult.)</p>
-<p>Let’s convert our implicit subsetting criteria into code!</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-1" aria-hidden="true" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb151-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-2" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb151-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
-<pre><code>##      ModelID Age    Sex
-## 1 ACH-000017  43 Female
-## 2 ACH-000019  69 Female
-## 3 ACH-000028  69 Female
-## 4 ACH-000044  47 Female
-## 5 ACH-000097  63 Female
-## 6 ACH-000111  41 Female</code></pre>
-<p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package, which we have to install and load in via <code>library(tidyverse</code>) before using these functions.</p>
-<div id="filter-rows" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Filter rows</h3>
-<p>Let’s carefully a look what how the R Console is interpreting the <code>filter()</code> function:</p>
-<ul>
-<li><p>We evaluate the expression right of <code>=</code>.</p></li>
-<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
-<li><p>The second argument is strange: the expression we give it looks like a logical indexing vector built from a comparison operator, but the variable <code>OncotreeLineage</code> does not exist in our environment! Rather, <code>OncotreeLineage</code> is a column from <code>metadata</code>, and we are referring to it as a <strong>data variable</strong> in the context of the dataframe <code>metadata</code>. So, we make a comparison operation on the column <code>OncotreeLineage</code> from <code>metadata</code> and its resulting logical indexing vector is the input to the second argument.</p>
-<ul>
-<li><p>How do we know when a variable being used is a variable from the environment, or a data variable from a dataframe? It’s not clear cut, but here’s a rule of thumb: most functions from the <code>tidyverse</code> package allows you to use data variables to refer to columns of a dataframe. We refer to documentation when we are not sure.</p></li>
-<li><p>This encourages more <em>readable</em> code at the expense of consistency of referring to variables in the environment. The authors of this package <a href="https://dplyr.tidyverse.org/articles/programming.html#data--and-env-variables">describes this trade-off</a>.</p></li>
-</ul></li>
-<li><p>Putting it together, <code>filter()</code> takes in a dataframe, and an logical indexing vector described by data variables as arguments, and returns a data frame with rows that match condition described by the logical indexing vector.</p></li>
-<li><p>Store this in <code>metadata_filtered</code> variable.</p></li>
-</ul>
-</div>
-<div id="select-columns" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Select columns</h3>
-<p>Let’s carefully a look what how the R Console is interpreting the <code>select()</code> function:</p>
-<ul>
-<li><p>We evaluate the expression right of <code>=</code>.</p></li>
-<li><p>The first argument of <code>filter()</code> is a dataframe, which we give <code>metadata</code>.</p></li>
-<li><p>The second and third arguments are <strong>data variables</strong> referring the columns of <code>metadata</code>.</p>
-<ul>
-<li>For certain functions like <code>filter()</code>, there is no limit on the number of arguments you provide. You can keep adding data variables to select for more column names.</li>
-</ul></li>
-<li><p>Putting it together, <code>select()</code> takes in a dataframe, and as many data variables you like to select columns, and returns a dataframe with the columns you described by data variables.</p></li>
-<li><p>Store this in <code>breast_metadata</code> variable.</p></li>
-</ul>
-</div>
-</div>
-<div id="summary-statistics" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Summary Statistics</h2>
-<p>Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the observations of a variable in a numeric summary.</p>
-<p>If the columns of interest are numeric, then you can try functions such as <code>mean()</code>, <code>median()</code>, <code>mode()</code>, or <code>summary()</code> to get summary statistics of the column. If the columns of interest is character or logical, then you can try the <code>table()</code> function.</p>
-<p>All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the <code>$</code> operation.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 50.96104</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
-<pre><code>## 
-##  Female Unknown 
-##      91       1</code></pre>
-</div>
-<div id="pipes" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Pipes</h2>
+<div id="part-3-pipes" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Part 3: Pipes</h2>
 <p>Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb157-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb219-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
 <p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
-<pre><code>result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
+<pre><code>result = function3(function2(function1(dataframe)))</code></pre>
 <p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>
 <p>To make this more readable, programmers came up with an alternative syntax for function composition via the <strong>pipe</strong> metaphor. The ideas is that we push data through a chain of connected pipes, in which the output of a pipe becomes the input of the subsequent pipe.</p>
-<p>Instead of a syntax like <code>result2 = function3(function2(function1(dataframe)))</code>,</p>
+<p>Instead of a syntax like <code>result = function3(function2(function1(dataframe)))</code>,</p>
 <p>we linearize it with the <code>%&gt;%</code> symbol: <code>result2 = dataframe %&gt;% function1 %&gt;% function2 %&gt;% function3</code>.</p>
 <p>In the previous example,</p>
-<pre><code>result = dataframe %&gt;% function1(df_col4, df_col2) %&gt;%
-         function2(arg2) %&gt;%
-         function3(df_col5, arg1)</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb221-1" aria-hidden="true" tabindex="-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> </span>
+<span id="cb221-2"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb221-3"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ModelID, Age, Sex) </span></code></pre></div>
 <p>This looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.</p>
-<p>Try to rewrite the <code>select()</code> and <code>filter()</code> function composition example above using the pipe metaphor and syntax.</p>
+<p>Your turn: write the following the code in the pipe form and check that it gets the same result:</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb222-1" aria-hidden="true" tabindex="-1"></a>analysis <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, Age <span class="sc">&gt;</span> <span class="dv">18</span> <span class="sc">&amp;</span> Age <span class="sc">&lt;</span> <span class="dv">45</span>), Age, OncotreeLineage, PrimaryOrMetastasis)</span></code></pre></div>
+<p>Challenge!!! Make this 3-nested function call into the pipe format.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb223-1" aria-hidden="true" tabindex="-1"></a>analysis <span class="ot">=</span> <span class="fu">mutate</span>(<span class="fu">select</span>(<span class="fu">filter</span>(metadata, Age <span class="sc">&gt;</span> <span class="dv">18</span> <span class="sc">&amp;</span> Age <span class="sc">&lt;</span> <span class="dv">45</span>), Age, OncotreeLineage, PrimaryOrMetastasis), <span class="at">medicaid =</span> <span class="fu">medicaid_eligible</span>(Age))</span></code></pre></div>
+<p>In the world of R data analysis, you will see some people analyzing their data using the <code>%&gt;%</code> symbol, and some will just use nested functions. You should decide what you prefer, but just want you to be aware of people’s styles.</p>
+</div>
+<div id="feedback-3" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Feedback!</h2>
+<p>How many hours did you spend on this exercise?</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb224-1" aria-hidden="true" tabindex="-1"></a>time_spent <span class="ot">=</span> <span class="dv">0</span> </span></code></pre></div>
+<p>If you worked with other peers, write their names down in the following character vector: each element is one person’s name.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#cb225-1" aria-hidden="true" tabindex="-1"></a>peers <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;myself&quot;</span>)</span></code></pre></div>
+
 </div>
 </div>
 <hr>
@@ -494,8 +416,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="working-with-data-structures-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling-with-tidy-data-part-1-exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-with-tidy-data-part-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
