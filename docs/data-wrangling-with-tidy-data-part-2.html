@@ -218,7 +218,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>8.2</b> Merging two dataframes together</a></li>
 <li class="chapter" data-level="8.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>8.3</b> Grouping and summarizing dataframes</a></li>
-<li class="chapter" data-level="8.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#how-functions-are-built"><i class="fa fa-check"></i><b>8.4</b> How functions are built</a></li>
+<li class="chapter" data-level="8.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>8.4</b> Appendix: How functions are built</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling with Tidy Data, Part 2 Exercises</a>
 <ul>
@@ -534,8 +534,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The exception is <code>n()</code>, which returns the number of entries for each grouping variable’s value.</p>
 <p>You can combine <code>group_by()</code> with other functions. See this <a href="https://dplyr.tidyverse.org/articles/grouping.html">guide</a>.</p>
 </div>
-<div id="how-functions-are-built" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> How functions are built</h2>
+<div id="appendix-how-functions-are-built" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Appendix: How functions are built</h2>
 <p>As you become more independent R programmers, you will spend time learning about new functions on your own. We have gone over the basic anatomy of a function call back in the first lesson, but now let’s go a bit deeper to understand how a function is built and how to call them.</p>
 <p>Recall that a function has a <strong>function name</strong>, <strong>input arguments</strong>, and a <strong>return value</strong>.</p>
 <p><em>Function definition consists of assigning a <strong>function name</strong> with a “function” statement that has a comma-separated list of named <strong>function arguments</strong>, and a <strong>return expression</strong>. The function name is stored as a variable in the global environment.</em></p>
@@ -597,6 +597,7 @@ Arguments:
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb202-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span>
 <span id="cb202-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> numbers, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 2.333333</code></pre>
+
 </div>
 </div>
 <hr>
