@@ -18,6 +18,7 @@ This data analysis project is based on [Open Case Studies on Exploring CO2 Emiss
 
 ```{r, warning=F, message=F}
 library(readxl)
+library(tidyverse)
 CO2_emissions = read_xlsx("classroom_data/yearly_co2_emissions_1000_tonnes.xlsx")
 ```
 
