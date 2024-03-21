@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 References | Introduction to R, Season 2</title>
-  <meta name="description" content="Chapter 13 References | Introduction to R, Season 2" />
+  <title>Chapter 11 Project 1: Exploring KRAS Expression | Introduction to R, Season 2</title>
+  <meta name="description" content="Chapter 11 Project 1: Exploring KRAS Expression | Introduction to R, Season 2" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 References | Introduction to R, Season 2" />
+  <meta property="og:title" content="Chapter 11 Project 1: Exploring KRAS Expression | Introduction to R, Season 2" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 References | Introduction to R, Season 2" />
+  <meta name="twitter:title" content="Chapter 11 Project 1: Exploring KRAS Expression | Introduction to R, Season 2" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="about-the-authors.html"/>
-
+<link rel="prev" href="data-visualization.html"/>
+<link rel="next" href="project-2-exploring-co2-emissions-over-time.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -314,9 +314,421 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="references" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> References</h1>
+<div id="project-1-exploring-kras-expression" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Project 1: Exploring KRAS Expression</h1>
+<div id="motivation" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Motivation</h2>
+<p>In the paper <a href="https://journals.sagepub.com/doi/pdf/10.1177/1176935117711944">“Tumor RAS Gene Expression Levels Are Influenced by the Mutational Status of RAS Genes and Both Upstream and Downstream RAS Pathway Genes”</a>, the authors studied relationship between RAS gene mutational status and messenger RNA expression. They saw higher levels of KRAS expression for samples that have KRAS mutation relative to samples without KRAS mutation for several cancer subtypes. The analysis was conducted using patient data from the <a href="https://www.cancer.gov/ccg/research/genome-sequencing/tcga">The Cancer Genome Atlas (TCGA)</a> project, and we are curious whether similar trends hold via cell line models.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/fhdsl/S1_Intro_to_R/main/images/kras.png" width="450" alt="" />
+<p class="caption">KRAS expression is elevated in KRAS-mutant samples from lung, pancreatic, and colon adenocarcinomas relative to WT samples.</p>
+</div>
+<p>The cell line models we use is from the <a href="https://depmap.org/portal/home/">Dependency Map Project</a> (DepMap), where over a thousand cancer cell lines were profiled for various genomic features, including mutational status and RNA expression.</p>
+<p>You will write code to recreate this figure using the DepMap data. Below are some suggestions on how to analyze it, but you can do it your own way!</p>
+<p>Clears the environment.</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="project-1-exploring-kras-expression.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+</div>
+<div id="analysis-1" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Analysis 1</h2>
+<div id="load-analysis-package-and-depmap-data-in" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Load analysis package and DepMap data in</h3>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="project-1-exploring-kras-expression.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="project-1-exploring-kras-expression.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb237-2"><a href="project-1-exploring-kras-expression.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+</div>
+<div id="examine-the-number-of-cell-lines-profiled-for-metadata-expression-mutation" class="section level3" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Examine the number of cell lines profiled for <code>metadata</code>, <code>expression</code>, <code>mutation</code></h3>
+</div>
+<div id="examine-the-frequency-of-cancer-subtypes-in-metadata" class="section level3" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> Examine the frequency of cancer subtypes in <code>metadata</code></h3>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="project-1-exploring-kras-expression.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">table</span>(metadata<span class="sc">$</span>OncotreePrimaryDisease))</span></code></pre></div>
+<table>
+<colgroup>
+<col width="95%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Var1</th>
+<th align="right">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Acute Leukemias of Ambiguous Lineage</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Acute Myeloid Leukemia</td>
+<td align="right">52</td>
+</tr>
+<tr class="odd">
+<td align="left">Adenosquamous Carcinoma of the Pancreas</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Adrenocortical Carcinoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Ampullary Carcinoma</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Anaplastic Thyroid Cancer</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">B-Lymphoblastic Leukemia/Lymphoma</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="left">Bladder Squamous Cell Carcinoma</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Bladder Urothelial Carcinoma</td>
+<td align="right">35</td>
+</tr>
+<tr class="even">
+<td align="left">Breast Ductal Carcinoma In Situ</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Breast Neoplasm, NOS</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Cervical Adenocarcinoma</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Cervical Squamous Cell Carcinoma</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">Chondrosarcoma</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Chordoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Colorectal Adenocarcinoma</td>
+<td align="right">85</td>
+</tr>
+<tr class="odd">
+<td align="left">Cutaneous Squamous Cell Carcinoma</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Diffuse Glioma</td>
+<td align="right">93</td>
+</tr>
+<tr class="odd">
+<td align="left">Embryonal Tumor</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">Endometrial Carcinoma</td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left">Epithelioid Sarcoma</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Esophageal Squamous Cell Carcinoma</td>
+<td align="right">29</td>
+</tr>
+<tr class="odd">
+<td align="left">Esophagogastric Adenocarcinoma</td>
+<td align="right">66</td>
+</tr>
+<tr class="even">
+<td align="left">Ewing Sarcoma</td>
+<td align="right">47</td>
+</tr>
+<tr class="odd">
+<td align="left">Extra Gonadal Germ Cell Tumor</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Fibrosarcoma</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Gastrointestinal Stromal Tumor</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Gestational Trophoblastic Disease</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Glassy Cell Carcinoma of the Cervix</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Head and Neck Carcinoma, Other</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Head and Neck Squamous Cell Carcinoma</td>
+<td align="right">79</td>
+</tr>
+<tr class="even">
+<td align="left">Hepatoblastoma</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Hepatocellular Carcinoma</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="left">Hepatocellular Carcinoma plus Intrahepatic Cholangiocarcinoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hereditary Spherocytosis</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hodgkin Lymphoma</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Intracholecystic Papillary Neoplasm</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Intraductal Papillary Neoplasm of the Bile Duct</td>
+<td align="right">33</td>
+</tr>
+<tr class="odd">
+<td align="left">Invasive Breast Carcinoma</td>
+<td align="right">76</td>
+</tr>
+<tr class="even">
+<td align="left">Leiomyosarcoma</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Liposarcoma</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Lung Neuroendocrine Tumor</td>
+<td align="right">81</td>
+</tr>
+<tr class="odd">
+<td align="left">Medullary Thyroid Cancer</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Melanoma</td>
+<td align="right">105</td>
+</tr>
+<tr class="odd">
+<td align="left">Meningothelial Tumor</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Merkel Cell Carcinoma</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Mixed Cervical Carcinoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Mucosal Melanoma of the Vulva/Vagina</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Myelodysplastic Syndromes</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Myeloproliferative Neoplasms</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">Nerve Sheath Tumor</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Neuroblastoma</td>
+<td align="right">49</td>
+</tr>
+<tr class="odd">
+<td align="left">Non-Cancerous</td>
+<td align="right">105</td>
+</tr>
+<tr class="even">
+<td align="left">Non-Hodgkin Lymphoma</td>
+<td align="right">146</td>
+</tr>
+<tr class="odd">
+<td align="left">Non-Seminomatous Germ Cell Tumor</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Non-Small Cell Lung Cancer</td>
+<td align="right">159</td>
+</tr>
+<tr class="odd">
+<td align="left">Ocular Melanoma</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Osteosarcoma</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">Ovarian Cancer, Other</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Ovarian Epithelial Tumor</td>
+<td align="right">70</td>
+</tr>
+<tr class="odd">
+<td align="left">Ovarian Germ Cell Tumor</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Pancreatic Adenocarcinoma</td>
+<td align="right">62</td>
+</tr>
+<tr class="odd">
+<td align="left">Pancreatic Neuroendocrine Tumor</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Pleural Mesothelioma</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Poorly Differentiated Thyroid Cancer</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Prostate Adenocarcinoma</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Prostate Small Cell Carcinoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Renal Cell Carcinoma</td>
+<td align="right">55</td>
+</tr>
+<tr class="odd">
+<td align="left">Retinoblastoma</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Rhabdoid Cancer</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Rhabdomyosarcoma</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">Salivary Carcinoma</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Sarcoma, NOS</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Sex Cord Stromal Tumor</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Small Bowel Cancer</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Small Cell Carcinoma of the Cervix</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Squamous Cell Carcinoma of the Vulva/Vagina</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Synovial Sarcoma</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">T-Lymphoblastic Leukemia/Lymphoma</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="left">Undifferentiated Pleomorphic Sarcoma/Malignant Fibrous Histiocytoma/High-Grade Spindle Cell Sarcoma</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Urethral Cancer</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Uterine Sarcoma/Mesenchymal</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Well-Differentiated Thyroid Cancer</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="alternatively-you-could-create-a-barplot-to-show-the-frequency-of-cancer-subtypes-in-metadata" class="section level3" number="11.2.4">
+<h3><span class="header-section-number">11.2.4</span> Alternatively, you could create a barplot to show the frequency of cancer subtypes in <code>metadata</code>:</h3>
+<p>Need to display the text more clearly? Consider <a href="https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2">this discussion on StackOverflow</a>.</p>
+</div>
+<div id="filter-metadata-so-that-it-contains-the-cancer-subtype-want-to-analyze." class="section level3" number="11.2.5">
+<h3><span class="header-section-number">11.2.5</span> Filter <code>metadata</code> so that it contains the cancer subtype want to analyze.</h3>
+</div>
+<div id="join-metadata-expression-and-mutation-together." class="section level3" number="11.2.6">
+<h3><span class="header-section-number">11.2.6</span> Join <code>metadata</code>, <code>expression</code>, and <code>mutation</code> together.</h3>
+</div>
+<div id="select-the-columns-you-want-to-analyze." class="section level3" number="11.2.7">
+<h3><span class="header-section-number">11.2.7</span> Select the columns you want to analyze.</h3>
+</div>
+<div id="create-the-boxplot-figure" class="section level3" number="11.2.8">
+<h3><span class="header-section-number">11.2.8</span> Create the boxplot figure!</h3>
+</div>
+<div id="consider-a-different-way-to-visualize-this-data-create-a-histogram-of-kras-expression-for-non-kras-mutated-cell-lines-and-a-different-histogram-of-kras-expression-for-kras-mutated-cell-lines." class="section level3" number="11.2.9">
+<h3><span class="header-section-number">11.2.9</span> Consider a different way to visualize this data: Create a histogram of KRAS expression for non-KRAS mutated cell lines, and a different histogram of KRAS expression for KRAS mutated cell lines.</h3>
+</div>
+</div>
+<div id="analysis-2" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Analysis 2</h2>
+<p>Three well-established genes that are activated by KRAS are PI3K, RAF, and RAL. We will use correlation analysis to see how the expression of KRAS, PI3K, RAF, and RAL are related linearly.</p>
+<div id="create-scatterplots-of-kras-expression-vs.-pik3ca-raf1-and-ralb.-what-does-the-trend-look-like" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Create scatterplots of <code>KRAS</code> expression vs. <code>PIK3CA</code>, <code>RAF1</code>, and <code>RALB</code>. What does the trend look like?</h3>
+</div>
+<div id="we-can-measure-the-correlation-of-two-continuous-variables-via-the-cor-function.-whats-the-correlation-of-kras-vs.-raf1" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> We can measure the correlation of two continuous variables via the <code>cor</code> function. What’s the correlation of <code>KRAS</code> vs. <code>RAF1</code>?</h3>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="project-1-exploring-kras-expression.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for example,</span></span>
+<span id="cb239-2"><a href="project-1-exploring-kras-expression.html#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="co">#cor(c(1, 2, 3), c(-1, 2, 0))</span></span>
+<span id="cb239-3"><a href="project-1-exploring-kras-expression.html#cb239-3" aria-hidden="true" tabindex="-1"></a><span class="co">#cor(dataframe$colA, dataframe$colB)</span></span></code></pre></div>
+</div>
+<div id="can-you-put-the-correlation-in-the-title-of-your-scatterplot" class="section level3" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Can you put the correlation in the title of your scatterplot?</h3>
 
+</div>
+</div>
 </div>
 <hr>
 <center> 
@@ -332,8 +744,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="about-the-authors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project-2-exploring-co2-emissions-over-time.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
