@@ -17,7 +17,6 @@ This data analysis project is based on [Open Case Studies on Exploring CO2 Emiss
 ### Load the packages and data in.
 
 ```{r, warning=F, message=F}
-library(OCSdata)
 library(readxl)
 CO2_emissions = read_xlsx("classroom_data/yearly_co2_emissions_1000_tonnes.xlsx")
 ```
