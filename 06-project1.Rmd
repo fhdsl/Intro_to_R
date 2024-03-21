@@ -22,6 +22,7 @@ rm(list = ls())
 
 ```{r, message=FALSE}
 library(tidyverse)
+library(knitr)
 load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
