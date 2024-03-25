@@ -221,7 +221,7 @@ Create a logical indexing vector that gives `TRUE` if an element of `lineage` is
 
 ```
 
-We can now use this logical indexing vector to subset on the *rows* of `metadata`. Take a look (you need to remove the # comments the code):
+We can now use this logical indexing vector to subset on the *rows* of `metadata`. Take a look (you need to remove the \# comments the code):
 
 ```{r}
 #myeloid_metadata = metadata[myeloid_idx ,]
@@ -249,4 +249,3 @@ If you worked with other peers, write their names down in the following characte
 ```{r}
 peers = c("Myself")
 ```
-

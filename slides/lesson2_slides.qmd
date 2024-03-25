@@ -1,10 +1,10 @@
 ---
 title: "W2: Working with data structures"
-format: revealjs
-  #smaller: true
-  #scrollable: true
-execute:
-  echo: true
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
 output-location: fragment
 ---
 
@@ -33,8 +33,6 @@ output-location: fragment
 . . .
 
 -   **Encapsulate complex data via data structures to allow efficient manipulation of data**
-
-
 
 ## Data structures
 
@@ -99,7 +97,6 @@ Multiplication has a new meaning when used on a numeric vector and numeric data 
 
 ## Operator overloading
 
-
 How about numeric vector multiplied by numeric vector?
 
 ```{r}
@@ -137,8 +134,8 @@ staff[c(1, 2)]
 . . .
 
 ```{r}
-chrNum = rep(2, 22)
-chrNum[1:10]
+small_staff = staff[c(1, 2)]
+small_staff
 ```
 
 ## Subsetting vectors
@@ -172,26 +169,33 @@ small_staff
 
 . . .
 
--   **Explicit subsetting**: Given a 100-length vector of people's ages, and subset to the first 10 elements.
+-   **Explicit subsetting**: Given a length 10 vector of people's ages, and subset to the 1st, 3rd, and 9th elements.
 
 . . .
 
 ```{r}
-set.seed(123)
-age = round(runif(100, 1, 100))
-first_ten_age = age[1:10]
-first_ten_age
+age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
 ```
 
 . . .
 
+```{r}
+age[c(1, 5, 9)]
+```
 
--   **Implicit subsetting**: Given a 100-length vector of people's ages, and subset to elements \< 18 age.
+. . .
 
+```{r}
+age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
+```
+
+. . .
+
+-   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements \> 50 age.
 
 ## Implicit subsetting
 
-We don't know which elements to subset off the top of our head! If we know which elements have less than 18, then we can give the elements for an explicit subset.
+We don't know which elements to subset off the top of our head! If we know which elements are \> 50, then we can give the elements for an explicit subset.
 
 . . .
 
@@ -200,19 +204,53 @@ Use a **comparison operator** to create a logical indexing vector:
 . . .
 
 ```{r}
-logical_indexing_vector = age < 18
-logical_indexing_vector
+age > 50
+```
+
+. . .
+
+Can you guess what we do next?
+
+. . .
+
+```{r}
+age[age > 50]
 ```
 
 ## Implicit subsetting
 
+Subset a vector **implicitly**, in 3 steps:
+
+. . .
+
+1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
+
+. . .
+
+2.  We can use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
+
 ```{r}
-logical_indexing_vector = age < 18
-age_young = age[logical_indexing_vector]
-age_young
+age > 50
 ```
 
-## Other comparison operators:
+. . .
+
+3.  Use this logical indexing vector to subset.
+
+```{r}
+age[age > 50]
+```
+
+. . .
+
+Alternatively,
+
+```{r}
+idx = age > 50
+age[idx]
+```
+
+## Comparison operators:
 
 `<` less than
 
@@ -237,7 +275,6 @@ staff != "chris"
 ```{r}
 staff[staff != "chris"]
 ```
-
 
 ## Functions on vectors
 
@@ -318,7 +355,7 @@ metadata$Age[metadata$OncotreeLineage == "Myeloid"]
 
 ## Subsetting columns and rows from a dataframe
 
-`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`. 
+`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
 
 . . .
 
@@ -334,9 +371,7 @@ We can refer to the column names directly:
 metadata[1:5, c("ModelID", "CellLineName")]
 ```
 
-
 ## Subsetting columns and rows from a dataframe
-
 
 We can leave the column index or row index empty to just subset columns or rows.
 
@@ -351,4 +386,3 @@ metadata[1:5, ]
 ```{r}
 metadata[, c("ModelID", "CellLineName")]
 ```
-
