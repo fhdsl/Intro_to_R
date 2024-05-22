@@ -8,6 +8,8 @@ format:
 output-location: fragment
 ---
 
+## Location change next week: M4-C302/C401
+
 ## Data types
 
 -   **Numeric**: 18, -21, 65, 1.25
@@ -15,24 +17,6 @@ output-location: fragment
 -   **Character**: "ATCG", "Whatever", "948-293-0000"
 
 -   **Logical**: TRUE, FALSE
-
-## A programming language has following elements
-
-. . .
-
--   Grammar structure to construct expressions
-
-. . .
-
--   Combining expressions to create more complex expressions
-
-. . .
-
--   Encapsulate complex expressions via functions to create modular and reusable tasks
-
-. . .
-
--   **Encapsulate complex data via data structures to allow efficient manipulation of data**
 
 ## Data structures
 
@@ -52,7 +36,7 @@ There is no limit on how big a vector can be, as long the memory use of it is wi
 We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once!
 :::
 
-## Vector example
+## Defining a vector
 
 . . .
 
@@ -61,24 +45,11 @@ staff = c("chris", "shasta", "jeff")
 chrNum = c(2, 3, 1)
 ```
 
-. . .
-
-If we try to create a vector with mixed data types, R will try to make them be the same data type:
-
-```{r}
-staff = c("chris", "shasta", 123)
-staff
-```
-
-. . .
-
-😱
-
 ## Using operations on vectors
 
 . . .
 
-Operations and functions combine **data structures** to return another data structure (or data type!).
+You can use operations and functions on vectors.
 
 . . .
 
@@ -109,6 +80,14 @@ a numeric vector added to a character vector:
 
 ```{r}
 #chrNum + staff
+```
+
+## Functions on vectors
+
+How many elements are in this vector?
+
+```{r}
+length(staff)
 ```
 
 ## Subsetting vectors
@@ -191,7 +170,7 @@ age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
 
 . . .
 
--   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements \> 50 age.
+-   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements greater than age 50.
 
 ## Implicit subsetting
 
@@ -227,7 +206,7 @@ Subset a vector **implicitly**, in 3 steps:
 
 . . .
 
-2.  We can use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
+2.  Use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
 
 ```{r}
 age > 50
@@ -266,6 +245,10 @@ age[idx]
 
 . . .
 
+Subset `staff` to not have "chris" in it.
+
+. . .
+
 ```{r}
 staff != "chris"
 ```
@@ -274,14 +257,6 @@ staff != "chris"
 
 ```{r}
 staff[staff != "chris"]
-```
-
-## Functions on vectors
-
-How many elements are in this vector?
-
-```{r}
-length(staff)
 ```
 
 ## Dataframes
@@ -322,7 +297,7 @@ The **column name** is a character vector that corresponds to the columns of the
 . . .
 
 ```{r}
-colnames(metadata)
+names(metadata)
 ```
 
 . . .

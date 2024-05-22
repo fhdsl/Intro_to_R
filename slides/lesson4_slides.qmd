@@ -6,6 +6,7 @@ format:
     scrollable: true
     echo: true
 ---
+
 ```{r, echo=F, message=F, warning=F, error=F}
 library(palmerpenguins)
 library(tidyverse)
@@ -39,7 +40,6 @@ metadata2$olderAge[1:10]
 . . .
 
 <br>
-
 
 ```{r}
 expression$KRAS_Exp[1:10]
@@ -195,24 +195,11 @@ Desired columns: mean age.
 
 *The rows I want is described by a column. The columns I want need to be summarized from other columns.*
 
-
 ## Grouping and summarizing dataframes
-
 
 ```{r}
 metadata_grouped = group_by(metadata, OncotreeLineage)
 metadata_type = summarise(metadata_grouped, MeanAge = mean(Age, na.rm = TRUE), Count = n())
-```
-
-. . .
-
-With pipes:
-
-```{r}
-metadata_by_type = metadata %>% 
-                   group_by(OncotreeLineage) %>% 
-                   summarise(MeanAge = mean(Age, na.rm = TRUE),
-                             Count = n())
 ```
 
 . . .
@@ -237,165 +224,72 @@ Functions you can use for `summarise()` must take in a vector and return a simpl
 
 The exception is `n()`, which returns the number of entries for each grouping variable's value.
 
+## Code readability with many nested functions
 
-## Appendix: Functions motivation
-
-![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
-
-. . .
-
-We write functions for two main, often overlapping, reasons:
-
-. . .
-
-1.  Following DRY (Don't Repeat Yourself) principle
-
-. . .
-
-2.  Creates modular structure and abstraction
-
-. . .
-
-Even if you are not writing functions, it is helpful to know how they are constructed to use them. 
-
-## How to define a function
-
-. . .
-
-::: callout-tip
-# 
-
-Assign a **function name** with a "function" statement that has a comma-separated list of named **function arguments**. Within the body of the function there is optionally a **return expression**. The function name is stored as a variable in the global environment.
-:::
+When combining multiple functions in one expression, it gets harder to read:
 
 . . .
 
 ```{r}
-addFunction = function(num1, num2) {
-  result = num1 + num2 
-  return(result)
-}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
 ```
 
 . . .
 
-```{r}
-addFunction(3, 4)
-```
-
-## How to define a function
-
-```{r}
-addFunction = function(num1, num2) {
-  result = num1 + num2 
-  return(result)
-}
-addFunction(3, 4)
-```
-
-. . .
-
-With function definitions, not all code runs from top to bottom. The first 4 lines defines the function, but the function is never run.
-
-. . .
-
-When the function is called in line 5, the variables for the arguments are reassigned to function arguments to be used within the function. This ensures modularity. 
-
-## Is this function modular?
-
-```{r}
-x = 3
-y = 4
-addFunction = function(num1, num2) {
-    result = x + y 
-    return(result)
-}
-```
-
-. . .
-
-```{r}
-addFunction(x, y)
-```
-
-. . .
-
-```{r}
-addFunction(10, -5)
-```
-
-
-## Ways to call the function
-
-. . .
-
-```{r}
-addFunction(3, 4)
-```
-
-. . .
-
-```{r}
-addFunction(num1 = 3, num2 = 4)
-```
-
-. . .
-
-```{r}
-addFunction(num2 = 4, num1 = 3)
-```
-
-. . .
-
-But this *could* give a different result:
-
-```{r}
-addFunction(4, 3)
-```
-
-## Interpreting functions
+Or, this: 🤨
 
 ```         
-?mean
-
-Arithmetic Mean
-
-Description:
-
-     Generic function for the (trimmed) arithmetic mean.
-
-Usage:
-
-     mean(x, ...)
-     
-     ## Default S3 method:
-     mean(x, trim = 0, na.rm = FALSE, ...)
-     
-Arguments:
-
-       x: An R object.  Currently there are methods for numeric/logical
-          vectors and date, date-time and time interval objects.
-          Complex vectors are allowed for ‘trim = 0’, only.
-
-    trim: the fraction (0 to 0.5) of observations to be trimmed from
-          each end of ‘x’ before the mean is computed.  Values of trim
-          outside that range are taken as the nearest endpoint.
-
-   na.rm: a logical evaluating to ‘TRUE’ or ‘FALSE’ indicating whether
-          ‘NA’ values should be stripped before the computation
-          proceeds.
-
-     ...: further arguments passed to or from other methods.
+result2 = function1(function2(function3(dataframe)))
 ```
 
-## Interpreting functions
+. . .
 
-Notice that the arguments `trim = 0`, `na.rm = FALSE` have default values. This means that these arguments are *optional* - you should provide it only if you want to. With this understanding, you can use `mean()` in a new way:
+Or... 🤕
+
+```         
+result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
+```
+
+. . .
+
+[R style guide](https://style.tidyverse.org/index.html)
+
+## Pipes to make nested functions readable
+
+. . .
+
+```         
+result2 = dataframe %>% function1 %>% function2 %>% function3
+```
+
+. . .
+
+```         
+result = function1(df_col5, arg1) %>%
+         function2(arg2) %>%
+         function3(df_col4, df_col2)
+```
+
+. . .
+
+Rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
 
 . . .
 
 ```{r}
-numbers = c(1, 2, NA, 4)
-mean(x = numbers, na.rm = TRUE)
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                               select(ModelID, Age, Sex)
 ```
 
+🤠
+
+. . .
+
+Group by and summarise with pipes:
+
+```{r}
+metadata_by_type = metadata %>% 
+                   group_by(OncotreeLineage) %>% 
+                   summarise(MeanAge = mean(Age, na.rm = TRUE),
+                             Count = n())
+```

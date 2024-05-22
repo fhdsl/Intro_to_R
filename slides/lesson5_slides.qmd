@@ -46,7 +46,19 @@ The syntax of the grammar of graphics breaks down into 4 sections.
 
 [Additional settings]{style="color:purple"}
 
+. . .
+
+Think about making plots like using recipes from a cookbook: https://r-graphics.org/
+
 ## Histogram
+
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram()]{style="color:blue"}
+
+```{r, echo=F, warning=F, message=F}
+ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()
+```
+
+## Histogram with a plot theme
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram()]{style="color:blue"} + [theme_bw()]{style="color:purple"}
 
@@ -56,18 +68,34 @@ ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram() + theme_bw()
 
 ## Histogram with options
 
-[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram(binwidth = 5)]{style="color:blue"} + [theme_bw()]{style="color:purple"}
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram(binwidth = 5)]{style="color:blue"}
 
 ```{r, echo=F, warning=F, message=F}
-ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram(binwidth = 5) + theme_bw()
+ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram(binwidth = 5) 
 ```
 
 ## Bar plots
+
+Bar plots automatically count each group for you, so you only need to provide one variable (axis).
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = species)]{style="color:green"} + [geom_bar()]{style="color:blue"}
 
 ```{r, echo=F, warning=F, message=F}
 ggplot(penguins) + aes(x = species) + geom_bar()
+```
+
+## Bar plots, providing both axis
+
+Alternatively, if you want to provide both axis for plotting:
+
+```{r}
+penguins_grouped = group_by(penguins, species)
+penguins_summary = summarise(penguins_grouped, n_species = n())
+penguins_summary
+```
+
+```{r}
+ggplot(penguins_summary) + aes(x = species, y = n_species) + geom_bar(stat = "identity")
 ```
 
 ## Scatterplot
@@ -92,22 +120,6 @@ ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm, color = species) +
 
 ```{r, echo=F, warning=F, message=F}
 ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_point() + facet_wrap(~species)
-```
-
-## Line plot?
-
-[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_line()]{style="color:blue"}
-
-```{r, echo=F, warning=F, message=F}
-ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_line()
-```
-
-## Grouped Line plot?
-
-[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, group = species)]{style="color:green"} + [geom_line()]{style="color:blue"}
-
-```{r, echo=F, warning=F, message=F}
-ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm, group = species) + geom_line()
 ```
 
 ## Boxplot
@@ -172,3 +184,7 @@ library(esquisse)
 
 esquisser(penguins)
 ```
+
+## R Graphics Cookbook
+
+An excellent resource: https://r-graphics.org/

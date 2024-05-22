@@ -28,7 +28,7 @@ output-location: fragment
 
     -   What you want to get out of the class
 
-    -   Favorite winter activity
+    -   Favorite spring activity
 
 ## Goals of the course
 
@@ -63,7 +63,7 @@ output-location: fragment
 
 . . .
 
--   6 classes: January 22, 29, February 5, 12, 26, and March 4.
+-   6 classes: April 17, 24, May 1, 8, 15, 22
 
 . . .
 
@@ -73,15 +73,13 @@ output-location: fragment
 
 -   1-2 hour exercises after each session are strongly encouraged as they provide practice.
 
--   Optional time to work on exercises together on Thursdays Noon - 1pm PT.
+-   Optional time to work on exercises together on Fridays Noon - 1pm PT.
 
 . . .
 
 -   Online discussion via Slack.
 
-. . .
 
--   Certification at the end of the course\*
 
 ## Content of the course
 
@@ -133,8 +131,8 @@ What's the connection between English \<-\> Programming Code for R Interpreter?
 
 A pre-course survey:
 
-https://forms.gle/zCGzL1RH4UJzNAwr6
-
+https://forms.gle/Hr59ZbAan1JTumCa7
+ 
 ## Grammar Structure 1: Evaluation of Expressions
 
 . . .
@@ -330,4 +328,4 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 
 ## That's all!
 
-Maybe see you Thursday Noon - 1pm PT to practice together!
+Maybe see you Friday Noon - 1pm PT to practice together!
