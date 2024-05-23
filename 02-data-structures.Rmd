@@ -254,3 +254,7 @@ head(metadata[, c("ModelID", "CellLineName")])
 The bracket operation on a dataframe can be difficult to interpret because multiple expression for the row and column indicies is a lot of information for one line of code. You will see easier-to-read functions for dataframe subsetting in the next lesson.
 
 Lastly, try running `View(metadata)` in RStudio Console...whew, a nice way to examine your dataframe like a spreadsheet program!
+
+## Exercises
+
+You can find [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357), or on [GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).
