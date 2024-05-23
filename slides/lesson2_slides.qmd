@@ -1,12 +1,14 @@
 ---
 title: "W2: Working with data structures"
-format: revealjs
-  #smaller: true
-  #scrollable: true
-execute:
-  echo: true
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
 output-location: fragment
 ---
+
+## Location change next week: M4-C302/C401
 
 ## Data types
 
@@ -15,26 +17,6 @@ output-location: fragment
 -   **Character**: "ATCG", "Whatever", "948-293-0000"
 
 -   **Logical**: TRUE, FALSE
-
-## A programming language has following elements
-
-. . .
-
--   Grammar structure to construct expressions
-
-. . .
-
--   Combining expressions to create more complex expressions
-
-. . .
-
--   Encapsulate complex expressions via functions to create modular and reusable tasks
-
-. . .
-
--   **Encapsulate complex data via data structures to allow efficient manipulation of data**
-
-
 
 ## Data structures
 
@@ -54,7 +36,7 @@ There is no limit on how big a vector can be, as long the memory use of it is wi
 We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once!
 :::
 
-## Vector example
+## Defining a vector
 
 . . .
 
@@ -63,24 +45,11 @@ staff = c("chris", "shasta", "jeff")
 chrNum = c(2, 3, 1)
 ```
 
-. . .
-
-If we try to create a vector with mixed data types, R will try to make them be the same data type:
-
-```{r}
-staff = c("chris", "shasta", 123)
-staff
-```
-
-. . .
-
-😱
-
 ## Using operations on vectors
 
 . . .
 
-Operations and functions combine **data structures** to return another data structure (or data type!).
+You can use operations and functions on vectors.
 
 . . .
 
@@ -99,7 +68,6 @@ Multiplication has a new meaning when used on a numeric vector and numeric data 
 
 ## Operator overloading
 
-
 How about numeric vector multiplied by numeric vector?
 
 ```{r}
@@ -112,6 +80,14 @@ a numeric vector added to a character vector:
 
 ```{r}
 #chrNum + staff
+```
+
+## Functions on vectors
+
+How many elements are in this vector?
+
+```{r}
+length(staff)
 ```
 
 ## Subsetting vectors
@@ -137,8 +113,8 @@ staff[c(1, 2)]
 . . .
 
 ```{r}
-chrNum = rep(2, 22)
-chrNum[1:10]
+small_staff = staff[c(1, 2)]
+small_staff
 ```
 
 ## Subsetting vectors
@@ -172,26 +148,33 @@ small_staff
 
 . . .
 
--   **Explicit subsetting**: Given a 100-length vector of people's ages, and subset to the first 10 elements.
+-   **Explicit subsetting**: Given a length 10 vector of people's ages, and subset to the 1st, 3rd, and 9th elements.
 
 . . .
 
 ```{r}
-set.seed(123)
-age = round(runif(100, 1, 100))
-first_ten_age = age[1:10]
-first_ten_age
+age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
 ```
 
 . . .
 
+```{r}
+age[c(1, 5, 9)]
+```
 
--   **Implicit subsetting**: Given a 100-length vector of people's ages, and subset to elements \< 18 age.
+. . .
 
+```{r}
+age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
+```
+
+. . .
+
+-   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements greater than age 50.
 
 ## Implicit subsetting
 
-We don't know which elements to subset off the top of our head! If we know which elements have less than 18, then we can give the elements for an explicit subset.
+We don't know which elements to subset off the top of our head! If we know which elements are \> 50, then we can give the elements for an explicit subset.
 
 . . .
 
@@ -200,19 +183,53 @@ Use a **comparison operator** to create a logical indexing vector:
 . . .
 
 ```{r}
-logical_indexing_vector = age < 18
-logical_indexing_vector
+age > 50
+```
+
+. . .
+
+Can you guess what we do next?
+
+. . .
+
+```{r}
+age[age > 50]
 ```
 
 ## Implicit subsetting
 
+Subset a vector **implicitly**, in 3 steps:
+
+. . .
+
+1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
+
+. . .
+
+2.  Use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
+
 ```{r}
-logical_indexing_vector = age < 18
-age_young = age[logical_indexing_vector]
-age_young
+age > 50
 ```
 
-## Other comparison operators:
+. . .
+
+3.  Use this logical indexing vector to subset.
+
+```{r}
+age[age > 50]
+```
+
+. . .
+
+Alternatively,
+
+```{r}
+idx = age > 50
+age[idx]
+```
+
+## Comparison operators:
 
 `<` less than
 
@@ -228,6 +245,10 @@ age_young
 
 . . .
 
+Subset `staff` to not have "chris" in it.
+
+. . .
+
 ```{r}
 staff != "chris"
 ```
@@ -236,15 +257,6 @@ staff != "chris"
 
 ```{r}
 staff[staff != "chris"]
-```
-
-
-## Functions on vectors
-
-How many elements are in this vector?
-
-```{r}
-length(staff)
 ```
 
 ## Dataframes
@@ -285,7 +297,7 @@ The **column name** is a character vector that corresponds to the columns of the
 . . .
 
 ```{r}
-colnames(metadata)
+names(metadata)
 ```
 
 . . .
@@ -318,7 +330,7 @@ metadata$Age[metadata$OncotreeLineage == "Myeloid"]
 
 ## Subsetting columns and rows from a dataframe
 
-`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`. 
+`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
 
 . . .
 
@@ -334,9 +346,7 @@ We can refer to the column names directly:
 metadata[1:5, c("ModelID", "CellLineName")]
 ```
 
-
 ## Subsetting columns and rows from a dataframe
-
 
 We can leave the column index or row index empty to just subset columns or rows.
 
@@ -351,4 +361,3 @@ metadata[1:5, ]
 ```{r}
 metadata[, c("ModelID", "CellLineName")]
 ```
-

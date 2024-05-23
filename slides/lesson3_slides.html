@@ -395,85 +395,18 @@
 </div>
 
 </section>
+<section id="where-are-we" class="slide level2">
+<h2>Where are we?</h2>
+
+<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/d65eb83f-66e4-4760-8c1f-29d336d1d6df_rw_3840.png?h=ece3b7c448f38a10cd71866e2cbb2b4d" class="r-stretch quarto-figure-center"><p class="caption">Illustration by Allison Horst</p></section>
+<section id="hows-it-goingillustration-by-allison-horst" class="slide level2">
+<h2>How’s it going?<img data-src="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/d4f90788-7a14-4d44-94ab-da13dd41f009_rw_3840.png?h=f5064c39facd1560385710f3320bb3a6" alt="Illustration by Allison Horst"></h2>
+</section>
 <section id="data-science-workflow" class="slide level2">
 <h2>Data Science Workflow</h2>
 
-<img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="275" class="r-stretch"><div class="fragment">
+<img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="200" class="r-stretch"><div class="fragment">
 <p>We start with <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, <strong>“tidy”</strong> state.</p>
-</div>
-</section>
-<section id="describing-a-tidy-dataset" class="slide level2">
-<h2>Describing a tidy dataset</h2>
-<p><strong>Tidy data</strong> is a standard of organizing data:</p>
-<div class="fragment">
-<ol type="1">
-<li><p>Each variable must have its own column.</p></li>
-<li><p>Each observation must have its own row.</p></li>
-<li><p>Each value must have its own cell.</p></li>
-</ol>
-</div>
-<div class="fragment">
-<p><img data-src="https://r4ds.hadley.nz/images/tidy-1.png" width="800"></p>
-</div>
-</section>
-<section id="examples-and-counter-examples" class="slide level2">
-<h2>Examples and counter-examples</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">head</span>(table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  country      year  cases population
-  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
-1 Afghanistan  1999    745   19987071
-2 Afghanistan  2000   2666   20595360
-3 Brazil       1999  37737  172006362
-4 Brazil       2000  80488  174504898
-5 China        1999 212258 1272915272
-6 China        2000 213766 1280428583</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
-</div>
-</section>
-<section id="examples-and-counter-examples-1" class="slide level2">
-<h2>Examples and counter-examples</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">head</span>(table2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  country      year type           count
-  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-1 Afghanistan  1999 cases            745
-2 Afghanistan  1999 population  19987071
-3 Afghanistan  2000 cases           2666
-4 Afghanistan  2000 population  20595360
-5 Brazil       1999 cases          37737
-6 Brazil       1999 population 172006362</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
-</div>
-</section>
-<section id="examples-and-counter-examples-2" class="slide level2">
-<h2>Examples and counter-examples</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  country      year rate             
-  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
-1 Afghanistan  1999 745/19987071     
-2 Afghanistan  2000 2666/20595360    
-3 Brazil       1999 37737/172006362  
-4 Brazil       2000 80488/174504898  
-5 China        1999 212258/1272915272
-6 China        2000 213766/1280428583</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>In <code>table3</code>, we have multiple values for each cell under the “rate” column.</p>
 </div>
 </section>
 <section id="our-working-tidy-data-depmap-project" class="slide level2">
@@ -503,12 +436,12 @@
 <h2>How we do it:</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">head</span>(breast_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">head</span>(breast_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     ModelID Age    Sex
 1 ACH-000017  43 Female
@@ -551,11 +484,11 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 50.96104</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Female Unknown 
@@ -569,7 +502,7 @@
 <p>When combining multiple functions in one expression, it gets harder to read:</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>), ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>), ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -599,8 +532,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>                               <span class="fu">select</span>(ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>breast_metadata <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>                               <span class="fu">select</span>(ModelID, Age, Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>🤠</p>
 <div class="footer footer-default">
