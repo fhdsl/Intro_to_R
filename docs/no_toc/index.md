@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R, Season 3"
+title: "Introduction to R"
 date: "May, 2024"
 site: bookdown::bookdown_site
 documentclass: book
