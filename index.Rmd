@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R, Season 3"
+title: "Introduction to R"
 date: "`r format(Sys.time(), '%B, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
