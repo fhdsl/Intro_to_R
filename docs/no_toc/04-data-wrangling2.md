@@ -11,7 +11,7 @@ The `mutate()` function takes in the following arguments: the first argument is 
 We create a new column `olderAge` that is 10 years older than the original `Age` column.
 
 
-```r
+``` r
 metadata$Age[1:10]
 ```
 
@@ -19,7 +19,7 @@ metadata$Age[1:10]
 ##  [1] 60 36 72 30 30 64 63 56 72 53
 ```
 
-```r
+``` r
 metadata2 = mutate(metadata, olderAge = Age + 10)
 metadata2$olderAge[1:10]
 ```
@@ -31,7 +31,7 @@ metadata2$olderAge[1:10]
 Here, we used an operation on a column of `metadata`. Here's another example with a function:
 
 
-```r
+``` r
 expression$KRAS_Exp[1:10]
 ```
 
@@ -40,7 +40,7 @@ expression$KRAS_Exp[1:10]
 ##  [9] 9.017365 3.940167
 ```
 
-```r
+``` r
 expression2 = mutate(expression, log_KRAS_Exp = log(KRAS_Exp))
 expression2$log_KRAS_Exp[1:10]
 ```
@@ -55,7 +55,7 @@ expression2$log_KRAS_Exp[1:10]
 Instead of `mutate()` function, we can also create a new or modify a column via the `$` symbol:
 
 
-```r
+``` r
 expression2 = expression
 expression2$log_KRAS_Exp = log(expression2$KRAS_Exp)
 ```
@@ -91,14 +91,14 @@ Suppose that I want to compare the relationship between `OncotreeLineage` and `P
 We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
 
 
-```r
+``` r
 merged = full_join(metadata, expression, by = "ModelID")
 ```
 
 The number of rows and columns of `metadata`:
 
 
-```r
+``` r
 dim(metadata)
 ```
 
@@ -109,7 +109,7 @@ dim(metadata)
 The number of rows and columns of `expression`:
 
 
-```r
+``` r
 dim(expression)
 ```
 
@@ -120,7 +120,7 @@ dim(expression)
 The number of rows and columns of `merged`:
 
 
-```r
+``` r
 dim(merged)
 ```
 
@@ -176,7 +176,7 @@ into:
 We use the functions `group_by()` and `summarise()` :
 
 
-```r
+``` r
 metadata_by_type = metadata %>% 
                    group_by(OncotreeLineage) %>% 
                    summarise(MeanAge = mean(Age, rm.na=TRUE), Count = n())
@@ -185,7 +185,7 @@ metadata_by_type = metadata %>%
 Or, without pipes:
 
 
-```r
+``` r
 metadata_by_type_temp = group_by(metadata, OncotreeLineage)
 metadata_by_type = summarise(metadata_by_type_temp, MeanAge = mean(Age, rm.na=TRUE), Count = n())
 ```
@@ -193,7 +193,7 @@ metadata_by_type = summarise(metadata_by_type_temp, MeanAge = mean(Age, rm.na=TR
 The `group_by()` function returns the identical input dataframe but remembers which variable(s) have been marked as grouped:
 
 
-```r
+``` r
 head(group_by(metadata, OncotreeLineage))
 ```
 
@@ -313,7 +313,7 @@ Arguments:
 Notice that the arguments `trim = 0`, `na.rm = FALSE` have default values. This means that these arguments are *optional* - you should provide it only if you want to. With this understanding, you can use `mean()` in a new way:
 
 
-```r
+``` r
 numbers = c(1, 2, NA, 4)
 mean(x = numbers, na.rm = TRUE)
 ```
@@ -321,3 +321,8 @@ mean(x = numbers, na.rm = TRUE)
 ```
 ## [1] 2.333333
 ```
+
+## Exercises
+
+You can find [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357), or on [GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).
+

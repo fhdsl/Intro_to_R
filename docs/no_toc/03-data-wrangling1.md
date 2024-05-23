@@ -29,14 +29,14 @@ If you want to be technical about what variables and observations are, Hadley Wi
 Consider the following three datasets, which all contain the exact same information:
 
 
-```r
+``` r
 table1
 ```
 
 ```
 ## # A tibble: 6 × 4
 ##   country      year  cases population
-##   <chr>       <int>  <int>      <int>
+##   <chr>       <dbl>  <dbl>      <dbl>
 ## 1 Afghanistan  1999    745   19987071
 ## 2 Afghanistan  2000   2666   20595360
 ## 3 Brazil       1999  37737  172006362
@@ -48,14 +48,14 @@ table1
 This `table1` satisfies the the definition of Tidy Data. The observation is a country's year, and the variables are attributes of each country's year.
 
 
-```r
+``` r
 head(table2)
 ```
 
 ```
 ## # A tibble: 6 × 4
 ##   country      year type           count
-##   <chr>       <int> <chr>          <int>
+##   <chr>       <dbl> <chr>          <dbl>
 ## 1 Afghanistan  1999 cases            745
 ## 2 Afghanistan  1999 population  19987071
 ## 3 Afghanistan  2000 cases           2666
@@ -67,14 +67,14 @@ head(table2)
 Something is strange able `table2`. The observation is still a country's year, but "type" and "count" are not clear attributes of each country's year.
 
 
-```r
+``` r
 table3
 ```
 
 ```
 ## # A tibble: 6 × 3
 ##   country      year rate             
-## * <chr>       <int> <chr>            
+##   <chr>       <dbl> <chr>            
 ## 1 Afghanistan  1999 745/19987071     
 ## 2 Afghanistan  2000 2666/20595360    
 ## 3 Brazil       1999 37737/172006362  
@@ -131,7 +131,7 @@ We should use the implicit subsetting mindset here: ie. "I want to filter for ro
 Let's convert our implicit subsetting criteria into code!
 
 
-```r
+``` r
 metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
 breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
 
@@ -193,7 +193,7 @@ If the columns of interest are numeric, then you can try functions such as `mean
 All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the `$` operation.
 
 
-```r
+``` r
 mean(breast_metadata$Age, na.rm = TRUE)
 ```
 
@@ -201,7 +201,7 @@ mean(breast_metadata$Age, na.rm = TRUE)
 ## [1] 50.96104
 ```
 
-```r
+``` r
 table(breast_metadata$Sex)
 ```
 
@@ -216,7 +216,7 @@ table(breast_metadata$Sex)
 Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:
 
 
-```r
+``` r
 breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
 ```
 
@@ -246,3 +246,6 @@ This looks much easier to read. Notice that we have broken up one expression in 
 
 Try to rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
 
+## Exercises
+
+You can find [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357), or on [GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).

@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Intro to Computing | Introduction to R, Season 2</title>
-  <meta name="description" content="Chapter 2 Intro to Computing | Introduction to R, Season 2" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <title>Chapter 2 Intro to Computing | Introduction to R, Season 3</title>
+  <meta name="description" content="Chapter 2 Intro to Computing | Introduction to R, Season 3" />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Intro to Computing | Introduction to R, Season 2" />
+  <meta property="og:title" content="Chapter 2 Intro to Computing | Introduction to R, Season 3" />
   <meta property="og:type" content="book" />
-  
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Intro to Computing | Introduction to R, Season 2" />
+  <meta name="twitter:title" content="Chapter 2 Intro to Computing | Introduction to R, Season 3" />
   
   
   
@@ -30,8 +29,7 @@
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
-<link rel="next" href="intro-to-computing-exercises.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<link rel="next" href="working-with-data-structures.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +47,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -89,11 +88,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -102,14 +101,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -117,6 +116,10 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -138,6 +141,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#curriculum"><i class="fa fa-check"></i><b>1.1</b> Curriculum</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>1.2</b> Target Audience</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>1.3</b> Offerings</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>2</b> Intro to Computing</a>
 <ul>
@@ -159,127 +163,74 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>2.8.1</b> Execution rule for functions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>2.9</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="2.10" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>2.10</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="intro-to-computing-exercises.html"><a href="intro-to-computing-exercises.html"><i class="fa fa-check"></i><b>3</b> Intro to Computing Exercises</a>
+<li class="chapter" data-level="3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>3</b> Working with data structures</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="intro-to-computing-exercises.html"><a href="intro-to-computing-exercises.html#part-1-expressions-on-numerics-characters-and-logical."><i class="fa fa-check"></i><b>3.1</b> Part 1: Expressions on numerics, characters, and logical.</a></li>
-<li class="chapter" data-level="3.2" data-path="intro-to-computing-exercises.html"><a href="intro-to-computing-exercises.html#part-2-brief-introduction-to-vectors"><i class="fa fa-check"></i><b>3.2</b> Part 2: Brief introduction to vectors</a></li>
-<li class="chapter" data-level="3.3" data-path="intro-to-computing-exercises.html"><a href="intro-to-computing-exercises.html#you-are-done"><i class="fa fa-check"></i><b>3.3</b> You are done!</a></li>
-<li class="chapter" data-level="3.4" data-path="intro-to-computing-exercises.html"><a href="intro-to-computing-exercises.html#feedback"><i class="fa fa-check"></i><b>3.4</b> Feedback!</a></li>
+<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
+<li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.1.4</b> Comparison Operators</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>4</b> Working with data structures</a>
+<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> Using operations on vectors</a></li>
-<li class="chapter" data-level="4.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>4.1.2</b> Subsetting vectors explicitly</a></li>
-<li class="chapter" data-level="4.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>4.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.2.1</b> Using functions and operations on dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.2</b> Dataframes</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>4.2.1</b> Using functions and operations on dataframes</a></li>
+<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html"><i class="fa fa-check"></i><b>5</b> Working with Data Structures Exercises</a>
+<li class="chapter" data-level="4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling with Tidy Data, Part 1</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#recap-from-class-subsetting-explicitly-and-implicitly"><i class="fa fa-check"></i><b>5.1</b> Recap from class: subsetting explicitly and implicitly</a></li>
-<li class="chapter" data-level="5.2" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#part-1-comparison-operators-on-data-types"><i class="fa fa-check"></i><b>5.2</b> Part 1: Comparison operators on data types</a></li>
-<li class="chapter" data-level="5.3" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#part-2-subsetting-vectors"><i class="fa fa-check"></i><b>5.3</b> Part 2: Subsetting vectors</a></li>
-<li class="chapter" data-level="5.4" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#part-3-dataframes"><i class="fa fa-check"></i><b>5.4</b> Part 3: Dataframes</a></li>
-<li class="chapter" data-level="5.5" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#you-are-done-1"><i class="fa fa-check"></i><b>5.5</b> You are done!</a></li>
-<li class="chapter" data-level="5.6" data-path="working-with-data-structures-exercises.html"><a href="working-with-data-structures-exercises.html#feedback-1"><i class="fa fa-check"></i><b>5.6</b> Feedback!</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with Tidy Data, Part 1</a>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#data-science-workflow"><i class="fa fa-check"></i><b>4.1</b> Data Science Workflow</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data"><i class="fa fa-check"></i><b>4.3</b> Examples and counter-examples of Tidy Data:</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>4.4</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>4.5</b> Transform: “What do you want to do with this dataframe”?</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#data-science-workflow"><i class="fa fa-check"></i><b>6.1</b> Data Science Workflow</a></li>
-<li class="chapter" data-level="6.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#tidy-data"><i class="fa fa-check"></i><b>6.2</b> Tidy Data</a></li>
-<li class="chapter" data-level="6.3" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data"><i class="fa fa-check"></i><b>6.3</b> Examples and counter-examples of Tidy Data:</a></li>
-<li class="chapter" data-level="6.4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>6.4</b> Our working Tidy Data: DepMap Project</a></li>
-<li class="chapter" data-level="6.5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>6.5</b> Transform: “What do you want to do with this dataframe”?</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#filter-rows"><i class="fa fa-check"></i><b>6.5.1</b> Filter rows</a></li>
-<li class="chapter" data-level="6.5.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#select-columns"><i class="fa fa-check"></i><b>6.5.2</b> Select columns</a></li>
+<li class="chapter" data-level="4.5.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#filter-rows"><i class="fa fa-check"></i><b>4.5.1</b> Filter rows</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#select-columns"><i class="fa fa-check"></i><b>4.5.2</b> Select columns</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>6.6</b> Summary Statistics</a></li>
-<li class="chapter" data-level="6.7" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#pipes"><i class="fa fa-check"></i><b>6.7</b> Pipes</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>4.6</b> Summary Statistics</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#pipes"><i class="fa fa-check"></i><b>4.7</b> Pipes</a></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#exercises-2"><i class="fa fa-check"></i><b>4.8</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-wrangling-with-tidy-data-part-1-exercises.html"><a href="data-wrangling-with-tidy-data-part-1-exercises.html"><i class="fa fa-check"></i><b>7</b> Data Wrangling with Tidy Data, Part 1 Exercises</a>
+<li class="chapter" data-level="5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling with Tidy Data, Part 2</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-wrangling-with-tidy-data-part-1-exercises.html"><a href="data-wrangling-with-tidy-data-part-1-exercises.html#part-1-warm-upa-remark-on-subsetting-vectors"><i class="fa fa-check"></i><b>7.1</b> Part 1: Warm-up/a remark on subsetting vectors</a></li>
-<li class="chapter" data-level="7.2" data-path="data-wrangling-with-tidy-data-part-1-exercises.html"><a href="data-wrangling-with-tidy-data-part-1-exercises.html#part-2-subsetting-dataframes"><i class="fa fa-check"></i><b>7.2</b> Part 2: Subsetting dataframes</a></li>
-<li class="chapter" data-level="7.3" data-path="data-wrangling-with-tidy-data-part-1-exercises.html"><a href="data-wrangling-with-tidy-data-part-1-exercises.html#part-3-summary-statistics"><i class="fa fa-check"></i><b>7.3</b> Part 3: Summary statistics</a></li>
-<li class="chapter" data-level="7.4" data-path="data-wrangling-with-tidy-data-part-1-exercises.html"><a href="data-wrangling-with-tidy-data-part-1-exercises.html#feedback-2"><i class="fa fa-check"></i><b>7.4</b> Feedback!</a></li>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes"><i class="fa fa-check"></i><b>5.1</b> Modifying and creating new columns in dataframes</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via"><i class="fa fa-check"></i><b>5.1.1</b> Alternative: Creating and modifying columns via <code>$</code></a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling with Tidy Data, Part 2</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes"><i class="fa fa-check"></i><b>8.1</b> Modifying and creating new columns in dataframes</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via"><i class="fa fa-check"></i><b>8.1.1</b> Alternative: Creating and modifying columns via <code>$</code></a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>5.2</b> Merging two dataframes together</a></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>5.3</b> Grouping and summarizing dataframes</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>5.4</b> Appendix: How functions are built</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#exercises-3"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>8.2</b> Merging two dataframes together</a></li>
-<li class="chapter" data-level="8.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>8.3</b> Grouping and summarizing dataframes</a></li>
-<li class="chapter" data-level="8.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>8.4</b> Appendix: How functions are built</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling with Tidy Data, Part 2 Exercises</a>
+<li class="chapter" data-level="6" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>6</b> Data Visualization</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#part-1-creating-new-columns"><i class="fa fa-check"></i><b>9.1</b> Part 1: Creating new columns</a></li>
-<li class="chapter" data-level="9.2" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#part-2-joining-multiple-dataframes"><i class="fa fa-check"></i><b>9.2</b> Part 2: Joining multiple dataframes</a></li>
-<li class="chapter" data-level="9.3" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#part-3-pipes"><i class="fa fa-check"></i><b>9.3</b> Part 3: Pipes</a></li>
-<li class="chapter" data-level="9.4" data-path="data-wrangling-with-tidy-data-part-2-exercises.html"><a href="data-wrangling-with-tidy-data-part-2-exercises.html#feedback-3"><i class="fa fa-check"></i><b>9.4</b> Feedback!</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>10</b> Data Visualization</a>
+<li class="chapter" data-level="6.1" data-path="data-visualization.html"><a href="data-visualization.html#common-plots"><i class="fa fa-check"></i><b>6.1</b> Common Plots</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="data-visualization.html"><a href="data-visualization.html#common-plots"><i class="fa fa-check"></i><b>10.1</b> Common Plots</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="data-visualization.html"><a href="data-visualization.html#univariate"><i class="fa fa-check"></i><b>10.1.1</b> Univariate</a></li>
-<li class="chapter" data-level="10.1.2" data-path="data-visualization.html"><a href="data-visualization.html#bivariate"><i class="fa fa-check"></i><b>10.1.2</b> Bivariate</a></li>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization.html"><a href="data-visualization.html#univariate"><i class="fa fa-check"></i><b>6.1.1</b> Univariate</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization.html"><a href="data-visualization.html#bivariate"><i class="fa fa-check"></i><b>6.1.2</b> Bivariate</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>10.2</b> Grammar of Graphics</a>
+<li class="chapter" data-level="6.2" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>6.2</b> Grammar of Graphics</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>10.2.1</b> Histogram</a></li>
-<li class="chapter" data-level="10.2.2" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>10.2.2</b> Bar plots</a></li>
-<li class="chapter" data-level="10.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>10.2.3</b> Scatterplot</a></li>
-<li class="chapter" data-level="10.2.4" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>10.2.4</b> Multivaraite Scatterplot</a></li>
-<li class="chapter" data-level="10.2.5" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot-1"><i class="fa fa-check"></i><b>10.2.5</b> Multivaraite Scatterplot</a></li>
-<li class="chapter" data-level="10.2.6" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>10.2.6</b> Line plot?</a></li>
-<li class="chapter" data-level="10.2.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>10.2.7</b> Grouped Line plot?</a></li>
-<li class="chapter" data-level="10.2.8" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>10.2.8</b> Boxplot</a></li>
-<li class="chapter" data-level="10.2.9" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>10.2.9</b> Grouped Boxplot</a></li>
-<li class="chapter" data-level="10.2.10" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>10.2.10</b> Some additional options</a></li>
+<li class="chapter" data-level="6.2.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>6.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>6.2.2</b> Bar plots</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>6.2.4</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot-1"><i class="fa fa-check"></i><b>6.2.5</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>6.2.6</b> Line plot?</a></li>
+<li class="chapter" data-level="6.2.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>6.2.7</b> Grouped Line plot?</a></li>
+<li class="chapter" data-level="6.2.8" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>6.2.8</b> Boxplot</a></li>
+<li class="chapter" data-level="6.2.9" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>6.2.9</b> Grouped Boxplot</a></li>
+<li class="chapter" data-level="6.2.10" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>6.2.10</b> Some additional options</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>10.3</b> Summary of options</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html"><i class="fa fa-check"></i><b>11</b> Project 1: Exploring KRAS Expression</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#motivation"><i class="fa fa-check"></i><b>11.1</b> Motivation</a></li>
-<li class="chapter" data-level="11.2" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#analysis-1"><i class="fa fa-check"></i><b>11.2</b> Analysis 1</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#load-analysis-package-and-depmap-data-in"><i class="fa fa-check"></i><b>11.2.1</b> Load analysis package and DepMap data in</a></li>
-<li class="chapter" data-level="11.2.2" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#examine-the-number-of-cell-lines-profiled-for-metadata-expression-mutation"><i class="fa fa-check"></i><b>11.2.2</b> Examine the number of cell lines profiled for <code>metadata</code>, <code>expression</code>, <code>mutation</code></a></li>
-<li class="chapter" data-level="11.2.3" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#examine-the-frequency-of-cancer-subtypes-in-metadata"><i class="fa fa-check"></i><b>11.2.3</b> Examine the frequency of cancer subtypes in <code>metadata</code></a></li>
-<li class="chapter" data-level="11.2.4" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#alternatively-you-could-create-a-barplot-to-show-the-frequency-of-cancer-subtypes-in-metadata"><i class="fa fa-check"></i><b>11.2.4</b> Alternatively, you could create a barplot to show the frequency of cancer subtypes in <code>metadata</code>:</a></li>
-<li class="chapter" data-level="11.2.5" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#filter-metadata-so-that-it-contains-the-cancer-subtype-want-to-analyze."><i class="fa fa-check"></i><b>11.2.5</b> Filter <code>metadata</code> so that it contains the cancer subtype want to analyze.</a></li>
-<li class="chapter" data-level="11.2.6" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#join-metadata-expression-and-mutation-together."><i class="fa fa-check"></i><b>11.2.6</b> Join <code>metadata</code>, <code>expression</code>, and <code>mutation</code> together.</a></li>
-<li class="chapter" data-level="11.2.7" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#select-the-columns-you-want-to-analyze."><i class="fa fa-check"></i><b>11.2.7</b> Select the columns you want to analyze.</a></li>
-<li class="chapter" data-level="11.2.8" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#create-the-boxplot-figure"><i class="fa fa-check"></i><b>11.2.8</b> Create the boxplot figure!</a></li>
-<li class="chapter" data-level="11.2.9" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#consider-a-different-way-to-visualize-this-data-create-a-histogram-of-kras-expression-for-non-kras-mutated-cell-lines-and-a-different-histogram-of-kras-expression-for-kras-mutated-cell-lines."><i class="fa fa-check"></i><b>11.2.9</b> Consider a different way to visualize this data: Create a histogram of KRAS expression for non-KRAS mutated cell lines, and a different histogram of KRAS expression for KRAS mutated cell lines.</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#analysis-2"><i class="fa fa-check"></i><b>11.3</b> Analysis 2</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#create-scatterplots-of-kras-expression-vs.-pik3ca-raf1-and-ralb.-what-does-the-trend-look-like"><i class="fa fa-check"></i><b>11.3.1</b> Create scatterplots of <code>KRAS</code> expression vs. <code>PIK3CA</code>, <code>RAF1</code>, and <code>RALB</code>. What does the trend look like?</a></li>
-<li class="chapter" data-level="11.3.2" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#we-can-measure-the-correlation-of-two-continuous-variables-via-the-cor-function.-whats-the-correlation-of-kras-vs.-raf1"><i class="fa fa-check"></i><b>11.3.2</b> We can measure the correlation of two continuous variables via the <code>cor</code> function. What’s the correlation of <code>KRAS</code> vs. <code>RAF1</code>?</a></li>
-<li class="chapter" data-level="11.3.3" data-path="project-1-exploring-kras-expression.html"><a href="project-1-exploring-kras-expression.html#can-you-put-the-correlation-in-the-title-of-your-scatterplot"><i class="fa fa-check"></i><b>11.3.3</b> Can you put the correlation in the title of your scatterplot?</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="project-2-exploring-co2-emissions-over-time.html"><a href="project-2-exploring-co2-emissions-over-time.html"><i class="fa fa-check"></i><b>12</b> Project 2: Exploring CO2 Emissions Over Time</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="project-2-exploring-co2-emissions-over-time.html"><a href="project-2-exploring-co2-emissions-over-time.html#introduction"><i class="fa fa-check"></i><b>12.1</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="project-2-exploring-co2-emissions-over-time.html"><a href="project-2-exploring-co2-emissions-over-time.html#load-the-packages-and-data-in."><i class="fa fa-check"></i><b>12.1.1</b> Load the packages and data in.</a></li>
-</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>6.3</b> Summary of options</a></li>
+<li class="chapter" data-level="6.4" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>6.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="13" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>13</b> References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -294,7 +245,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R, Season 2</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R, Season 3</a>
           </h1>
         </div>
 
@@ -314,22 +265,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="intro-to-computing" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Intro to Computing</h1>
-<div id="goals-of-the-course" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Goals of the course</h2>
+<div id="intro-to-computing" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Intro to Computing<a href="intro-to-computing.html#intro-to-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="goals-of-the-course" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Goals of the course<a href="intro-to-computing.html#goals-of-the-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Fundamental concepts in high-level programming languages (R, Python, Julia, WDL, etc.) that is transferable: <em>How do programs run, and how do we solve problems using functions and data structures?</em></p></li>
 <li><p>Beginning of data science fundamentals: <em>How do you translate your scientific question to a data wrangling problem and answer it?</em></p>
-<div class="figure">
-<img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="450" alt="" />
-<p class="caption">Data science workflow</p>
+<div class="float">
+<img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="450" alt="Data science workflow" />
+<div class="figcaption">Data science workflow</div>
 </div></li>
 <li><p>Find a nice balance between the two throughout the course: we will try to reproduce a figure from a scientific publication using new data.</p></li>
 </ul>
 </div>
-<div id="what-is-a-computer-program" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> What is a computer program?</h2>
+<div id="what-is-a-computer-program" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> What is a computer program?<a href="intro-to-computing.html#what-is-a-computer-program" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>A sequence of instructions to manipulate data for the computer to execute.</p></li>
 <li><p>A series of translations: English &lt;-&gt; Programming Code for Interpreter &lt;-&gt; Machine Code for Central Processing Unit (CPU)</p></li>
@@ -337,8 +288,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>We will focus on English &lt;-&gt; Programming Code for R Interpreter in this class.</p>
 <p>More importantly: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something</strong>.</p>
 </div>
-<div id="a-programming-language-has-following-elements" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> A programming language has following elements:</h2>
+<div id="a-programming-language-has-following-elements" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> A programming language has following elements:<a href="intro-to-computing.html#a-programming-language-has-following-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Grammar structure to construct expressions</p></li>
 <li><p>Combining expressions to create more complex expressions</p></li>
@@ -346,8 +297,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Encapsulate complex data via data structures to allow efficient manipulation of data</p></li>
 </ul>
 </div>
-<div id="posit-cloud-setup" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Posit Cloud Setup</h2>
+<div id="posit-cloud-setup" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Posit Cloud Setup<a href="intro-to-computing.html#posit-cloud-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Posit Cloud/RStudio is an Integrated Development Environment (IDE). Think about it as Microsoft Word to a plain text editor. It provides extra bells and whistles to using R that is easier for the user.</p>
 <p>Today, we will pay close attention to:</p>
 <ul>
@@ -356,8 +307,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Environment: Often, code will store information <em>in memory</em>, and it is shown in the environment. More on this later.</p></li>
 </ul>
 </div>
-<div id="using-quarto-for-your-work" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Using Quarto for your work</h2>
+<div id="using-quarto-for-your-work" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Using Quarto for your work<a href="intro-to-computing.html#using-quarto-for-your-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Why should we use Quarto for data science work?</p>
 <ul>
 <li><p>Encourages reproducible workflows</p></li>
@@ -366,43 +317,43 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>More options and guides can be found in <a href="https://quarto.org/docs/get-started/hello/rstudio.html">Introduction to Quarto</a> .</p>
 </div>
-<div id="grammar-structure-1-evaluation-of-expressions" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Grammar Structure 1: Evaluation of Expressions</h2>
+<div id="grammar-structure-1-evaluation-of-expressions" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Grammar Structure 1: Evaluation of Expressions<a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>Expressions</strong> are be built out of <strong>operations</strong> or <strong>functions</strong>.</p></li>
 <li><p>Operations and functions combine <strong>data types</strong> to return another data type.</p></li>
 <li><p>We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.</p></li>
 </ul>
 <p>For instance, consider the following expressions entered to the R Console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro-to-computing.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro-to-computing.html#cb1-1" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro-to-computing.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro-to-computing.html#cb3-1" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
 <pre><code>## [1] 21</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro-to-computing.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span>, <span class="dv">65</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro-to-computing.html#cb5-1" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span>, <span class="dv">65</span>)</span></code></pre></div>
 <pre><code>## [1] 65</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="intro-to-computing.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> (<span class="dv">21</span> <span class="sc">+</span> <span class="dv">65</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="intro-to-computing.html#cb7-1" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> (<span class="dv">21</span> <span class="sc">+</span> <span class="dv">65</span>)</span></code></pre></div>
 <pre><code>## [1] 104</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="intro-to-computing.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(<span class="st">&quot;ATCG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="intro-to-computing.html#cb9-1" tabindex="-1"></a><span class="fu">nchar</span>(<span class="st">&quot;ATCG&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>Here, our input <strong>data types</strong> to the operation are <strong>numeric</strong> in lines 1-4 and our input data type to the function is <strong>character</strong> in line 5.</p>
 <p>Operations are just functions in hiding. We could have written:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro-to-computing.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro-to-computing.html#cb11-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="intro-to-computing.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="fu">sum</span>(<span class="dv">21</span>, <span class="dv">65</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="intro-to-computing.html#cb13-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="fu">sum</span>(<span class="dv">21</span>, <span class="dv">65</span>))</span></code></pre></div>
 <pre><code>## [1] 104</code></pre>
 <p>Remember the function machine from algebra class? We will use this schema to think about expressions.</p>
-<div class="figure">
-<img src="https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png" alt="" />
-<p class="caption">Function machine from algebra class.</p>
+<div class="float">
+<img src="https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png" alt="Function machine from algebra class." />
+<div class="figcaption">Function machine from algebra class.</div>
 </div>
 <p>If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="intro-to-computing.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="intro-to-computing.html#cb15-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 14</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="intro-to-computing.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="intro-to-computing.html#cb17-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 18</code></pre>
 <p>Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes <a href="intro-to-computing.html#a-programming-language-has-following-elements">abstraction and modular thinking</a>, a foundation in any programming language.</p>
-<div id="data-types" class="section level3" number="2.6.1">
-<h3><span class="header-section-number">2.6.1</span> Data types</h3>
+<div id="data-types" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Data types<a href="intro-to-computing.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here are some data types that we will be using in this course:</p>
 <ul>
 <li><p><strong>Numeric</strong>: 18, 21, 65, 1.25</p></li>
@@ -411,13 +362,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="grammar-structure-2-storing-data-types-in-the-environment" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Grammar Structure 2: Storing data types in the environment</h2>
+<div id="grammar-structure-2-storing-data-types-in-the-environment" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Grammar Structure 2: Storing data types in the environment<a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro-to-computing.html#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro-to-computing.html#cb19-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
 <p>If you enter this in the Console, you will see that in the Environment, the variable <code>x</code> has a value of <code>39</code>.</p>
-<div id="execution-rule-for-variable-assignment" class="section level3" number="2.7.1">
-<h3><span class="header-section-number">2.7.1</span> Execution rule for variable assignment</h3>
+<div id="execution-rule-for-variable-assignment" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Execution rule for variable assignment<a href="intro-to-computing.html#execution-rule-for-variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Evaluate the expression to the right of <code>=</code>.</p>
 <p>Bind variable to the left of <code>=</code> to the resulting value.</p>
@@ -427,28 +378,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.</p>
 <p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.</p>
 <p>Look, now <code>x</code> can be reused downstream:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="intro-to-computing.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="intro-to-computing.html#cb20-1" tabindex="-1"></a>x <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 37</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="intro-to-computing.html#cb22-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="intro-to-computing.html#cb22-1" tabindex="-1"></a>y <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 </div>
 </div>
-<div id="grammar-structure-3-evaluation-of-functions" class="section level2" number="2.8">
-<h2><span class="header-section-number">2.8</span> Grammar Structure 3: Evaluation of Functions</h2>
+<div id="grammar-structure-3-evaluation-of-functions" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Grammar Structure 3: Evaluation of Functions<a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A function has a <strong>function name</strong>, <strong>arguments</strong>, and <strong>returns</strong> a data type.</p>
-<div id="execution-rule-for-functions" class="section level3" number="2.8.1">
-<h3><span class="header-section-number">2.8.1</span> Execution rule for functions:</h3>
+<div id="execution-rule-for-functions" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Execution rule for functions:<a href="intro-to-computing.html#execution-rule-for-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.</p>
 <p>The output of functions is called the <strong>returned value</strong>.</p>
 </blockquote>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro-to-computing.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro-to-computing.html#cb23-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 2.236068</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro-to-computing.html#cb25-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>) <span class="sc">+</span> <span class="dv">4</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro-to-computing.html#cb25-1" tabindex="-1"></a>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>) <span class="sc">+</span> <span class="dv">4</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 18</code></pre>
 </div>
 </div>
-<div id="tips-on-writing-your-first-code" class="section level2" number="2.9">
-<h2><span class="header-section-number">2.9</span> Tips on writing your first code</h2>
+<div id="tips-on-writing-your-first-code" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Tips on writing your first code<a href="intro-to-computing.html#tips-on-writing-your-first-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>Computer = powerful + stupid</code></p>
 <p>Even the smallest spelling and formatting changes will cause unexpected output and errors!</p>
 <ul>
@@ -457,6 +408,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Live environments are great for testing, but not great for reproducibility.</p></li>
 <li><p>Ask for help!</p></li>
 </ul>
+</div>
+<div id="exercises" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Exercises<a href="intro-to-computing.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can find <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>, or on <a href="https://github.com/fhdsl/Intro_to_R_Exercises">GitHub</a>.</p>
 
 </div>
 </div>
@@ -475,7 +430,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro-to-computing-exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

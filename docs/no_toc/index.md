@@ -1,6 +1,6 @@
 ---
-title: "Introduction to R, Season 2"
-date: "March, 2024"
+title: "Introduction to R, Season 3"
+date: "May, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -15,11 +15,14 @@ output:
 
 # About this Course
 
-## Curriculum  
+## Curriculum
 
-The course covers fundamentals of R, a high-level programming language, and use it to wrangle data for analysis and visualization. 
+The course covers fundamentals of R, a high-level programming language, and use it to wrangle data for analysis and visualization.
 
-## Target Audience  
+## Target Audience
 
 The course is intended for researchers who want to learn coding for the first time with a data science application, or have explored programming and want to focus on fundamentals.
 
+## Offerings
+
+This course is taught on a regular basis at [Fred Hutch Cancer Center](https://www.fredhutch.org/) through the [Data Science Lab](https://hutchdatascience.org/). Announcements of course offering can be found [here](https://hutchdatascience.org/training/). If you wish to follow the course content asynchronously, you may access the course content on this website and [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357). The Posit Cloud compute space can be copied to your own workspace for personal use, or you can access the [exercises and solutions on GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).

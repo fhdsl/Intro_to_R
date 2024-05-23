@@ -66,7 +66,7 @@ More options and guides can be found in [Introduction to Quarto](https://quarto.
 For instance, consider the following expressions entered to the R Console:
 
 
-```r
+``` r
 18 + 21
 ```
 
@@ -74,7 +74,7 @@ For instance, consider the following expressions entered to the R Console:
 ## [1] 39
 ```
 
-```r
+``` r
 max(18, 21)
 ```
 
@@ -82,7 +82,7 @@ max(18, 21)
 ## [1] 21
 ```
 
-```r
+``` r
 max(18 + 21, 65)
 ```
 
@@ -90,7 +90,7 @@ max(18 + 21, 65)
 ## [1] 65
 ```
 
-```r
+``` r
 18 + (21 + 65)
 ```
 
@@ -98,7 +98,7 @@ max(18 + 21, 65)
 ## [1] 104
 ```
 
-```r
+``` r
 nchar("ATCG")
 ```
 
@@ -111,7 +111,7 @@ Here, our input **data types** to the operation are **numeric** in lines 1-4 and
 Operations are just functions in hiding. We could have written:
 
 
-```r
+``` r
 sum(18, 21)
 ```
 
@@ -119,7 +119,7 @@ sum(18, 21)
 ## [1] 39
 ```
 
-```r
+``` r
 sum(18, sum(21, 65))
 ```
 
@@ -134,7 +134,7 @@ Remember the function machine from algebra class? We will use this schema to thi
 If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 
 
-```r
+``` r
 3 * 4 + 2
 ```
 
@@ -142,7 +142,7 @@ If an expression is made out of multiple, nested operations, what is the proper 
 ## [1] 14
 ```
 
-```r
+``` r
 3 * (4 + 2)
 ```
 
@@ -169,7 +169,7 @@ Here are some data types that we will be using in this course:
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:
 
 
-```r
+``` r
 x = 18 + 21
 ```
 
@@ -192,7 +192,7 @@ The variable is stored in the working memory of your computer, Random Access Mem
 Look, now `x` can be reused downstream:
 
 
-```r
+``` r
 x - 2
 ```
 
@@ -200,7 +200,7 @@ x - 2
 ## [1] 37
 ```
 
-```r
+``` r
 y = x * 2
 ```
 
@@ -215,7 +215,7 @@ A function has a **function name**, **arguments**, and **returns** a data type.
 > The output of functions is called the **returned value**.
 
 
-```r
+``` r
 sqrt(nchar("hello"))
 ```
 
@@ -223,7 +223,7 @@ sqrt(nchar("hello"))
 ## [1] 2.236068
 ```
 
-```r
+``` r
 (nchar("hello") + 4) * 2
 ```
 
@@ -245,3 +245,9 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 -   Live environments are great for testing, but not great for reproducibility. 
 
 -   Ask for help!
+
+
+## Exercises
+
+You can find [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357), or on [GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).
+
