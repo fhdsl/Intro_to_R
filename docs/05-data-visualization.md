@@ -4,6 +4,8 @@
 
 
 
+In our last lesson, we go over common plotting styles and how to create them via a popular R package, Grammar of Graphics (`ggplot`).
+
 ## Common Plots
 
 ### Univariate
