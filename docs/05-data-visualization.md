@@ -129,6 +129,8 @@ With options:
 
 [scale_y_discrete]{style="color:purple"}
 
-Consider the `esquisse` package to help generate your ggplot code via drag and drop. 
+Consider the `esquisse` package to help generate your ggplot code via drag and drop.
 
+## Exercises
 
+You can find [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357), or on [GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).
