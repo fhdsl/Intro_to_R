@@ -55,7 +55,7 @@ Today, we will pay close attention to:
 The first thing we will do is see the different ways we can run R code. You can do the following:
 
 1.  Type something into the R Console and type enter, such as `2+2`. The R Console will run it and give you an output.
-2.  Scroll down the Quarto Document, and when you see a chunk of R Code, click the green arrow button. It will copy the R code chunk to the R Console and run all of it.
+2.  Scroll down the Quarto Document, and when you see a chunk of R Code, click the green arrow button. It will copy the R code chunk to the R Console and run all of it. You will likely see variables created in the Environment as you load in and manipulate data.
 3.  Run every single R code chunk in the Quarto Document by pressing the Run button at the top left corner of the Script Editor. It will generate an output document with all the code run.
 
 Remember that the *order* that you run your code matters in programming. Your final product would be the result of Option 3, in which you run every R code chunk from start to finish. However, sometimes it is nice to try out smaller parts of your code via Options 1 or 2. But you will be at risk of running your code out of order!
