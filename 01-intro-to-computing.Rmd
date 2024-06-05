@@ -40,7 +40,7 @@ Posit Cloud (the website version of RStudio) is an Integrated Development Enviro
 
 Let's open up the KRAS analysis in Posit Cloud. If you are taking this course while it is in session, the project name is probably named "KRAS Demo" in your Posit Cloud workspace. If you are taking this course on your own time, open up ["Intro to R Exercises and Solutions" project](https://posit.cloud/content/8245357).
 
-Once you have opened the project, open the file "KRAS_demo.qmd", and you should see something like this:
+Once you have opened the project, open the file "KRAS_demo.qmd" from the File Browser, and you should see something like this:
 
 ![](images/posit.jpg)
 
