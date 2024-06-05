@@ -1,8 +1,8 @@
-# Introduction to R, Season 3
+# Introduction to R
 
 This course was created from [this GitHub template](https://github.com/jhudsl/OTTR_Template).
 
-You can see the rendered course material [here](https://hutchdatascience.org/S1_Intro_to_R/).
+You can see the rendered course material [here](https://hutchdatascience.org/Intro_to_R/).
 
 If you would like to contribute to this course material, take a look at the [OTTR documentation](https://www.ottrproject.org/).
 
