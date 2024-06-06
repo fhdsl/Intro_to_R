@@ -171,6 +171,8 @@ jobs:
           git commit -m 'Delete manuscript folder' || echo "No changes to commit"
           git pull --rebase --set-upstream origin $branch_name --allow-unrelated-histories --strategy-option=ours
           git push -u origin main || echo "No changes to push"
+          echo ${{ needs.yaml-check.outputs.toggle_quiz_check == 'yes'}}
+          echo ${{needs.yaml-check.outputs.toggle_quiz_check}}
 
       - name: Run ottrpal::bookdown_to_embed_leanpub
         if: ${{ needs.yaml-check.outputs.toggle_quiz_check == 'no'}}
