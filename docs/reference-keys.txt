@@ -7,7 +7,7 @@ goals-of-the-course
 what-is-a-computer-program
 a-programming-language-has-following-elements
 posit-cloud-setup
-using-quarto-for-your-work
+section
 grammar-structure-1-evaluation-of-expressions
 data-types
 grammar-structure-2-storing-data-types-in-the-environment
@@ -26,7 +26,6 @@ dataframes
 using-functions-and-operations-on-dataframes
 exercises-1
 data-wrangling-with-tidy-data-part-1
-data-science-workflow
 tidy-data
 examples-and-counter-examples-of-tidy-data
 our-working-tidy-data-depmap-project
@@ -44,9 +43,6 @@ grouping-and-summarizing-dataframes
 appendix-how-functions-are-built
 exercises-3
 data-visualization
-common-plots
-univariate
-bivariate
 grammar-of-graphics
 histogram
 bar-plots

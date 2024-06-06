@@ -148,8 +148,6 @@ Given `xxx_join(x, y, by = "common_col")`,
 
 ## Grouping and summarizing dataframes
 
-Also known as: "The rows I want is described by a column. The columns I want need to be summarized from other columns."
-
 In a dataset, there may be multiple levels of observations, and which level of observation we examine depends on our scientific question. For instance, in `metadata`, the observation is cell lines. However, perhaps we want to understand properties of `metadata` in which the observation is the cancer type, `OncotreeLineage`. Suppose we want the mean age of each cancer type, and the number of cell lines that we have for each cancer type.
 
 This is a scenario in which the *desired rows are described by a column*, `OncotreeLineage`, and the columns, such as mean age, need to be *summarized from other columns.*

@@ -2,11 +2,11 @@
 
 
 
-## Data Science Workflow
+From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.
 
-![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
+![Data science workflow. Image source: [R for Data Science.](https://r4ds.hadley.nz/whole-game)](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
-We are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow. We start with *Transform* and *Visualize* with the assumption that our data is in a nice, "Tidy format". First, we need to understand what it means for a data to be "Tidy".
+For the rest of the course, we focus on *Transform* and *Visualize* with the assumption that our data is in a nice, "Tidy format". First, we need to understand what it means for a data to be "Tidy".
 
 ## Tidy Data
 
@@ -22,7 +22,7 @@ If you want to be technical about what variables and observations are, Hadley Wi
 
 > A **variable** contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all values measured on the same unit (like a person, or a day, or a race) across attributes.
 
-![A tidy dataframe.](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
+![A tidy dataframe. Image source: [R for Data Science](https://r4ds.hadley.nz/data-tidy).](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
 
 ## Examples and counter-examples of Tidy Data:
 
@@ -109,8 +109,8 @@ Let's see how these datasets fit the definition of Tidy data:
 | Dataframe  | The observation is | Some variables are            | Some values are             |
 |------------------|------------------|-------------------|------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
-| expression |                    |                               |                             |
-| mutation   |                    |                               |                             |
+| expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |
+| mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |
 
 ## Transform: "What do you want to do with this dataframe"?
 
