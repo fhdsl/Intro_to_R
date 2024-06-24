@@ -1,6 +1,8 @@
 # Cheatsheet
 
-We will focus on English \<-\> Programming Code for R Interpreter in this class.
+Here is a summary of expressions we learned in class.
+
+Recall that we focused on English \<-\> Programming Code for R Interpreter in this class.
 
 ## Basic Data Types
 
@@ -103,5 +105,3 @@ Often to create a logical indexing vector for subsetting
 |                                                                                                                                                               |                                                                                                  |
 |                                                                                                                                                               | `dataframe_summary = summarise(dataframe_grouped, mean_outcome = mean(outcome), n_sample = n())` |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-
-## 
