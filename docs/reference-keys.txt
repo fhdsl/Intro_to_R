@@ -56,4 +56,12 @@ grouped-boxplot
 some-additional-options
 summary-of-options
 exercises-4
+cheatsheet
+basic-data-types
+vectors-1
+conditional-operations
+subsetting-vectors
+dataframes-1
+summary-statistics-of-a-dataframes-column
+dataframe-transformations
 references
