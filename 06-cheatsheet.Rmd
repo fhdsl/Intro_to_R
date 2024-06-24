@@ -2,7 +2,7 @@
 
 Here is a summary of expressions we learned in class.
 
-Recall that we focused on English \<-\> Programming Code for R Interpreter in this class.
+Recall that we focused on English \<-\> Programming Code for R Interpreter in this class. Many of the functions we learned require the "Tidyverse" library to run.
 
 ## Basic Data Types
 
