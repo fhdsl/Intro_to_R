@@ -1,7 +1,7 @@
 # Data Wrangling with Tidy Data, Part 1
 
 ```{r, echo=F, message=F, warning=F, error=F}
-install.packages("palmerpenguins")
+install.packages("palmerpenguins", repos = "http://cran.us.r-project.org")
 library(palmerpenguins)
 library(tidyverse)
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
