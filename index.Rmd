@@ -35,7 +35,7 @@ After taking this course, you will be able to:
 
 All course information will be available here:
 
-https://hutchdatascience.org/intro_to_r
+https://hutchdatascience.org/Intro_to_R
 
 Course discussions will be done in the class slack Workspace. Invites will be sent before class.
 
