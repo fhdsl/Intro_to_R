@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
-  <meta name="description" content="Introduction to R" />
+  <title>Chapter 7 Cheatsheet | Introduction to R</title>
+  <meta name="description" content="Chapter 7 Cheatsheet | Introduction to R" />
   <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 7 Cheatsheet | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 7 Cheatsheet | Introduction to R" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="intro-to-computing.html"/>
+<link rel="prev" href="data-wrangling-with-tidy-data-part-2.html"/>
+<link rel="next" href="about-the-authors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -283,182 +283,249 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="date"><em>September, 2024</em></p>
-</div>
-<div id="course-logistics-and-expectations" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Course Logistics and Expectations<a href="index.html#course-logistics-and-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="course-description" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Course Description<a href="index.html#course-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this course, you will learn the fundamentals of R, a statistical programming language, and use it to wrangle data for analysis and visualization. The programming skills you will learn are transferable to learn more about R independently and other high-level languages such as Python. At the end of the class, you will be reproducing analysis from a scientific publication!</p>
-</div>
-<div id="learning-objectives" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Learning Objectives<a href="index.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>After taking this course, you will be able to:</p>
-<ul>
-<li><strong>Analyze</strong> Tidy datasets in the R programming language via data wrangling, summary statistics, and visualization.</li>
-<li><strong>Describe</strong> how the R programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.</li>
-<li><strong>Apply</strong> problem solving strategies to debug broken code.</li>
-</ul>
-</div>
-<div id="course-website" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Course Website<a href="index.html#course-website" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All course information will be available here:</p>
-<p><a href="https://hutchdatascience.org/Intro_to_R" class="uri">https://hutchdatascience.org/Intro_to_R</a></p>
-<p>Course discussions will be done in the class slack Workspace. Invites will be sent before class.</p>
-<p>Lab Assignments will be done in the class Posit.cloud workspace. Students should register at <a href="https://posit.cloud" class="uri">https://posit.cloud</a> before the lab. Link to join the workspace will be sent out before the first lab.</p>
-</div>
-<div id="dasl-courses-are-a-psychologically-safe-space" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> DaSL Courses are a Psychologically Safe Space<a href="index.html#dasl-courses-are-a-psychologically-safe-space" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We want everyone to feel ok with asking questions. That’s why we adhere to the <a href="https://hutchdatascience.org/communitystudios/guidelines/">Participation Guidelines</a> for each course.</p>
-<p>Be respectful of each other and how we learn differently. It is never ok to disparage people for their questions.</p>
-</div>
-<div id="office-hours" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Office Hours<a href="index.html#office-hours" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Office Hours will be held via Teams on Fridays. Feel free to drop into the office hours and work and ask questions as needed.</p>
-</div>
-<div id="clinical-network-issues" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Clinical Network Issues<a href="index.html#clinical-network-issues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We know that learners on the Clinical network are having issues accessing material, including websites. We are working to figure out good workarounds for it.</p>
-<p>If you are connected via VPN, we recommend that you disconnect it while working.</p>
-</div>
-<div id="slack" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Slack<a href="index.html#slack" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you haven’t yet joined the FH Data Slack, you can join here: <a href="https://hutchdatascience.org/joinslack/" class="uri">https://hutchdatascience.org/joinslack/</a></p>
-<p>Look for the #dasl-s4-intro-to-r channel - that’s where we’ll have conversations and field questions.</p>
-</div>
-<div id="instructor" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Instructor<a href="index.html#instructor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://laderast.github.io">Ted Laderas, PhD</a><br />
-<a href="mailto:tladera2@fredhutch.org" class="email">tladera2@fredhutch.org</a><br />
-<strong>Preferred Method of Contact</strong>: Email/Slack<br />
-<strong>Expected Response Time</strong>: 24hrs</p>
-<p>I’ve been teaching R for over 10 years, and have been an active user and data scientist for over 20. I write a lot, including on Data Science, Mental Health, and Bioinformatics.</p>
-<p>I’m always excited to see my learners surpass me, and if you are curious enough, I guarantee you will.</p>
-</div>
-<div id="words-of-encouragement" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Words of Encouragement<a href="index.html#words-of-encouragement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<blockquote>
-<p>This was adopted from Andrew Heiss. Thanks!</p>
-</blockquote>
-<p>I <em>promise</em> you can succeed in this class.</p>
-<p>Learning R can be difficult at first—it’s like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you’ll be using like <code>ggplot2</code>—<a href="https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/">made this wise observation</a>:</p>
-<blockquote>
-<p>It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.</p>
-</blockquote>
-<p>Even experienced programmers find themselves bashing their heads against seemingly intractable errors. If you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, e-mail me, etc.</p>
-<p><img src="images/hosrt_error_tweet.png" width="60%" /></p>
-<p><a href="https://twitter.com/allison_horst/status/1213275783675822080"><img src="images/gator_error.jpg" alt="Alison Horst: Gator error" /></a></p>
-</div>
-<div id="learning-is-social" class="section level2 hasAnchor" number="1.10">
-<h2><span class="header-section-number">1.10</span> LeaRning is Social<a href="index.html#learning-is-social" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Be curious, not afraid.</li>
-<li>Know that if you have a question, other people will have it.</li>
-<li>Asking questions is our way of taking care of others</li>
-</ul>
-<p>The students who have a bad time in my workshops and courses are the ones who don’t work with each other to learn. We are a learning community, and we should help each other to learn.</p>
-<blockquote>
-<p>Find a buddy to work with - and check in with them during class and out of class</p>
-</blockquote>
-<p>If you understand something and someone is struggling with it, try and help them. If you are struggling, take a breath, and try to pinpoint what you are struggling with.</p>
-<p>Our goal is to be better programmers each day, not to be the perfect programmer. There’s no such thing as a perfect programmer. I’ve been learning new things almost every day.</p>
-</div>
-<div id="course-times" class="section level2 hasAnchor" number="1.11">
-<h2><span class="header-section-number">1.11</span> Course Times<a href="index.html#course-times" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I know that everyone is busy, and we’ll do our best to accomodate everyone’s schedule.</p>
-<p>Classes will be recorded, but please do not use this as an excuse to miss class. Again, those who are curious and ask questions will learn quite a bit.</p>
-</div>
-<div id="class-schedule" class="section level2 hasAnchor" number="1.12">
-<h2><span class="header-section-number">1.12</span> Class Schedule<a href="index.html#class-schedule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are two sections of Intro to R.</p>
-<ul>
-<li>A hybrid (in-person and online) session on Wednesdays (12-1:30 PM PST)</li>
-<li>A completely remote session on Thursdays (2-3:30 PM PST)</li>
-</ul>
-<p>When you are enrolled, we will send you teams invites for your section. Please note that we are at capacity for in-person. So if you have enrolled as online, please stay online.</p>
-<p>The Hybrid Sections will be held in the Data Science Lab Lounge - Arnold M1- and online. Please note that I will in town and teaching in person on the starred (*) dates below.</p>
-<p>Dates when I am not on campus, you are free to attend in the DaSL lounge, but I will be teaching Remotely.</p>
-<p>If you are remote, feel free to jump between either sessions.</p>
+<div id="cheatsheet" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Cheatsheet<a href="cheatsheet.html#cheatsheet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Here is a summary of expressions we learned in class.</p>
+<p>Recall that we focused on English &lt;-&gt; Programming Code for R Interpreter in this class. Many of the functions we learned require the “Tidyverse” library to run.</p>
+<div id="basic-data-types" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Basic Data Types<a href="cheatsheet.html#basic-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
 <thead>
 <tr class="header">
-<th>Week</th>
-<th>Subject</th>
-<th>Hybrid Section Dates</th>
-<th>Remote Session Dates</th>
+<th>English</th>
+<th>R Language</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1*</td>
-<td>Introduction to R/RStudio</td>
-<td>September 25</td>
-<td>September 26</td>
+<td>Numeric</td>
+<td><code>2 + 3</code></td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>Data Structures</td>
-<td>October 2</td>
-<td>October 3</td>
+<td>Character</td>
+<td><code>"hello", "123"</code></td>
 </tr>
 <tr class="odd">
-<td>3*</td>
-<td>Data Visualization</td>
-<td>October 9</td>
-<td>October 10</td>
-</tr>
-<tr class="even">
-<td>4 (optional)</td>
-<td>Community Session</td>
-<td>October 16</td>
-<td>October 16</td>
-</tr>
-<tr class="odd">
-<td>5*</td>
-<td>Data Wrangling 1</td>
-<td>October 23</td>
-<td>October 24</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Data Wrangling 2</td>
-<td>October 30</td>
-<td>October 31</td>
-</tr>
-<tr class="odd">
-<td>7* (optional)</td>
-<td>Community Session</td>
-<td>November 6</td>
-<td>November 6</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Wrap-up/Discuss Code-a-thon</td>
-<td>November 13</td>
-<td>November 14</td>
+<td>Logical</td>
+<td><code>TRUE</code>, <code>FALSE</code></td>
 </tr>
 </tbody>
 </table>
-<p>Note that the Community Sessions are Shared between the two sections.</p>
-<p>More details about the Code-a-thon to come.</p>
 </div>
-<div id="community-sessions" class="section level2 hasAnchor" number="1.13">
-<h2><span class="header-section-number">1.13</span> Community Sessions<a href="index.html#community-sessions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Two times this quarter we will have learning community sessions, to talk about applications of what we’re learning. These sessions are optional, but will help you solidify your learning during the course.</p>
-<p>These dates are:</p>
-<p>October 16 at 12-1:30 PM
-November 6 at 12-1:30 PM</p>
-<p>These dates will be sent to you when you register for the course.</p>
+<div id="vectors-1" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Vectors<a href="cheatsheet.html#vectors-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="45%" />
+<col width="54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create a vector with some elements</td>
+<td><p><code>vec = c(1, -4, -9, 12)</code></p>
+<p><code>names = c("chris", "hannah", "chris", NA)</code></p></td>
+</tr>
+<tr class="even">
+<td>Compute length of a vector</td>
+<td><code>length(vector)</code></td>
+</tr>
+<tr class="odd">
+<td>Access the second element of <code>names</code></td>
+<td><code>names[2]</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="patient-clinical-data-is-a-no-on-posit-cloud" class="section level2 hasAnchor" number="1.14">
-<h2><span class="header-section-number">1.14</span> Patient / Clinical Data is a No on Posit Cloud<a href="index.html#patient-clinical-data-is-a-no-on-posit-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Posit Cloud workspace is for your learning. Please do not put any patient or clinical information on there.</p>
+<div id="conditional-operations" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Conditional Operations<a href="cheatsheet.html#conditional-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Often to create a logical indexing vector for subsetting</p>
+<table>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>vec</code> is greater than 0</td>
+<td><code>vec &gt; 0</code></td>
+</tr>
+<tr class="even">
+<td><code>vec</code> is between 0 and 10</td>
+<td><code>vec &gt;= 0 &amp; vec &lt;= 10</code></td>
+</tr>
+<tr class="odd">
+<td><code>vec</code> is between 0 and 10, exclusively</td>
+<td><code>vec &gt; 0 &amp; vec &lt; 10</code></td>
+</tr>
+<tr class="even">
+<td><code>vec</code> is greater than 4 or less than -4</td>
+<td><code>vec &gt; 4 | vec &lt; -4</code></td>
+</tr>
+<tr class="odd">
+<td><code>names</code> is “chris”</td>
+<td><code>names == "chris"</code></td>
+</tr>
+<tr class="even">
+<td><code>names</code> is not “chris”</td>
+<td><code>names != "chris"</code></td>
+</tr>
+<tr class="odd">
+<td>The non-missing values of <code>names</code></td>
+<td><code>!is.na(names)</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="offerings" class="section level2 hasAnchor" number="1.15">
-<h2><span class="header-section-number">1.15</span> Offerings<a href="index.html#offerings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This course is taught on a regular basis at <a href="https://www.fredhutch.org/">Fred Hutch Cancer Center</a> through the <a href="https://hutchdatascience.org/">Data Science Lab</a>. Announcements of course offering can be found <a href="https://hutchdatascience.org/training/">here</a>. If you wish to follow the course content asynchronously, you may access the course content on this website and <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>. The Posit Cloud compute space can be copied to your own workspace for personal use, and you can get started via this <a href="https://hutchdatascience.org/Intro_to_R/intro-to-computing.html#posit-cloud-setup">introduction</a>. Or, you can access the <a href="https://github.com/fhdsl/Intro_to_R_Exercises">exercises and solutions on GitHub</a>.</p>
+<div id="subsetting-vectors" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Subsetting vectors<a href="cheatsheet.html#subsetting-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subset <code>vec</code> to the first 3 elements</td>
+<td><p><code>vec[c(1, 2, 3)]</code></p>
+<p>or</p>
+<p><code>vec[1:3]</code></p>
+<p>or</p>
+<p><code>vec[c(TRUE, TRUE, TRUE, FALSE)]</code></p></td>
+</tr>
+<tr class="even">
+<td>Subset <code>vec</code> to be greater than 0</td>
+<td><code>vec[vec &gt; 0]</code></td>
+</tr>
+<tr class="odd">
+<td>Subset <code>names</code> to have “chris”</td>
+<td><code>vec[vec == "chris"]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dataframes-1" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Dataframes<a href="cheatsheet.html#dataframes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="62%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Load a dataframe from CSV file “data.csv”</td>
+<td><code>dataframe = read_csv("data.csv")</code></td>
+</tr>
+<tr class="even">
+<td>Load a dataframe from Excel file “data.xlsx”</td>
+<td><code>dataframe = read_excel("data.xlsx")</code></td>
+</tr>
+<tr class="odd">
+<td>Compute the dimension of <code>dataframe</code></td>
+<td><code>dim(dataframe)</code></td>
+</tr>
+<tr class="even">
+<td>Access a column “subtype” of dataframe as a vector</td>
+<td><code>dataframe$subtype</code></td>
+</tr>
+<tr class="odd">
+<td>Subset <code>dataframe</code> to columns “subtype”, “diversity”, “outcome”</td>
+<td><code>select(dataframe, subtype, diversity, outcome)</code></td>
+</tr>
+<tr class="even">
+<td>Subset <code>dataframe</code> to rows such that the outcome is greater than zero, and the subtype is “lung”.</td>
+<td><code>filter(dataframe, outcome &gt; 0 &amp; subtype == "lung"</code>)</td>
+</tr>
+<tr class="odd">
+<td>Create a new column “log_outcome” so that it is the log transform of “outcome” column</td>
+<td><p><code>dataframe$log_outcome = log(dataframe$outcome)</code></p>
+<p>or</p>
+<p><code>dataframe = mutate(dataframe, log_outcome = log(outcome)</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summary-statistics-of-a-dataframes-column" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Summary Statistics of a Dataframe’s column<a href="cheatsheet.html#summary-statistics-of-a-dataframes-column" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="60%" />
+<col width="39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean of <code>dataframe</code>’s “outcome” column</td>
+<td><code>mean(dataframe$outcome)</code></td>
+</tr>
+<tr class="even">
+<td>Mean of <code>dataframe</code>’s “outcome” column, removing <code>NA</code> values</td>
+<td><code>mean(dataframe$outcome, na.rm = TRUE)</code></td>
+</tr>
+<tr class="odd">
+<td>Max of <code>dataframe</code>’s “outcome” column</td>
+<td><code>max(dataframe$outcome)</code></td>
+</tr>
+<tr class="even">
+<td>Min of <code>dataframe</code>’s “outcome” column</td>
+<td><code>min(dataframe$outcome)</code></td>
+</tr>
+<tr class="odd">
+<td>Count of <code>dataframe</code>’s “subtype” column</td>
+<td><code>table(dataframe$subtype)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dataframe-transformations" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Dataframe transformations<a href="cheatsheet.html#dataframe-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="61%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>R Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Merge dataframe <code>df1</code> and <code>df2</code> by common column “id”, using all common entities.</td>
+<td><code>full_join(df1, df2, "id")</code></td>
+</tr>
+<tr class="even">
+<td>Group <code>dataframe</code> by “subtype” column, and summarise the mean “outcome” value for each “subtype” value, and get the total elements for each “subtype” value.</td>
+<td><p><code>dataframe_grouped = group_by(dataframe, subtype)</code></p>
+<p><code>dataframe_summary = summarise(dataframe_grouped, mean_outcome = mean(outcome), n_sample = n())</code></p></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -476,8 +543,8 @@ November 6 at 12-1:30 PM</p>
           </div>
         </div>
       </div>
-
-<a href="intro-to-computing.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-with-tidy-data-part-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to R</title>
-  <meta name="description" content="Introduction to R" />
+  <title>Chapter 2 Intro to Computing | Introduction to R</title>
+  <meta name="description" content="Chapter 2 Intro to Computing | Introduction to R" />
   <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to R" />
+  <meta property="og:title" content="Chapter 2 Intro to Computing | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to R" />
+  <meta name="twitter:title" content="Chapter 2 Intro to Computing | Introduction to R" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="intro-to-computing.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="working-with-data-structures.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -283,182 +283,166 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">Introduction to R</h1>
-<p class="date"><em>September, 2024</em></p>
-</div>
-<div id="course-logistics-and-expectations" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Course Logistics and Expectations<a href="index.html#course-logistics-and-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="course-description" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Course Description<a href="index.html#course-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this course, you will learn the fundamentals of R, a statistical programming language, and use it to wrangle data for analysis and visualization. The programming skills you will learn are transferable to learn more about R independently and other high-level languages such as Python. At the end of the class, you will be reproducing analysis from a scientific publication!</p>
-</div>
-<div id="learning-objectives" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Learning Objectives<a href="index.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>After taking this course, you will be able to:</p>
+<div id="intro-to-computing" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Intro to Computing<a href="intro-to-computing.html#intro-to-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Welcome to Introduction to R! Each week, we cover a chapter, which consists of a lesson and exercise. In our first week together, we will look at big conceptual themes in programming, see how code is run, and learn some basic grammar structures of programming.</p>
+<div id="goals-of-the-course" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Goals of the course<a href="intro-to-computing.html#goals-of-the-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the next 6 weeks, we will explore:</p>
 <ul>
-<li><strong>Analyze</strong> Tidy datasets in the R programming language via data wrangling, summary statistics, and visualization.</li>
-<li><strong>Describe</strong> how the R programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.</li>
-<li><strong>Apply</strong> problem solving strategies to debug broken code.</li>
+<li><p>Fundamental concepts in high-level programming languages (R, Python, Julia, WDL, etc.) that is transferable: <em>How do programs run, and how do we solve problems using functions and data structures?</em></p></li>
+<li><p>Beginning of data science fundamentals: <em>How do you translate your scientific question to a data wrangling problem and answer it?</em></p>
+<div class="float">
+<img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="450" alt="Data science workflow. Image source: R for Data Science." />
+<div class="figcaption">Data science workflow. Image source: <a href="https://r4ds.hadley.nz/whole-game">R for Data Science</a>.</div>
+</div></li>
+<li><p>Find a nice balance between the two throughout the course: we will try to reproduce a figure from a scientific publication using new data.</p></li>
 </ul>
 </div>
-<div id="course-website" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Course Website<a href="index.html#course-website" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All course information will be available here:</p>
-<p><a href="https://hutchdatascience.org/Intro_to_R" class="uri">https://hutchdatascience.org/Intro_to_R</a></p>
-<p>Course discussions will be done in the class slack Workspace. Invites will be sent before class.</p>
-<p>Lab Assignments will be done in the class Posit.cloud workspace. Students should register at <a href="https://posit.cloud" class="uri">https://posit.cloud</a> before the lab. Link to join the workspace will be sent out before the first lab.</p>
-</div>
-<div id="dasl-courses-are-a-psychologically-safe-space" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> DaSL Courses are a Psychologically Safe Space<a href="index.html#dasl-courses-are-a-psychologically-safe-space" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We want everyone to feel ok with asking questions. That’s why we adhere to the <a href="https://hutchdatascience.org/communitystudios/guidelines/">Participation Guidelines</a> for each course.</p>
-<p>Be respectful of each other and how we learn differently. It is never ok to disparage people for their questions.</p>
-</div>
-<div id="office-hours" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Office Hours<a href="index.html#office-hours" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Office Hours will be held via Teams on Fridays. Feel free to drop into the office hours and work and ask questions as needed.</p>
-</div>
-<div id="clinical-network-issues" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Clinical Network Issues<a href="index.html#clinical-network-issues" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We know that learners on the Clinical network are having issues accessing material, including websites. We are working to figure out good workarounds for it.</p>
-<p>If you are connected via VPN, we recommend that you disconnect it while working.</p>
-</div>
-<div id="slack" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Slack<a href="index.html#slack" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you haven’t yet joined the FH Data Slack, you can join here: <a href="https://hutchdatascience.org/joinslack/" class="uri">https://hutchdatascience.org/joinslack/</a></p>
-<p>Look for the #dasl-s4-intro-to-r channel - that’s where we’ll have conversations and field questions.</p>
-</div>
-<div id="instructor" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Instructor<a href="index.html#instructor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://laderast.github.io">Ted Laderas, PhD</a><br />
-<a href="mailto:tladera2@fredhutch.org" class="email">tladera2@fredhutch.org</a><br />
-<strong>Preferred Method of Contact</strong>: Email/Slack<br />
-<strong>Expected Response Time</strong>: 24hrs</p>
-<p>I’ve been teaching R for over 10 years, and have been an active user and data scientist for over 20. I write a lot, including on Data Science, Mental Health, and Bioinformatics.</p>
-<p>I’m always excited to see my learners surpass me, and if you are curious enough, I guarantee you will.</p>
-</div>
-<div id="words-of-encouragement" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Words of Encouragement<a href="index.html#words-of-encouragement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<blockquote>
-<p>This was adopted from Andrew Heiss. Thanks!</p>
-</blockquote>
-<p>I <em>promise</em> you can succeed in this class.</p>
-<p>Learning R can be difficult at first—it’s like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you’ll be using like <code>ggplot2</code>—<a href="https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/">made this wise observation</a>:</p>
-<blockquote>
-<p>It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.</p>
-</blockquote>
-<p>Even experienced programmers find themselves bashing their heads against seemingly intractable errors. If you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, e-mail me, etc.</p>
-<p><img src="images/hosrt_error_tweet.png" width="60%" /></p>
-<p><a href="https://twitter.com/allison_horst/status/1213275783675822080"><img src="images/gator_error.jpg" alt="Alison Horst: Gator error" /></a></p>
-</div>
-<div id="learning-is-social" class="section level2 hasAnchor" number="1.10">
-<h2><span class="header-section-number">1.10</span> LeaRning is Social<a href="index.html#learning-is-social" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-is-a-computer-program" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> What is a computer program?<a href="intro-to-computing.html#what-is-a-computer-program" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Be curious, not afraid.</li>
-<li>Know that if you have a question, other people will have it.</li>
-<li>Asking questions is our way of taking care of others</li>
+<li><p>A sequence of instructions to manipulate data for the computer to execute.</p></li>
+<li><p>A series of translations: English &lt;-&gt; Programming Code for Interpreter &lt;-&gt; Machine Code for Central Processing Unit (CPU)</p></li>
 </ul>
-<p>The students who have a bad time in my workshops and courses are the ones who don’t work with each other to learn. We are a learning community, and we should help each other to learn.</p>
-<blockquote>
-<p>Find a buddy to work with - and check in with them during class and out of class</p>
-</blockquote>
-<p>If you understand something and someone is struggling with it, try and help them. If you are struggling, take a breath, and try to pinpoint what you are struggling with.</p>
-<p>Our goal is to be better programmers each day, not to be the perfect programmer. There’s no such thing as a perfect programmer. I’ve been learning new things almost every day.</p>
+<p>We will focus on English &lt;-&gt; Programming Code for R Interpreter in this class.</p>
+<p>More importantly: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something</strong>.</p>
 </div>
-<div id="course-times" class="section level2 hasAnchor" number="1.11">
-<h2><span class="header-section-number">1.11</span> Course Times<a href="index.html#course-times" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I know that everyone is busy, and we’ll do our best to accomodate everyone’s schedule.</p>
-<p>Classes will be recorded, but please do not use this as an excuse to miss class. Again, those who are curious and ask questions will learn quite a bit.</p>
-</div>
-<div id="class-schedule" class="section level2 hasAnchor" number="1.12">
-<h2><span class="header-section-number">1.12</span> Class Schedule<a href="index.html#class-schedule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are two sections of Intro to R.</p>
+<div id="a-programming-language-has-following-elements" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> A programming language has following elements:<a href="intro-to-computing.html#a-programming-language-has-following-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>A hybrid (in-person and online) session on Wednesdays (12-1:30 PM PST)</li>
-<li>A completely remote session on Thursdays (2-3:30 PM PST)</li>
+<li><p>Grammar structure to construct expressions</p></li>
+<li><p>Combining expressions to create more complex expressions</p></li>
+<li><p>Encapsulate complex expressions via <strong>functions</strong> to create modular and reusable tasks</p></li>
+<li><p>Encapsulate complex data via <strong>data structures</strong> to allow efficient manipulation of data</p></li>
 </ul>
-<p>When you are enrolled, we will send you teams invites for your section. Please note that we are at capacity for in-person. So if you have enrolled as online, please stay online.</p>
-<p>The Hybrid Sections will be held in the Data Science Lab Lounge - Arnold M1- and online. Please note that I will in town and teaching in person on the starred (*) dates below.</p>
-<p>Dates when I am not on campus, you are free to attend in the DaSL lounge, but I will be teaching Remotely.</p>
-<p>If you are remote, feel free to jump between either sessions.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Subject</th>
-<th>Hybrid Section Dates</th>
-<th>Remote Session Dates</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1*</td>
-<td>Introduction to R/RStudio</td>
-<td>September 25</td>
-<td>September 26</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Data Structures</td>
-<td>October 2</td>
-<td>October 3</td>
-</tr>
-<tr class="odd">
-<td>3*</td>
-<td>Data Visualization</td>
-<td>October 9</td>
-<td>October 10</td>
-</tr>
-<tr class="even">
-<td>4 (optional)</td>
-<td>Community Session</td>
-<td>October 16</td>
-<td>October 16</td>
-</tr>
-<tr class="odd">
-<td>5*</td>
-<td>Data Wrangling 1</td>
-<td>October 23</td>
-<td>October 24</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Data Wrangling 2</td>
-<td>October 30</td>
-<td>October 31</td>
-</tr>
-<tr class="odd">
-<td>7* (optional)</td>
-<td>Community Session</td>
-<td>November 6</td>
-<td>November 6</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>Wrap-up/Discuss Code-a-thon</td>
-<td>November 13</td>
-<td>November 14</td>
-</tr>
-</tbody>
-</table>
-<p>Note that the Community Sessions are Shared between the two sections.</p>
-<p>More details about the Code-a-thon to come.</p>
 </div>
-<div id="community-sessions" class="section level2 hasAnchor" number="1.13">
-<h2><span class="header-section-number">1.13</span> Community Sessions<a href="index.html#community-sessions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Two times this quarter we will have learning community sessions, to talk about applications of what we’re learning. These sessions are optional, but will help you solidify your learning during the course.</p>
-<p>These dates are:</p>
-<p>October 16 at 12-1:30 PM
-November 6 at 12-1:30 PM</p>
-<p>These dates will be sent to you when you register for the course.</p>
+<div id="posit-cloud-setup" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Posit Cloud Setup<a href="intro-to-computing.html#posit-cloud-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Posit Cloud (the website version of RStudio) is an Integrated Development Environment (IDE). Think about it as Microsoft Word to a plain text editor. It provides extra bells and whistles to using R that is easier for the user.</p>
+<p>Let’s open up the KRAS analysis in Posit Cloud. If you are taking this course while it is in session, the project name is probably named “KRAS Demo” in your Posit Cloud workspace. If you are taking this course on your own time, open up <a href="https://posit.cloud/content/8245357">“Intro to R Exercises and Solutions” project</a>.</p>
+<p>Once you have opened the project, open the file “KRAS_demo.qmd” from the File Browser, and you should see something like this:</p>
+<p><img src="images/posit.jpg" /></p>
+<p>Today, we will pay close attention to:</p>
+<ul>
+<li><p>R Console (Interpreter): You give it one line of R code, and the console executes that single line of code; you give it a single piece of instruction, and it executes it for you.</p></li>
+<li><p>Script Editor: where many lines of R code are typed and saved as a text document. To run the script, the Console will execute every single line of code in the document. The document you have opened in the script editor is a Quarto Document. A Quarto Document has chunks of plain text <em>and</em> R code, which helps us understand better the code we are writing.</p></li>
+<li><p>Environment: Often, your code will store information in the Environment, so that information can be reused. For instance, we often load in data and store it in the Environment, and use it throughout rest of your R code.</p></li>
+</ul>
+<p>The first thing we will do is see the different ways we can run R code. You can do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Type something into the R Console and type enter, such as <code>2+2</code>. The R Console will run it and give you an output.</li>
+<li>Scroll down the Quarto Document, and when you see a chunk of R Code, click the green arrow button. It will copy the R code chunk to the R Console and run all of it. You will likely see variables created in the Environment as you load in and manipulate data.</li>
+<li>Run every single R code chunk in the Quarto Document by pressing the Run button at the top left corner of the Script Editor. It will generate an output document with all the code run.</li>
+</ol>
+<p>Remember that the <em>order</em> that you run your code matters in programming. Your final product would be the result of Option 3, in which you run every R code chunk from start to finish. However, sometimes it is nice to try out smaller parts of your code via Options 1 or 2. But you will be at risk of running your code out of order!</p>
+<p>Quarto is great for data science work, because:</p>
+<ul>
+<li><p>It encourages reproducible data analysis, when you run your analysis from start to finish.</p></li>
+<li><p>It encourages excellent documentation, as you can have code, output from code, and prose combined together.</p></li>
+<li><p>It is flexible to other programming languages, such as Python.</p></li>
+</ul>
+<p>More options and guides can be found in <a href="https://quarto.org/docs/get-started/hello/rstudio.html">Introduction to Quarto</a>.</p>
+<div id="section" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> </h3>
+<p>Now, we will get to the basics of programming grammar.</p>
 </div>
-<div id="patient-clinical-data-is-a-no-on-posit-cloud" class="section level2 hasAnchor" number="1.14">
-<h2><span class="header-section-number">1.14</span> Patient / Clinical Data is a No on Posit Cloud<a href="index.html#patient-clinical-data-is-a-no-on-posit-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Posit Cloud workspace is for your learning. Please do not put any patient or clinical information on there.</p>
 </div>
-<div id="offerings" class="section level2 hasAnchor" number="1.15">
-<h2><span class="header-section-number">1.15</span> Offerings<a href="index.html#offerings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This course is taught on a regular basis at <a href="https://www.fredhutch.org/">Fred Hutch Cancer Center</a> through the <a href="https://hutchdatascience.org/">Data Science Lab</a>. Announcements of course offering can be found <a href="https://hutchdatascience.org/training/">here</a>. If you wish to follow the course content asynchronously, you may access the course content on this website and <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>. The Posit Cloud compute space can be copied to your own workspace for personal use, and you can get started via this <a href="https://hutchdatascience.org/Intro_to_R/intro-to-computing.html#posit-cloud-setup">introduction</a>. Or, you can access the <a href="https://github.com/fhdsl/Intro_to_R_Exercises">exercises and solutions on GitHub</a>.</p>
+<div id="grammar-structure-1-evaluation-of-expressions" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Grammar Structure 1: Evaluation of Expressions<a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Expressions</strong> are be built out of <strong>operations</strong> or <strong>functions</strong>.</p></li>
+<li><p>Operations and functions combine <strong>data types</strong> to return another data type.</p></li>
+<li><p>We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.</p></li>
+</ul>
+<p>For instance, consider the following expressions entered to the R Console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro-to-computing.html#cb1-1" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
+<pre><code>## [1] 39</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro-to-computing.html#cb3-1" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
+<pre><code>## [1] 21</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro-to-computing.html#cb5-1" tabindex="-1"></a><span class="fu">max</span>(<span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span>, <span class="dv">65</span>)</span></code></pre></div>
+<pre><code>## [1] 65</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="intro-to-computing.html#cb7-1" tabindex="-1"></a><span class="dv">18</span> <span class="sc">+</span> (<span class="dv">21</span> <span class="sc">+</span> <span class="dv">65</span>)</span></code></pre></div>
+<pre><code>## [1] 104</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="intro-to-computing.html#cb9-1" tabindex="-1"></a><span class="fu">nchar</span>(<span class="st">&quot;ATCG&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Here, our input <strong>data types</strong> to the operation are <strong>numeric</strong> in lines 1-4 and our input data type to the function is <strong>character</strong> in line 5.</p>
+<p>Operations are just functions in hiding. We could have written:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro-to-computing.html#cb11-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code></pre></div>
+<pre><code>## [1] 39</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="intro-to-computing.html#cb13-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">18</span>, <span class="fu">sum</span>(<span class="dv">21</span>, <span class="dv">65</span>))</span></code></pre></div>
+<pre><code>## [1] 104</code></pre>
+<p>Remember the function machine from algebra class? We will use this schema to think about expressions.</p>
+<div class="float">
+<img src="https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png" alt="Function machine from algebra class." />
+<div class="figcaption">Function machine from algebra class.</div>
+</div>
+<p>If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="intro-to-computing.html#cb15-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 14</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="intro-to-computing.html#cb17-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<p>Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes <a href="intro-to-computing.html#a-programming-language-has-following-elements">abstraction and modular thinking</a>, a foundation in any programming language.</p>
+<div id="data-types" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Data types<a href="intro-to-computing.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here are some data types that we will be using in this course:</p>
+<ul>
+<li><p><strong>Numeric</strong>: 18, 21, 65, 1.25</p></li>
+<li><p><strong>Character</strong>: “ATCG”, “Whatever”, “948-293-0000”</p></li>
+<li><p><strong>Logical</strong>: TRUE, FALSE</p></li>
+</ul>
+</div>
+</div>
+<div id="grammar-structure-2-storing-data-types-in-the-environment" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Grammar Structure 2: Storing data types in the environment<a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro-to-computing.html#cb19-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">18</span> <span class="sc">+</span> <span class="dv">21</span></span></code></pre></div>
+<p>If you enter this in the Console, you will see that in the Environment, the variable <code>x</code> has a value of <code>39</code>.</p>
+<div id="execution-rule-for-variable-assignment" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Execution rule for variable assignment<a href="intro-to-computing.html#execution-rule-for-variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Evaluate the expression to the right of <code>=</code>.</p>
+<p>Bind variable to the left of <code>=</code> to the resulting value.</p>
+<p>The variable is stored in the environment.</p>
+<p><code>&lt;-</code> is okay too!</p>
+</blockquote>
+<p>The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.</p>
+<p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.</p>
+<p>Look, now <code>x</code> can be reused downstream:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="intro-to-computing.html#cb20-1" tabindex="-1"></a>x <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 37</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="intro-to-computing.html#cb22-1" tabindex="-1"></a>y <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+</div>
+</div>
+<div id="grammar-structure-3-evaluation-of-functions" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Grammar Structure 3: Evaluation of Functions<a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A function has a <strong>function name</strong>, <strong>arguments</strong>, and <strong>returns</strong> a data type.</p>
+<div id="execution-rule-for-functions" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Execution rule for functions:<a href="intro-to-computing.html#execution-rule-for-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.</p>
+<p>The output of functions is called the <strong>returned value</strong>.</p>
+</blockquote>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro-to-computing.html#cb23-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] 2.236068</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro-to-computing.html#cb25-1" tabindex="-1"></a>(<span class="fu">nchar</span>(<span class="st">&quot;hello&quot;</span>) <span class="sc">+</span> <span class="dv">4</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+</div>
+</div>
+<div id="tips-on-writing-your-first-code" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Tips on writing your first code<a href="intro-to-computing.html#tips-on-writing-your-first-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>Computer = powerful + stupid</code></p>
+<p>Even the smallest spelling and formatting changes will cause unexpected output and errors!</p>
+<ul>
+<li><p>Write incrementally, test often</p></li>
+<li><p>Check your assumptions, especially using new functions, operations, and new data types.</p></li>
+<li><p>Live environments are great for testing, but not great for reproducibility.</p></li>
+<li><p>Ask for help!</p></li>
+</ul>
+</div>
+<div id="exercises" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Exercises<a href="intro-to-computing.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can find <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>, or on <a href="https://github.com/fhdsl/Intro_to_R_Exercises">GitHub</a>.</p>
 
 </div>
 </div>
@@ -476,8 +460,8 @@ November 6 at 12-1:30 PM</p>
           </div>
         </div>
       </div>
-
-<a href="intro-to-computing.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
