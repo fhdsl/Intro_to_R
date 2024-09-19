@@ -29,6 +29,7 @@ ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()
 
 <img src="05-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
+
 The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. 
 
 You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
@@ -92,6 +93,7 @@ With options:
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"}
 
+
 <img src="05-data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ### Multivaraite Scatterplot
@@ -104,6 +106,7 @@ With options:
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_line()]{style="color:blue"}
 
+
 <img src="05-data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ### Grouped Line plot?
@@ -115,6 +118,7 @@ With options:
 ### Boxplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
+
 
 <img src="05-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
