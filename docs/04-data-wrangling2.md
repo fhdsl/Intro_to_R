@@ -1,11 +1,6 @@
 # Data Wrangling with Tidy Data, Part 2
 
 
-```
-## 
-## The downloaded binary packages are in
-## 	/var/folders/pq/18p2fl6n49dfgzd03mtszm6r0000gn/T//RtmpMVSXo7/downloaded_packages
-```
 
 Today, we will continue learning about common functions from the Tidyverse that is useful for Tidy data manipulations.
 
