@@ -1,6 +1,11 @@
 # Data Wrangling with Tidy Data, Part 1
 
 
+```
+## 
+## The downloaded binary packages are in
+## 	/var/folders/pq/18p2fl6n49dfgzd03mtszm6r0000gn/T//RtmpfGUaNv/downloaded_packages
+```
 
 From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.
 

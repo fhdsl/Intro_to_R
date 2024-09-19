@@ -120,11 +120,13 @@ There are two sections of Intro to R.
 - A hybrid (in-person and online) session on Wednesdays (12-1:30 PM PST)
 - A completely remote session on Thursdays (2-3:30 PM PST)
 
-When you are enrolled, we will send you teams invites for your section.
+When you are enrolled, we will send you teams invites for your section. Please note that we are at capacity for in-person. So if you have enrolled as online, please stay online.
 
 The Hybrid Sections will be held in the Data Science Lab Lounge - Arnold M1- and online. Please note that I will in town and teaching in person on the starred (*) dates below. 
 
-Dates when I am not on campus, you are free to attend in the 
+Dates when I am not on campus, you are free to attend in the DaSL lounge, but I will be teaching Remotely. 
+
+If you are remote, feel free to jump between either sessions.
 
 |Week|Subject|Hybrid Section Dates|Remote Session Dates|
 |----|--------------------|--------------------|-----|
