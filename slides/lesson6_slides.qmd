@@ -5,6 +5,12 @@ format:
     smaller: true
     scrollable: true
     echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 ---
 
 ## In 6 weeks we have learned...

@@ -5,11 +5,17 @@ format:
     smaller: true
     scrollable: true
     echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 ---
 
 ## Data Visualization
 
-![](../images/Intro_To_R_2.png)
+![](images/Intro_To_R_2.png)
 
 ```{r, echo=F, message=F, warning=F, error=F}
 library(tidyverse)
