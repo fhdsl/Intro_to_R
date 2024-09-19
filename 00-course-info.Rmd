@@ -20,7 +20,7 @@ After taking this course, you will be able to:
 
 All course information will be available here:
 
-https://hutchdatascience.org/intro_to_r
+https://hutchdatascience.org/Intro_to_R
 
 Course discussions will be done in the class slack Workspace. Invites will be sent before class.
 
@@ -97,3 +97,55 @@ Our goal is to be better programmers each day, not to be the perfect programmer.
 I know that everyone is busy, and we'll do our best to accomodate everyone's schedule. 
 
 Classes will be recorded, but please do not use this as an excuse to miss class. Again, those who are curious and ask questions will learn quite a bit. 
+<<<<<<< HEAD:00-course-info.Rmd
+=======
+
+## Class Schedule
+
+There are two sections of Intro to R.  
+
+- A hybrid (in-person and online) session on Wednesdays (12-1:30 PM PST)
+- A completely remote session on Thursdays (2-3:30 PM PST)
+
+When you are enrolled, we will send you teams invites for your section. Please note that we are at capacity for in-person. So if you have enrolled as online, please stay online.
+
+The Hybrid Sections will be held in the Data Science Lab Lounge - Arnold M1- and online. Please note that I will in town and teaching in person on the starred (*) dates below. 
+
+Dates when I am not on campus, you are free to attend in the DaSL lounge, but I will be teaching Remotely. 
+
+If you are remote, feel free to jump between either sessions.
+
+|Week|Subject|Hybrid Section Dates|Remote Session Dates|
+|----|--------------------|--------------------|-----|
+|1*|Introduction to R/RStudio|September 25|September 26|
+|2|Data Structures|October 2|October 3|
+|3*|Data Visualization|October 9|October 10|
+|4 (optional)|Community Session|October 16|October 16|
+|5*|Data Wrangling 1|October 23|October 24||
+|6|Data Wrangling 2|October 30|October 31||
+|7* (optional)|Community Session|November 6|November 6|
+|8|Wrap-up/Discuss Code-a-thon|November 13|November 14|
+
+Note that the Community Sessions are Shared between the two sections.
+
+More details about the Code-a-thon to come.
+
+## Community Sessions
+
+Two times this quarter we will have learning community sessions, to talk about applications of what we're learning. These sessions are optional, but will help you solidify your learning during the course.
+
+These dates are: 
+
+October 16 at 12-1:30 PM
+November 6 at 12-1:30 PM
+
+These dates will be sent to you when you register for the course.
+
+## Patient / Clinical Data is a No on Posit Cloud
+
+The Posit Cloud workspace is for your learning. Please do not put any patient or clinical information on there.
+
+## Offerings
+
+This course is taught on a regular basis at [Fred Hutch Cancer Center](https://www.fredhutch.org/) through the [Data Science Lab](https://hutchdatascience.org/). Announcements of course offering can be found [here](https://hutchdatascience.org/training/). If you wish to follow the course content asynchronously, you may access the course content on this website and [exercises and solutions on Posit Cloud](https://posit.cloud/content/8245357). The Posit Cloud compute space can be copied to your own workspace for personal use, and you can get started via this [introduction](https://hutchdatascience.org/Intro_to_R/intro-to-computing.html#posit-cloud-setup). Or, you can access the [exercises and solutions on GitHub](https://github.com/fhdsl/Intro_to_R_Exercises).
+>>>>>>> 878bc15096e4983606198ef00919387d97c9021a:docs/index.md
