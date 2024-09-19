@@ -1,10 +1,16 @@
 ---
 title: "W1: Intro to Computing"
-format: revealjs
-  #smaller: true
-  #scrollable: true
-execute:
-  echo: true
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 output-location: fragment
 ---
 
@@ -60,10 +66,6 @@ output-location: fragment
 -   Respect Code of Conduct
 
 ## Format of the course
-
-. . .
-
--   6 classes: April 17, 24, May 1, 8, 15, 22
 
 . . .
 
@@ -189,7 +191,7 @@ If an expression is made out of multiple, nested operations, what is the proper 
 
 . . .
 
-Operations are just functions. We could have written:
+Operations are functions. We could have written:
 
 ```{r}
 sum(18, 21)

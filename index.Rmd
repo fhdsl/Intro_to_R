@@ -59,7 +59,7 @@ If you are connected via VPN, we recommend that you disconnect it while working.
 
 ## Slack
 
-If you haven't yet joined the FH Data Slack, you can join here: https://hutchdatascience.org/slack/
+If you haven't yet joined the FH Data Slack, you can join here: https://hutchdatascience.org/joinslack/
 
 Look for the #dasl-s4-intro-to-r channel - that's where we'll have conversations and field questions.
 

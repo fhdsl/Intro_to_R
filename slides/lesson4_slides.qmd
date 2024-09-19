@@ -5,6 +5,12 @@ format:
     smaller: true
     scrollable: true
     echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 ---
 
 ```{r, echo=F, message=F, warning=F, error=F}
@@ -152,7 +158,7 @@ Therefore, we expect to see `NA` values in `merged`, as there are some cell line
 
 ## Merging two dataframes together: variations
 
-![](../images/join.png)
+![](images/join.png)
 
 . . .
 
