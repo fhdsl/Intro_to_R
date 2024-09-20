@@ -187,7 +187,7 @@ If an expression is made out of multiple, nested operations, what is the proper 
 
 . . .
 
-![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
+![](){alt="Function machine from algebra class." width="300"}
 
 . . .
 
