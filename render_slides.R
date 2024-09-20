@@ -13,5 +13,6 @@ map(slides_top, quarto::quarto_render)
 
 all_files <- list.files(".", "lesson")
 file.copy(all_files, "slides", overwrite = TRUE)
-
+file.copy(all_files, "docs", overwrite=TRUE)
 file.remove(all_files)
+
