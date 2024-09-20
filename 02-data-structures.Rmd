@@ -5,8 +5,7 @@ In our second lesson, we start to look at two **data structures**, **vectors** a
 ## Slides
 
 ```{r}
-#test
-knitr::include_url("https://hutchdatascience.com/Intro_to_R/slides/lesson1_slides.html")
+knitr::include_url("https://hutchdatascience.org/Intro_to_R/slides/lesson1_slides.html")
 ```
 
 ## Vectors
