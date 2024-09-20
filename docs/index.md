@@ -68,7 +68,7 @@ tladera2@fredhutch.org
 **Preferred Method of Contact**: Email/Slack  
 **Expected Response Time**: 24hrs  
 
-I've been teaching R for over 10 years, and have been an active user and data scientist for over 20. I write a lot, including on Data Science, Mental Health, and Bioinformatics. 
+I've been teaching R for over 10 years, and have been an active user of R, a bioinformatician, and data scientist for over 20. I write a lot, including on Data Science, Mental Health, and Bioinformatics. 
 
 I'm always excited to see my learners surpass me, and if you are curious enough, I guarantee you will.
 

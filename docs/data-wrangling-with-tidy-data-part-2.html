@@ -181,18 +181,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>3</b> Working with data structures</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a>
+<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#slides"><i class="fa fa-check"></i><b>3.1</b> Slides</a></li>
+<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
-<li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
-<li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
-<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.1.4</b> Comparison Operators</a></li>
+<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.2.1</b> Using operations on vectors</a></li>
+<li class="chapter" data-level="3.2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.2.2</b> Subsetting vectors explicitly</a></li>
+<li class="chapter" data-level="3.2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.2.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.2.4</b> Comparison Operators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
+<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Dataframes</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.2.1</b> Using functions and operations on dataframes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.3.1</b> Using functions and operations on dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
+<li class="chapter" data-level="3.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
 <ul>
@@ -290,24 +291,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> Modifying and creating new columns in dataframes<a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>mutate()</code> function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a <em>new or existing data variable</em> that is defined in terms of <em>other data variables</em>.</p>
 <p>We create a new column <code>olderAge</code> that is 10 years older than the original <code>Age</code> column.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb113-1" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb114-1" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 60 36 72 30 30 64 63 56 72 53</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb115-1" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">olderAge =</span> Age <span class="sc">+</span> <span class="dv">10</span>)</span>
-<span id="cb115-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb115-2" tabindex="-1"></a>metadata2<span class="sc">$</span>olderAge[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb116-1" tabindex="-1"></a>metadata2 <span class="ot">=</span> <span class="fu">mutate</span>(metadata, <span class="at">olderAge =</span> Age <span class="sc">+</span> <span class="dv">10</span>)</span>
+<span id="cb116-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb116-2" tabindex="-1"></a>metadata2<span class="sc">$</span>olderAge[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 70 46 82 40 40 74 73 66 82 63</code></pre>
 <p>Here, we used an operation on a column of <code>metadata</code>. Here’s another example with a function:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb117-1" tabindex="-1"></a>expression<span class="sc">$</span>KRAS_Exp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb118-1" tabindex="-1"></a>expression<span class="sc">$</span>KRAS_Exp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 4.634012 4.638653 4.032101 5.503031 3.713696 3.972693 3.235727 4.135042
 ##  [9] 9.017365 3.940167</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb119-1" tabindex="-1"></a>expression2 <span class="ot">=</span> <span class="fu">mutate</span>(expression, <span class="at">log_KRAS_Exp =</span> <span class="fu">log</span>(KRAS_Exp))</span>
-<span id="cb119-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb119-2" tabindex="-1"></a>expression2<span class="sc">$</span>log_KRAS_Exp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb120-1" tabindex="-1"></a>expression2 <span class="ot">=</span> <span class="fu">mutate</span>(expression, <span class="at">log_KRAS_Exp =</span> <span class="fu">log</span>(KRAS_Exp))</span>
+<span id="cb120-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb120-2" tabindex="-1"></a>expression2<span class="sc">$</span>log_KRAS_Exp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##  [1] 1.533423 1.534424 1.394288 1.705299 1.312028 1.379444 1.174254 1.419498
 ##  [9] 2.199152 1.371223</code></pre>
 <div id="alternative-creating-and-modifying-columns-via" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Alternative: Creating and modifying columns via <code>$</code><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Instead of <code>mutate()</code> function, we can also create a new or modify a column via the <code>$</code> symbol:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb121-1" tabindex="-1"></a>expression2 <span class="ot">=</span> expression</span>
-<span id="cb121-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb121-2" tabindex="-1"></a>expression2<span class="sc">$</span>log_KRAS_Exp <span class="ot">=</span> <span class="fu">log</span>(expression2<span class="sc">$</span>KRAS_Exp)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb122-1" tabindex="-1"></a>expression2 <span class="ot">=</span> expression</span>
+<span id="cb122-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb122-2" tabindex="-1"></a>expression2<span class="sc">$</span>log_KRAS_Exp <span class="ot">=</span> <span class="fu">log</span>(expression2<span class="sc">$</span>KRAS_Exp)</span></code></pre></div>
 </div>
 </div>
 <div id="merging-two-dataframes-together" class="section level2 hasAnchor" number="6.2">
@@ -403,15 +404,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>We see that in both dataframes, the rows (observations) represent cell lines with a common column <code>ModelID</code>, so let’s merge these two dataframes together, using <code>full_join()</code>:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb122-1" tabindex="-1"></a>merged <span class="ot">=</span> <span class="fu">full_join</span>(metadata, expression, <span class="at">by =</span> <span class="st">&quot;ModelID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb123-1" tabindex="-1"></a>merged <span class="ot">=</span> <span class="fu">full_join</span>(metadata, expression, <span class="at">by =</span> <span class="st">&quot;ModelID&quot;</span>)</span></code></pre></div>
 <p>The number of rows and columns of <code>metadata</code>:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb123-1" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb124-1" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
 <pre><code>## [1] 1864   30</code></pre>
 <p>The number of rows and columns of <code>expression</code>:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb125-1" tabindex="-1"></a><span class="fu">dim</span>(expression)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb126-1" tabindex="-1"></a><span class="fu">dim</span>(expression)</span></code></pre></div>
 <pre><code>## [1] 1450  536</code></pre>
 <p>The number of rows and columns of <code>merged</code>:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb127-1" tabindex="-1"></a><span class="fu">dim</span>(merged)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb128-1" tabindex="-1"></a><span class="fu">dim</span>(merged)</span></code></pre></div>
 <pre><code>## [1] 1864  565</code></pre>
 <p>We see that the number of <em>columns</em> in <code>merged</code> combines the number of columns in <code>metadata</code> and <code>expression</code>, while the number of <em>rows</em> in <code>merged</code> is the larger of the number of rows in <code>metadata</code> and <code>expression</code> : <code>full_join()</code> keeps all observations common to both dataframes based on the common column defined via the <code>by</code> argument.</p>
 <p>Therefore, we expect to see <code>NA</code> values in <code>merged</code>, as there are some cell lines that are not in <code>expression</code> dataframe.</p>
@@ -499,14 +500,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>We use the functions <code>group_by()</code> and <code>summarise()</code> :</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb129-1" tabindex="-1"></a>metadata_by_type <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> </span>
-<span id="cb129-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb129-2" tabindex="-1"></a>                   <span class="fu">group_by</span>(OncotreeLineage) <span class="sc">%&gt;%</span> </span>
-<span id="cb129-3"><a href="data-wrangling-with-tidy-data-part-2.html#cb129-3" tabindex="-1"></a>                   <span class="fu">summarise</span>(<span class="at">MeanAge =</span> <span class="fu">mean</span>(Age, <span class="at">rm.na=</span><span class="cn">TRUE</span>), <span class="at">Count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb130-1" tabindex="-1"></a>metadata_by_type <span class="ot">=</span> metadata <span class="sc">%&gt;%</span> </span>
+<span id="cb130-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb130-2" tabindex="-1"></a>                   <span class="fu">group_by</span>(OncotreeLineage) <span class="sc">%&gt;%</span> </span>
+<span id="cb130-3"><a href="data-wrangling-with-tidy-data-part-2.html#cb130-3" tabindex="-1"></a>                   <span class="fu">summarise</span>(<span class="at">MeanAge =</span> <span class="fu">mean</span>(Age, <span class="at">rm.na=</span><span class="cn">TRUE</span>), <span class="at">Count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <p>Or, without pipes:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb130-1" tabindex="-1"></a>metadata_by_type_temp <span class="ot">=</span> <span class="fu">group_by</span>(metadata, OncotreeLineage)</span>
-<span id="cb130-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb130-2" tabindex="-1"></a>metadata_by_type <span class="ot">=</span> <span class="fu">summarise</span>(metadata_by_type_temp, <span class="at">MeanAge =</span> <span class="fu">mean</span>(Age, <span class="at">rm.na=</span><span class="cn">TRUE</span>), <span class="at">Count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb131-1" tabindex="-1"></a>metadata_by_type_temp <span class="ot">=</span> <span class="fu">group_by</span>(metadata, OncotreeLineage)</span>
+<span id="cb131-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb131-2" tabindex="-1"></a>metadata_by_type <span class="ot">=</span> <span class="fu">summarise</span>(metadata_by_type_temp, <span class="at">MeanAge =</span> <span class="fu">mean</span>(Age, <span class="at">rm.na=</span><span class="cn">TRUE</span>), <span class="at">Count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <p>The <code>group_by()</code> function returns the identical input dataframe but remembers which variable(s) have been marked as grouped:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb131-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">group_by</span>(metadata, OncotreeLineage))</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb132-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">group_by</span>(metadata, OncotreeLineage))</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 30
 ## # Groups:   OncotreeLineage [3]
 ##   ModelID    PatientID CellLineName StrippedCellLineName   Age SourceType
@@ -589,8 +590,8 @@ Arguments:
 
      ...: further arguments passed to or from other methods.</code></pre>
 <p>Notice that the arguments <code>trim = 0</code>, <code>na.rm = FALSE</code> have default values. This means that these arguments are <em>optional</em> - you should provide it only if you want to. With this understanding, you can use <code>mean()</code> in a new way:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb138-1" tabindex="-1"></a>numbers <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span>
-<span id="cb138-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb138-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> numbers, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-wrangling-with-tidy-data-part-2.html#cb139-1" tabindex="-1"></a>numbers <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span>
+<span id="cb139-2"><a href="data-wrangling-with-tidy-data-part-2.html#cb139-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> numbers, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 2.333333</code></pre>
 </div>
 <div id="exercises-4" class="section level2 hasAnchor" number="6.5">
