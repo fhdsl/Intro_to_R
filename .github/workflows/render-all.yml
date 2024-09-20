@@ -64,7 +64,8 @@ jobs:
         id: bookdown
         run: |
           Rscript -e "bookdown::render_book('index.Rmd', output_format = 'all');
-          file.copy(from = 'assets', to = 'docs/assets', overwrite = TRUE)"
+          file.copy(from = 'assets', to = 'docs/assets', overwrite = TRUE);
+          file.copy(from = 'slides', to = 'docs/slides', overwrite = TRUE);"
 
       # This checks on the steps before it and makes sure that they completed.
       # If the renders didn't complete we don't want to commit the file changes
