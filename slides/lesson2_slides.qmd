@@ -5,17 +5,19 @@ format:
     smaller: true
     scrollable: true
     echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 output-location: fragment
 ---
-
-## Location change next week: M4-C302/C401
 
 ## Data types
 
 -   **Numeric**: 18, -21, 65, 1.25
-
 -   **Character**: "ATCG", "Whatever", "948-293-0000"
-
 -   **Logical**: TRUE, FALSE
 
 ## Data structures

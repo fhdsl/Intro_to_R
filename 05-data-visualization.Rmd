@@ -1,7 +1,7 @@
 # Data Visualization
 
 ```{r, echo=F, message=F, warning=F, error=F}
-install.packages("palmerpenguins")
+install.packages("palmerpenguins", repos = "http://cran.us.r-project.org")
 ```
 
 ```{r, echo=F, message=F, warning=F, error=F}
@@ -9,7 +9,17 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-In our final to last week together, we learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". The syntax for "ggplot" will look a bit different than the code we have been writing, with syntax such as `ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()`. The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
+Now that we have learned basic data structures in R, we can now learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". 
+
+The syntax for `ggplot` will look a bit different than the code we have been writing, with syntax such as: 
+
+```{r}
+ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram() 
+```
+
+The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. 
+
+You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
 
 
 To get started, we will consider these most simple and common plots:
@@ -17,13 +27,11 @@ To get started, we will consider these most simple and common plots:
 **Univariate**
 
 -   Numeric: histogram
-
 -   Character: bar plots
 
 **Bivariate**
 
 -   Numeric vs. Numeric: Scatterplot, line plot
-
 -   Numeric vs. Character: Box plot
 
 Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.

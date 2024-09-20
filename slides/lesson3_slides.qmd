@@ -1,8 +1,16 @@
 ---
 title: "W3: Data Wrangling with Tidy Data, Part 1"
-format: revealjs
-execute:
-  echo: true
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
 ---
 
 ## Where are we?

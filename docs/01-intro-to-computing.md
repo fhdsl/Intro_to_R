@@ -146,10 +146,6 @@ sum(18, sum(21, 65))
 ## [1] 104
 ```
 
-Remember the function machine from algebra class? We will use this schema to think about expressions.
-
-![Function machine from algebra class. ](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png)
-
 If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 
 

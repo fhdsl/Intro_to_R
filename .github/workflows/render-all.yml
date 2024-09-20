@@ -9,8 +9,11 @@ on:
     branches: [ main, staging ]
     paths:
       - '**md$'
+      - '**.Rmd'
+      - '*.R'
       - assets/*
       - quizzes/*
+      - slides/*
 
 jobs:
 
@@ -68,7 +71,8 @@ jobs:
         run: |
           rm -rf docs/*
           Rscript -e "bookdown::render_book('index.Rmd', output_format = 'all');
-          file.copy(from = 'assets', to = 'docs/assets', overwrite = TRUE)"
+          file.copy(from = 'assets', to = 'docs/assets', overwrite = TRUE);
+          file.copy(from = 'slides', to = 'docs/slides', overwrite = TRUE);"
 
       - name: Render quarto version
         id: quarto
