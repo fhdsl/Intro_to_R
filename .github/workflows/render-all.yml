@@ -30,8 +30,10 @@ jobs:
             files: config_automation.yml # Pass a space-separated list of configuration files. Rightmost files take precedence.
     outputs:
       toggle_bookdown: "${{ env.RENDER_BOOKDOWN }}"
-      toggle_coursera: "${{ env.RENDER_COURSERA }}"
-      toggle_leanpub: "${{ env.RENDER_LEANPUB }}"
+      toggle_coursera: false 
+      #"${{ env.RENDER_COURSERA }}"
+      toggle_leanpub: false 
+      #"${{ env.RENDER_LEANPUB }}"
       make_book_txt: "${{ env.MAKE_BOOK_TXT }}"
       rendering_docker_image: "${{ env.RENDERING_DOCKER_IMAGE }}"
       toggle_quiz_check: "${{ env.CHECK_QUIZZES }}"
