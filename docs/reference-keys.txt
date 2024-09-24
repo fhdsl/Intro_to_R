@@ -19,6 +19,7 @@ goals-of-the-course
 what-is-a-computer-program
 a-programming-language-has-following-elements
 posit-cloud-setup
+ways-to-run-r-code
 section
 grammar-structure-1-evaluation-of-expressions
 data-types
@@ -40,10 +41,11 @@ exercises-1
 data-visualization
 grammar-of-graphics
 histogram
+lets-take-it-apart
 bar-plots
 scatterplot
+multivariate-scatterplot
 multivaraite-scatterplot
-multivaraite-scatterplot-1
 line-plot
 grouped-line-plot
 boxplot
