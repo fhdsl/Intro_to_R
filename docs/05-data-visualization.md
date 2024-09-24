@@ -6,28 +6,19 @@
 
 Now that we have learned basic data structures in R, we can now learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". 
 
-The syntax for `ggplot` will look a bit different than the code we have been writing, with syntax such as: 
+The syntax for `ggplot2` will look a bit different than the code we have been writing, with syntax such as: 
 
 
 ``` r
 ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram() 
+# Data              Aesthetics               Geometry
 ```
-
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
-```
-## Warning: Removed 2 rows containing non-finite outside the scale range
-## (`stat_bin()`).
-```
-
-![](05-data-visualization_files/figure-docx/unnamed-chunk-3-1.png)<!-- -->
 
 The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. 
 
 You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
 
+![](images/khealy_ggplot1_part1.jpg)
 
 To get started, we will consider these most simple and common plots:
 
@@ -59,71 +50,102 @@ The syntax of the grammar of graphics breaks down into 4 sections.
 
 You add these 4 sections together to form a plot.
 
-### Histogram
+## Histogram
 
-[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram()]{style="color:blue"} + [theme_bw()]{style="color:purple"}
+[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram()]{style="color:blue"}
 
 ![](05-data-visualization_files/figure-docx/unnamed-chunk-4-1.png)<!-- -->
 
-With options:
+## Let's take it apart
 
-[ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm)]{style="color:green"} + [geom_histogram(binwidth = 5)]{style="color:blue"} + [theme_bw()]{style="color:purple"}
+You can always try out a ggplot incrementally if you're not sure what pieces do:
+
+
+``` r
+ggplot(penguins)          #data
+```
 
 ![](05-data-visualization_files/figure-docx/unnamed-chunk-5-1.png)<!-- -->
 
-### Bar plots
+
+``` r
+ggplot(penguins) +                #data
+  aes(x = bill_length_mm)  #aesthetics
+```
+
+![](05-data-visualization_files/figure-docx/unnamed-chunk-6-1.png)<!-- -->
+
+
+``` r
+ggplot(penguins) +                #data
+  aes(x = bill_length_mm) + #aesthetics
+  geom_histogram()          #geometry
+```
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+```
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_bin()`).
+```
+
+![](05-data-visualization_files/figure-docx/unnamed-chunk-7-1.png)<!-- -->
+
+## Bar plots
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = species)]{style="color:green"} + [geom_bar()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-6-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-8-1.png)<!-- -->
 
 ### Scatterplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_point()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-7-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-9-1.png)<!-- -->
 
-### Multivaraite Scatterplot
+### Multivariate Scatterplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-8-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-10-1.png)<!-- -->
 
 ### Multivaraite Scatterplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_point()]{style="color:blue"} + [facet_wrap(\~species)]{style="color:purple"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-9-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-11-1.png)<!-- -->
 
 ### Line plot?
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm)]{style="color:green"} + [geom_line()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-10-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-12-1.png)<!-- -->
 
 ### Grouped Line plot?
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, group = species)]{style="color:green"} + [geom_line()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-11-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-13-1.png)<!-- -->
 
 ### Boxplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-12-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->
 
 ### Grouped Boxplot
 
 [ggplot(penguins)]{style="color:orange"} + [aes(x = species, y = bill_depth_mm, color = island)]{style="color:green"} + [geom_boxplot()]{style="color:blue"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-13-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-15-1.png)<!-- -->
 
 ### Some additional options
 
 [ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} + [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60))]{style="color:purple"}
 
-![](05-data-visualization_files/figure-docx/unnamed-chunk-14-1.png)<!-- -->
+![](05-data-visualization_files/figure-docx/unnamed-chunk-16-1.png)<!-- -->
 
 ## Summary of options
 

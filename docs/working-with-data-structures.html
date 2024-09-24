@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Working with data structures | Introduction to R</title>
+  <meta name="description" content="Chapter 3 Working with data structures | Introduction to R" />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Working with data structures | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Working with data structures | Introduction to R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="intro-to-computing.html"/>
+<link rel="next" href="data-visualization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Logistics and Expectations</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-description"><i class="fa fa-check"></i><b>1.1</b> Course Description</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#course-website"><i class="fa fa-check"></i><b>1.3</b> Course Website</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#dasl-courses-are-a-psychologically-safe-space"><i class="fa fa-check"></i><b>1.4</b> DaSL Courses are a Psychologically Safe Space</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#office-hours"><i class="fa fa-check"></i><b>1.5</b> Office Hours</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#clinical-network-issues"><i class="fa fa-check"></i><b>1.6</b> Clinical Network Issues</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#slack"><i class="fa fa-check"></i><b>1.7</b> Slack</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#instructor"><i class="fa fa-check"></i><b>1.8</b> Instructor</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#words-of-encouragement"><i class="fa fa-check"></i><b>1.9</b> Words of Encouragement</a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#learning-is-social"><i class="fa fa-check"></i><b>1.10</b> LeaRning is Social</a></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#course-times"><i class="fa fa-check"></i><b>1.11</b> Course Times</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#class-schedule"><i class="fa fa-check"></i><b>1.12</b> Class Schedule</a></li>
+<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#community-sessions"><i class="fa fa-check"></i><b>1.13</b> Community Sessions</a></li>
+<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#patient-clinical-data-is-a-no-on-posit-cloud"><i class="fa fa-check"></i><b>1.14</b> Patient / Clinical Data is a No on Posit Cloud</a></li>
+<li class="chapter" data-level="1.15" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>1.15</b> Offerings</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>2</b> Intro to Computing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#slides"><i class="fa fa-check"></i><b>2.1</b> Slides</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#goals-of-the-course"><i class="fa fa-check"></i><b>2.2</b> Goals of the course</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-a-computer-program"><i class="fa fa-check"></i><b>2.3</b> What is a computer program?</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#a-programming-language-has-following-elements"><i class="fa fa-check"></i><b>2.4</b> A programming language has following elements:</a></li>
+<li class="chapter" data-level="2.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#posit-cloud-setup"><i class="fa fa-check"></i><b>2.5</b> Posit Cloud Setup</a></li>
+<li class="chapter" data-level="2.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#ways-to-run-r-code"><i class="fa fa-check"></i><b>2.6</b> Ways to Run R Code</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#section"><i class="fa fa-check"></i><b>2.6.1</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>2.7</b> Grammar Structure 1: Evaluation of Expressions</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>2.7.1</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-environment"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 2: Storing data types in the environment</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>2.8.1</b> Execution rule for variable assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions"><i class="fa fa-check"></i><b>2.9</b> Grammar Structure 3: Evaluation of Functions</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>2.9.1</b> Execution rule for functions:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>2.10</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="2.11" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>2.11</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>3</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
+<li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.1.4</b> Comparison Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.2.1</b> Using functions and operations on dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>4.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="4.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>4.2</b> Histogram</a></li>
+<li class="chapter" data-level="4.3" data-path="data-visualization.html"><a href="data-visualization.html#lets-take-it-apart"><i class="fa fa-check"></i><b>4.3</b> Let’s take it apart</a></li>
+<li class="chapter" data-level="4.4" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>4.4</b> Bar plots</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>4.4.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-visualization.html"><a href="data-visualization.html#multivariate-scatterplot"><i class="fa fa-check"></i><b>4.4.2</b> Multivariate Scatterplot</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>4.4.3</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>4.4.4</b> Line plot?</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>4.4.5</b> Grouped Line plot?</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>4.4.6</b> Boxplot</a></li>
+<li class="chapter" data-level="4.4.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>4.4.7</b> Grouped Boxplot</a></li>
+<li class="chapter" data-level="4.4.8" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>4.4.8</b> Some additional options</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>4.5</b> Summary of options</a></li>
+<li class="chapter" data-level="4.6" data-path="data-visualization.html"><a href="data-visualization.html#exercises-2"><i class="fa fa-check"></i><b>4.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling with Tidy Data, Part 1</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#tidy-data"><i class="fa fa-check"></i><b>5.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data"><i class="fa fa-check"></i><b>5.2</b> Examples and counter-examples of Tidy Data:</a></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>5.3</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>5.4</b> Transform: “What do you want to do with this dataframe”?</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#filter-rows"><i class="fa fa-check"></i><b>5.4.1</b> Filter rows</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#select-columns"><i class="fa fa-check"></i><b>5.4.2</b> Select columns</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>5.5</b> Summary Statistics</a></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#pipes"><i class="fa fa-check"></i><b>5.6</b> Pipes</a></li>
+<li class="chapter" data-level="5.7" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#exercises-3"><i class="fa fa-check"></i><b>5.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with Tidy Data, Part 2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes"><i class="fa fa-check"></i><b>6.1</b> Modifying and creating new columns in dataframes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via"><i class="fa fa-check"></i><b>6.1.1</b> Alternative: Creating and modifying columns via <code>$</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>6.2</b> Merging two dataframes together</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>6.3</b> Grouping and summarizing dataframes</a></li>
+<li class="chapter" data-level="6.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>6.4</b> Appendix: How functions are built</a></li>
+<li class="chapter" data-level="6.5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cheatsheet.html"><a href="cheatsheet.html"><i class="fa fa-check"></i><b>7</b> Cheatsheet</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cheatsheet.html"><a href="cheatsheet.html#basic-data-types"><i class="fa fa-check"></i><b>7.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="7.2" data-path="cheatsheet.html"><a href="cheatsheet.html#vectors-1"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
+<li class="chapter" data-level="7.3" data-path="cheatsheet.html"><a href="cheatsheet.html#conditional-operations"><i class="fa fa-check"></i><b>7.3</b> Conditional Operations</a></li>
+<li class="chapter" data-level="7.4" data-path="cheatsheet.html"><a href="cheatsheet.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.4</b> Subsetting vectors</a></li>
+<li class="chapter" data-level="7.5" data-path="cheatsheet.html"><a href="cheatsheet.html#dataframes-1"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
+<li class="chapter" data-level="7.6" data-path="cheatsheet.html"><a href="cheatsheet.html#summary-statistics-of-a-dataframes-column"><i class="fa fa-check"></i><b>7.6</b> Summary Statistics of a Dataframe’s column</a></li>
+<li class="chapter" data-level="7.7" data-path="cheatsheet.html"><a href="cheatsheet.html#dataframe-transformations"><i class="fa fa-check"></i><b>7.7</b> Dataframe transformations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/dasl_thin_main_image.png">
+</div>
+<div id="working-with-data-structures" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Working with data structures<a href="working-with-data-structures.html#working-with-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In our second lesson, we start to look at two <strong>data structures</strong>, <strong>vectors</strong> and <strong>dataframes</strong>, that can handle a large amount of data.</p>
+<div id="vectors" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Vectors<a href="working-with-data-structures.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the first exercise, you started to explore <strong>data structures</strong>, which store information about data types. You played around with <strong>vectors</strong>, which is a ordered collection of a data type. Each <em>element</em> of a vector contains a data type, and there is no limit on how big a vector can be, as long the memory use of it is within the computer’s memory (RAM).</p>
+<p>We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once! This fits with the feature of “encapsulate complex data via data structures to allow efficient manipulation of data” described in the first lesson!</p>
+<p>We often create vectors using the combine function, <code>c()</code> :</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-with-data-structures.html#cb28-1" tabindex="-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;chris&quot;</span>, <span class="st">&quot;shasta&quot;</span>, <span class="st">&quot;jeff&quot;</span>)</span>
+<span id="cb28-2"><a href="working-with-data-structures.html#cb28-2" tabindex="-1"></a>chrNum <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p>If we try to create a vector with mixed data types, R will try to make them be the same data type, or give an error:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-with-data-structures.html#cb29-1" tabindex="-1"></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;chris&quot;</span>, <span class="st">&quot;shasta&quot;</span>, <span class="dv">123</span>)</span>
+<span id="cb29-2"><a href="working-with-data-structures.html#cb29-2" tabindex="-1"></a>staff</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot; &quot;123&quot;</code></pre>
+<p>Our numeric got converted to character so that the entire vector is all characters.</p>
+<div id="using-operations-on-vectors" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Using operations on vectors<a href="working-with-data-structures.html#using-operations-on-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall from the first class:</p>
+<ul>
+<li><p>Expressions are be built out of <strong>operations</strong> or <strong>functions</strong>.</p></li>
+<li><p>Operations and functions combine <strong>data types</strong> to return another data type.</p></li>
+</ul>
+<p>Now that we are working with data structures, the same principle applies:</p>
+<ul>
+<li>Operations and functions combine <strong>data structures</strong> to return another data structure (or data type!).</li>
+</ul>
+<p>What happens if we use some familiar operations we used for numerics on a numerical vector? If we multiply a numerical vector by a numeric, what do we get?</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-with-data-structures.html#cb31-1" tabindex="-1"></a>chrNum <span class="ot">=</span> chrNum <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb31-2"><a href="working-with-data-structures.html#cb31-2" tabindex="-1"></a>chrNum </span></code></pre></div>
+<pre><code>## [1] 6 9 3</code></pre>
+<p>All of <code>chrNum</code>’s elements tripled! Our multiplication operation, when used on a <em>numeric vector with a numeric</em>, has a <em>new</em> meaning: it multiplied all the elements by 3. Multiplication is an operation that can be used for multiple data types or data structures: we call this property <strong>operator overloading</strong>. Here’s another example: <em>numeric vector multiplied by another numeric vector</em>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="working-with-data-structures.html#cb33-1" tabindex="-1"></a>chrNum <span class="sc">*</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 12 18  0</code></pre>
+<p>but there are also limits: a numeric vector added to a character vector creates an error:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="working-with-data-structures.html#cb35-1" tabindex="-1"></a><span class="co">#chrNum + staff</span></span></code></pre></div>
+<p>When we work with operations and functions, we must be mindful what inputs the operation or function takes in, and what outputs it gives, no matter how “intuitive” the operation or function name is.</p>
+</div>
+<div id="subsetting-vectors-explicitly" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Subsetting vectors explicitly<a href="working-with-data-structures.html#subsetting-vectors-explicitly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the exercise this past week, you looked at a new operation to subset elements of a vector using brackets.</p>
+<p>Inside the bracket is either a single numeric value or an a <strong>numerical indexing vector</strong> containing numerical values. They dictate which elements of the vector to return.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="working-with-data-structures.html#cb36-1" tabindex="-1"></a>staff[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="working-with-data-structures.html#cb38-1" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-with-data-structures.html#cb40-1" tabindex="-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<p>In the last line, we created a new vector <code>small_staff</code> that is a subset of the staff given the indexing vector <code>c(1, 2)</code>. We have three vectors referenced in one line of code. This is tricky and we need to always refer to our rules step-by-step: evaluate the expression right of the <code>=</code>, which contains a vector bracket. Follow the rule of the vector bracket. Then store the returning value to the variable left of <code>=</code>.</p>
+<p>Alternatively, instead of using numerical indexing vectors, we can use a <strong>logical indexing vector</strong>. The logical indexing vector must be the <em>same length</em> as the vector to be subsetted, with <code>TRUE</code> indicating an element to keep, and <code>FALSE</code> indicating an element to drop. The following block of code gives the same value as before:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;chris&quot;  &quot;shasta&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+</div>
+<div id="subsetting-vectors-implicitly" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Subsetting vectors implicitly<a href="working-with-data-structures.html#subsetting-vectors-implicitly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here are two applications of subsetting on vectors that need distinction to write the correct code:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Explicit subsetting</strong>: Suppose someone approaches you a length 10 vector of people’s ages, and say that they want to subset to the 1st, 3rd, and 9th elements.</p></li>
+<li><p><strong>Implicit subsetting</strong>: Suppose someone approaches you a length 10 vector of people’s ages, and say that they want to subset to elements &gt;50 age.</p></li>
+</ol>
+<p>Consider the following vector.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="working-with-data-structures.html#cb46-1" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">89</span>, <span class="dv">70</span>, <span class="dv">64</span>, <span class="dv">90</span>, <span class="dv">66</span>, <span class="dv">71</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">30</span>, <span class="dv">16</span>)</span></code></pre></div>
+<p>We could subset <code>age</code> <strong>explicitly</strong> two ways. Suppose we want to subset the 1st and 5th, and 9th elements. One can do it with numerical indexing vectors:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="working-with-data-structures.html#cb47-1" tabindex="-1"></a>age[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>or by <strong>logical indexing vectors</strong>:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="working-with-data-structures.html#cb49-1" tabindex="-1"></a>age[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>and you can do it in one step as we have done so, or two steps by storing the indexing vector as a variable. <em>Either ways is fine.</em></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="working-with-data-structures.html#cb51-1" tabindex="-1"></a>num_idx <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)</span>
+<span id="cb51-2"><a href="working-with-data-structures.html#cb51-2" tabindex="-1"></a>age[num_idx]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="working-with-data-structures.html#cb53-1" tabindex="-1"></a>logical_idx <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb53-2"><a href="working-with-data-structures.html#cb53-2" tabindex="-1"></a>age[logical_idx]</span></code></pre></div>
+<pre><code>## [1] 89 66 30</code></pre>
+<p>For implicit subsetting, we don’t know which elements to select off the top of our head! (We could count, but this method does not scale up.)</p>
+<p>Rather, we can figure out which elements to select by using a <strong>comparison operator</strong>, which returns a logical indexing vector.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="working-with-data-structures.html#cb55-1" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">50</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<p>The comparison operator <code>&gt;</code> compared the numeric value of <code>age</code> to see which elements of age is greater than 50, and then returned a logical vector that has <code>TRUE</code> if age is greater than 50 at that element and <code>FALSE</code> otherwise.</p>
+<p>Then,</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="working-with-data-structures.html#cb57-1" tabindex="-1"></a>indexing_vector <span class="ot">=</span> age <span class="sc">&gt;</span> <span class="dv">50</span></span>
+<span id="cb57-2"><a href="working-with-data-structures.html#cb57-2" tabindex="-1"></a>age[indexing_vector]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 90 66 71 55 60</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb59-2"><a href="working-with-data-structures.html#cb59-2" tabindex="-1"></a>age[age <span class="sc">&gt;</span> <span class="dv">50</span>]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 90 66 71 55 60</code></pre>
+<p>To summarize:</p>
+<p>Subset a vector <strong>implicitly</strong>, in 3 steps:</p>
+<ol style="list-style-type: decimal">
+<li>Come up with a criteria for subsetting: “I want to subset to values greater than 50”.</li>
+<li>We can use a <strong>comparison operator</strong> to create a <strong>logical indexing vector</strong> that fits this criteria.</li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="working-with-data-structures.html#cb61-1" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">50</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Use this logical indexing vector to subset.</li>
+</ol>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>age[age <span class="sc">&gt;</span> <span class="dv">50</span>]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 90 66 71 55 60</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb65-2"><a href="working-with-data-structures.html#cb65-2" tabindex="-1"></a>idx <span class="ot">=</span> age <span class="sc">&gt;</span> <span class="dv">50</span></span>
+<span id="cb65-3"><a href="working-with-data-structures.html#cb65-3" tabindex="-1"></a>age[idx]</span></code></pre></div>
+<pre><code>## [1] 89 70 64 90 66 71 55 60</code></pre>
+<p>And you are done.</p>
+</div>
+<div id="comparison-operators" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Comparison Operators<a href="working-with-data-structures.html#comparison-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have the following comparison operators in R:</p>
+<p><code>&lt;</code> less than</p>
+<p><code>&lt;=</code> less or equal than</p>
+<p><code>==</code> equal to</p>
+<p><code>!=</code> not equal to</p>
+<p><code>&gt;</code> greater than</p>
+<p><code>&gt;=</code> greater than or equal to</p>
+<p>You can also put these comparison operators together to form more complex statements, which you will explore in this week’s exercise.</p>
+<p>Another example:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="working-with-data-structures.html#cb67-1" tabindex="-1"></a>age_90 <span class="ot">=</span> age[age <span class="sc">==</span> <span class="dv">90</span>]</span>
+<span id="cb67-2"><a href="working-with-data-structures.html#cb67-2" tabindex="-1"></a>age_90</span></code></pre></div>
+<pre><code>## [1] 90</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="working-with-data-structures.html#cb69-1" tabindex="-1"></a>age_not_90 <span class="ot">=</span> age[age <span class="sc">!=</span> <span class="dv">90</span>]</span>
+<span id="cb69-2"><a href="working-with-data-structures.html#cb69-2" tabindex="-1"></a>age_not_90</span></code></pre></div>
+<pre><code>## [1] 89 70 64 66 71 55 60 30 16</code></pre>
+<p>For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don’t need to know what your vector contains to do something with it! This technique is related to <em>abstraction</em> in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of <em>hard-coding</em> the value explicitly, it generalizes your code to handle a wider variety of situations.</p>
+</div>
+</div>
+<div id="dataframes" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Dataframes<a href="working-with-data-structures.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before we dive into dataframes, check that the <code>tidyverse</code> package is properly installed by loading it in your R Console:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="working-with-data-structures.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Here is the data structure you have been waiting for: the <strong>dataframe</strong>. A dataframe is a spreadsheet such that each column must have the same data type. Think of a bunch of vectors organized as columns, and you get a dataframe.</p>
+<p>For the most part, we load in dataframes from a file path (although they are sometimes created by combining several vectors of the same length, but we won’t be covering that here):</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="working-with-data-structures.html#cb72-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData&quot;</span>))</span></code></pre></div>
+<div id="using-functions-and-operations-on-dataframes" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Using functions and operations on dataframes<a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can run some useful functions on dataframes to get some useful properties, similar to how we used <code>length()</code> for vectors:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="working-with-data-structures.html#cb73-1" tabindex="-1"></a><span class="fu">nrow</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 1864</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="working-with-data-structures.html#cb75-1" tabindex="-1"></a><span class="fu">ncol</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="working-with-data-structures.html#cb77-1" tabindex="-1"></a><span class="fu">dim</span>(metadata)</span></code></pre></div>
+<pre><code>## [1] 1864   30</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="working-with-data-structures.html#cb79-1" tabindex="-1"></a><span class="fu">colnames</span>(metadata)</span></code></pre></div>
+<pre><code>##  [1] &quot;ModelID&quot;                &quot;PatientID&quot;              &quot;CellLineName&quot;          
+##  [4] &quot;StrippedCellLineName&quot;   &quot;Age&quot;                    &quot;SourceType&quot;            
+##  [7] &quot;SangerModelID&quot;          &quot;RRID&quot;                   &quot;DepmapModelType&quot;       
+## [10] &quot;AgeCategory&quot;            &quot;GrowthPattern&quot;          &quot;LegacyMolecularSubtype&quot;
+## [13] &quot;PrimaryOrMetastasis&quot;    &quot;SampleCollectionSite&quot;   &quot;Sex&quot;                   
+## [16] &quot;SourceDetail&quot;           &quot;LegacySubSubtype&quot;       &quot;CatalogNumber&quot;         
+## [19] &quot;CCLEName&quot;               &quot;COSMICID&quot;               &quot;PublicComments&quot;        
+## [22] &quot;WTSIMasterCellID&quot;       &quot;EngineeredModel&quot;        &quot;TreatmentStatus&quot;       
+## [25] &quot;OnboardedMedia&quot;         &quot;PlateCoating&quot;           &quot;OncotreeCode&quot;          
+## [28] &quot;OncotreeSubtype&quot;        &quot;OncotreePrimaryDisease&quot; &quot;OncotreeLineage&quot;</code></pre>
+<p>The last function, <code>colnames()</code> returns a character vector of the column names of the dataframe. This is an important property of dataframes that we will make use of to subset on it.</p>
+<p>We introduce an operation for dataframes: the <code>dataframe$column_name</code> operation selects for a column by its column name and returns the column as a vector. For instance:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="working-with-data-structures.html#cb81-1" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Ovary/Fallopian Tube&quot; &quot;Myeloid&quot;              &quot;Bowel&quot;               
+## [4] &quot;Myeloid&quot;              &quot;Myeloid&quot;</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="working-with-data-structures.html#cb83-1" tabindex="-1"></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 60 36 72 30 30</code></pre>
+<p>We treat the resulting value as a vector, so we can perform implicit subsetting:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="working-with-data-structures.html#cb85-1" tabindex="-1"></a>metadata<span class="sc">$</span>OncotreeLineage[metadata<span class="sc">$</span>OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Myeloid&quot;</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+##  [8] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [15] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [22] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [29] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [36] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [43] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [50] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [57] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [64] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;
+## [71] &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot; &quot;Myeloid&quot;</code></pre>
+<p>The bracket operation <code>[ ]</code> on a dataframe can also be used for subsetting. <code>dataframe[row_idx, col_idx]</code> subsets the dataframe by a row indexing vector <code>row_idx</code>, and a column indexing vector <code>col_idx</code>.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="working-with-data-structures.html#cb87-1" tabindex="-1"></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>##      ModelID CellLineName
+## 1 ACH-000001  NIH:OVCAR-3
+## 2 ACH-000002        HL-60
+## 3 ACH-000003        CACO2
+## 4 ACH-000004          HEL
+## 5 ACH-000005   HEL 92.1.7</code></pre>
+<p>We can refer to the column names directly:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="working-with-data-structures.html#cb89-1" tabindex="-1"></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;ModelID&quot;</span>, <span class="st">&quot;CellLineName&quot;</span>)]</span></code></pre></div>
+<pre><code>##      ModelID CellLineName
+## 1 ACH-000001  NIH:OVCAR-3
+## 2 ACH-000002        HL-60
+## 3 ACH-000003        CACO2
+## 4 ACH-000004          HEL
+## 5 ACH-000005   HEL 92.1.7</code></pre>
+<p>We can leave the column index or row index empty to just subset columns or rows.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="working-with-data-structures.html#cb91-1" tabindex="-1"></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code></pre></div>
+<pre><code>##      ModelID PatientID CellLineName StrippedCellLineName Age SourceType
+## 1 ACH-000001 PT-gj46wT  NIH:OVCAR-3            NIHOVCAR3  60 Commercial
+## 2 ACH-000002 PT-5qa3uk        HL-60                 HL60  36 Commercial
+## 3 ACH-000003 PT-puKIyc        CACO2                CACO2  72 Commercial
+## 4 ACH-000004 PT-q4K2cp          HEL                  HEL  30 Commercial
+## 5 ACH-000005 PT-q4K2cp   HEL 92.1.7              HEL9217  30 Commercial
+##   SangerModelID      RRID DepmapModelType AgeCategory GrowthPattern
+## 1     SIDM00105 CVCL_0465           HGSOC       Adult      Adherent
+## 2     SIDM00829 CVCL_0002             AML       Adult    Suspension
+## 3     SIDM00891 CVCL_0025            COAD       Adult      Adherent
+## 4     SIDM00594 CVCL_0001             AML       Adult    Suspension
+## 5     SIDM00593 CVCL_2481             AML       Adult         Mixed
+##   LegacyMolecularSubtype PrimaryOrMetastasis               SampleCollectionSite
+## 1                                 Metastatic                            ascites
+## 2                                    Primary haematopoietic_and_lymphoid_tissue
+## 3                                    Primary                              Colon
+## 4                                    Primary haematopoietic_and_lymphoid_tissue
+## 5                                                                   bone_marrow
+##      Sex SourceDetail  LegacySubSubtype CatalogNumber
+## 1 Female         ATCC high_grade_serous        HTB-71
+## 2 Female         ATCC                M3       CCL-240
+## 3   Male         ATCC                          HTB-37
+## 4   Male         DSMZ                M6        ACC 11
+## 5   Male         ATCC                M6       HEL9217
+##                                     CCLEName COSMICID PublicComments
+## 1                            NIHOVCAR3_OVARY   905933               
+## 2    HL60_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE   905938               
+## 3                      CACO2_LARGE_INTESTINE       NA               
+## 4     HEL_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE   907053               
+## 5 HEL9217_HAEMATOPOIETIC_AND_LYMPHOID_TISSUE       NA               
+##   WTSIMasterCellID EngineeredModel TreatmentStatus OnboardedMedia PlateCoating
+## 1             2201                                     MF-001-041         None
+## 2               55                                     MF-005-001         None
+## 3               NA                         Unknown     MF-015-009         None
+## 4              783                  Post-treatment     MF-001-001         None
+## 5               NA                                     MF-001-001         None
+##   OncotreeCode                  OncotreeSubtype    OncotreePrimaryDisease
+## 1        HGSOC High-Grade Serous Ovarian Cancer  Ovarian Epithelial Tumor
+## 2          AML           Acute Myeloid Leukemia    Acute Myeloid Leukemia
+## 3         COAD             Colon Adenocarcinoma Colorectal Adenocarcinoma
+## 4          AML           Acute Myeloid Leukemia    Acute Myeloid Leukemia
+## 5          AML           Acute Myeloid Leukemia    Acute Myeloid Leukemia
+##        OncotreeLineage
+## 1 Ovary/Fallopian Tube
+## 2              Myeloid
+## 3                Bowel
+## 4              Myeloid
+## 5              Myeloid</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="working-with-data-structures.html#cb93-1" tabindex="-1"></a><span class="fu">head</span>(metadata[, <span class="fu">c</span>(<span class="st">&quot;ModelID&quot;</span>, <span class="st">&quot;CellLineName&quot;</span>)])</span></code></pre></div>
+<pre><code>##      ModelID CellLineName
+## 1 ACH-000001  NIH:OVCAR-3
+## 2 ACH-000002        HL-60
+## 3 ACH-000003        CACO2
+## 4 ACH-000004          HEL
+## 5 ACH-000005   HEL 92.1.7
+## 6 ACH-000006   MONO-MAC-6</code></pre>
+<p>The bracket operation on a dataframe can be difficult to interpret because multiple expression for the row and column indicies is a lot of information for one line of code. You will see easier-to-read functions for dataframe subsetting in the next lesson.</p>
+<p>Lastly, try running <code>View(metadata)</code> in RStudio Console…whew, a nice way to examine your dataframe like a spreadsheet program!</p>
+</div>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercises<a href="working-with-data-structures.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can find <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>, or on <a href="https://github.com/fhdsl/Intro_to_R_Exercises">GitHub</a>.</p>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+      <a href="https://hutchdatascience.org/" target="_blank"><img src="https://hutchdatascience.org/images/crazy-idea-wide.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
