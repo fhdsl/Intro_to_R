@@ -49,7 +49,7 @@ These credits are based on our [course contributors table guidelines](https://ww
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Etc/UTC
-##  date     2024-09-20
+##  date     2024-09-24
 ##  pandoc   3.1.1 @ /usr/local/bin/ (via rmarkdown)
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
