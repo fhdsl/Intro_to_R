@@ -2,6 +2,15 @@
 
 Welcome to Introduction to R! Each week, we cover a chapter, which consists of a lesson and exercise. In our first week together, we will look at big conceptual themes in programming, see how code is run, and learn some basic grammar structures of programming.
 
+## Slides
+
+[Link to Slides](https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide)
+
+```{r}
+knitr::include_url("https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide")
+```
+
+
 ## Goals of the course
 
 In the next 6 weeks, we will explore:
