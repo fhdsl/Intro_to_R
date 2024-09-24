@@ -15,6 +15,7 @@ community-sessions
 patient-clinical-data-is-a-no-on-posit-cloud
 offerings
 intro-to-computing
+slides
 goals-of-the-course
 what-is-a-computer-program
 a-programming-language-has-following-elements
