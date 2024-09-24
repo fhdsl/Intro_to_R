@@ -52,6 +52,8 @@ Today, we will pay close attention to:
 
 -   Environment: Often, your code will store information in the Environment, so that information can be reused. For instance, we often load in data and store it in the Environment, and use it throughout rest of your R code.
 
+## Ways to Run R Code
+
 The first thing we will do is see the different ways we can run R code. You can do the following:
 
 1.  Type something into the R Console and type enter, such as `2+2`. The R Console will run it and give you an output.
