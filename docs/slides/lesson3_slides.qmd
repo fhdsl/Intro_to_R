@@ -1,0 +1,176 @@
+---
+title: "W3: Data Wrangling with Tidy Data, Part 1"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
+---
+
+## Where are we?
+
+![Illustration by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/d65eb83f-66e4-4760-8c1f-29d336d1d6df_rw_3840.png?h=ece3b7c448f38a10cd71866e2cbb2b4d)
+
+## How's it going?![Illustration by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/d4f90788-7a14-4d44-94ab-da13dd41f009_rw_3840.png?h=f5064c39facd1560385710f3320bb3a6)
+
+## Data Science Workflow
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="200"}
+
+```{r, message=FALSE, echo=F}
+library(tidyverse)
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+```
+
+. . .
+
+We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
+
+## Our working Tidy Data: DepMap Project
+
+<https://depmap.org/>
+
+We will work with `metadata`, `mutation`, and `expression` dataframes.
+
+## What do you want to do with this dataframe?
+
+Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
+
+. . .
+
+With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.
+
+## Subsetting a dataframe
+
+*In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*
+
+. . .
+
+✅ Implicit: "I want to filter for rows such that the subtype is breast cancer and look at the Age and Sex."
+
+🚫 Explicit: "I want to filter for rows 20-50 and select columns 2 and 8".
+
+. . .
+
+*Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.*
+
+## How we do it:
+
+. . .
+
+```{r}
+library(tidyverse)
+
+metadata_filtered = filter(metadata, OncotreeLineage == "Breast")
+breast_metadata = select(metadata_filtered, ModelID, Age, Sex)
+
+head(breast_metadata)
+```
+
+. . .
+
+Here, `filter()` and `select()` are functions from the `tidyverse` package.
+
+## `filter()` and `select()`
+
+`metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
+
+. . .
+
+The second argument: a logical indexing vector built from a comparison operator?
+
+. . .
+
+But the variable `OncotreeLineage` does not exist in our environment!
+
+. . .
+
+Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to it as a **data variable**. We can directly refer to the column vector `metadata$OncotreeLineage` with just `OncotreeLineage`.
+
+. . .
+
+The input arguments for `select()` are also **data variables**.
+
+## Summary statistics
+
+Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it!
+
+. . .
+
+If the columns of interest are numeric, consider functions `mean()`, `median()`, `max()`, on a column.
+
+. . .
+
+If the columns of interest is character or logical, consider `table()`.
+
+. . .
+
+```{r}
+mean(breast_metadata$Age, na.rm = TRUE)
+table(breast_metadata$Sex)
+```
+
+## Code readability with many nested functions
+
+When combining multiple functions in one expression, it gets harder to read:
+
+. . .
+
+```{r}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+```
+
+. . .
+
+Or, this: 🤨
+
+```         
+result2 = function1(function2(function3(dataframe)))
+```
+
+. . .
+
+Or... 🤕
+
+```         
+result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
+```
+
+. . .
+
+[R style guide](https://style.tidyverse.org/index.html)
+
+## Pipes to make nested functions readable
+
+. . .
+
+```         
+result2 = dataframe %>% function1 %>% function2 %>% function3
+```
+
+. . .
+
+```         
+result = function1(df_col5, arg1) %>%
+         function2(arg2) %>%
+         function3(df_col4, df_col2)
+```
+
+. . .
+
+Rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
+
+. . .
+
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                               select(ModelID, Age, Sex)
+```
+
+🤠

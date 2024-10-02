@@ -31,6 +31,7 @@ execution-rule-for-functions
 tips-on-writing-your-first-code
 exercises
 working-with-data-structures
+slides-1
 vectors
 using-operations-on-vectors
 subsetting-vectors-explicitly

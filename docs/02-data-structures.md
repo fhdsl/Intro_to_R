@@ -2,6 +2,17 @@
 
 In our second lesson, we start to look at two **data structures**, **vectors** and **dataframes**, that can handle a large amount of data.
 
+## Slides
+
+[Link to Slides](https://hutchdatascience.org/intro_r_slides/lesson2_slides.html)
+
+
+``` r
+knitr::include_url("https://hutchdatascience.org/intro_r_slides/lesson2_slides.html")
+```
+
+<iframe src="https://hutchdatascience.org/intro_r_slides/lesson2_slides.html" width="100%" height="400px" data-external="1"></iframe>
+
 ## Vectors
 
 In the first exercise, you started to explore **data structures**, which store information about data types. You played around with **vectors**, which is a ordered collection of a data type. Each *element* of a vector contains a data type, and there is no limit on how big a vector can be, as long the memory use of it is within the computer's memory (RAM).

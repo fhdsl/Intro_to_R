@@ -1,0 +1,301 @@
+---
+title: "W4: Data Wrangling with Tidy Data, Part 2"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
+---
+
+```{r, echo=F, message=F, warning=F, error=F}
+library(palmerpenguins)
+library(tidyverse)
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+```
+
+## Modifying and creating new columns
+
+. . .
+
+The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a *new or existing data variable* that is defined in terms of *other data variables*.
+
+. . .
+
+```{r}
+metadata$Age[1:10]
+```
+
+. . .
+
+```{r}
+metadata2 = mutate(metadata, olderAge = Age + 10)
+```
+
+. . .
+
+```{r}
+metadata2$olderAge[1:10]
+```
+
+. . .
+
+<br>
+
+```{r}
+expression$KRAS_Exp[1:10]
+```
+
+. . .
+
+```{r}
+expression2 = mutate(expression, log_KRAS_Exp = log(KRAS_Exp))
+```
+
+. . .
+
+```{r}
+expression2$log_KRAS_Exp[1:10]
+```
+
+## Modifying and creating new columns
+
+. . .
+
+Instead of `mutate()` function, we can also create a new or modify a column via the `$` symbol:
+
+```{r}
+expression$KRAS_Exp[1:10]
+```
+
+. . .
+
+```{r}
+expression2 = expression
+expression2$log_KRAS_Exp = log(expression2$KRAS_Exp)
+```
+
+. . .
+
+```{r}
+expression2$log_KRAS_Exp[1:10]
+```
+
+## Merging two dataframes together
+
+. . .
+
+`expression`
+
+| ModelID      | PIK3CA_Exp | log_PIK3CA_Exp |
+|--------------|------------|----------------|
+| "ACH-001113" | 5.138733   | 1.636806       |
+| "ACH-001289" | 3.184280   | 1.158226       |
+| "ACH-001339" | 3.165108   | 1.152187       |
+
+. . .
+
+`metadata`
+
+| ModelID      | OncotreeLineage | Age |
+|--------------|-----------------|-----|
+| "ACH-001113" | "Lung"          | 69  |
+| "ACH-001289" | "CNS/Brain"     | NA  |
+| "ACH-001339" | "Skin"          | 14  |
+
+. . .
+
+I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
+
+| ModelID      | PIK3CA_Exp | log_PIK3CA_Exp | OncotreeLineage | Age |
+|--------------|------------|----------------|-----------------|-----|
+| "ACH-001113" | 5.138733   | 1.636806       | "Lung"          | 69  |
+| "ACH-001289" | 3.184280   | 1.158226       | "CNS/Brain"     | NA  |
+| "ACH-001339" | 3.165108   | 1.152187       | "Skin"          | 14  |
+
+## Merging two dataframes together
+
+We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
+
+```{r}
+merged = full_join(metadata, expression, by = "ModelID")
+```
+
+. . .
+
+Let's take a look at the dimensions:
+
+. . .
+
+```{r}
+dim(metadata)
+```
+
+. . .
+
+```{r}
+dim(expression)
+```
+
+. . .
+
+```{r}
+dim(merged)
+```
+
+. . .
+
+`full_join()` keeps all observations common to both dataframes based on the common column defined via the `by` argument.
+
+. . .
+
+Therefore, we expect to see `NA` values in `merged`, as there are some cell lines that are not in `expression` dataframe.
+
+## Merging two dataframes together: variations
+
+![](images/join.png)
+
+. . .
+
+Given `xxx_join(x, y, by = "common_col")`,
+
+-   `full_join()` keeps all observations.
+
+-   `left_join()` keeps all observations in `x`.
+
+-   `right_join()` keeps all observations in `y`.
+
+-   `inner_join()` keeps observations common to both `x` and `y`.
+
+## Grouping and summarizing dataframes
+
+. . .
+
+| ModelID      | OncotreeLineage | Age |
+|--------------|-----------------|-----|
+| "ACH-001113" | "Lung"          | 69  |
+| "ACH-001289" | "Lung"          | 23  |
+| "ACH-001339" | "Skin"          | 14  |
+| "ACH-002342" | "Brain"         | 23  |
+| "ACH-004854" | "Brain"         | 56  |
+| "ACH-002921" | "Brain"         | 67  |
+
+. . .
+
+Desired rows: cancer subtype.
+
+Desired columns: mean age.
+
+| OncotreeLineage | MeanAge | Count |
+|-----------------|---------|-------|
+| "Lung"          | 46      | 2     |
+| "Skin"          | 14      | 1     |
+| "Brain"         | 48.67   | 3     |
+
+. . .
+
+*The rows I want is described by a column. The columns I want need to be summarized from other columns.*
+
+## Grouping and summarizing dataframes
+
+```{r}
+metadata_grouped = group_by(metadata, OncotreeLineage)
+metadata_type = summarise(metadata_grouped, MeanAge = mean(Age, na.rm = TRUE), Count = n())
+```
+
+. . .
+
+```{r}
+head(metadata_type)
+```
+
+## Grouping and summarizing dataframes
+
+The `group_by()` function returns the identical input dataframe but remembers which variable(s) have been marked as grouped.
+
+. . .
+
+The `summarise()` returns one row for each combination of grouping variables, and one column for each of the summary statistics that you have specified.
+
+. . .
+
+Functions you can use for `summarise()` must take in a vector and return a simple data type, such as any of our summary statistics functions: `mean()`, `median()`, `min()`, `max()`, etc.
+
+. . .
+
+The exception is `n()`, which returns the number of entries for each grouping variable's value.
+
+## Code readability with many nested functions
+
+When combining multiple functions in one expression, it gets harder to read:
+
+. . .
+
+```{r}
+breast_metadata = select(filter(metadata, OncotreeLineage == "Breast"), ModelID, Age, Sex)
+```
+
+. . .
+
+Or, this: 🤨
+
+```         
+result2 = function1(function2(function3(dataframe)))
+```
+
+. . .
+
+Or... 🤕
+
+```         
+result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
+```
+
+. . .
+
+[R style guide](https://style.tidyverse.org/index.html)
+
+## Pipes to make nested functions readable
+
+. . .
+
+```         
+result2 = dataframe %>% function1 %>% function2 %>% function3
+```
+
+. . .
+
+```         
+result = function1(df_col5, arg1) %>%
+         function2(arg2) %>%
+         function3(df_col4, df_col2)
+```
+
+. . .
+
+Rewrite the `select()` and `filter()` function composition example above using the pipe metaphor and syntax.
+
+. . .
+
+```{r}
+breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
+                               select(ModelID, Age, Sex)
+```
+
+🤠
+
+. . .
+
+Group by and summarise with pipes:
+
+```{r}
+metadata_by_type = metadata %>% 
+                   group_by(OncotreeLineage) %>% 
+                   summarise(MeanAge = mean(Age, na.rm = TRUE),
+                             Count = n())
+```

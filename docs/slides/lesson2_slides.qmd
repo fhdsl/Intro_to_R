@@ -1,0 +1,365 @@
+---
+title: "W2: Working with data structures"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+    embed-resources: true
+    drop:
+      engine: webr
+      button: true
+revealjs-plugins:
+  - drop
+output-location: fragment
+---
+
+## Data types
+
+-   **Numeric**: 18, -21, 65, 1.25
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+-   **Logical**: TRUE, FALSE
+
+## Data structures
+
+**Data structures** stores information about data types.
+
+. . .
+
+**Vector** is a ordered collection of a data type. Each *element* of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.
+
+. . .
+
+So, you can have **numeric vector**, **character vector**, and **logical vector**.
+
+::: notes
+There is no limit on how big a vector can be, as long the memory use of it is within the computer's memory (RAM).
+
+We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once!
+:::
+
+## Defining a vector
+
+. . .
+
+```{r}
+staff = c("chris", "shasta", "jeff")
+chrNum = c(2, 3, 1)
+```
+
+## Using operations on vectors
+
+. . .
+
+You can use operations and functions on vectors.
+
+. . .
+
+```{r}
+chrNum = chrNum * 3
+chrNum 
+```
+
+. . .
+
+Multiplication has a new meaning when used on a numeric vector and numeric data type! This is called **operator overloading**.
+
+. . .
+
+😮
+
+## Operator overloading
+
+How about numeric vector multiplied by numeric vector?
+
+```{r}
+chrNum * c(2, 2, 0)
+```
+
+. . .
+
+a numeric vector added to a character vector:
+
+```{r}
+#chrNum + staff
+```
+
+## Functions on vectors
+
+How many elements are in this vector?
+
+```{r}
+length(staff)
+```
+
+## Subsetting vectors
+
+We subset vectors using the bracket `[ ]` operation.
+
+. . .
+
+Inside the bracket is either a single numeric value or an a **numerical indexing vector** containing numerical values. They dictate which elements of the vector to return.
+
+. . .
+
+```{r}
+staff[2]
+```
+
+. . .
+
+```{r}
+staff[c(1, 2)]
+```
+
+. . .
+
+```{r}
+small_staff = staff[c(1, 2)]
+small_staff
+```
+
+## Subsetting vectors
+
+Alternatively, instead of using numerical indexing vectors, we can use a **logical indexing vector**.
+
+. . .
+
+The logical indexing vector must be the *same length* as the vector to be subsetted, with `TRUE` indicating an element to keep, and `FALSE` indicating an element to drop.
+
+. . .
+
+```{r}
+staff[c(TRUE, FALSE, FALSE)]
+```
+
+. . .
+
+```{r}
+staff[c(TRUE, TRUE, FALSE)]
+```
+
+. . .
+
+```{r}
+small_staff = staff[c(TRUE, TRUE, FALSE)]
+small_staff
+```
+
+## Explicit vs. implicit subsetting
+
+. . .
+
+-   **Explicit subsetting**: Given a length 10 vector of people's ages, and subset to the 1st, 3rd, and 9th elements.
+
+. . .
+
+```{r}
+age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
+```
+
+. . .
+
+```{r}
+age[c(1, 5, 9)]
+```
+
+. . .
+
+```{r}
+age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
+```
+
+. . .
+
+-   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements greater than age 50.
+
+## Implicit subsetting
+
+We don't know which elements to subset off the top of our head! If we know which elements are \> 50, then we can give the elements for an explicit subset.
+
+. . .
+
+Use a **comparison operator** to create a logical indexing vector:
+
+. . .
+
+```{r}
+age > 50
+```
+
+. . .
+
+Can you guess what we do next?
+
+. . .
+
+```{r}
+age[age > 50]
+```
+
+## Implicit subsetting
+
+Subset a vector **implicitly**, in 3 steps:
+
+. . .
+
+1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
+
+. . .
+
+2.  Use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
+
+```{r}
+age > 50
+```
+
+. . .
+
+3.  Use this logical indexing vector to subset.
+
+```{r}
+age[age > 50]
+```
+
+. . .
+
+Alternatively,
+
+```{r}
+idx = age > 50
+age[idx]
+```
+
+## Comparison operators:
+
+`<` less than
+
+`<=` less or equal than
+
+`>` greater than
+
+`>=` greater than or equal to
+
+`==` equal to
+
+`!=` not equal to
+
+. . .
+
+Subset `staff` to not have "chris" in it.
+
+. . .
+
+```{r}
+staff != "chris"
+```
+
+. . .
+
+```{r}
+staff[staff != "chris"]
+```
+
+## Dataframes
+
+. . .
+
+A **dataframe** is a spreadsheet such that each column must have the same data type; a bunch of vectors organized as columns.
+
+. . .
+
+```{r}
+load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
+nrow(metadata)
+```
+
+. . .
+
+```{r}
+ncol(metadata)
+```
+
+. . .
+
+```{r}
+dim(metadata)
+```
+
+. . .
+
+`head(metadata)`
+
+`View(metadata)`
+
+## Column names of dataframes
+
+The **column name** is a character vector that corresponds to the columns of the dataframe.
+
+. . .
+
+```{r}
+names(metadata)
+```
+
+. . .
+
+## Subsetting a column from a dataframe
+
+. . .
+
+The `dataframe$column_name` operation selects for a column by its column name and returns the column as a vector:
+
+. . .
+
+```{r}
+metadata$OncotreeLineage[1:5]
+```
+
+. . .
+
+```{r}
+metadata$Age[1:5]
+```
+
+. . .
+
+Challenge!
+
+```{r}
+metadata$Age[metadata$OncotreeLineage == "Myeloid"]
+```
+
+## Subsetting columns and rows from a dataframe
+
+`dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
+
+. . .
+
+```{r}
+metadata[1:5, c(1, 3)]
+```
+
+. . .
+
+We can refer to the column names directly:
+
+```{r}
+metadata[1:5, c("ModelID", "CellLineName")]
+```
+
+## Subsetting columns and rows from a dataframe
+
+We can leave the column index or row index empty to just subset columns or rows.
+
+. . .
+
+```{r}
+metadata[1:5, ]
+```
+
+. . .
+
+```{r}
+metadata[, c("ModelID", "CellLineName")]
+```
