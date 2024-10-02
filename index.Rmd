@@ -145,14 +145,14 @@ More details about the Code-a-thon to come.
 
 ## Community Sessions
 
-Two times this quarter we will have learning community sessions, to talk about applications of what we're learning. These sessions are optional, but will help you solidify your learning during the course.
+Two times this quarter we will have learning community sessions, to talk about applications of what we're learning. These sessions are optional, but will help you solidify your learning during the course. These sessions are open to the larger Fred Hutch community, so if you know someone who is curious about R, you can send them the links below to RSVP for the session.
 
 These dates are: 
 
-October 16 at 12-1:30 PM
-November 6 at 12-1:30 PM
+- [October 16 at 12-1:30 PM](https://www.addevent.com/event/Dl23075333)
+- [November 6 at 12-1:30 PM](https://www.addevent.com/event/rl23076035)
 
-These dates will be sent to you when you register for the course.
+You have the power to suggest topics. Start thinking about what you want to hear about.
 
 ## Patient / Clinical Data is a No on Posit Cloud
 
