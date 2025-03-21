@@ -9,8 +9,9 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-In our final to last week together, we learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". The syntax for "ggplot" will look a bit different than the code we have been writing, with syntax such as `ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()`. The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
+In our final to last week together, we learn about how to visualize our data.
 
+There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". The syntax for "ggplot" will look a bit different than the code we have been writing, with syntax such as `ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()`. The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
 
 To get started, we will consider these most simple and common plots:
 

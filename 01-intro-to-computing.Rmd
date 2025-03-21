@@ -6,7 +6,7 @@ Welcome to Introduction to R! Each week, we cover a chapter, which consists of a
 
 In the next 6 weeks, we will explore:
 
--   Fundamental concepts in high-level programming languages (R, Python, Julia, WDL, etc.) that is transferable: *How do programs run, and how do we solve problems using functions and data structures?*
+-   Fundamental concepts in high-level programming languages (R, Python, Julia, etc.) that is transferable: *How do programs run, and how do we solve problems using functions and data structures?*
 
 -   Beginning of data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
 
@@ -78,7 +78,7 @@ Now, we will get to the basics of programming grammar.
 
 -   **Expressions** are be built out of **operations** or **functions**.
 
--   Operations and functions combine **data types** to return another data type.
+-   Operations and functions take in **data types**, do something with them, and return another data type.
 
 -   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
 
@@ -103,7 +103,13 @@ sum(18, sum(21, 65))
 
 Remember the function machine from algebra class? We will use this schema to think about expressions.
 
-![Function machine from algebra class. ](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png)
+![Function machine from algebra class.](images/function_machine.png)
+
+Here are some aspects of this schema to pay attention to:
+
+-   A programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
+
+-   A function can have different kinds of inputs and outputs - it doesn't need to be numbers. In the `len()` function, the input is a String, and the output is a number. We will see increasingly complex functions with all sorts of different inputs and outputs.
 
 If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 
@@ -111,8 +117,6 @@ If an expression is made out of multiple, nested operations, what is the proper 
 3 * 4 + 2
 3 * (4 + 2)
 ```
-
-Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes [abstraction and modular thinking](#a-programming-language-has-following-elements), a foundation in any programming language.
 
 ### Data types
 

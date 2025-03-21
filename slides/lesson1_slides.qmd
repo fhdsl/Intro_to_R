@@ -79,8 +79,6 @@ output-location: fragment
 
 -   Online discussion via Slack.
 
-
-
 ## Content of the course
 
 1.  Intro to Computing
@@ -132,7 +130,7 @@ What's the connection between English \<-\> Programming Code for R Interpreter?
 A pre-course survey:
 
 https://forms.gle/Hr59ZbAan1JTumCa7
- 
+
 ## Grammar Structure 1: Evaluation of Expressions
 
 . . .
