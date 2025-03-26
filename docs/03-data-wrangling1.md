@@ -107,7 +107,7 @@ Let's see how these datasets fit the definition of Tidy data:
 ```
 
 | Dataframe  | The observation is | Some variables are            | Some values are             |
-|------------------|------------------|-------------------|------------------|
+|------------|--------------------|-------------------------------|-----------------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
 | expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |
 | mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |

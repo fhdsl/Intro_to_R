@@ -11,8 +11,11 @@ Welcome to Introduction to R! Each week, we cover a chapter, which consists of a
 knitr::include_url("https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide")
 ```
 
-<iframe src="https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide" width="100%" height="400px" data-external="1"></iframe>
+```
+## `google-chrome`, `chromium-browser` and `chrome` were not found. Try setting the `CHROMOTE_CHROME` environment variable to the executable of a Chromium-based browser, such as Google Chrome, Chromium or Brave or adding one of these executables to your PATH.
+```
 
+<iframe src="https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide" width="100%" height="400px" data-external="1"></iframe>
 
 ## Goals of the course
 
@@ -94,7 +97,7 @@ Now, we will get to the basics of programming grammar.
 
 -   Operations and functions combine **data types** to return another data type.
 
--   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
+-   If the function or operation input contains expressions, evaluate those expressions first.
 
 For instance, consider the following expressions entered to the R Console:
 

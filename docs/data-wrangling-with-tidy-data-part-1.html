@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Data Wrangling with Tidy Data, Part 1 | Introduction to R</title>
-  <meta name="description" content="Chapter 5 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
-  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+  <title>Chapter 4 Data Wrangling with Tidy Data, Part 1 | Introduction to R</title>
+  <meta name="description" content="Chapter 4 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
+  <meta property="og:title" content="Chapter 4 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 4 Data Wrangling with Tidy Data, Part 1 | Introduction to R" />
   
   
   
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="data-visualization.html"/>
+<link rel="prev" href="working-with-data-structures.html"/>
 <link rel="next" href="data-wrangling-with-tidy-data-part-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -143,17 +143,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Objectives</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#course-website"><i class="fa fa-check"></i><b>1.3</b> Course Website</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#dasl-courses-are-a-psychologically-safe-space"><i class="fa fa-check"></i><b>1.4</b> DaSL Courses are a Psychologically Safe Space</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#office-hours"><i class="fa fa-check"></i><b>1.5</b> Office Hours</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#clinical-network-issues"><i class="fa fa-check"></i><b>1.6</b> Clinical Network Issues</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#slack"><i class="fa fa-check"></i><b>1.7</b> Slack</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#instructor"><i class="fa fa-check"></i><b>1.8</b> Instructor</a></li>
-<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#words-of-encouragement"><i class="fa fa-check"></i><b>1.9</b> Words of Encouragement</a></li>
-<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#learning-is-social"><i class="fa fa-check"></i><b>1.10</b> LeaRning is Social</a></li>
-<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#course-times"><i class="fa fa-check"></i><b>1.11</b> Course Times</a></li>
-<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#class-schedule"><i class="fa fa-check"></i><b>1.12</b> Class Schedule</a></li>
-<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#community-sessions"><i class="fa fa-check"></i><b>1.13</b> Community Sessions</a></li>
-<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#patient-clinical-data-is-a-no-on-posit-cloud"><i class="fa fa-check"></i><b>1.14</b> Patient / Clinical Data is a No on Posit Cloud</a></li>
-<li class="chapter" data-level="1.15" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>1.15</b> Offerings</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#clinical-network-issues"><i class="fa fa-check"></i><b>1.5</b> Clinical Network Issues</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#words-of-encouragement"><i class="fa fa-check"></i><b>1.6</b> Words of Encouragement</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#patient-clinical-data-is-a-no-on-posit-cloud"><i class="fa fa-check"></i><b>1.7</b> Patient / Clinical Data is a No on Posit Cloud</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>1.8</b> Offerings</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>2</b> Intro to Computing</a>
 <ul>
@@ -183,63 +176,62 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>3</b> Working with data structures</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#slides-1"><i class="fa fa-check"></i><b>3.1</b> Slides</a></li>
-<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a>
+<li class="chapter" data-level="3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.2.1</b> Using operations on vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.2.2</b> Subsetting vectors explicitly</a></li>
-<li class="chapter" data-level="3.2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.2.3</b> Subsetting vectors implicitly</a></li>
-<li class="chapter" data-level="3.2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.2.4</b> Comparison Operators</a></li>
+<li class="chapter" data-level="3.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-operations-on-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Using operations on vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-explicitly"><i class="fa fa-check"></i><b>3.1.2</b> Subsetting vectors explicitly</a></li>
+<li class="chapter" data-level="3.1.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-vectors-implicitly"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting vectors implicitly</a></li>
+<li class="chapter" data-level="3.1.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#comparison-operators"><i class="fa fa-check"></i><b>3.1.4</b> Comparison Operators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Dataframes</a>
+<li class="chapter" data-level="3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.2</b> Dataframes</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.3.1</b> Using functions and operations on dataframes</a></li>
+<li class="chapter" data-level="3.2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#using-functions-and-operations-on-dataframes"><i class="fa fa-check"></i><b>3.2.1</b> Using functions and operations on dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
+<li class="chapter" data-level="3.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>3.3</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
+<li class="chapter" data-level="4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling with Tidy Data, Part 1</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>4.1</b> Grammar of Graphics</a></li>
-<li class="chapter" data-level="4.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>4.2</b> Histogram</a></li>
-<li class="chapter" data-level="4.3" data-path="data-visualization.html"><a href="data-visualization.html#lets-take-it-apart"><i class="fa fa-check"></i><b>4.3</b> Let’s take it apart</a></li>
-<li class="chapter" data-level="4.4" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>4.4</b> Bar plots</a>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#tidy-data"><i class="fa fa-check"></i><b>4.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data"><i class="fa fa-check"></i><b>4.2</b> Examples and counter-examples of Tidy Data:</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>4.3</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>4.4</b> Transform: “What do you want to do with this dataframe”?</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>4.4.1</b> Scatterplot</a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-visualization.html"><a href="data-visualization.html#multivariate-scatterplot"><i class="fa fa-check"></i><b>4.4.2</b> Multivariate Scatterplot</a></li>
-<li class="chapter" data-level="4.4.3" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>4.4.3</b> Multivaraite Scatterplot</a></li>
-<li class="chapter" data-level="4.4.4" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>4.4.4</b> Line plot?</a></li>
-<li class="chapter" data-level="4.4.5" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>4.4.5</b> Grouped Line plot?</a></li>
-<li class="chapter" data-level="4.4.6" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>4.4.6</b> Boxplot</a></li>
-<li class="chapter" data-level="4.4.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>4.4.7</b> Grouped Boxplot</a></li>
-<li class="chapter" data-level="4.4.8" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>4.4.8</b> Some additional options</a></li>
+<li class="chapter" data-level="4.4.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#filter-rows"><i class="fa fa-check"></i><b>4.4.1</b> Filter rows</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#select-columns"><i class="fa fa-check"></i><b>4.4.2</b> Select columns</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>4.5</b> Summary of options</a></li>
-<li class="chapter" data-level="4.6" data-path="data-visualization.html"><a href="data-visualization.html#exercises-2"><i class="fa fa-check"></i><b>4.6</b> Exercises</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>4.5</b> Summary Statistics</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#pipes"><i class="fa fa-check"></i><b>4.6</b> Pipes</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#exercises-2"><i class="fa fa-check"></i><b>4.7</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling with Tidy Data, Part 1</a>
+<li class="chapter" data-level="5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling with Tidy Data, Part 2</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#tidy-data"><i class="fa fa-check"></i><b>5.1</b> Tidy Data</a></li>
-<li class="chapter" data-level="5.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data"><i class="fa fa-check"></i><b>5.2</b> Examples and counter-examples of Tidy Data:</a></li>
-<li class="chapter" data-level="5.3" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>5.3</b> Our working Tidy Data: DepMap Project</a></li>
-<li class="chapter" data-level="5.4" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>5.4</b> Transform: “What do you want to do with this dataframe”?</a>
+<li class="chapter" data-level="5.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes"><i class="fa fa-check"></i><b>5.1</b> Modifying and creating new columns in dataframes</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#filter-rows"><i class="fa fa-check"></i><b>5.4.1</b> Filter rows</a></li>
-<li class="chapter" data-level="5.4.2" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#select-columns"><i class="fa fa-check"></i><b>5.4.2</b> Select columns</a></li>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via"><i class="fa fa-check"></i><b>5.1.1</b> Alternative: Creating and modifying columns via <code>$</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>5.5</b> Summary Statistics</a></li>
-<li class="chapter" data-level="5.6" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#pipes"><i class="fa fa-check"></i><b>5.6</b> Pipes</a></li>
-<li class="chapter" data-level="5.7" data-path="data-wrangling-with-tidy-data-part-1.html"><a href="data-wrangling-with-tidy-data-part-1.html#exercises-3"><i class="fa fa-check"></i><b>5.7</b> Exercises</a></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>5.2</b> Merging two dataframes together</a></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>5.3</b> Grouping and summarizing dataframes</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>5.4</b> Appendix: How functions are built</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#exercises-3"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with Tidy Data, Part 2</a>
+<li class="chapter" data-level="6" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>6</b> Data Visualization</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#modifying-and-creating-new-columns-in-dataframes"><i class="fa fa-check"></i><b>6.1</b> Modifying and creating new columns in dataframes</a>
+<li class="chapter" data-level="6.1" data-path="data-visualization.html"><a href="data-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>6.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>6.2</b> Histogram</a></li>
+<li class="chapter" data-level="6.3" data-path="data-visualization.html"><a href="data-visualization.html#lets-take-it-apart"><i class="fa fa-check"></i><b>6.3</b> Let’s take it apart</a></li>
+<li class="chapter" data-level="6.4" data-path="data-visualization.html"><a href="data-visualization.html#bar-plots"><i class="fa fa-check"></i><b>6.4</b> Bar plots</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#alternative-creating-and-modifying-columns-via"><i class="fa fa-check"></i><b>6.1.1</b> Alternative: Creating and modifying columns via <code>$</code></a></li>
+<li class="chapter" data-level="6.4.1" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>6.4.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-visualization.html"><a href="data-visualization.html#multivariate-scatterplot"><i class="fa fa-check"></i><b>6.4.2</b> Multivariate Scatterplot</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-visualization.html"><a href="data-visualization.html#multivaraite-scatterplot"><i class="fa fa-check"></i><b>6.4.3</b> Multivaraite Scatterplot</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-visualization.html"><a href="data-visualization.html#line-plot"><i class="fa fa-check"></i><b>6.4.4</b> Line plot?</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualization.html"><a href="data-visualization.html#grouped-line-plot"><i class="fa fa-check"></i><b>6.4.5</b> Grouped Line plot?</a></li>
+<li class="chapter" data-level="6.4.6" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>6.4.6</b> Boxplot</a></li>
+<li class="chapter" data-level="6.4.7" data-path="data-visualization.html"><a href="data-visualization.html#grouped-boxplot"><i class="fa fa-check"></i><b>6.4.7</b> Grouped Boxplot</a></li>
+<li class="chapter" data-level="6.4.8" data-path="data-visualization.html"><a href="data-visualization.html#some-additional-options"><i class="fa fa-check"></i><b>6.4.8</b> Some additional options</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>6.2</b> Merging two dataframes together</a></li>
-<li class="chapter" data-level="6.3" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>6.3</b> Grouping and summarizing dataframes</a></li>
-<li class="chapter" data-level="6.4" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#appendix-how-functions-are-built"><i class="fa fa-check"></i><b>6.4</b> Appendix: How functions are built</a></li>
-<li class="chapter" data-level="6.5" data-path="data-wrangling-with-tidy-data-part-2.html"><a href="data-wrangling-with-tidy-data-part-2.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a></li>
+<li class="chapter" data-level="6.5" data-path="data-visualization.html"><a href="data-visualization.html#summary-of-options"><i class="fa fa-check"></i><b>6.5</b> Summary of options</a></li>
+<li class="chapter" data-level="6.6" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>6.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="cheatsheet.html"><a href="cheatsheet.html"><i class="fa fa-check"></i><b>7</b> Cheatsheet</a>
 <ul>
@@ -287,16 +279,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/dasl_thin_main_image.png">
 </div>
-<div id="data-wrangling-with-tidy-data-part-1" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Data Wrangling with Tidy Data, Part 1<a href="data-wrangling-with-tidy-data-part-1.html#data-wrangling-with-tidy-data-part-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data-wrangling-with-tidy-data-part-1" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data Wrangling with Tidy Data, Part 1<a href="data-wrangling-with-tidy-data-part-1.html#data-wrangling-with-tidy-data-part-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.</p>
 <div class="float">
 <img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" alt="Data science workflow. Image source: R for Data Science." />
 <div class="figcaption">Data science workflow. Image source: <a href="https://r4ds.hadley.nz/whole-game">R for Data Science.</a></div>
 </div>
 <p>For the rest of the course, we focus on <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “Tidy format”. First, we need to understand what it means for a data to be “Tidy”.</p>
-<div id="tidy-data" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Tidy Data<a href="data-wrangling-with-tidy-data-part-1.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tidy-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Tidy Data<a href="data-wrangling-with-tidy-data-part-1.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
 <ol style="list-style-type: decimal">
 <li><p>Each variable must have its own column.</p></li>
@@ -312,10 +304,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="figcaption">A tidy dataframe. Image source: <a href="https://r4ds.hadley.nz/data-tidy">R for Data Science</a>.</div>
 </div>
 </div>
-<div id="examples-and-counter-examples-of-tidy-data" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Examples and counter-examples of Tidy Data:<a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="examples-and-counter-examples-of-tidy-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Examples and counter-examples of Tidy Data:<a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider the following three datasets, which all contain the exact same information:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-1" tabindex="-1"></a>table1</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb95-1" tabindex="-1"></a>table1</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
@@ -326,7 +318,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb104-1" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb97-1" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   country      year type           count
 ##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
@@ -337,7 +329,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Brazil       1999 cases          37737
 ## 6 Brazil       1999 population 172006362</code></pre>
 <p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb106-1" tabindex="-1"></a>table3</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb99-1" tabindex="-1"></a>table3</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   country      year rate             
 ##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
@@ -349,8 +341,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6 China        2000 213766/1280428583</code></pre>
 <p>In <code>table3</code>, we have multiple values for each cell under the “rate” column.</p>
 </div>
-<div id="our-working-tidy-data-depmap-project" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Our working Tidy Data: DepMap Project<a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="our-working-tidy-data-depmap-project" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Our working Tidy Data: DepMap Project<a href="data-wrangling-with-tidy-data-part-1.html#our-working-tidy-data-depmap-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <a href="https://depmap.org/portal/">Dependency Map project</a> is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access. We have been looking at the metadata since last session.</p>
 <ul>
 <li><p>Metadata</p></li>
@@ -362,12 +354,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Let’s see how these datasets fit the definition of Tidy data:</p>
 <pre><code></code></pre>
-<table style="width:100%;">
+<table>
 <colgroup>
-<col width="24%" />
-<col width="24%" />
-<col width="26%" />
-<col width="24%" />
+<col width="13%" />
+<col width="21%" />
+<col width="33%" />
+<col width="31%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -399,8 +391,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="transform-what-do-you-want-to-do-with-this-dataframe" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Transform: “What do you want to do with this dataframe”?<a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="transform-what-do-you-want-to-do-with-this-dataframe" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Transform: “What do you want to do with this dataframe”?<a href="data-wrangling-with-tidy-data-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
 <p>Until now, we haven’t focused too much on how we organize our scientific ideas to interact with what we can do with code. Let’s pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform tidy data, starting with subsetting columns and rows.</p>
 <p>Here’s a starting prompt:</p>
@@ -411,10 +403,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Notice that when we filter for rows in an implicit way, we often formulate our criteria about the columns.</em></p>
 <p>(This is because we are guaranteed to have column names in dataframes, but not usually row names. Some dataframes have row names, but because the data types are not guaranteed to have the same data type across rows, it makes describing by row properties difficult.)</p>
 <p>Let’s convert our implicit subsetting criteria into code!</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb109-1" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb109-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb109-2" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb109-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb109-3" tabindex="-1"></a></span>
-<span id="cb109-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb109-4" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-1" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
+<span id="cb102-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-2" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb102-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-3" tabindex="-1"></a></span>
+<span id="cb102-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-4" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
 <pre><code>##      ModelID Age    Sex
 ## 1 ACH-000017  43 Female
 ## 2 ACH-000019  69 Female
@@ -423,8 +415,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 ACH-000097  63 Female
 ## 6 ACH-000111  41 Female</code></pre>
 <p>Here, <code>filter()</code> and <code>select()</code> are functions from the <code>tidyverse</code> package, which we have to install and load in via <code>library(tidyverse</code>) before using these functions.</p>
-<div id="filter-rows" class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Filter rows<a href="data-wrangling-with-tidy-data-part-1.html#filter-rows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="filter-rows" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Filter rows<a href="data-wrangling-with-tidy-data-part-1.html#filter-rows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s carefully a look what how the R Console is interpreting the <code>filter()</code> function:</p>
 <ul>
 <li><p>We evaluate the expression right of <code>=</code>.</p></li>
@@ -438,8 +430,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Store this in <code>metadata_filtered</code> variable.</p></li>
 </ul>
 </div>
-<div id="select-columns" class="section level3 hasAnchor" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Select columns<a href="data-wrangling-with-tidy-data-part-1.html#select-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="select-columns" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Select columns<a href="data-wrangling-with-tidy-data-part-1.html#select-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s carefully a look what how the R Console is interpreting the <code>select()</code> function:</p>
 <ul>
 <li><p>We evaluate the expression right of <code>=</code>.</p></li>
@@ -453,22 +445,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="summary-statistics" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Summary Statistics<a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="summary-statistics" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Summary Statistics<a href="data-wrangling-with-tidy-data-part-1.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the observations of a variable in a numeric summary.</p>
 <p>If the columns of interest are numeric, then you can try functions such as <code>mean()</code>, <code>median()</code>, <code>mode()</code>, or <code>summary()</code> to get summary statistics of the column. If the columns of interest is character or logical, then you can try the <code>table()</code> function.</p>
 <p>All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the <code>$</code> operation.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb111-1" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb104-1" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 50.96104</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb113-1" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb106-1" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
 <pre><code>## 
 ##  Female Unknown 
 ##      91       1</code></pre>
 </div>
-<div id="pipes" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Pipes<a href="data-wrangling-with-tidy-data-part-1.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pipes" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Pipes<a href="data-wrangling-with-tidy-data-part-1.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb115-1" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb108-1" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
 <p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
 <pre><code>result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
 <p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>
@@ -482,8 +474,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>This looks much easier to read. Notice that we have broken up one expression in to three lines of code for readability. If a line of code is incomplete (the first line of code is piping to somewhere unfinished), the R will treat the next line of code as part of the current line of code.</p>
 <p>Try to rewrite the <code>select()</code> and <code>filter()</code> function composition example above using the pipe metaphor and syntax.</p>
 </div>
-<div id="exercises-3" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Exercises<a href="data-wrangling-with-tidy-data-part-1.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-2" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Exercises<a href="data-wrangling-with-tidy-data-part-1.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can find <a href="https://posit.cloud/content/8245357">exercises and solutions on Posit Cloud</a>, or on <a href="https://github.com/fhdsl/Intro_to_R_Exercises">GitHub</a>.</p>
 
 </div>
@@ -502,7 +494,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="data-wrangling-with-tidy-data-part-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
