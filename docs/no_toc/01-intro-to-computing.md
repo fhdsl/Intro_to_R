@@ -2,6 +2,8 @@
 
 Welcome to Introduction to R! Each week, we cover a chapter, which consists of a lesson and exercise. In our first week together, we will look at big conceptual themes in programming, see how code is run, and learn some basic grammar structures of programming.
 
+## Slides
+
 ## Goals of the course
 
 In the next 6 weeks, we will explore:
@@ -82,7 +84,7 @@ Now, we will get to the basics of programming grammar.
 
 -   Operations and functions combine **data types** to return another data type.
 
--   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
+-   If the function or operation input contains expressions, evaluate those expressions first.
 
 For instance, consider the following expressions entered to the R Console:
 
@@ -179,7 +181,7 @@ Here are some data types that we will be using in this course:
 
 -   **Logical**: TRUE, FALSE
 
-## Grammar Structure 2: Storing data types in the environment
+## Grammar Structure 2: Storing variables in the environment
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:
 

@@ -4,9 +4,9 @@
 
 
 
-Now that we have learned basic data structures in R, we can now learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot". 
+Now that we have learned basic data structures in R, we can now learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, "Grammar of Graphics", or known as "ggplot".
 
-The syntax for `ggplot2` will look a bit different than the code we have been writing, with syntax such as: 
+The syntax for `ggplot2` will look a bit different than the code we have been writing, with syntax such as:
 
 
 ``` r
@@ -14,11 +14,9 @@ ggplot(penguins) + aes(x = bill_length_mm) + geom_histogram()
 # Data              Aesthetics               Geometry
 ```
 
-The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information. 
+The output of all of these functions, such as from `ggplot()` or `aes()` are not data types or data structures that we are familiar with...rather, they are graphical information.
 
 You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can "layer" on to create more sophisticated plots.
-
-![](images/khealy_ggplot1_part1.jpg)
 
 To get started, we will consider these most simple and common plots:
 
