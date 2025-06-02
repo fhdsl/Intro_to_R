@@ -5,31 +5,35 @@ format:
     smaller: true
     scrollable: true
     echo: true
-    embed-resources: true
-    drop:
-      engine: webr
-      button: true
-revealjs-plugins:
-  - drop
 ---
 
-## In 6 weeks we have learned...
+## We did it!
 
--   Fundamental concepts in programming languages: How do programs run, and how do we solve problems effectively using functions and data structures?
+You are now comfortable with our code from Week 1!
 
-. . .
+[Intro to R Cheatsheet](https://hutchdatascience.org/Intro_to_R/cheatsheet.html)
 
--   Data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
+## Certification/Badging
 
-    ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){alt="Data science workflow" width="550"}
+Certification upon completing 4 out of the 5 assignments: <https://www.credly.com/org/fred-hutch/badge/intro-to-r>
+
+What it is:
+
+-   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
+
+What it isn't:
+
+-   Accreditation through an university or degree-granting program.
+
+I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/1Pi34z9OXcpT_ZKDf9VdDYmwtpXg0H1iXNWGAlUhKRM4/edit?usp=sharing).
 
 ## Continuing your education
 
--   [Intermediate R](https://hutchdatascience.org/Intermediate_R/)
+-   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2026, sorry, a long time away...)
 
 . . .
 
--   [R Users Group](https://hutchdatascience.org/usergroups/)
+-   Learning Community starts on June 10! Message me if you haven't been added.
 
 . . .
 
@@ -39,25 +43,45 @@ revealjs-plugins:
 
     -   [R for Data Science, by Hadley Wickham](https://r4ds.hadley.nz/)
 
-## Connecting to rest of DaSL...
+## Connecting to rest of [DaSL Training](https://hutchdatascience.org/courses/)
 
-![](images/dasl_outreach.png)
+![](images/stickers%20mosaic.png)
+
+## Connecting to rest of DaSL/OCDO
+
+-   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
+
+-   [Fred Hutch Data Slack](https://join.slack.com/t/fhdata/signup)
+
+-   [Fred Hutch SciWiki](https://ocdo.fredhutch.org/programs/sciwiki.html)
+
+-   [Open source software at Fred Hutch: WILDS](https://getwilds.org/)
 
 ## Please fill out survey!
 
-Our [class survey](https://forms.gle/4DRFNBSNAMEXudFB9) makes a huge difference for us.
+Our [class survey](https://forms.gle/2Q7StJvFTY5vK2Pr8) makes a huge difference for us.
 
 ## Last but not least...stickers!
 
 ![](https://2953482177-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-M38c0s4s0YCM6dGwrz1%2F-M7RetZBh2Wf7TnfLhKs%2F-M7RkjP-fqIgI8ZsDmKh%2Ftidyverse2.png?alt=media&token=73bf5842-1ae0-4ca4-8622-ec2ae9063a7a){width="350"} ![](images/Intro_To_R_2.png){width="350"} ![](images/student_stickers.jpg){width="350"}
-
-Make your own sticker, add it to the wall of DaSL students!
 
 ## Working on your own projects
 
 -   Download and install [R](https://cloud.r-project.org/)
 
 -   Download and install [RStudio](https://posit.co/downloads/)
+
+## Getting started in RStudio
+
+-   `File -> New Project`
+
+-   This is similar to a Posit Cloud workspace:
+
+    -   Any library you install in this workspace will be only for this Project
+
+    -   Create new Quarto Document or R Script to run your analysis
+
+    -   Highly recommend to put your data in the project folder, so you can access it in a relative path.
 
 . . .
 
@@ -67,12 +91,111 @@ Make your own sticker, add it to the wall of DaSL students!
 
     -   `library(tidyverse)`
 
-## Rest of our time today
+## Loading your own data in
 
--   End of [class survey](https://forms.gle/4DRFNBSNAMEXudFB9)
+CSV file [example](https://pos.it/r4ds-students-csv):
 
--   Make your own sticker
+```         
+Student ID,Full Name,favourite.food,mealPlan,AGE
+1,Sunil Huffmann,Strawberry yoghurt,Lunch only,4
+2,Barclay Lynn,French fries,Lunch only,5
+3,Jayendra Lyne,N/A,Breakfast and lunch,7
+4,Leon Rossini,Anchovies,Lunch only,
+5,Chidiegwu Dunkel,Pizza,Breakfast and lunch,five
+6,Güvenç Attila,Ice cream,Lunch only,6
+```
 
--   Download R and RStudio
+Feel free to download this example file and place it in your project directory.
 
--   KRAS analysis
+. . .
+
+```{r}
+library(tidyverse)
+students = read_csv("https://raw.githubusercontent.com/hadley/r4ds/main/data/students.csv")
+students
+```
+
+## Skipping lines
+
+```{r}
+read_csv(
+  "# A comment I want to skip
+  x,y,z
+  1,2,3",
+  comment = "#"
+)
+```
+
+. . .
+
+```{r}
+read_csv(
+  "The first line of metadata
+  The second line of metadata
+  x,y,z
+  1,2,3",
+  skip = 2
+)
+```
+
+## Specifying column names
+
+```{r}
+read_csv(
+  "1,2,3
+  4,5,6",
+  col_names = FALSE
+)
+```
+
+. . .
+
+```{r}
+read_csv(
+  "1,2,3
+  4,5,6",
+  col_names = c("x", "y", "z")
+)
+```
+
+## Other file formats
+
+`read_tsv("file.tsv")` for tab-deliminated files
+
+`read_excel("example.xlsx")` for excel files
+
+`read_excel("example.xlsx", sheet = "chickwts")` for excel files with a sheet name
+
+`read_delim()` for general-deliminated files, such as:
+
+`read_delim("file.csv", sep = ",")`
+
+## Writing out data
+
+`write_csv(my_dataframe, "filepath.csv")`
+
+`write_excel(my_dataframe, "filepath.xlsx")`
+
+`write_delim(my_dataframe, "filepath.tsv", sep="\t")`
+
+## Saving plots
+
+```         
+pdf("myplot.pdf", width=8, height=4)
+ggplot(s)
+dev.off()
+```
+
+## Project and spreadsheet organization
+
+Consider having subfolders for:
+
+-   Raw data and metadata
+
+-   Analyzed data
+
+-   Plots
+
+[Good enough practices for scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+[Better Spreadsheet workshop](https://better-spreadsheets.netlify.app/)

@@ -6,17 +6,14 @@ format:
     scrollable: true
     echo: true
     embed-resources: true
-    drop:
-      engine: webr
-      button: true
-revealjs-plugins:
-  - drop
 output-location: fragment
 ---
 
 ## Welcome!
 
-![](images/R-3.1%20(Final).png)
+![](images/R-3.1%20(Final).png){width="600"}
+
+Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: [https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7](#0 "https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7"). 
 
 ## Introductions
 
@@ -24,7 +21,7 @@ output-location: fragment
 
 . . .
 
--   What is DaSL?
+-   What is [DaSL](https://hutchdatascience.org/)?
 
 . . .
 
@@ -35,6 +32,10 @@ output-location: fragment
     -   What you want to get out of the class
 
     -   Favorite spring activity
+
+. . .
+
+-   Our wonderful TAs!
 
 ## Goals of the course
 
@@ -48,106 +49,127 @@ output-location: fragment
 
     ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
+## Content of the course
+
+1.  Intro to Computing
+
+2.  Data structures
+
+3.  Data wrangling 1
+
+4.  Data wrangling 2
+
+5.  Data visualization
+
+6.  Wrap-up, Pizza
+
 ## Culture of the course
 
 . . .
 
--   Learning on the job is challenging
-    -   I will move at learner's pace
-    -   Teach not for mastery, but teach for empowerment to learn effectively.
+-   Challenge: We are learning a new language, but you already have a full-time job.
 
 . . .
 
--   Various personal goals and applications
-    -   Curate content towards end of the course
+-   *Teach not for mastery, but teach for empowerment to learn effectively.*
 
 . . .
 
--   Respect Code of Conduct
+-   *Teach at learner's pace.*
+
+## Culture of the course
+
+-   Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has worked on something similar.
+
+. . .
+
+-   *We learn and work better with our peers.*
+
+. . .
+
+-   *We encourage discussion and questions, as others often have similar questions also.*
 
 ## Format of the course
 
 . . .
 
--   Streamed online, recordings will be available.
+-   Hybrid, and recordings will be available.
 
 . . .
 
--   1-2 hour exercises after each session are strongly encouraged as they provide practice.
-
--   Optional time to work on exercises together on Fridays Noon - 1pm PT.
+-   1 hour exercises after each session are encouraged for practice.
 
 . . .
 
--   Online discussion via Slack.
+-   Office Hours Mondays Noon-1pm.
 
+## Badge of completion
 
+![](images/Intro_to_R_Square.png){width="450"}
 
-## Content of the course
+We offer a [badge of completion](https://www.credly.com/org/fred-hutch/badge/intro-to-r) when you finish the course!
 
-1.  Intro to Computing
+What it is:
 
-. . .
+-   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
 
-2.  Data structures
+What it isn't:
 
-. . .
-
-3.  Data wrangling 1
-
-. . .
-
-4.  Data wrangling 2
+-   Accreditation through an university or degree-granting program.
 
 . . .
 
-5.  Data visualization
+Requirements:
 
-. . .
+-   Complete badge-required sections of the exercises for 4 out of 5 assignments.
 
-6.  Loading your own data in, celebratory lunch!!
+## Ready?
+
+![](images/horst_community.png)
 
 ## What is a computer program?
 
 . . .
 
--   A sequence of instructions to manipulate data for the computer to execute.
+-   A *sequence* of instructions to manipulate data for the computer to execute.
 
 . . .
 
--   A series of translations: English \<-\> Programming Code for Interpreter \<-\> Machine Code for Central Processing Unit (CPU)
+-   A series of *translations*: English \<-\> Programming Code for R Console \<-\> Machine Code
 
 . . .
 
 We will focus on English \<-\> Programming Code for R Interpreter in this class.
 
-. . .
-
-Another way of putting it: **How we organize ideas \<-\> Instructing a computer to do something**.
-
 ## Setting up Posit Cloud and trying out your first analysis!
 
-What's the connection between English \<-\> Programming Code for R Interpreter?
+[Classroom link here](https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7).
+
+Open up "Week 1 Classwork" once you are in the classroom.
 
 ## Break
 
-A pre-course survey:
+Pre-course survey here: <https://forms.gle/bakYJ218Xu5EdSRv6>
 
-https://forms.gle/Hr59ZbAan1JTumCa7
- 
 ## Grammar Structure 1: Evaluation of Expressions
 
-. . .
+Consider the expression:
 
--   **Expressions** are built out of **operations** or **functions**.
-
-. . .
-
--   Operations and functions take in **data types** and return another data type.
+```{r}
+max(18, 21)
+```
 
 . . .
 
--   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
+-   **Expressions** are built out of **functions** or **operations**.
+
+. . .
+
+-   Functions and operations take in **data types** as inputs, and **return** another data type as output.
+
+. . .
+
+-   If the function or operation input contains expressions, evaluate those expressions first.
 
 ## Examples
 
@@ -170,7 +192,7 @@ max(18 + 21, 65)
 . . .
 
 ```{r}
-18 + (21 + 65)
+18 * (21 + 65)
 ```
 
 . . .
@@ -179,33 +201,15 @@ max(18 + 21, 65)
 nchar("ATCG")
 ```
 
-::: notes
-If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
-:::
+## Interpreting functions
 
-## Function machine from algebra class
+![](https://moffett4understandingmath.com/wp-content/uploads/2017/06/function-machine.png){alt="Function machine from algebra class." width="200"}
 
-. . .
-
-![](){alt="Function machine from algebra class." width="300"}
+-   To use a function, we only need to know what the expected inputs and outputs are. The inner workings don't matter yet.
 
 . . .
 
-Operations are functions. We could have written:
-
-```{r}
-sum(18, 21)
-```
-
-. . .
-
-```{r}
-sum(18, sum(21, 65))
-```
-
-::: notes
-Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
-:::
+-   A function can have different kinds of inputs and outputs - it doesn't need to be numbers.
 
 ## Data types
 
@@ -215,94 +219,62 @@ Lastly, a note on the use of functions: a programmer should not need to know how
 
 -   **Logical**: TRUE, FALSE
 
-## Grammar Structure 2: Storing data types in the environment
+## Grammar Structure 2: Storing variables in the environment
 
 . . .
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.
 
 ```{r}
-x = 18 + 21
+age = 18 + 21
 ```
 
 . . .
-
-::: callout-tip
-## Execution rule for variable assignment
 
 Evaluate the expression to the right of `=`.
 
-Bind variable to the left of `=` to the resulting value.
+Bind variable on the left of `=` to the resulting value.
 
-The variable is stored in the environment.
-
-`<-` is okay too!
-:::
-
-::: notes
-The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.
-
-The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.
-:::
+Then the variable is stored in the **environment**.
 
 ## Downstream
 
-Look, now `x` can be reused downstream:
+Look, now `age` can be reused downstream:
 
 ```{r}
-x - 2
+age - 2
 ```
 
 . . .
 
 ```{r}
-y = x * 2
-y
+age_double = age * 2
+age_double
 ```
 
-## Grammar Structure 3: Evaluation of Functions
-
-A function has a **function name**, **arguments**, and **returns** a data type.
-
 . . .
 
-::: callout-tip
-## Execution rule for functions:
-
-Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.
-
-The output of functions is called the **returned value**.
-:::
-
-. . .
+What's the data type of a variable?
 
 ```{r}
-sqrt(nchar("hello"))
+class(age_double)
+```
+
+## More practice
+
+```{r}
+(sqrt(nchar("hello")) + 4) * (2 + 4)
 ```
 
 . . .
 
 ```{r}
-(nchar("hello") + 4) * 2
+brothers_age = 45
+grandmas_age = 90
+age = max(brothers_age, grandmas_age)
+secret = (nchar("hello") + age) * (2 + 4)
+secret
 ```
-
-## A programming language has following features:
-
-. . .
-
--   Grammar structure to construct expressions
-
-. . .
-
--   Combining expressions to create more complex expressions
-
-. . .
-
--   Encapsulate complex expressions via functions to create modular and reusable tasks
-
-. . .
-
--   Encapsulate complex data via data structures to allow efficient manipulation of data
 
 ## Tips on writing your first code
 
@@ -310,24 +282,14 @@ sqrt(nchar("hello"))
 
 `Computer = powerful + stupid`
 
-Even the smallest spelling and formatting changes will cause unexpected output and errors!
+. . .
+
+-   Write incrementally: if `function(a, b + c)` isn't working, examine `a` and `b + c`
 
 . . .
 
--   Write incrementally, test often
-
-. . .
-
--   Check your assumptions, especially using new functions, operations, and new data types.
-
-. . .
-
--   Live environments are great for testing, but not great for reproducibility.
+-   The sequence of instructions you give matters! Refresh the page to clear the environment.
 
 . . .
 
 -   **Ask for help!**
-
-## That's all!
-
-Maybe see you Friday Noon - 1pm PT to practice together!

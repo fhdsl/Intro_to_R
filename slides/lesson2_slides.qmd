@@ -5,74 +5,125 @@ format:
     smaller: true
     scrollable: true
     echo: true
-    embed-resources: true
-    drop:
-      engine: webr
-      button: true
-revealjs-plugins:
-  - drop
 output-location: fragment
 ---
 
-## Data types
+## Solving problems...
 
--   **Numeric**: 18, -21, 65, 1.25
--   **Character**: "ATCG", "Whatever", "948-293-0000"
--   **Logical**: TRUE, FALSE
-
-## Data structures
-
-**Data structures** stores information about data types.
+![](images/gator_error.jpg)
 
 . . .
 
-**Vector** is a ordered collection of a data type. Each *element* of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.
+What is a problem you encountered and fixed recently?
+
+## Exercise 1 Continued
+
+-   Three styles of defining and updating variables
+
+## Comparison Operations
+
+Sometimes, we want to make comparisons between data types, such as if one is bigger than the other, or whether they are the same.
+
+```{r}
+age = 35
+
+age > 18
+```
+
+. . .
+
+```{r}
+age <= 65
+```
+
+. . .
+
+```{r}
+building_name = "Arnold"
+
+building_name == "Weintraub"
+```
+
+. . .
+
+```{r}
+building_name != "Weintraub"
+```
+
+## Full list of Comparison Operations
+
+`<` less than
+
+`<=` less or equal than
+
+`>` greater than
+
+`>=` greater than or equal to
+
+`==` equal to
+
+`!=` not equal to
+
+. . .
+
+You can also write out multiple comparisons at once, which you will see more in your exercise this week...
+
+## Vectors
+
+A **Vector** is a linear ordered collection of a data type.
+
+Each *element* of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.
+
+. . .
+
+Define it via the combine `c()` function:
+
+```{r}
+staff = c("chris", "sonu", "sean")
+chrNum = c(2, 3, 1)
+```
 
 . . .
 
 So, you can have **numeric vector**, **character vector**, and **logical vector**.
 
-::: notes
-There is no limit on how big a vector can be, as long the memory use of it is within the computer's memory (RAM).
+## Operations and functions on vectors
 
-We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once!
-:::
-
-## Defining a vector
-
-. . .
+Multiplication operation on vectors:
 
 ```{r}
-staff = c("chris", "shasta", "jeff")
 chrNum = c(2, 3, 1)
-```
-
-## Using operations on vectors
-
-. . .
-
-You can use operations and functions on vectors.
-
-. . .
-
-```{r}
 chrNum = chrNum * 3
 chrNum 
 ```
 
 . . .
 
-Multiplication has a new meaning when used on a numeric vector and numeric data type! This is called **operator overloading**.
+Multiplication has a new meaning when used on a numeric vector and numeric data type! 😮
 
 . . .
 
-😮
+Comparison operator on vectors:
 
-## Operator overloading
+```{r}
+chrNum = c(2, 3, 1)
+chrNum > 2
+```
+
+. . .
+
+Functions on vectors: how many elements are in this vector?
+
+```{r}
+length(chrNum)
+```
+
+## Operations and functions on vectors: can we do this?
 
 How about numeric vector multiplied by numeric vector?
 
 ```{r}
+chrNum = c(2, 3, 1)
 chrNum * c(2, 2, 0)
 ```
 
@@ -84,29 +135,33 @@ a numeric vector added to a character vector:
 #chrNum + staff
 ```
 
-## Functions on vectors
-
-How many elements are in this vector?
+## Subsetting vectors
 
 ```{r}
-length(staff)
+staff = c("chris", "sonu", "sean")
 ```
-
-## Subsetting vectors
 
 We subset vectors using the bracket `[ ]` operation.
 
 . . .
 
-Inside the bracket is either a single numeric value or an a **numerical indexing vector** containing numerical values. They dictate which elements of the vector to return.
+Inside the bracket can be:
 
-. . .
+1.  A single numeric value
 
 ```{r}
 staff[2]
 ```
 
 . . .
+
+```{r}
+staff[3] = "scott"
+```
+
+. . .
+
+2.  A **numerical indexing vector** containing numerical values. They dictate which elements of the vector to subset.
 
 ```{r}
 staff[c(1, 2)]
@@ -119,13 +174,13 @@ small_staff = staff[c(1, 2)]
 small_staff
 ```
 
-## Subsetting vectors
+## Subsetting vectors continued
 
-Alternatively, instead of using numerical indexing vectors, we can use a **logical indexing vector**.
+```{r}
+staff = c("chris", "sonu", "sean")
+```
 
-. . .
-
-The logical indexing vector must be the *same length* as the vector to be subsetted, with `TRUE` indicating an element to keep, and `FALSE` indicating an element to drop.
+3.  A **logical indexing vector** with the same length as the vector to be subsetted. The `TRUE` values indicate which elements to keep, the `FALSE` values indicate which elements to drop.
 
 . . .
 
@@ -146,119 +201,26 @@ small_staff = staff[c(TRUE, TRUE, FALSE)]
 small_staff
 ```
 
-## Explicit vs. implicit subsetting
-
-. . .
-
--   **Explicit subsetting**: Given a length 10 vector of people's ages, and subset to the 1st, 3rd, and 9th elements.
-
-. . .
+## A trick: When subsetting large vectors
 
 ```{r}
-age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
+set.seed(123) #don't worry about this function
+age = round(runif(100, 1, 100)) #don't worry about these functions
+age
+```
+
+Suppose you want the first 20 elements of this vector. Writing out `c(1, 2, 3, 4, …` is a pain. We can generate 1 to 20 via the following trick:
+
+```{r}
+1:20
 ```
 
 . . .
 
-```{r}
-age[c(1, 5, 9)]
-```
-
-. . .
+Much easier!
 
 ```{r}
-age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
-```
-
-. . .
-
--   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements greater than age 50.
-
-## Implicit subsetting
-
-We don't know which elements to subset off the top of our head! If we know which elements are \> 50, then we can give the elements for an explicit subset.
-
-. . .
-
-Use a **comparison operator** to create a logical indexing vector:
-
-. . .
-
-```{r}
-age > 50
-```
-
-. . .
-
-Can you guess what we do next?
-
-. . .
-
-```{r}
-age[age > 50]
-```
-
-## Implicit subsetting
-
-Subset a vector **implicitly**, in 3 steps:
-
-. . .
-
-1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
-
-. . .
-
-2.  Use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
-
-```{r}
-age > 50
-```
-
-. . .
-
-3.  Use this logical indexing vector to subset.
-
-```{r}
-age[age > 50]
-```
-
-. . .
-
-Alternatively,
-
-```{r}
-idx = age > 50
-age[idx]
-```
-
-## Comparison operators:
-
-`<` less than
-
-`<=` less or equal than
-
-`>` greater than
-
-`>=` greater than or equal to
-
-`==` equal to
-
-`!=` not equal to
-
-. . .
-
-Subset `staff` to not have "chris" in it.
-
-. . .
-
-```{r}
-staff != "chris"
-```
-
-. . .
-
-```{r}
-staff[staff != "chris"]
+age[1:20]
 ```
 
 ## Dataframes
@@ -269,16 +231,21 @@ A **dataframe** is a spreadsheet such that each column must have the same data t
 
 . . .
 
+Let's load a Dataframe in, and see what's in it, spreadsheet style!
+
 ```{r}
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
-nrow(metadata)
 ```
+
+`View(metadata)`
+
+## Functions that help us learn about a Dataframe
+
+`head(metadata)`
 
 . . .
 
-```{r}
-ncol(metadata)
-```
+`tail(metadata)`
 
 . . .
 
@@ -288,21 +255,11 @@ dim(metadata)
 
 . . .
 
-`head(metadata)`
-
-`View(metadata)`
-
-## Column names of dataframes
-
 The **column name** is a character vector that corresponds to the columns of the dataframe.
-
-. . .
 
 ```{r}
 names(metadata)
 ```
-
-. . .
 
 ## Subsetting a column from a dataframe
 
@@ -312,9 +269,17 @@ The `dataframe$column_name` operation selects for a column by its column name an
 
 . . .
 
+`metadata$OncotreeLineage`
+
+. . .
+
 ```{r}
 metadata$OncotreeLineage[1:5]
 ```
+
+. . .
+
+`metadata$Age`
 
 . . .
 
@@ -323,12 +288,6 @@ metadata$Age[1:5]
 ```
 
 . . .
-
-Challenge!
-
-```{r}
-metadata$Age[metadata$OncotreeLineage == "Myeloid"]
-```
 
 ## Subsetting columns and rows from a dataframe
 
@@ -348,18 +307,18 @@ We can refer to the column names directly:
 metadata[1:5, c("ModelID", "CellLineName")]
 ```
 
-## Subsetting columns and rows from a dataframe
+## Subsetting columns or rows from a dataframe
 
-We can leave the column index or row index empty to just subset columns or rows.
-
-. . .
-
-```{r}
-metadata[1:5, ]
-```
+We can leave the column index or row index empty to just subset columns or rows. **But keep the comma!!!**
 
 . . .
 
-```{r}
-metadata[, c("ModelID", "CellLineName")]
-```
+`metadata[1:5, ]`
+
+. . .
+
+`metadata[, c("ModelID", "CellLineName")]`
+
+## How was class for you today?
+
+<https://forms.gle/wH3bNotnob9ftc7u6>
