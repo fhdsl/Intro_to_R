@@ -163,7 +163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>2.7.1</b> Data types</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-environment"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 2: Storing data types in the environment</a>
+<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-variables-in-the-environment"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 2: Storing variables in the environment</a>
 <ul>
 <li class="chapter" data-level="2.8.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>2.8.1</b> Execution rule for variable assignment</a></li>
 </ul></li>
@@ -307,7 +307,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-and-counter-examples-of-tidy-data" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Examples and counter-examples of Tidy Data:<a href="data-wrangling-with-tidy-data-part-1.html#examples-and-counter-examples-of-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider the following three datasets, which all contain the exact same information:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb95-1" tabindex="-1"></a>table1</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb94-1" tabindex="-1"></a>table1</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
@@ -318,7 +318,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>This <code>table1</code> satisfies the the definition of Tidy Data. The observation is a country’s year, and the variables are attributes of each country’s year.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb97-1" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb96-1" tabindex="-1"></a><span class="fu">head</span>(table2)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   country      year type           count
 ##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
@@ -329,7 +329,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Brazil       1999 cases          37737
 ## 6 Brazil       1999 population 172006362</code></pre>
 <p>Something is strange able <code>table2</code>. The observation is still a country’s year, but “type” and “count” are not clear attributes of each country’s year.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb99-1" tabindex="-1"></a>table3</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb98-1" tabindex="-1"></a>table3</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   country      year rate             
 ##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
@@ -403,10 +403,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Notice that when we filter for rows in an implicit way, we often formulate our criteria about the columns.</em></p>
 <p>(This is because we are guaranteed to have column names in dataframes, but not usually row names. Some dataframes have row names, but because the data types are not guaranteed to have the same data type across rows, it makes describing by row properties difficult.)</p>
 <p>Let’s convert our implicit subsetting criteria into code!</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-1" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
-<span id="cb102-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-2" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
-<span id="cb102-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-3" tabindex="-1"></a></span>
-<span id="cb102-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb102-4" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb101-1" tabindex="-1"></a>metadata_filtered <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>)</span>
+<span id="cb101-2"><a href="data-wrangling-with-tidy-data-part-1.html#cb101-2" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(metadata_filtered, ModelID, Age, Sex)</span>
+<span id="cb101-3"><a href="data-wrangling-with-tidy-data-part-1.html#cb101-3" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="data-wrangling-with-tidy-data-part-1.html#cb101-4" tabindex="-1"></a><span class="fu">head</span>(breast_metadata)</span></code></pre></div>
 <pre><code>##      ModelID Age    Sex
 ## 1 ACH-000017  43 Female
 ## 2 ACH-000019  69 Female
@@ -450,9 +450,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the observations of a variable in a numeric summary.</p>
 <p>If the columns of interest are numeric, then you can try functions such as <code>mean()</code>, <code>median()</code>, <code>mode()</code>, or <code>summary()</code> to get summary statistics of the column. If the columns of interest is character or logical, then you can try the <code>table()</code> function.</p>
 <p>All of these functions take in a vector as input and not a dataframe, so you have to access the column as a vector via the <code>$</code> operation.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb104-1" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb103-1" tabindex="-1"></a><span class="fu">mean</span>(breast_metadata<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 50.96104</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb106-1" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb105-1" tabindex="-1"></a><span class="fu">table</span>(breast_metadata<span class="sc">$</span>Sex)</span></code></pre></div>
 <pre><code>## 
 ##  Female Unknown 
 ##      91       1</code></pre>
@@ -460,7 +460,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="pipes" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Pipes<a href="data-wrangling-with-tidy-data-part-1.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb108-1" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-wrangling-with-tidy-data-part-1.html#cb107-1" tabindex="-1"></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(<span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">&quot;Breast&quot;</span>), ModelID, Age, Sex)</span></code></pre></div>
 <p>This is a bit hard to read. A computer doesn’t care how difficult it is to read this line of code, but there is a lot of instructions going on in one line of code. This multi-step function composition will lead to an unreadable pattern such as:</p>
 <pre><code>result = function3(function2(function1(dataframe, df_col4, df_col2), arg2), df_col5, arg1)</code></pre>
 <p>To untangle this, you have to look into the middle of this code, and slowly step out of it.</p>

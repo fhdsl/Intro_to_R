@@ -4,19 +4,6 @@ Welcome to Introduction to R! Each week, we cover a chapter, which consists of a
 
 ## Slides
 
-[Link to Slides](https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide)
-
-
-``` r
-knitr::include_url("https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide")
-```
-
-```
-## `google-chrome`, `chromium-browser` and `chrome` were not found. Try setting the `CHROMOTE_CHROME` environment variable to the executable of a Chromium-based browser, such as Google Chrome, Chromium or Brave or adding one of these executables to your PATH.
-```
-
-<iframe src="https://hutchdatascience.org/intro_r_slides/lesson1_slides.html#/title-slide" width="100%" height="400px" data-external="1"></iframe>
-
 ## Goals of the course
 
 In the next 6 weeks, we will explore:
@@ -194,7 +181,7 @@ Here are some data types that we will be using in this course:
 
 -   **Logical**: TRUE, FALSE
 
-## Grammar Structure 2: Storing data types in the environment
+## Grammar Structure 2: Storing variables in the environment
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use. We can assign a variable to it as follows:
 

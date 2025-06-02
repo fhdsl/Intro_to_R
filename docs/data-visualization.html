@@ -163,7 +163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>2.7.1</b> Data types</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-environment"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 2: Storing data types in the environment</a>
+<li class="chapter" data-level="2.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-variables-in-the-environment"><i class="fa fa-check"></i><b>2.8</b> Grammar Structure 2: Storing variables in the environment</a>
 <ul>
 <li class="chapter" data-level="2.8.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>2.8.1</b> Execution rule for variable assignment</a></li>
 </ul></li>
@@ -283,8 +283,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 6</span> Data Visualization<a href="data-visualization.html#data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Now that we have learned basic data structures in R, we can now learn about how to do visualize our data. There are several different data visualization tools in R, and we focus on one of the most popular, “Grammar of Graphics”, or known as “ggplot”.</p>
 <p>The syntax for <code>ggplot2</code> will look a bit different than the code we have been writing, with syntax such as:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-visualization.html#cb138-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
-<span id="cb138-2"><a href="data-visualization.html#cb138-2" tabindex="-1"></a><span class="co"># Data              Aesthetics               Geometry</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-visualization.html#cb137-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span>
+<span id="cb137-2"><a href="data-visualization.html#cb137-2" tabindex="-1"></a><span class="co"># Data              Aesthetics               Geometry</span></span></code></pre></div>
 <p>The output of all of these functions, such as from <code>ggplot()</code> or <code>aes()</code> are not data types or data structures that we are familiar with…rather, they are graphical information.</p>
 <p>You should be worried less about how this syntax is similar to what we have learned in the course so far, but to view it as a new grammar (of graphics!) that you can “layer” on to create more sophisticated plots.</p>
 <p>To get started, we will consider these most simple and common plots:</p>
@@ -320,14 +320,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="lets-take-it-apart" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Let’s take it apart<a href="data-visualization.html#lets-take-it-apart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can always try out a ggplot incrementally if you’re not sure what pieces do:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-visualization.html#cb139-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins)          <span class="co">#data</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-visualization.html#cb138-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins)          <span class="co">#data</span></span></code></pre></div>
 <p><img src="05-data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="data-visualization.html#cb140-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span>                <span class="co">#data</span></span>
-<span id="cb140-2"><a href="data-visualization.html#cb140-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)  <span class="co">#aesthetics</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-visualization.html#cb139-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span>                <span class="co">#data</span></span>
+<span id="cb139-2"><a href="data-visualization.html#cb139-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)  <span class="co">#aesthetics</span></span></code></pre></div>
 <p><img src="05-data-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-visualization.html#cb141-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span>                <span class="co">#data</span></span>
-<span id="cb141-2"><a href="data-visualization.html#cb141-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm) <span class="sc">+</span> <span class="co">#aesthetics</span></span>
-<span id="cb141-3"><a href="data-visualization.html#cb141-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()          <span class="co">#geometry</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="data-visualization.html#cb140-1" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span>                <span class="co">#data</span></span>
+<span id="cb140-2"><a href="data-visualization.html#cb140-2" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm) <span class="sc">+</span> <span class="co">#aesthetics</span></span>
+<span id="cb140-3"><a href="data-visualization.html#cb140-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()          <span class="co">#geometry</span></span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range
 ## (`stat_bin()`).</code></pre>

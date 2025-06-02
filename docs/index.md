@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-date: "March, 2025"
+date: "June, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -26,7 +26,11 @@ In this course, you will learn the fundamentals of R, a statistical programming 
 After taking this course, you will be able to:
 
 -   **Analyze** Tidy datasets in the R programming language via data wrangling, summary statistics, and visualization.
+
+-   **Compute** summary statistics and create data visualizations to interpret data.
+
 -   **Describe** how the R programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.
+
 -   **Apply** problem solving strategies to debug broken code.
 
 ## Course Website
