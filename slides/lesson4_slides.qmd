@@ -5,12 +5,7 @@ format:
     smaller: true
     scrollable: true
     echo: true
-    embed-resources: true
-    drop:
-      engine: webr
-      button: true
-revealjs-plugins:
-  - drop
+output-location: fragment
 ---
 
 ```{r, echo=F, message=F, warning=F, error=F}
@@ -199,13 +194,17 @@ Desired columns: mean age.
 
 . . .
 
-*The rows I want is described by a column. The columns I want need to be summarized from other columns.*
+To get there, we need to:
+
+-   **Group** the data based on some criteria: elements of `OncotreeLineage`
+
+-   **Summarise** each group via a summary statistic performed on a column: `Age`.
 
 ## Grouping and summarizing dataframes
 
 ```{r}
 metadata_grouped = group_by(metadata, OncotreeLineage)
-metadata_type = summarise(metadata_grouped, MeanAge = mean(Age, na.rm = TRUE), Count = n())
+metadata_type = summarise(metadata_grouped, MeanAge = mean(Age, na.rm = TRUE))
 ```
 
 . . .
@@ -256,23 +255,19 @@ Or... 🤕
 result = function1(function2(function3(dataframe, df_col4, df_col2), arg2), df_col5, arg1)
 ```
 
-. . .
-
-[R style guide](https://style.tidyverse.org/index.html)
-
 ## Pipes to make nested functions readable
 
 . . .
 
 ```         
-result2 = dataframe %>% function1 %>% function2 %>% function3
+result2 = dataframe |> function1 |> function2 |> function3
 ```
 
 . . .
 
 ```         
-result = function1(df_col5, arg1) %>%
-         function2(arg2) %>%
+result = function1(df_col5, arg1) |>
+         function2(arg2) |>
          function3(df_col4, df_col2)
 ```
 
@@ -283,8 +278,7 @@ Rewrite the `select()` and `filter()` function composition example above using t
 . . .
 
 ```{r}
-breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
-                               select(ModelID, Age, Sex)
+breast_metadata = metadata |> filter(OncotreeLineage == "Breast") |> select(ModelID, Age, Sex)
 ```
 
 🤠
@@ -294,8 +288,16 @@ breast_metadata = metadata %>% filter(OncotreeLineage == "Breast") %>%
 Group by and summarise with pipes:
 
 ```{r}
-metadata_by_type = metadata %>% 
-                   group_by(OncotreeLineage) %>% 
+metadata_by_type = metadata |> 
+                   group_by(OncotreeLineage) |> 
                    summarise(MeanAge = mean(Age, na.rm = TRUE),
                              Count = n())
 ```
+
+## Appendix: More data wrangling functions from Tidyverse
+
+<https://dplyr.tidyverse.org/articles/dplyr.html>
+
+## How was class for you today?
+
+<https://forms.gle/yKzFmYxmpMdsLDhj7>
