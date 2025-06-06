@@ -7,6 +7,94 @@ library(tidyverse)
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
+## Explicit vs. implicit subsetting
+
+Suppose you are given this vector:
+
+```{r}
+age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
+```
+
+Here are two scenarios of subsetting:
+
+1.  **Explicit subsetting**: Suppose someone approaches you a length 10 vector of people's ages, and say that they want to subset to the 1st, 3rd, and 9th elements.
+
+2.  **Implicit subsetting**: Suppose someone approaches you a length 10 vector of people's ages, and say that they want to subset to elements greater than 50.
+
+We already know how to subset explicitly:
+
+```{r}
+age[c(1, 3, 9)]
+```
+
+But for implicit subsetting, we don't know off the top of our head which elements have a value greater than 50. If this vector was really big, it wouldn't make sense for us to manually figure this out. Luckily, we already have the tools we need to subset vectors implicitly.
+
+Recall that our comparison operators can be applied for vectors, such as:
+
+```{r}
+age > 50
+```
+
+This vector of `TRUE` and `FALSE` values can be used as a logical indexing vector to help us subset implicitly!
+
+```{r}
+age[age > 50]
+```
+
+Subset a vector **implicitly**, in 3 steps:
+
+1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
+2.  We can use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
+
+```{r}
+age > 50
+```
+
+3.  Use this logical indexing vector to subset.
+
+```{r}
+age[age > 50]
+
+```
+
+Alternatively,
+
+```{r}
+idx = age > 50
+age[idx]
+```
+
+And you are done.
+
+For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don't need to know what your vector contains to do something with it! This technique is related to *abstraction* in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of *hard-coding* the value explicitly, it generalizes your code to handle a wider variety of situations.
+
+One more example:
+
+```{r}
+staff = c("chris", "sonu", "sean")
+```
+
+Let's subset `staff` so it doesn't have "chris" in it.
+
+Use an appropriate comparison operator:
+
+```{r}
+staff != "chris"
+```
+
+Then, use the resulting value as a logical indexing vector:
+
+```{r}
+answer = staff[staff != "chris"]
+answer
+```
+
+We stored the subsetted result as a variable `answer`.
+
+Let's take this idea of implicit subsetting to Dataframes.
+
+## Data Science workflow
+
 From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.
 
 ![Data science workflow. Image source: [R for Data Science.](https://r4ds.hadley.nz/whole-game)](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
@@ -69,20 +157,15 @@ The [Dependency Map project](https://depmap.org/portal/) is a multi-omics profil
 
 Let's see how these datasets fit the definition of Tidy data:
 
-```         
-```
-
 | Dataframe  | The observation is | Some variables are            | Some values are             |
-|------------|--------------------|-------------------------------|-----------------------------|
+|----------------|----------------|----------------------|--------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
 | expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |
 | mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |
 
 ## Transform: "What do you want to do with this dataframe"?
 
-Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
-
-Until now, we haven't focused too much on how we organize our scientific ideas to interact with what we can do with code. Let's pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform tidy data, starting with subsetting columns and rows.
+Until now, we haven't focused too much on how we organize our scientific ideas to interact with what we can do with code. Let's pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform Tidy data, starting with subsetting columns and rows.
 
 Here's a starting prompt:
 
@@ -153,6 +236,8 @@ mean(breast_metadata$Age, na.rm = TRUE)
 table(breast_metadata$Sex)
 ```
 
+When computing the mean value of the `Age` column from `breast_metadata`, we add an additional option of `na.rm = TRUE` because some of the column contain missing values. This will remove the missing values before computing the mean value.
+
 ## Pipes
 
 Often, in data analysis, we want to transform our dataframe in multiple steps via different functions. This leads to nested function calls, like this:
@@ -173,13 +258,13 @@ To make this more readable, programmers came up with an alternative syntax for f
 
 Instead of a syntax like `result2 = function3(function2(function1(dataframe)))`,
 
-we linearize it with the `%>%` symbol: `result2 = dataframe %>% function1 %>% function2 %>% function3`.
+we linearize it with the `|>` symbol: `result2 = dataframe |> function1 |> function2 |> function3`.
 
 In the previous example,
 
 ```         
-result = dataframe %>% function1(df_col4, df_col2) %>%
-         function2(arg2) %>%
+result = dataframe %>% function1(df_col4, df_col2) |>
+         function2(arg2) |>
          function3(df_col5, arg1)
 ```
 
