@@ -13,7 +13,7 @@ output-location: fragment
 
 ![](images/R-3.1%20(Final).png){width="600"}
 
-Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: [https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7](#0 "https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7"). 
+Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: <https://posit.cloud/spaces/688947/join?access_code=0gauCbMN_lB9vKO1YlXCD3_6SGjZoBlEybMq8L3D>. 
 
 ## Introductions
 
@@ -21,7 +21,7 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 . . .
 
--   What is [DaSL](https://hutchdatascience.org/)?
+-   What is [DaSL](https://hutchdatascience.org/) / [OCDO](https://ocdo.fredhutch.org/) ?
 
 . . .
 
@@ -31,7 +31,7 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
     -   What you want to get out of the class
 
-    -   Favorite spring activity
+    -   What has brought you joy lately?
 
 . . .
 
@@ -59,9 +59,11 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 4.  Data wrangling 2
 
-5.  Data visualization
+5.  \[No class week\]
 
-6.  Wrap-up, Pizza
+6.  Data visualization
+
+7.  Wrap-up, Pizza!
 
 ## Culture of the course
 
@@ -79,7 +81,7 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 ## Culture of the course
 
--   Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has worked on something similar.
+-   Challenge: We sometimes struggle with our data science problems in isolation, unaware that other folks are working on similar things.
 
 . . .
 
@@ -101,7 +103,7 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 . . .
 
--   Office Hours Mondays Noon-1pm.
+-   Office hours 11:30-Noon before class.
 
 ## Badge of completion
 
@@ -139,17 +141,25 @@ Requirements:
 
 . . .
 
-We will focus on English \<-\> Programming Code for R Interpreter in this class.
+For example:
+
+```{r, warning=FALSE}
+library(tidyverse)
+iris_filtered = filter(iris, Sepal.Width > 2)
+mean(iris_filtered$Sepal.Width)
+```
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
-[Classroom link here](https://posit.cloud/spaces/638111/join?access_code=rc5zywUOlT58wM2TE9sKcsbuoykuE1rGuWCOyrG7).
+[Classroom link here.](https://posit.cloud/spaces/688947/join?access_code=0gauCbMN_lB9vKO1YlXCD3_6SGjZoBlEybMq8L3D)
 
 Open up "Week 1 Classwork" once you are in the classroom.
 
+Then open up "KRAS.qmd" document in the file browser in the right bottom corner.
+
 ## Break
 
-Pre-course survey here: <https://forms.gle/bakYJ218Xu5EdSRv6>
+Pre-course survey here: <https://forms.gle/oawadMEdeoPpKKXv9>
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -191,25 +201,35 @@ max(18 + 21, 65)
 
 . . .
 
+Parenthesis changes the order of operation:
+
 ```{r}
 18 * (21 + 65)
 ```
 
 . . .
 
+Compare with:
+
+```{r}
+(18 * 21) + 65
+```
+
+. . .
+
+What's this?
+
 ```{r}
 nchar("ATCG")
 ```
 
-## Interpreting functions
+## Interpreting functions and operations
 
-![](https://moffett4understandingmath.com/wp-content/uploads/2017/06/function-machine.png){alt="Function machine from algebra class." width="200"}
-
--   To use a function, we only need to know what the expected inputs and outputs are. The inner workings don't matter yet.
+-   To use a function or operation, we only need to know what the expected inputs and outputs are. The inner workings doesn't matter - it is modular.
 
 . . .
 
--   A function can have different kinds of inputs and outputs - it doesn't need to be numbers.
+-   A function or operation can have different kinds of inputs and outputs - it doesn't need to be numbers.
 
 ## Data types
 
@@ -254,6 +274,10 @@ age_double
 
 . . .
 
+`age_double` depends on `age`, so the order of code run matters.
+
+. . .
+
 What's the data type of a variable?
 
 ```{r}
@@ -276,6 +300,13 @@ secret = (nchar("hello") + age) * (2 + 4)
 secret
 ```
 
+. . .
+
+```{r}
+brothers_age = brothers_age + 1
+grandmas_age = grandmas_age + 1
+```
+
 ## Tips on writing your first code
 
 . . .
@@ -284,11 +315,11 @@ secret
 
 . . .
 
--   Write incrementally: if `function(a, b + c)` isn't working, examine `a` and `b + c`
+-   Break down complex expressions: if `my_function(a, b + c)` isn't working, examine `a` and `b + c`
 
 . . .
 
--   The sequence of instructions you give matters! Refresh the page to clear the environment.
+-   The sequence of instructions you give matters! Refresh the page, or click the broom button, to clear the environment.
 
 . . .
 

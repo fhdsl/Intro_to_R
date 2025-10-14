@@ -175,7 +175,7 @@ load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData
 library(tidyverse)
 
 breast_metadata = filter(metadata, OncotreeLineage == "Breast")
-breast_metadata_ = select(breast_metadata, ModelID, Age, Sex)
+breast_metadata = select(breast_metadata, ModelID, Age, Sex)
 
 head(breast_metadata)
 ```
@@ -281,4 +281,4 @@ breast_metadata = metadata |>
 
 ## How was class for you today?
 
-<https://forms.gle/yKzFmYxmpMdsLDhj7>
+<https://forms.gle/vo2Mgm54wwci6t9k6>

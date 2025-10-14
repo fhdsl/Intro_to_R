@@ -14,6 +14,14 @@ library(tidyverse)
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
+## Connection Points
+
+Some folks have started to wonder how to integrate what they are learning in class with their own work. Some helpful resources:
+
+-   I run a weekly data science co-working session in which people drop in to connect about their data science work with peers and DaSL staff: <https://forms.gle/PYZPqJ9wFyvdY3A67>
+
+-   DaSL offers a free short consulting service called Data House Calls that connects to data experts on our team: <https://ocdo.fredhutch.org/programs/dhc.html> 
+
 ## Modifying and creating new columns
 
 . . .
@@ -83,6 +91,34 @@ expression2$log_KRAS_Exp[1:10]
 
 ## Merging two dataframes together
 
+```{r}
+simple_df = data.frame(id = c("AAA", "BBB", "CCC", "DDD", "EEE"),
+                       case_control = c("case", "case", "control", "control", "control"),
+                       measurement1 = c(2.5, 3.5, 9, .1, 2.2),
+                       measurement2 = c(0, 0, .5, .24, .003),
+                       measurement3 = c(80, 2, 1, 1, 2))
+
+simple_df
+```
+
+. . .
+
+```{r}
+simple2_df = data.frame(id = c("AAA", "EEE", "FFF", "GGG", "HHH"),
+                        measurement4 = c(25, 23, 56, 23, 9),
+                        measurement5 = c(TRUE, TRUE, TRUE, FALSE, FALSE))
+simple2_df
+```
+
+## Merging two dataframes together
+
+```{r}
+merged = full_join(simple_df, simple2_df, by = join_by(id))
+merged
+```
+
+## Merging two dataframes together
+
 . . .
 
 `expression`
@@ -105,7 +141,7 @@ expression2$log_KRAS_Exp[1:10]
 
 . . .
 
-I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
+Merged:
 
 | ModelID      | PIK3CA_Exp | log_PIK3CA_Exp | OncotreeLineage | Age |
 |--------------|------------|----------------|-----------------|-----|
@@ -118,7 +154,7 @@ I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
 We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
 
 ```{r}
-merged = full_join(metadata, expression, by = "ModelID")
+merged = full_join(metadata, expression, by = join_by(ModelID))
 ```
 
 . . .
@@ -157,7 +193,7 @@ Therefore, we expect to see `NA` values in `merged`, as there are some cell line
 
 . . .
 
-Given `xxx_join(x, y, by = "common_col")`,
+Given `xxx_join(x, y, by = join_by(common_col))`,
 
 -   `full_join()` keeps all observations.
 
@@ -300,4 +336,4 @@ metadata_by_type = metadata |>
 
 ## How was class for you today?
 
-<https://forms.gle/yKzFmYxmpMdsLDhj7>
+<https://forms.gle/vo2Mgm54wwci6t9k6>
