@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-date: "June, 2025"
+date: "October, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

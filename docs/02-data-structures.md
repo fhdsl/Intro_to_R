@@ -2,17 +2,83 @@
 
 In our second lesson, we start to look at two **data structures**, **vectors** and **dataframes**, that can handle a large amount of data.
 
+Before we jump into these bigger things, we introduce a new kind of operator:
+
+## Comparison Operations
+
+Sometimes, we want to make comparisons between data types, such as if one is bigger than the other, or whether they are the same.
+
+
+``` r
+age = 35
+
+age > 18
+```
+
+```
+## [1] TRUE
+```
+
+We asked whether `age` is greater than 18, and it is `TRUE` because `age` is 35. We can follow-up to ask if `age` is equal or less than 65:
+
+
+``` r
+age <= 65
+```
+
+```
+## [1] TRUE
+```
+
+Besides comparing numbers, we can ask characters whether they are a specific value:
+
+
+``` r
+building_name = "Arnold"
+
+building_name == "Weintraub"
+```
+
+```
+## [1] FALSE
+```
+
+We asked whether `building_name` is "Weintraub" via the `==` comparison operator (extremely easy to confuse with `=`), and it is `FALSE` because `building_name` is "Arnold". We can follow-up to ask if `building_name` is *not equal* to "Weintraub".
+
+
+``` r
+building_name != "Weintraub"
+```
+
+```
+## [1] TRUE
+```
+
+## Full list of Comparison Operations
+
+`<` less than
+
+`<=` less or equal than
+
+`>` greater than
+
+`>=` greater than or equal to
+
+`==` equal to
+
+`!=` not equal to
+
+You can also write out multiple comparisons at once, which you will see more in your exercise this week...
+
 ## Vectors
 
-In the first exercise, you started to explore **data structures**, which store information about data types. You played around with **vectors**, which is a ordered collection of a data type. Each *element* of a vector contains a data type, and there is no limit on how big a vector can be, as long the memory use of it is within the computer's memory (RAM).
-
-We can now store a vast amount of information in a vector, and assign it to a single variable. We can now use operations and functions on a vector, modifying many elements within the vector at once! This fits with the feature of "encapsulate complex data via data structures to allow efficient manipulation of data" described in the first lesson!
+In the first exercise, you started to explore **data structures**, which store information about data types. You played around with **vectors**, which is a ordered collection of a data type. Each *element* of a vector contains a data type, and all elements of a vector must be the same type, such as numeric, character, or logical.
 
 We often create vectors using the combine function, `c()` :
 
 
 ``` r
-staff = c("chris", "shasta", "jeff")
+staff = c("chris", "sonu", "sean")
 chrNum = c(2, 3, 1)
 ```
 
@@ -46,6 +112,7 @@ What happens if we use some familiar operations we used for numerics on a numeri
 
 
 ``` r
+chrNum = c(2, 3, 1)
 chrNum = chrNum * 3
 chrNum 
 ```
@@ -54,7 +121,7 @@ chrNum
 ## [1] 6 9 3
 ```
 
-All of `chrNum`'s elements tripled! Our multiplication operation, when used on a *numeric vector with a numeric*, has a *new* meaning: it multiplied all the elements by 3. Multiplication is an operation that can be used for multiple data types or data structures: we call this property **operator overloading**. Here's another example: *numeric vector multiplied by another numeric vector*:
+All of `chrNum`'s elements tripled! Our multiplication operation, when used on a *numeric vector with a numeric*, has a *new* meaning: it multiplied all the elements by 3. Here's another example: numeric vector multiplied by another numeric vector:
 
 
 ``` r
@@ -63,6 +130,17 @@ chrNum * c(2, 2, 0)
 
 ```
 ## [1] 12 18  0
+```
+
+Or how about comparison operators?
+
+
+``` r
+chrNum > 2
+```
+
+```
+## [1] TRUE TRUE TRUE
 ```
 
 but there are also limits: a numeric vector added to a character vector creates an error:
@@ -74,11 +152,26 @@ but there are also limits: a numeric vector added to a character vector creates 
 
 When we work with operations and functions, we must be mindful what inputs the operation or function takes in, and what outputs it gives, no matter how "intuitive" the operation or function name is.
 
+Lastly, here's a function you can use on vectors: `length()` gives you the length of the vector:
+
+
+``` r
+length(chrNum)
+```
+
+```
+## [1] 3
+```
+
 ### Subsetting vectors explicitly
 
-In the exercise this past week, you looked at a new operation to subset elements of a vector using brackets.
+In the exercise this past week, you looked at a new operation to subset elements of a vector using brackets. Let's look at all the possible ways to subset vectors carefully:
 
-Inside the bracket is either a single numeric value or an a **numerical indexing vector** containing numerical values. They dictate which elements of the vector to return.
+We subset vectors using the bracket `[ ]` operation.
+
+Inside the bracket can be:
+
+1.  A single numeric value
 
 
 ``` r
@@ -89,6 +182,11 @@ staff[2]
 ## [1] "shasta"
 ```
 
+which returns the second value of `staff`.
+
+2.  A **numerical indexing vector** containing numerical values. They dictate which elements of the vector to subset.
+
+
 ``` r
 staff[c(1, 2)]
 ```
@@ -97,13 +195,21 @@ staff[c(1, 2)]
 ## [1] "chris"  "shasta"
 ```
 
+Alternatively, you can also store the subetted vector as a new variable:
+
+
 ``` r
 small_staff = staff[c(1, 2)]
+small_staff
 ```
 
-In the last line, we created a new vector `small_staff` that is a subset of the staff given the indexing vector `c(1, 2)`. We have three vectors referenced in one line of code. This is tricky and we need to always refer to our rules step-by-step: evaluate the expression right of the `=`, which contains a vector bracket. Follow the rule of the vector bracket. Then store the returning value to the variable left of `=`.
+```
+## [1] "chris"  "shasta"
+```
 
-Alternatively, instead of using numerical indexing vectors, we can use a **logical indexing vector**. The logical indexing vector must be the *same length* as the vector to be subsetted, with `TRUE` indicating an element to keep, and `FALSE` indicating an element to drop. The following block of code gives the same value as before:
+3.  A **logical indexing vector** with the same length as the vector to be subsetted. The `TRUE` values indicate which elements to keep, the `FALSE` values indicate which elements to drop.
+
+If we want the first element:
 
 
 ``` r
@@ -114,6 +220,9 @@ staff[c(TRUE, FALSE, FALSE)]
 ## [1] "chris"
 ```
 
+If we want the first and second elements:
+
+
 ``` r
 staff[c(TRUE, TRUE, FALSE)]
 ```
@@ -122,184 +231,57 @@ staff[c(TRUE, TRUE, FALSE)]
 ## [1] "chris"  "shasta"
 ```
 
+If we want the first and second elements and store the result as a variable:
+
+
 ``` r
 small_staff = staff[c(TRUE, TRUE, FALSE)]
+small_staff
 ```
 
-### Subsetting vectors implicitly
+```
+## [1] "chris"  "shasta"
+```
 
-Here are two applications of subsetting on vectors that need distinction to write the correct code:
+### A trick: When subsetting large vectors
 
-1.  **Explicit subsetting**: Suppose someone approaches you a length 10 vector of people's ages, and say that they want to subset to the 1st, 3rd, and 9th elements.
-
-2.  **Implicit subsetting**: Suppose someone approaches you a length 10 vector of people's ages, and say that they want to subset to elements \>50 age.
-
-Consider the following vector.
+Suppose you have a large vector `age` with 100 elements:
 
 
 ``` r
-age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
+set.seed(123) #don't worry about this function
+age = round(runif(100, 1, 100)) #don't worry about these functions
+age
 ```
 
-We could subset `age` **explicitly** two ways. Suppose we want to subset the 1st and 5th, and 9th elements. One can do it with numerical indexing vectors:
+```
+##   [1] 29 79 41 88 94  6 53 89 56 46 96 46 68 58 11 90 25  5 33 95 89 70 64 99 66
+##  [26] 71 55 60 30 16 96 90 69 80  3 48 76 22 32 24 15 42 42 38 16 15 24 47 27 86
+##  [51]  6 45 80 13 57 21 14 76 90 38 67 10 39 28 82 45 81 81 80 45 76 63 71  1 48
+##  [76] 23 39 62 36 12 25 67 42 79 11 44 99 89 89 18 14 66 35 66 33 20 78 10 47 52
+```
+
+Suppose you want the first 20 elements of this vector using a numerical indexing vector. Writing out `c(1, 2, 3, 4, …` for the numerical indexing vector a pain. We can generate a numerical vector 1 to 20 via the following trick:
 
 
 ``` r
-age[c(1, 5, 9)]
+1:20
 ```
 
 ```
-## [1] 89 66 30
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
 ```
 
-or by **logical indexing vectors**:
+Then, you just use it to help subset:
 
 
 ``` r
-age[c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)]
+age[1:20]
 ```
 
 ```
-## [1] 89 66 30
+##  [1] 29 79 41 88 94  6 53 89 56 46 96 46 68 58 11 90 25  5 33 95
 ```
-
-and you can do it in one step as we have done so, or two steps by storing the indexing vector as a variable. *Either ways is fine.*
-
-
-``` r
-num_idx = c(1, 5, 9)
-age[num_idx]
-```
-
-```
-## [1] 89 66 30
-```
-
-
-``` r
-logical_idx = c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE)
-age[logical_idx]
-```
-
-```
-## [1] 89 66 30
-```
-
-For implicit subsetting, we don't know which elements to select off the top of our head! (We could count, but this method does not scale up.)
-
-Rather, we can figure out which elements to select by using a **comparison operator**, which returns a logical indexing vector.
-
-
-``` r
-age > 50
-```
-
-```
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
-```
-
-The comparison operator `>` compared the numeric value of `age` to see which elements of age is greater than 50, and then returned a logical vector that has `TRUE` if age is greater than 50 at that element and `FALSE` otherwise.
-
-Then,
-
-
-``` r
-indexing_vector = age > 50
-age[indexing_vector]
-```
-
-```
-## [1] 89 70 64 90 66 71 55 60
-```
-
-``` r
-#or
-age[age > 50]
-```
-
-```
-## [1] 89 70 64 90 66 71 55 60
-```
-
-To summarize:
-
-Subset a vector **implicitly**, in 3 steps:
-
-1.  Come up with a criteria for subsetting: "I want to subset to values greater than 50".
-2.  We can use a **comparison operator** to create a **logical indexing vector** that fits this criteria.
-
-
-``` r
-age > 50
-```
-
-```
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
-```
-
-3.  Use this logical indexing vector to subset.
-
-
-``` r
-age[age > 50]
-```
-
-```
-## [1] 89 70 64 90 66 71 55 60
-```
-
-``` r
-#or
-idx = age > 50
-age[idx]
-```
-
-```
-## [1] 89 70 64 90 66 71 55 60
-```
-
-And you are done.
-
-### Comparison Operators
-
-We have the following comparison operators in R:
-
-`<` less than
-
-`<=` less or equal than
-
-`==` equal to
-
-`!=` not equal to
-
-`>` greater than
-
-`>=` greater than or equal to
-
-You can also put these comparison operators together to form more complex statements, which you will explore in this week's exercise.
-
-Another example:
-
-
-``` r
-age_90 = age[age == 90]
-age_90
-```
-
-```
-## [1] 90
-```
-
-``` r
-age_not_90 = age[age != 90]
-age_not_90
-```
-
-```
-## [1] 89 70 64 66 71 55 60 30 16
-```
-
-For most of our subsetting tasks on vectors (and dataframes below), we will be encouraging implicit subsetting. The power of implicit subsetting is that you don't need to know what your vector contains to do something with it! This technique is related to *abstraction* in programming mentioned in the first lesson: by using expressions to find the specific value you are interested instead of *hard-coding* the value explicitly, it generalizes your code to handle a wider variety of situations.
 
 ## Dataframes
 
@@ -310,16 +292,16 @@ Before we dive into dataframes, check that the `tidyverse` package is properly i
 library(tidyverse)
 ```
 
-Here is the data structure you have been waiting for: the **dataframe**. A dataframe is a spreadsheet such that each column must have the same data type. Think of a bunch of vectors organized as columns, and you get a dataframe.
+Here is the data structure you have been waiting for: the **Dataframe**. A dataframe is a spreadsheet such that each column must have the same data type. Think of a bunch of vectors organized as columns, and you get a dataframe.
 
-For the most part, we load in dataframes from a file path (although they are sometimes created by combining several vectors of the same length, but we won't be covering that here):
+Below is some code to load in a Dataframe. Notice that the file extension here is in `.RData`, which is a format specifically for R. In the last week of class we will talk about how to load and save spreadsheets from CSVs or Excel.
 
 
 ``` r
 load(url("https://github.com/fhdsl/S1_Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
-### Using functions and operations on dataframes
+### Using functions and operations on Dataframes
 
 We can run some useful functions on dataframes to get some useful properties, similar to how we used `length()` for vectors:
 
@@ -387,28 +369,7 @@ metadata$Age[1:5]
 ## [1] 60 36 72 30 30
 ```
 
-We treat the resulting value as a vector, so we can perform implicit subsetting:
-
-
-``` r
-metadata$OncotreeLineage[metadata$OncotreeLineage == "Myeloid"]
-```
-
-```
-##  [1] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-##  [8] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [15] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [22] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [29] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [36] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [43] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [50] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [57] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [64] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-## [71] "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid" "Myeloid"
-```
-
-The bracket operation `[ ]` on a dataframe can also be used for subsetting. `dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
+The bracket operation `[ ]` on a dataframe can also be used for subsetting rows and columns at once. `dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
 
 
 ``` r
