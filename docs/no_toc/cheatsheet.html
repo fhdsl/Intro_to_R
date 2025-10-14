@@ -416,8 +416,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.5</span> Dataframes<a href="cheatsheet.html#dataframes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table style="width:99%;">
 <colgroup>
-<col width="54%" />
-<col width="33%" />
+<col width="57%" />
+<col width="30%" />
 <col width="11%" />
 </colgroup>
 <thead>
@@ -469,10 +469,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <td>Dataframe</td>
 </tr>
 <tr class="odd">
-<td>Create a new column “log_outcome” so that it is the log transform of “outcome” column</td>
-<td><p><code>dataframe$log_outcome = log(dataframe$outcome)</code></p>
-<p>or</p>
-<p><code>dataframe = mutate(dataframe, log_outcome = log(outcome)</code></p></td>
+<td>Create a new column “log_outcome” from <code>dataframe</code> so that it is the log transform of “outcome” column</td>
+<td><code>mutate(dataframe, log_outcome = log(outcome))</code></td>
 <td>Dataframe</td>
 </tr>
 </tbody>
