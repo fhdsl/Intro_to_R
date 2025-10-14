@@ -571,66 +571,17 @@
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb24-2"><a href=""></a></span>
 <span id="cb24-3"><a href=""></a>breast_metadata <span class="ot">=</span> <span class="fu">filter</span>(metadata, OncotreeLineage <span class="sc">==</span> <span class="st">"Breast"</span>)</span>
-<span id="cb24-4"><a href=""></a>breast_metadata_ <span class="ot">=</span> <span class="fu">select</span>(breast_metadata, ModelID, Age, Sex)</span>
+<span id="cb24-4"><a href=""></a>breast_metadata <span class="ot">=</span> <span class="fu">select</span>(breast_metadata, ModelID, Age, Sex)</span>
 <span id="cb24-5"><a href=""></a></span>
 <span id="cb24-6"><a href=""></a><span class="fu">head</span>(breast_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     ModelID PatientID  CellLineName StrippedCellLineName Age SourceType
-1 ACH-000017 PT-8CE6ah       SK-BR-3                SKBR3  43 Commercial
-2 ACH-000019 PT-viJKnw          MCF7                 MCF7  69 Commercial
-3 ACH-000028 PT-viJKnw         KPL-1                 KPL1  69 Commercial
-4 ACH-000044 PT-HMBfbj MDA-MB-134-VI           MDAMB134VI  47 Commercial
-5 ACH-000097 PT-k1TO7o       ZR-75-1                ZR751  63 Commercial
-6 ACH-000111 PT-yKJqsn       HCC1187              HCC1187  41 Commercial
-  SangerModelID      RRID DepmapModelType AgeCategory GrowthPattern
-1     SIDM00897 CVCL_0033            BRCA       Adult         Mixed
-2     SIDM00148 CVCL_0031            BRCA       Adult      Adherent
-3     SIDM00147 CVCL_2094            BRCA       Adult      Adherent
-4     SIDM00005 CVCL_0617             ILC       Adult      Adherent
-5     SIDM00314 CVCL_0588             IDC       Adult      Adherent
-6     SIDM00885 CVCL_1247             IDC       Adult         Mixed
-  LegacyMolecularSubtype PrimaryOrMetastasis SampleCollectionSite    Sex
-1               HER2_amp          Metastatic     pleural_effusion Female
-2                luminal          Metastatic     pleural_effusion Female
-3                luminal          Metastatic     pleural_effusion Female
-4                luminal          Metastatic     pleural_effusion Female
-5                luminal          Metastatic              ascites Female
-6                basal_A             Primary               breast Female
-  SourceDetail LegacySubSubtype CatalogNumber          CCLEName COSMICID
-1         ATCC    ERneg_HER2pos        HTB-30      SKBR3_BREAST       NA
-2         ATCC    ERpos_HER2neg        HTB-22       MCF7_BREAST   905946
-3         DSMZ    ERpos_HER2neg                     KPL1_BREAST       NA
-4         ATCC    ERpos_HER2neg               MDAMB134VI_BREAST       NA
-5         ATCC    ERpos_HER2neg      CRL-1500      ZR751_BREAST       NA
-6         ATCC    ERneg_HER2neg      CRL-2322    HCC1187_BREAST   749711
-                                                                                                                     PublicComments
-1                                                                                                                                  
-2                                                                                                                                  
-3 SNP fingerprinting confirms that this line is an MCF-7 derivative. DepMap metadata has been updated (as of 22Q2) to reflect this.
-4                                                                                                                                  
-5                                                                                                                                  
-6                                                                                                                                  
-  WTSIMasterCellID EngineeredModel TreatmentStatus OnboardedMedia PlateCoating
-1               NA                                     MF-023-001         None
-2              588                                     MF-015-010         None
-3               NA                                     MF-002-001         None
-4               NA                                     MF-021-003         None
-5               NA                                     MF-001-001         None
-6             1644                                     MF-001-001         None
-  OncotreeCode                   OncotreeSubtype    OncotreePrimaryDisease
-1         BRCA         Invasive Breast Carcinoma Invasive Breast Carcinoma
-2         BRCA         Invasive Breast Carcinoma Invasive Breast Carcinoma
-3         BRCA         Invasive Breast Carcinoma Invasive Breast Carcinoma
-4          ILC Breast Invasive Lobular Carcinoma Invasive Breast Carcinoma
-5          IDC  Breast Invasive Ductal Carcinoma Invasive Breast Carcinoma
-6          IDC  Breast Invasive Ductal Carcinoma Invasive Breast Carcinoma
-  OncotreeLineage
-1          Breast
-2          Breast
-3          Breast
-4          Breast
-5          Breast
-6          Breast</code></pre>
+<pre><code>     ModelID Age    Sex
+1 ACH-000017  43 Female
+2 ACH-000019  69 Female
+3 ACH-000028  69 Female
+4 ACH-000044  47 Female
+5 ACH-000097  63 Female
+6 ACH-000111  41 Female</code></pre>
 </div>
 </div>
 </div>
@@ -722,7 +673,7 @@
 </section>
 <section id="how-was-class-for-you-today" class="slide level2">
 <h2>How was class for you today?</h2>
-<p><a href="https://forms.gle/yKzFmYxmpMdsLDhj7" class="uri">https://forms.gle/yKzFmYxmpMdsLDhj7</a></p>
+<p><a href="https://forms.gle/vo2Mgm54wwci6t9k6" class="uri">https://forms.gle/vo2Mgm54wwci6t9k6</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

@@ -12,13 +12,10 @@ output-location: fragment
 
 ![](images/gator_error.jpg)
 
-. . .
-
-What is a problem you encountered and fixed recently?
-
 ## Exercise 1 Continued
 
 -   Three styles of defining and updating variables
+-   Does a function/operation always have an input or output?
 
 ## Comparison Operations
 
@@ -48,6 +45,12 @@ building_name == "Weintraub"
 
 ```{r}
 building_name != "Weintraub"
+```
+
+. . .
+
+```{r}
+age == 35
 ```
 
 ## Full list of Comparison Operations
@@ -99,10 +102,6 @@ chrNum
 
 . . .
 
-Multiplication has a new meaning when used on a numeric vector and numeric data type! 😮
-
-. . .
-
 Comparison operator on vectors:
 
 ```{r}
@@ -116,23 +115,6 @@ Functions on vectors: how many elements are in this vector?
 
 ```{r}
 length(chrNum)
-```
-
-## Operations and functions on vectors: can we do this?
-
-How about numeric vector multiplied by numeric vector?
-
-```{r}
-chrNum = c(2, 3, 1)
-chrNum * c(2, 2, 0)
-```
-
-. . .
-
-a numeric vector added to a character vector:
-
-```{r}
-#chrNum + staff
 ```
 
 ## Subsetting vectors
@@ -171,6 +153,11 @@ staff[c(1, 2)]
 
 ```{r}
 small_staff = staff[c(1, 2)]
+```
+
+. . .
+
+```{r}
 small_staff
 ```
 
@@ -321,4 +308,4 @@ We can leave the column index or row index empty to just subset columns or rows.
 
 ## How was class for you today?
 
-<https://forms.gle/wH3bNotnob9ftc7u6>
+<https://forms.gle/vo2Mgm54wwci6t9k6>
