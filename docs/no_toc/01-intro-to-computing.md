@@ -169,7 +169,7 @@ If an expression is made out of multiple, nested operations, what is the proper 
 ## [1] 18
 ```
 
-Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes [abstraction and modular thinking](#a-programming-language-has-following-elements), a foundation in any programming language.
+A note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language. Lastly, a function can have different kinds of inputs and outputs - it doesn't need to be numbers. Let's look at some other data types out there:
 
 ### Data types
 
@@ -187,10 +187,10 @@ To build up a computer program, we need to store our returned data type from our
 
 
 ``` r
-x = 18 + 21
+age = 18 + 21
 ```
 
-If you enter this in the Console, you will see that in the Environment, the variable `x` has a value of `39`.
+If you enter this in the Console, you will see that in the Environment, the variable `age` has a value of `39`.
 
 ### Execution rule for variable assignment
 
@@ -206,11 +206,11 @@ The environment is where all the variables are stored, and can be used for an ex
 
 The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.
 
-Look, now `x` can be reused downstream:
+Look, now `age` can be reused downstream:
 
 
 ``` r
-x - 2
+age - 2
 ```
 
 ```
@@ -218,34 +218,33 @@ x - 2
 ```
 
 ``` r
-y = x * 2
+age_double = age * 2
 ```
 
-## Grammar Structure 3: Evaluation of Functions
-
-A function has a **function name**, **arguments**, and **returns** a data type.
-
-### Execution rule for functions:
-
-> Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
->
-> The output of functions is called the **returned value**.
+Sometimes, we need to be reminded what data type our variable is. Use the `class()` function:
 
 
 ``` r
-sqrt(nchar("hello"))
+class(age)
 ```
 
 ```
-## [1] 2.236068
+## [1] "numeric"
 ```
+
+Here's a more complicated example with multiple variables and nested expressions. Can you figure out what `secret` is?
+
 
 ``` r
-(nchar("hello") + 4) * 2
+brothers_age = 45
+grandmas_age = 90
+age = max(brothers_age, grandmas_age)
+secret = (nchar("hello") + age) * (2 + 4)
+secret
 ```
 
 ```
-## [1] 18
+## [1] 570
 ```
 
 ## Tips on writing your first code
@@ -254,13 +253,9 @@ sqrt(nchar("hello"))
 
 Even the smallest spelling and formatting changes will cause unexpected output and errors!
 
--   Write incrementally, test often
-
--   Check your assumptions, especially using new functions, operations, and new data types.
-
--   Live environments are great for testing, but not great for reproducibility.
-
--   Ask for help!
+-   Write incrementally: if `function(a, b + c)` isn't working, examine `a` and `b + c`
+-   The sequence of instructions you give matters! Refresh the page to clear the environment.
+-   **Ask for help!**
 
 ## Exercises
 
