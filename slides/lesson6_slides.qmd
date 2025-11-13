@@ -25,15 +25,11 @@ What it isn't:
 
 -   Accreditation through an university or degree-granting program.
 
-I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/1Pi34z9OXcpT_ZKDf9VdDYmwtpXg0H1iXNWGAlUhKRM4/edit?usp=sharing).
+I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/1uxxRDwcygghr0SxGzFWHXKZOlScGrdk1IqjlL_9QStI/edit?usp=sharing).
 
 ## Continuing your education
 
--   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2026, sorry, a long time away...)
-
-. . .
-
--   Learning Community starts on June 10! Message me if you haven't been added.
+-   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2026)
 
 . . .
 
@@ -45,9 +41,11 @@ I've been keeping track of folks' completion [here](https://docs.google.com/spre
 
 ## Connecting to rest of [DaSL Training](https://hutchdatascience.org/courses/)
 
-![](images/stickers%20mosaic.png)
+![![](images/Screenshot%202025-11-03%20at%202.01.18%20PM.png)](images/Screenshot%202025-11-03%20at%202.00.09%20PM.png)
 
 ## Connecting to rest of DaSL/OCDO
+
+![](images/Disney%20Map%20for%20Openscapes.png)
 
 -   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
 
@@ -59,11 +57,7 @@ I've been keeping track of folks' completion [here](https://docs.google.com/spre
 
 ## Please fill out survey!
 
-Our [class survey](https://forms.gle/2Q7StJvFTY5vK2Pr8) makes a huge difference for us.
-
-## Last but not least...stickers!
-
-![](https://2953482177-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-M38c0s4s0YCM6dGwrz1%2F-M7RetZBh2Wf7TnfLhKs%2F-M7RkjP-fqIgI8ZsDmKh%2Ftidyverse2.png?alt=media&token=73bf5842-1ae0-4ca4-8622-ec2ae9063a7a){width="350"} ![](images/Intro_To_R_2.png){width="350"} ![](images/student_stickers.jpg){width="350"}
+Our [class survey](https://forms.gle/ykLvRPhxmPpPKZQN8) makes a huge difference for us.
 
 ## Working on your own projects
 
@@ -115,49 +109,6 @@ students = read_csv("https://raw.githubusercontent.com/hadley/r4ds/main/data/stu
 students
 ```
 
-## Skipping lines
-
-```{r}
-read_csv(
-  "# A comment I want to skip
-  x,y,z
-  1,2,3",
-  comment = "#"
-)
-```
-
-. . .
-
-```{r}
-read_csv(
-  "The first line of metadata
-  The second line of metadata
-  x,y,z
-  1,2,3",
-  skip = 2
-)
-```
-
-## Specifying column names
-
-```{r}
-read_csv(
-  "1,2,3
-  4,5,6",
-  col_names = FALSE
-)
-```
-
-. . .
-
-```{r}
-read_csv(
-  "1,2,3
-  4,5,6",
-  col_names = c("x", "y", "z")
-)
-```
-
 ## Other file formats
 
 `read_tsv("file.tsv")` for tab-deliminated files
@@ -178,6 +129,18 @@ read_csv(
 
 `write_delim(my_dataframe, "filepath.tsv", sep="\t")`
 
+## Looking up documentation
+
+-   Use the `?` operation: `?read_delim`
+
+-   Package documentation: <https://readr.tidyverse.org/index.html>
+
+    -   Function documentation: <https://readr.tidyverse.org/reference/read_delim.html>
+
+-   Vetted online resources:
+
+    -   Stackoverflow: <https://stackoverflow.com/collectives/r-language>
+
 ## Saving plots
 
 ```         
@@ -197,5 +160,3 @@ Consider having subfolders for:
 -   Plots
 
 [Good enough practices for scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
-
-[Better Spreadsheet workshop](https://better-spreadsheets.netlify.app/)
