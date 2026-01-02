@@ -12,13 +12,9 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-## Announcements!
+## Last call for lunch next week...
 
-Better Plots workshop on Friday: [https://forms.gle/KbAd91E7S1GYzbnm9](https://forms.gle/KbAd91E7S1GYzbnm9https://forms.gle/KbAd91E7S1GYzbnm9)
-
-Lunch together for last day of class next week: <https://forms.gle/v7VcEtmDZh4fpAPn9>
-
-Datathon on November 14: <https://forms.gle/u5L8mEutsz5ufnwn7>
+<https://forms.gle/gKo5KwfcShd3Zq8c7>
 
 ## Common Plots
 
@@ -104,7 +100,7 @@ ggplot(penguins) + aes(x = species, fill = island) + geom_bar(position="dodge")
 ggplot(penguins) + aes(x = bill_length_mm, y = bill_depth_mm) + geom_point()
 ```
 
-Can make a lineplot version by using `geom_line()`.
+Can make a lineplot version by using `geom_point()`.
 
 ## Multivaraite Scatterplot by color
 
