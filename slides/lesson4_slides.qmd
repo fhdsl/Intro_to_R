@@ -14,19 +14,78 @@ library(tidyverse)
 load(url("https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"))
 ```
 
-## Connection Points
+## Cheatsheet!
 
-Some folks have started to wonder how to integrate what they are learning in class with their own work. Some helpful resources:
+<https://hutchdatascience.org/Intro_to_R/cheatsheet.html>
 
--   I run a weekly data science co-working session in which people drop in to connect about their data science work with peers and DaSL staff: <https://forms.gle/PYZPqJ9wFyvdY3A67>
+## How to learn a new function?
 
--   DaSL offers a free short consulting service called Data House Calls that connects to data experts on our team: <https://ocdo.fredhutch.org/programs/dhc.html> 
+```         
+?mean
+```
+
+[Online documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html)
+
+. . .
+
+```         
+mean(x, trim = 0, na.rm = FALSE, ...)
+```
+
+The inputs to a function always have input names:
+
+-   `x`. This input is required.
+
+-   `trim`. This input is optional (it has a default input value).
+
+-   `na.rm`. This input is optional (it has a default input value).
+
+-   `...` indicates optional unnamed inputs.
+
+. . .
+
+When the input name is not specified, the order implies the input! The following usages are equivalent:
+
+`mean(df$column, na.rm = TRUE)`
+
+`mean(x = df$column, na.rm = TRUE)`
+
+`mean(df$column, 0, TRUE)`
+
+`mean(trim = 0, x = df$column, na.rm = TRUE)`
+
+## Review: When do you refer columns with a `$`?
+
+. . .
+
+[Tidyverse](https://tidyverse.org/packages/) Dataframe functions, such as `select()`, `filter()`, `mutate()`, `group_by()`, `summarize()` allows you to refer columns without `$`:
+
+```         
+select(penguins, species, island)
+
+filter(penguins, species == "Adelie")
+
+mutate(penguins, new_col = log(body_mass_g))
+```
+
+. . .
+
+All other functions and operations require `$` as a reference:
+
+```         
+mean(penguins$body_mass_g, na.rm = TRUE)
+
+table(penguins$island)
+
+island = penguins$island
+island[island == "Torgersen"]
+```
 
 ## Modifying and creating new columns
 
 . . .
 
-The `mutate()` function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a *new or existing data variable* that is defined in terms of *other data variables*.
+The [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) function takes in the following arguments: the first argument is the dataframe of interest, and the second argument is a *new or existing data variable* that is defined in terms of *other data variables*.
 
 . . .
 
@@ -333,7 +392,3 @@ metadata_by_type = metadata |>
 ## Appendix: More data wrangling functions from Tidyverse
 
 <https://dplyr.tidyverse.org/articles/dplyr.html>
-
-## How was class for you today?
-
-<https://forms.gle/vo2Mgm54wwci6t9k6>

@@ -92,12 +92,16 @@ So, you can have **numeric vector**, **character vector**, and **logical vector*
 
 ## Operations and functions on vectors
 
-Multiplication operation on vectors:
+Addition and Multiplication operations on vectors:
 
 ```{r}
-chrNum = c(2, 3, 1)
-chrNum = chrNum * 3
-chrNum 
+chrNum + c(2, 2, 2)
+```
+
+. . .
+
+```{r}
+chrNum * 3
 ```
 
 . . .
@@ -105,7 +109,6 @@ chrNum
 Comparison operator on vectors:
 
 ```{r}
-chrNum = c(2, 3, 1)
 chrNum > 2
 ```
 
@@ -137,9 +140,7 @@ staff[2]
 
 . . .
 
-```{r}
-staff[3] = "scott"
-```
+This returns a single data type.
 
 . . .
 
@@ -151,40 +152,32 @@ staff[c(1, 2)]
 
 . . .
 
+This returns a vector.
+
+## Things you can do with subsetting
+
+1.  Access
+
+    ```{r}
+    staff[c(1, 3)]
+    ```
+
+. . .
+
+2.  Modify
+
 ```{r}
-small_staff = staff[c(1, 2)]
+staff[c(1, 3)] = c("bill", "andrew")  
+staff
 ```
 
 . . .
 
-```{r}
-small_staff
-```
-
-## Subsetting vectors continued
+3.  Assign
 
 ```{r}
 staff = c("chris", "sonu", "sean")
-```
-
-3.  A **logical indexing vector** with the same length as the vector to be subsetted. The `TRUE` values indicate which elements to keep, the `FALSE` values indicate which elements to drop.
-
-. . .
-
-```{r}
-staff[c(TRUE, FALSE, FALSE)]
-```
-
-. . .
-
-```{r}
-staff[c(TRUE, TRUE, FALSE)]
-```
-
-. . .
-
-```{r}
-small_staff = staff[c(TRUE, TRUE, FALSE)]
+small_staff = staff[c(1, 3)]
 small_staff
 ```
 
@@ -195,6 +188,8 @@ set.seed(123) #don't worry about this function
 age = round(runif(100, 1, 100)) #don't worry about these functions
 age
 ```
+
+. . .
 
 Suppose you want the first 20 elements of this vector. Writing out `c(1, 2, 3, 4, …` is a pain. We can generate 1 to 20 via the following trick:
 
@@ -260,30 +255,24 @@ The `dataframe$column_name` operation selects for a column by its column name an
 
 . . .
 
-```{r}
-metadata$OncotreeLineage[1:5]
-```
-
-. . .
-
 `metadata$Age`
 
-. . .
+## From Dataframe to single data
 
 ```{r}
-metadata$Age[1:5]
+oncotree = metadata$OncotreeLineage
+oncotree_first_ten = oncotree[1:10]
+oncotree_first_ten[3]
 ```
 
-. . .
-
-## Subsetting columns and rows from a dataframe
+## Appendix: Subsetting columns and rows from a dataframe
 
 `dataframe[row_idx, col_idx]` subsets the dataframe by a row indexing vector `row_idx`, and a column indexing vector `col_idx`.
 
 . . .
 
 ```{r}
-metadata[1:5, c(1, 3)]
+metadata[1:10, c(1, 3)]
 ```
 
 . . .
@@ -291,10 +280,18 @@ metadata[1:5, c(1, 3)]
 We can refer to the column names directly:
 
 ```{r}
-metadata[1:5, c("ModelID", "CellLineName")]
+metadata[1:10, c("ModelID", "CellLineName")]
 ```
 
-## Subsetting columns or rows from a dataframe
+## Appendix: From Dataframe to single data
+
+```{r}
+small_df = metadata[1:10, c("ModelID", "CellLineName")]
+small_modelID = small_df$ModelID
+small_modelID[4]
+```
+
+## Appendix: Subsetting columns or rows from a dataframe
 
 We can leave the column index or row index empty to just subset columns or rows. **But keep the comma!!!**
 
@@ -305,7 +302,3 @@ We can leave the column index or row index empty to just subset columns or rows.
 . . .
 
 `metadata[, c("ModelID", "CellLineName")]`
-
-## How was class for you today?
-
-<https://forms.gle/vo2Mgm54wwci6t9k6>

@@ -14,11 +14,7 @@ library(palmerpenguins)
 
 ## Announcements!
 
-Better Plots workshop on Friday: [https://forms.gle/KbAd91E7S1GYzbnm9](https://forms.gle/KbAd91E7S1GYzbnm9https://forms.gle/KbAd91E7S1GYzbnm9)
-
-Lunch together for last day of class next week: <https://forms.gle/v7VcEtmDZh4fpAPn9>
-
-Datathon on November 14: <https://forms.gle/u5L8mEutsz5ufnwn7>
+Lunch together for last day of class next week: <https://forms.gle/aMAUKJBxd8bMtys89>
 
 ## Common Plots
 
@@ -142,6 +138,12 @@ ggplot(penguins) + aes(x = species, y = bill_depth_mm, fill = island) + geom_box
 
 [ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} + [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60)) + theme_bw()]{style="color:purple"}
 
+-   `labs(x = "xlabel", y = "ylabel", title = "my title")` gives axis and plot labels
+
+-   `scale_x_continuous(limits = c(1, 10))` changes x-axis scaling, same idea for y-axis scaling
+
+-   `theme_bw()` sets a [plot theme](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
 ```{r, echo=F, warning=F, message=F}
 ggplot(data = penguins) + geom_point(mapping = aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60)) + theme_bw()
 ```
@@ -188,3 +190,7 @@ esquisser(penguins)
 ## R Graphics Cookbook
 
 An excellent resource: <https://r-graphics.org/>
+
+## Class plotting gallery!
+
+<https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?usp=sharing>
