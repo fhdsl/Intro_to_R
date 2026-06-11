@@ -334,9 +334,7 @@
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements!</h2>
-<p>Better Plots workshop on Friday: <a href="https://forms.gle/KbAd91E7S1GYzbnm9https://forms.gle/KbAd91E7S1GYzbnm9">https://forms.gle/KbAd91E7S1GYzbnm9</a></p>
-<p>Lunch together for last day of class next week: <a href="https://forms.gle/v7VcEtmDZh4fpAPn9" class="uri">https://forms.gle/v7VcEtmDZh4fpAPn9</a></p>
-<p>Datathon on November 14: <a href="https://forms.gle/u5L8mEutsz5ufnwn7" class="uri">https://forms.gle/u5L8mEutsz5ufnwn7</a></p>
+<p>Lunch together for last day of class next week: <a href="https://forms.gle/aMAUKJBxd8bMtys89" class="uri">https://forms.gle/aMAUKJBxd8bMtys89</a></p>
 </section>
 <section id="common-plots" class="slide level2">
 <h2>Common Plots</h2>
@@ -421,6 +419,11 @@
 <section id="some-additional-options" class="slide level2">
 <h2>Some additional options</h2>
 <p><span style="color:orange">ggplot(data = penguins)</span> + <span style="color:green">aes(x = bill_length_mm, y = bill_depth_mm, color = species)</span> + <span style="color:blue">geom_point()</span> + <span style="color:purple">labs(x = “Bill Length”, y = “Bill Depth”, title = “Comparison of penguin bill length and bill depth across species”) + scale_x_continuous(limits = c(30, 60)) + theme_bw()</span></p>
+<ul>
+<li><p><code>labs(x = "xlabel", y = "ylabel", title = "my title")</code> gives axis and plot labels</p></li>
+<li><p><code>scale_x_continuous(limits = c(1, 10))</code> changes x-axis scaling, same idea for y-axis scaling</p></li>
+<li><p><code>theme_bw()</code> sets a <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">plot theme</a>.</p></li>
+</ul>
 
 <img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="summary-of-options" class="slide level2">
@@ -451,6 +454,10 @@ esquisser(penguins)</code></pre>
 <section id="r-graphics-cookbook" class="slide level2">
 <h2>R Graphics Cookbook</h2>
 <p>An excellent resource: <a href="https://r-graphics.org/" class="uri">https://r-graphics.org/</a></p>
+</section>
+<section id="class-plotting-gallery" class="slide level2">
+<h2>Class plotting gallery!</h2>
+<p><a href="https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?usp=sharing" class="uri">https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?usp=sharing</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

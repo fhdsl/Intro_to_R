@@ -13,7 +13,7 @@ output-location: fragment
 
 ![](images/R-3.1%20(Final).png){width="600"}
 
-Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: <https://posit.cloud/spaces/688947/join?access_code=0gauCbMN_lB9vKO1YlXCD3_6SGjZoBlEybMq8L3D>. 
+Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: <https://posit.cloud/spaces/778567/join?access_code=cHS7GvIehPSq0Nwv__F1a84dieZtKLKs0lajQWyC>. 
 
 ## Introductions
 
@@ -31,11 +31,11 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
     -   What you want to get out of the class
 
-    -   What has brought you joy lately?
+    -   Something that is sprouting for you in the spring!
 
 . . .
 
--   Our wonderful TAs!
+-   Our wonderful TA!
 
 ## Goals of the course
 
@@ -59,11 +59,9 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 4.  Data wrangling 2
 
-5.  \[No class week\]
+5.  Data visualization
 
-6.  Data visualization
-
-7.  Wrap-up, Pizza!
+6.  Wrap-up, Pizza!
 
 ## Culture of the course
 
@@ -151,7 +149,7 @@ mean(iris_filtered$Sepal.Width)
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
-[Classroom link here.](https://posit.cloud/spaces/688947/join?access_code=0gauCbMN_lB9vKO1YlXCD3_6SGjZoBlEybMq8L3D)
+[Classroom link here.](https://posit.cloud/spaces/778567/join?access_code=cHS7GvIehPSq0Nwv__F1a84dieZtKLKs0lajQWyC)
 
 Open up "Week 1 Classwork" once you are in the classroom.
 
@@ -159,7 +157,7 @@ Then open up "KRAS.qmd" document in the file browser in the right bottom corner.
 
 ## Break
 
-Pre-course survey here: <https://forms.gle/oawadMEdeoPpKKXv9>
+Pre-course survey here: <https://forms.gle/puE8W5BeYyTYJjdm8>
 
 ## Grammar Structure 1: Evaluation of Expressions
 

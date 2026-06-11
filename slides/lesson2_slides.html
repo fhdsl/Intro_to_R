@@ -496,22 +496,29 @@
 </section>
 <section id="operations-and-functions-on-vectors" class="slide level2">
 <h2>Operations and functions on vectors</h2>
-<p>Multiplication operation on vectors:</p>
+<p>Addition and Multiplication operations on vectors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>chrNum <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb12-2"><a href=""></a>chrNum <span class="ot">=</span> chrNum <span class="sc">*</span> <span class="dv">3</span></span>
-<span id="cb12-3"><a href=""></a>chrNum </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>chrNum <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 5 3</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>chrNum <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6 9 3</code></pre>
 </div>
 </div>
+</div>
 <div class="fragment">
 <p>Comparison operator on vectors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>chrNum <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb14-2"><a href=""></a>chrNum <span class="sc">&gt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>chrNum <span class="sc">&gt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -522,7 +529,7 @@
 <div class="fragment">
 <p>Functions on vectors: how many elements are in this vector?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">length</span>(chrNum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">length</span>(chrNum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -534,7 +541,7 @@
 <section id="subsetting-vectors" class="slide level2 scrollable">
 <h2>Subsetting vectors</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"sonu"</span>, <span class="st">"sean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"sonu"</span>, <span class="st">"sean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 
@@ -546,7 +553,7 @@
 <li>A single numeric value</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>staff[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>staff[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -555,19 +562,14 @@
 </div>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>staff[<span class="dv">3</span>] <span class="ot">=</span> <span class="st">"scott"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-
-</div>
+<p>This returns a single data type.</p>
 </div>
 <div class="fragment">
 <ol start="2" type="1">
 <li>A <strong>numerical indexing vector</strong> containing numerical values. They dictate which elements of the vector to subset.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -576,63 +578,48 @@
 </div>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>small_staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "chris" "sonu" </code></pre>
-</div>
-</div>
+<p>This returns a vector.</p>
 </div>
 </section>
-<section id="subsetting-vectors-continued" class="slide level2 scrollable">
-<h2>Subsetting vectors continued</h2>
+<section id="things-you-can-do-with-subsetting" class="slide level2 scrollable">
+<h2>Things you can do with subsetting</h2>
+<ol type="1">
+<li><p>Access</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"sonu"</span>, <span class="st">"sean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
-
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "chris" "sean" </code></pre>
 </div>
-<ol start="3" type="1">
-<li>A <strong>logical indexing vector</strong> with the same length as the vector to be subsetted. The <code>TRUE</code> values indicate which elements to keep, the <code>FALSE</code> values indicate which elements to drop.</li>
+</div></li>
 </ol>
 <div class="fragment">
+<ol start="2" type="1">
+<li>Modify</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"bill"</span>, <span class="st">"andrew"</span>)  </span>
+<span id="cb27-2"><a href=""></a>staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "chris"</code></pre>
+<pre><code>[1] "bill"   "sonu"   "andrew"</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
+<ol start="3" type="1">
+<li>Assign</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>staff <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"chris"</span>, <span class="st">"sonu"</span>, <span class="st">"sean"</span>)</span>
+<span id="cb29-2"><a href=""></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span>
+<span id="cb29-3"><a href=""></a>small_staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "chris" "sonu" </code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>small_staff <span class="ot">=</span> staff[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span>
-<span id="cb32-2"><a href=""></a>small_staff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "chris" "sonu" </code></pre>
+<pre><code>[1] "chris" "sean" </code></pre>
 </div>
 </div>
 </div>
@@ -640,9 +627,9 @@
 <section id="a-trick-when-subsetting-large-vectors" class="slide level2">
 <h2>A trick: When subsetting large vectors</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co">#don't worry about this function</span></span>
-<span id="cb34-2"><a href=""></a>age <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="dv">100</span>)) <span class="co">#don't worry about these functions</span></span>
-<span id="cb34-3"><a href=""></a>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co">#don't worry about this function</span></span>
+<span id="cb31-2"><a href=""></a>age <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="dv">100</span>)) <span class="co">#don't worry about these functions</span></span>
+<span id="cb31-3"><a href=""></a>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -652,19 +639,21 @@
  [76] 23 39 62 36 12 25 67 42 79 11 44 99 89 89 18 14 66 35 66 33 20 78 10 47 52</code></pre>
 </div>
 </div>
+<div class="fragment">
 <p>Suppose you want the first 20 elements of this vector. Writing out <code>c(1, 2, 3, 4, …</code> is a pain. We can generate 1 to 20 via the following trick:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
 </div>
 </div>
+</div>
 <div class="fragment">
 <p>Much easier!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>age[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>age[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -681,7 +670,7 @@
 <div class="fragment">
 <p>Let’s load a Dataframe in, and see what’s in it, spreadsheet style!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/fhdsl/Intro_to_R/raw/main/classroom_data/CCLE.RData"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 
@@ -697,7 +686,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">dim</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">dim</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -708,7 +697,7 @@
 <div class="fragment">
 <p>The <strong>column name</strong> is a character vector that corresponds to the columns of the dataframe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">names</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">names</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -735,81 +724,92 @@
 <p><code>metadata$OncotreeLineage</code></p>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>metadata<span class="sc">$</span>OncotreeLineage[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Ovary/Fallopian Tube" "Myeloid"              "Bowel"               
-[4] "Myeloid"              "Myeloid"             </code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
 <p><code>metadata$Age</code></p>
 </div>
-<div class="fragment">
+</section>
+<section id="from-dataframe-to-single-data" class="slide level2">
+<h2>From Dataframe to single data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>metadata<span class="sc">$</span>Age[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>oncotree <span class="ot">=</span> metadata<span class="sc">$</span>OncotreeLineage</span>
+<span id="cb42-2"><a href=""></a>oncotree_first_ten <span class="ot">=</span> oncotree[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb42-3"><a href=""></a>oncotree_first_ten[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 60 36 72 30 30</code></pre>
-</div>
+<pre><code>[1] "Bowel"</code></pre>
 </div>
 </div>
 </section>
-<section id="subsetting-columns-and-rows-from-a-dataframe" class="slide level2">
-<h2>Subsetting columns and rows from a dataframe</h2>
+<section id="appendix-subsetting-columns-and-rows-from-a-dataframe" class="slide level2">
+<h2>Appendix: Subsetting columns and rows from a dataframe</h2>
 <p><code>dataframe[row_idx, col_idx]</code> subsets the dataframe by a row indexing vector <code>row_idx</code>, and a column indexing vector <code>col_idx</code>.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>     ModelID CellLineName
-1 ACH-000001  NIH:OVCAR-3
-2 ACH-000002        HL-60
-3 ACH-000003        CACO2
-4 ACH-000004          HEL
-5 ACH-000005   HEL 92.1.7</code></pre>
+<pre><code>      ModelID CellLineName
+1  ACH-000001  NIH:OVCAR-3
+2  ACH-000002        HL-60
+3  ACH-000003        CACO2
+4  ACH-000004          HEL
+5  ACH-000005   HEL 92.1.7
+6  ACH-000006   MONO-MAC-6
+7  ACH-000007        LS513
+8  ACH-000008        A101D
+9  ACH-000009       C2BBe1
+10 ACH-000011         253J</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <p>We can refer to the column names directly:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">"ModelID"</span>, <span class="st">"CellLineName"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"ModelID"</span>, <span class="st">"CellLineName"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>     ModelID CellLineName
-1 ACH-000001  NIH:OVCAR-3
-2 ACH-000002        HL-60
-3 ACH-000003        CACO2
-4 ACH-000004          HEL
-5 ACH-000005   HEL 92.1.7</code></pre>
+<pre><code>      ModelID CellLineName
+1  ACH-000001  NIH:OVCAR-3
+2  ACH-000002        HL-60
+3  ACH-000003        CACO2
+4  ACH-000004          HEL
+5  ACH-000005   HEL 92.1.7
+6  ACH-000006   MONO-MAC-6
+7  ACH-000007        LS513
+8  ACH-000008        A101D
+9  ACH-000009       C2BBe1
+10 ACH-000011         253J</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="subsetting-columns-or-rows-from-a-dataframe" class="slide level2">
-<h2>Subsetting columns or rows from a dataframe</h2>
+<section id="appendix-from-dataframe-to-single-data" class="slide level2">
+<h2>Appendix: From Dataframe to single data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>small_df <span class="ot">=</span> metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"ModelID"</span>, <span class="st">"CellLineName"</span>)]</span>
+<span id="cb48-2"><a href=""></a>small_modelID <span class="ot">=</span> small_df<span class="sc">$</span>ModelID</span>
+<span id="cb48-3"><a href=""></a>small_modelID[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ACH-000004"</code></pre>
+</div>
+</div>
+</section>
+<section id="appendix-subsetting-columns-or-rows-from-a-dataframe" class="slide level2">
+<h2>Appendix: Subsetting columns or rows from a dataframe</h2>
 <p>We can leave the column index or row index empty to just subset columns or rows. <strong>But keep the comma!!!</strong></p>
 <div class="fragment">
 <p><code>metadata[1:5, ]</code></p>
 </div>
 <div class="fragment">
 <p><code>metadata[, c("ModelID", "CellLineName")]</code></p>
-</div>
-</section>
-<section id="how-was-class-for-you-today" class="slide level2">
-<h2>How was class for you today?</h2>
-<p><a href="https://forms.gle/vo2Mgm54wwci6t9k6" class="uri">https://forms.gle/vo2Mgm54wwci6t9k6</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section>

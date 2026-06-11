@@ -11,6 +11,8 @@ format:
 
 You are now comfortable with our code from Week 1!
 
+[Final exercise plotting gallery](https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?tab=t.0#heading=h.ycaeyqy8a6rq)
+
 [Intro to R Cheatsheet](https://hutchdatascience.org/Intro_to_R/cheatsheet.html)
 
 ## Certification/Badging
@@ -25,11 +27,11 @@ What it isn't:
 
 -   Accreditation through an university or degree-granting program.
 
-I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/1uxxRDwcygghr0SxGzFWHXKZOlScGrdk1IqjlL_9QStI/edit?usp=sharing).
+I've been keeping track of folks' completion, will share shortly.
 
 ## Continuing your education
 
--   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2026)
+-   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2027)
 
 . . .
 
@@ -39,13 +41,7 @@ I've been keeping track of folks' completion [here](https://docs.google.com/spre
 
     -   [R for Data Science, by Hadley Wickham](https://r4ds.hadley.nz/)
 
-## Connecting to rest of [DaSL Training](https://hutchdatascience.org/courses/)
-
-![![](images/Screenshot%202025-11-03%20at%202.01.18%20PM.png)](images/Screenshot%202025-11-03%20at%202.00.09%20PM.png)
-
 ## Connecting to rest of DaSL/OCDO
-
-![](images/Disney%20Map%20for%20Openscapes.png)
 
 -   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
 
@@ -57,7 +53,7 @@ I've been keeping track of folks' completion [here](https://docs.google.com/spre
 
 ## Please fill out survey!
 
-Our [class survey](https://forms.gle/ykLvRPhxmPpPKZQN8) makes a huge difference for us.
+Our [class survey](https://forms.gle/Saq4omUj61XL4fuq6) makes a huge difference for us.
 
 ## Working on your own projects
 
@@ -108,6 +104,10 @@ library(tidyverse)
 students = read_csv("https://raw.githubusercontent.com/hadley/r4ds/main/data/students.csv")
 students
 ```
+
+. . .
+
+Some more information about [filepaths here](https://clinic.ds.uchicago.edu/tutorials/filepaths.html), and [here](https://www.redhat.com/en/blog/linux-path-absolute-relative).
 
 ## Other file formats
 

@@ -15,7 +15,7 @@ age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
 
 . . .
 
--   **Explicit subsetting**: Given a length 10 vector of people's ages, and subset to the 1st, 5th, and 9th elements.
+-   **Explicit subsetting**: Given a vector of people's ages, and subset to the 1st, 5th, and 9th elements.
 
 . . .
 
@@ -25,7 +25,7 @@ age[c(1, 5, 9)]
 
 . . .
 
--   **Implicit subsetting**: Given a length 10 vector of people's ages, and subset to elements greater than age 50.
+-   **Implicit subsetting**: Given a vector of people's ages, and subset to elements greater than age 50.
 
 ## The third way of vector subsetting
 
@@ -108,6 +108,10 @@ idx = age > 50
 age[idx]
 ```
 
+. . .
+
+Your turn to practice!
+
 ## Comparison operators
 
 `<` less than
@@ -184,6 +188,12 @@ head(breast_metadata)
 
 Here, `filter()` and `select()` are functions from the `tidyverse` package.
 
+## Try it our yourself:
+
+-   Rows to filter:
+
+-   Columns to select:
+
 ## `filter()` and `select()`
 
 `metadata_filtered = filter(metadata, OncotreeLineage == "Breast")`:
@@ -203,12 +213,6 @@ Rather, `OncotreeLineage` is a column from `metadata`, and we are referring to i
 . . .
 
 The input arguments for `select()` are also **data variables**.
-
-## Try it our yourself:
-
--   Rows to filter:
-
--   Columns to select:
 
 ## Summary statistics
 
@@ -281,4 +285,4 @@ breast_metadata = metadata |>
 
 ## How was class for you today?
 
-<https://forms.gle/vo2Mgm54wwci6t9k6>
+<https://forms.gle/4ZEpUjBAz4Yfw9og6>
