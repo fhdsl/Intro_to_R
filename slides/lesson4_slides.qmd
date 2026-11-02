@@ -34,13 +34,13 @@ mean(x, trim = 0, na.rm = FALSE, ...)
 
 The inputs to a function always have input names:
 
--   `x`. This input is required.
+- `x`. This input is required.
 
--   `trim`. This input is optional (it has a default input value).
+- `trim`. This input is optional (it has a default input value).
 
--   `na.rm`. This input is optional (it has a default input value).
+- `na.rm`. This input is optional (it has a default input value).
 
--   `...` indicates optional unnamed inputs.
+- `...` indicates optional unnamed inputs.
 
 . . .
 
@@ -106,8 +106,6 @@ metadata2$olderAge[1:10]
 ```
 
 . . .
-
-<br>
 
 ```{r}
 expression$KRAS_Exp[1:10]
@@ -254,13 +252,13 @@ Therefore, we expect to see `NA` values in `merged`, as there are some cell line
 
 Given `xxx_join(x, y, by = join_by(common_col))`,
 
--   `full_join()` keeps all observations.
+- `full_join()` keeps all observations.
 
--   `left_join()` keeps all observations in `x`.
+- `left_join()` keeps all observations in `x`.
 
--   `right_join()` keeps all observations in `y`.
+- `right_join()` keeps all observations in `y`.
 
--   `inner_join()` keeps observations common to both `x` and `y`.
+- `inner_join()` keeps observations common to both `x` and `y`.
 
 ## Grouping and summarizing dataframes
 
@@ -291,9 +289,9 @@ Desired columns: mean age.
 
 To get there, we need to:
 
--   **Group** the data based on some criteria: elements of `OncotreeLineage`
+- **Group** the data based on some criteria: elements of `OncotreeLineage`
 
--   **Summarise** each group via a summary statistic performed on a column: `Age`.
+- **Summarise** each group via a summary statistic performed on a column: `Age`.
 
 ## Grouping and summarizing dataframes
 
@@ -388,6 +386,10 @@ metadata_by_type = metadata |>
                    summarise(MeanAge = mean(Age, na.rm = TRUE),
                              Count = n())
 ```
+
+## How's the pace so far?
+
+<https://forms.gle/M6dWCZiB7tFZx8oE6>
 
 ## Appendix: More data wrangling functions from Tidyverse
 
