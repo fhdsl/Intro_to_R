@@ -7,6 +7,10 @@ format:
     echo: true
 ---
 
+## How's the pace of the course so far?
+
+<https://forms.gle/KLbzLwWhnfAoGaE8A>
+
 ## Explicit vs. implicit subsetting
 
 ```{r}
@@ -15,7 +19,7 @@ age = c(89, 70, 64, 90, 66, 71, 55, 60, 30, 16)
 
 . . .
 
--   **Explicit subsetting**: Given a vector of people's ages, and subset to the 1st, 5th, and 9th elements.
+- **Explicit subsetting**: Given a vector of people's ages, and subset to the 1st, 5th, and 9th elements.
 
 . . .
 
@@ -25,7 +29,7 @@ age[c(1, 5, 9)]
 
 . . .
 
--   **Implicit subsetting**: Given a vector of people's ages, and subset to elements greater than age 50.
+- **Implicit subsetting**: Given a vector of people's ages, and subset to elements greater than age 50.
 
 ## The third way of vector subsetting
 
@@ -190,9 +194,9 @@ Here, `filter()` and `select()` are functions from the `tidyverse` package.
 
 ## Try it our yourself:
 
--   Rows to filter:
+- Rows to filter:
 
--   Columns to select:
+- Columns to select:
 
 ## `filter()` and `select()`
 
@@ -282,7 +286,3 @@ breast_metadata = metadata |>
   filter(OncotreeLineage == "Breast") |> 
   select(ModelID, Age, Sex)
 ```
-
-## How was class for you today?
-
-<https://forms.gle/4ZEpUjBAz4Yfw9og6>

@@ -8,14 +8,14 @@ format:
 output-location: fragment
 ---
 
-## Solving problems...
+## The survey I forgot!
 
-![](images/gator_error.jpg)
+<https://forms.gle/KrMmqy3BMZX1te4r5>
 
 ## Exercise 1 Continued
 
--   Three styles of defining and updating variables
--   Does a function/operation always have an input or output?
+- Three styles of defining and updating variables
+- Does a function/operation always have an input or output?
 
 ## Comparison Operations
 
@@ -164,21 +164,20 @@ This returns a vector.
 
 . . .
 
-2.  Modify
+2.  Access and Assign
 
 ```{r}
-staff[c(1, 3)] = c("bill", "andrew")  
-staff
+small_staff = staff[c(1, 3)]
+small_staff
 ```
 
 . . .
 
-3.  Assign
+3.  Modify
 
 ```{r}
-staff = c("chris", "sonu", "sean")
-small_staff = staff[c(1, 3)]
-small_staff
+staff[c(1, 3)] = c("bill", "andrew")  
+staff
 ```
 
 ## A trick: When subsetting large vectors

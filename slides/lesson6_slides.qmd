@@ -11,7 +11,7 @@ format:
 
 You are now comfortable with our code from Week 1!
 
-[Final exercise plotting gallery](https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?tab=t.0#heading=h.ycaeyqy8a6rq)
+[Final exercise plotting gallery](https://docs.google.com/document/d/1PhZUHyD9eirGkcMsP_6CwfgjRH3DVj2f0Ggn35ztFh8/edit?tab=t.0#heading=h.ycaeyqy8a6rq), and [here](https://docs.google.com/document/d/1igje3fWfyadVKRGPmH4ZhObZKCtMqyeyVdU4knSrUnk/edit?tab=t.0#heading=h.ycaeyqy8a6rq)
 
 [Intro to R Cheatsheet](https://hutchdatascience.org/Intro_to_R/cheatsheet.html)
 
@@ -19,67 +19,95 @@ You are now comfortable with our code from Week 1!
 
 Certification upon completing 4 out of the 5 assignments: <https://www.credly.com/org/fred-hutch/badge/intro-to-r>
 
+Completion tracking [here](https://docs.google.com/spreadsheets/d/1wVb6vYFFTiUKky7W7jZZ8C3i3eJ-u6UITftJylVC3U4/edit?usp=sharing).
+
 What it is:
 
--   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
+- A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
 
 What it isn't:
 
--   Accreditation through an university or degree-granting program.
+- Accreditation through an university or degree-granting program.
 
 I've been keeping track of folks' completion, will share shortly.
 
 ## Continuing your education
 
--   [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2027)
+- [Intermediate R](https://hutchdatascience.org/Intermediate_R/) (to be taught live in Winter 2027)
 
 . . .
 
--   Reference texts:
+- Reference texts:
 
-    -   [Hands-on Programming with R, by Garrett Grolemund](https://rstudio-education.github.io/hopr/)
+  - [Hands-on Programming with R, by Garrett Grolemund](https://rstudio-education.github.io/hopr/)
 
-    -   [R for Data Science, by Hadley Wickham](https://r4ds.hadley.nz/)
+  - [R for Data Science, by Hadley Wickham](https://r4ds.hadley.nz/)
 
-## Connecting to rest of DaSL/OCDO
+## Connecting to rest of the Data Accelerator
 
--   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
+- [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
 
--   [Fred Hutch Data Slack](https://join.slack.com/t/fhdata/signup)
+- [Fred Hutch Data Slack](https://join.slack.com/t/fhdata/signup)
 
--   [Fred Hutch SciWiki](https://ocdo.fredhutch.org/programs/sciwiki.html)
-
--   [Open source software at Fred Hutch: WILDS](https://getwilds.org/)
+- [Fred Hutch SciWiki](https://ocdo.fredhutch.org/programs/sciwiki.html)
 
 ## Please fill out survey!
 
-Our [class survey](https://forms.gle/Saq4omUj61XL4fuq6) makes a huge difference for us.
+Our [class survey](https://forms.gle/CLi6MdQXs8VPYygh8) makes a huge difference for us.
 
-## Working on your own projects
+## AI Usage
 
--   Download and install [R](https://cloud.r-project.org/)
+- [Fred Hutch policy](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/understanding-artificial-intelligence.html)
 
--   Download and install [RStudio](https://posit.co/downloads/)
+- [Microsoft Copilot Chat](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-copilot-for-the-web.html) and [Perplexity](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-perplexity.html)
 
-## Getting started in RStudio
+- Unsure? Consider connecting with [AI Review staff](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/artificial-intelligence-review.html).
 
--   `File -> New Project`
+## AI Usage for Intro to R
 
--   This is similar to a Posit Cloud workspace:
+As a English \<-\> R language translator
 
-    -   Any library you install in this workspace will be only for this Project
+- Explaining what the code is doing
 
-    -   Create new Quarto Document or R Script to run your analysis
+- Explaining error messages
 
-    -   Highly recommend to put your data in the project folder, so you can access it in a relative path.
+- Learning inputs and outputs of new functions
 
 . . .
 
--   Install and load relevant packages
+As a code generator
 
-    -   `install.packages("tidyverse")`
+- We might try to ask it to generate code within our knowledge domain
 
-    -   `library(tidyverse)`
+  - Plotting, subsetting, merging dataframes
+
+    - **We have to verify AI's code.**
+
+## Working on your own projects
+
+- Download and install [R](https://cloud.r-project.org/)
+
+- Download and install [RStudio](https://posit.co/downloads/)
+
+## Getting started in RStudio
+
+- `File -> New Project`
+
+- This is similar to a Posit Cloud workspace:
+
+  - Any library you install in this workspace will be only for this Project
+
+  - Create new Quarto Document or R Script to run your analysis
+
+  - Highly recommend to put your data in the project folder, so you can access it in a relative path.
+
+. . .
+
+- Install and load relevant packages
+
+  - `install.packages("tidyverse")`
+
+  - `library(tidyverse)`
 
 ## Loading your own data in
 
@@ -131,15 +159,15 @@ Some more information about [filepaths here](https://clinic.ds.uchicago.edu/tuto
 
 ## Looking up documentation
 
--   Use the `?` operation: `?read_delim`
+- Use the `?` operation: `?read_delim`
 
--   Package documentation: <https://readr.tidyverse.org/index.html>
+- Package documentation: <https://readr.tidyverse.org/index.html>
 
-    -   Function documentation: <https://readr.tidyverse.org/reference/read_delim.html>
+  - Function documentation: <https://readr.tidyverse.org/reference/read_delim.html>
 
--   Vetted online resources:
+- Vetted online resources:
 
-    -   Stackoverflow: <https://stackoverflow.com/collectives/r-language>
+  - Stackoverflow: <https://stackoverflow.com/collectives/r-language>
 
 ## Saving plots
 
@@ -153,10 +181,10 @@ dev.off()
 
 Consider having subfolders for:
 
--   Raw data and metadata
+- Raw data and metadata
 
--   Analyzed data
+- Analyzed data
 
--   Plots
+- Plots
 
 [Good enough practices for scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)

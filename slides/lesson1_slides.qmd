@@ -13,41 +13,47 @@ output-location: fragment
 
 ![](images/R-3.1%20(Final).png){width="600"}
 
-Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: <https://posit.cloud/spaces/778567/join?access_code=cHS7GvIehPSq0Nwv__F1a84dieZtKLKs0lajQWyC>. 
+Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/register "https://login.posit.cloud/register") and accept our classroom invitation here: <https://posit.cloud/spaces/821835/join?access_code=tkWGuPf2OJmGO-htNUVopb0C7nmqBiDT_-bNCdfc>
+
+Should read "Intro to R, Fall 2026-2", not "Intro to R, Fall 2026-BAD"
 
 ## Introductions
 
--   Who am I?
+- Who am I?
 
 . . .
 
--   What is [DaSL](https://hutchdatascience.org/) / [OCDO](https://ocdo.fredhutch.org/) ?
+- What is the [Fred Hutch Translational Data Accelerator](https://accelerator.fredhutch.org/)?
 
 . . .
 
--   Who are you?
+- Who are you?
 
-    -   Name, pronouns, group you work in
+  - Name, pronouns, group you work in
 
-    -   What you want to get out of the class
+  - What you want to get out of the class
 
-    -   Something that is sprouting for you in the spring!
+  - Something that you forward to in the Fall season!
 
 . . .
 
--   Our wonderful TA!
+- Our wonderful TA!
 
 ## Goals of the course
 
 . . .
 
--   Fundamental concepts in programming languages: *How do programs run, and how do we solve problems effectively using functions and data structures?*
+- Fundamental concepts in programming languages: *How do programs run, and how do we solve problems effectively using functions and data structures?*
 
 . . .
 
--   Data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
+- Data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
 
-    ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
+  ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
+
+. . .
+
+- What are some helpful uses of AI in introductory data science?
 
 ## Content of the course
 
@@ -67,41 +73,33 @@ Please [sign-up for an account at Posit Cloud](https://login.posit.cloud/regist
 
 . . .
 
--   Challenge: We are learning a new language, but you already have a full-time job.
+- Challenge: We are learning a new language, but you already have a full-time job.
 
 . . .
 
--   *Teach not for mastery, but teach for empowerment to learn effectively.*
+- *Teach not for mastery, but teach for empowerment to learn effectively.*
 
 . . .
 
--   *Teach at learner's pace.*
-
-## Culture of the course
-
--   Challenge: We sometimes struggle with our data science problems in isolation, unaware that other folks are working on similar things.
+- *Teach at learner's pace.*
 
 . . .
 
--   *We learn and work better with our peers.*
-
-. . .
-
--   *We encourage discussion and questions, as others often have similar questions also.*
+- *We encourage discussion and questions, as others often have similar questions also.*
 
 ## Format of the course
 
 . . .
 
--   Hybrid, and recordings will be available.
+- Hybrid, and recordings will be available.
 
 . . .
 
--   1 hour exercises after each session are encouraged for practice.
+- 1 hour exercises after each session are encouraged for practice.
 
 . . .
 
--   Office hours 11:30-Noon before class.
+- Office hours 11:30-Noon before class.
 
 ## Badge of completion
 
@@ -111,31 +109,27 @@ We offer a [badge of completion](https://www.credly.com/org/fred-hutch/badge/int
 
 What it is:
 
--   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
+- A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
 
 What it isn't:
 
--   Accreditation through an university or degree-granting program.
+- Accreditation through an university or degree-granting program.
 
 . . .
 
 Requirements:
 
--   Complete badge-required sections of the exercises for 4 out of 5 assignments.
-
-## Ready?
-
-![](images/horst_community.png)
+- Complete badge-required sections of the exercises for 4 out of 5 assignments.
 
 ## What is a computer program?
 
 . . .
 
--   A *sequence* of instructions to manipulate data for the computer to execute.
+- A *sequence* of instructions to manipulate data for the computer to execute.
 
 . . .
 
--   A series of *translations*: English \<-\> Programming Code for R Console \<-\> Machine Code
+- A series of *translations*: English \<-\> Programming Code for R Console \<-\> Machine Code
 
 . . .
 
@@ -149,7 +143,7 @@ mean(iris_filtered$Sepal.Width)
 
 ## Setting up Posit Cloud and trying out your first analysis!
 
-[Classroom link here.](https://posit.cloud/spaces/778567/join?access_code=cHS7GvIehPSq0Nwv__F1a84dieZtKLKs0lajQWyC)
+<https://posit.cloud/spaces/821835/join?access_code=tkWGuPf2OJmGO-htNUVopb0C7nmqBiDT_-bNCdfc>
 
 Open up "Week 1 Classwork" once you are in the classroom.
 
@@ -157,7 +151,7 @@ Then open up "KRAS.qmd" document in the file browser in the right bottom corner.
 
 ## Break
 
-Pre-course survey here: <https://forms.gle/puE8W5BeYyTYJjdm8>
+Pre-course survey here: <https://forms.gle/KrMmqy3BMZX1te4r5>
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -169,15 +163,15 @@ max(18, 21)
 
 . . .
 
--   **Expressions** are built out of **functions** or **operations**.
+- **Expressions** are built out of **functions** or **operations**.
 
 . . .
 
--   Functions and operations take in **data types** as inputs, and **return** another data type as output.
+- Functions and operations take in **data types** as inputs, and **return** another data type as output.
 
 . . .
 
--   If the function or operation input contains expressions, evaluate those expressions first.
+- If the function or operation input contains expressions, evaluate those expressions first.
 
 ## Examples
 
@@ -195,6 +189,12 @@ max(18, 21)
 
 ```{r}
 max(18 + 21, 65)
+```
+
+. . .
+
+```{r}
+max(max(2, 10), 21)
 ```
 
 . . .
@@ -223,19 +223,19 @@ nchar("ATCG")
 
 ## Interpreting functions and operations
 
--   To use a function or operation, we only need to know what the expected inputs and outputs are. The inner workings doesn't matter - it is modular.
+- To use a function or operation, we only need to know what the expected inputs and outputs are. The inner workings doesn't matter - it is modular.
 
 . . .
 
--   A function or operation can have different kinds of inputs and outputs - it doesn't need to be numbers.
+- A function or operation can have different kinds of inputs and outputs - it doesn't need to be numbers.
 
 ## Data types
 
--   **Numeric**: 18, -21, 65, 1.25
+- **Numeric**: 18, -21, 65, 1.25
 
--   **Character**: "ATCG", "Whatever", "948-293-0000"
+- **Character**: "ATCG", "Whatever", "948-293-0000"
 
--   **Logical**: TRUE, FALSE
+- **Logical**: TRUE, FALSE
 
 ## Grammar Structure 2: Storing variables in the environment
 
@@ -303,22 +303,44 @@ secret
 ```{r}
 brothers_age = brothers_age + 1
 grandmas_age = grandmas_age + 1
+brothers_age
+grandmas_age
 ```
 
 ## Tips on writing your first code
 
-. . .
-
-`Computer = powerful + stupid`
+- Break down complex expressions: if `my_function(a, b + c)` isn't working, examine `a` and `b + c`
 
 . . .
 
--   Break down complex expressions: if `my_function(a, b + c)` isn't working, examine `a` and `b + c`
+- The sequence of instructions you give matters! Refresh the page, or click the broom button, to clear the environment.
 
 . . .
 
--   The sequence of instructions you give matters! Refresh the page, or click the broom button, to clear the environment.
+- **Ask for help!**
+
+## AI Usage
+
+- [Fred Hutch policy](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/understanding-artificial-intelligence.html)
+
+- [Microsoft Copilot Chat](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-copilot-for-the-web.html) and [Perplexity](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-perplexity.html)
+
+- Unsure? Consider connecting with [AI Review staff](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/artificial-intelligence-review.html).
+
+## AI Usage for Intro to R
+
+As a English \<-\> R language translator
+
+- Explaining what the code is doing
+
+- Explaining error messages
+
+- Learning inputs and outputs of new functions
 
 . . .
 
--   **Ask for help!**
+As a code generator
+
+- We might try to ask it to generate code within our knowledge domain
+
+  - We have to verify AI's code.

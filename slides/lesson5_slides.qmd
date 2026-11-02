@@ -14,21 +14,23 @@ library(palmerpenguins)
 
 ## Announcements!
 
-Lunch together for last day of class next week: <https://forms.gle/aMAUKJBxd8bMtys89>
+No class next week!
+
+Lunch together for last day of class in two weeks: <https://forms.gle/9YStqBYxE5arsjuMA>
 
 ## Common Plots
 
 #### Univariate
 
--   Numeric: histogram
+- Numeric: histogram
 
--   Character: bar plots
+- Character: bar plots
 
 #### Bivariate
 
--   Numeric vs. Numeric: Scatterplot, line plot
+- Numeric vs. Numeric: Scatterplot, line plot
 
--   Numeric vs. Character: Box plot
+- Numeric vs. Character: Box plot
 
 ## Why focus on these plots?
 
@@ -138,11 +140,11 @@ ggplot(penguins) + aes(x = species, y = bill_depth_mm, fill = island) + geom_box
 
 [ggplot(data = penguins)]{style="color:orange"} + [aes(x = bill_length_mm, y = bill_depth_mm, color = species)]{style="color:green"} + [geom_point()]{style="color:blue"} + [labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60)) + theme_bw()]{style="color:purple"}
 
--   `labs(x = "xlabel", y = "ylabel", title = "my title")` gives axis and plot labels
+- `labs(x = "xlabel", y = "ylabel", title = "my title")` gives axis and plot labels
 
--   `scale_x_continuous(limits = c(1, 10))` changes x-axis scaling, same idea for y-axis scaling
+- `scale_x_continuous(limits = c(1, 10))` changes x-axis scaling, same idea for y-axis scaling
 
--   `theme_bw()` sets a [plot theme](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+- `theme_bw()` sets a [plot theme](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 ```{r, echo=F, warning=F, message=F}
 ggplot(data = penguins) + geom_point(mapping = aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + labs(x = "Bill Length", y = "Bill Depth", title = "Comparison of penguin bill length and bill depth across species") + scale_x_continuous(limits = c(30, 60)) + theme_bw()
@@ -190,6 +192,32 @@ esquisser(penguins)
 ## R Graphics Cookbook
 
 An excellent resource: <https://r-graphics.org/>
+
+## AI Usage
+
+- [Fred Hutch policy](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/understanding-artificial-intelligence.html)
+
+- [Microsoft Copilot Chat](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-copilot-for-the-web.html) and [Perplexity](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/guidance-for-using-perplexity.html)
+
+- Unsure? Consider connecting with [AI Review staff](https://centernet.fredhutch.org/u/data-science-lab/data-governance/ai/artificial-intelligence-review.html).
+
+## AI Usage for Intro to R
+
+As a English \<-\> R language translator
+
+- Explaining what the code is doing
+
+- Explaining error messages
+
+- Learning inputs and outputs of new functions
+
+. . .
+
+As a code generator
+
+- We might try to ask it to generate code within our knowledge domain
+
+  - **We have to verify AI's code.**
 
 ## Class plotting gallery!
 
