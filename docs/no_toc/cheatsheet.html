@@ -241,7 +241,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="cheatsheet.html"><a href="cheatsheet.html#dataframes-1"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
 <li class="chapter" data-level="7.6" data-path="cheatsheet.html"><a href="cheatsheet.html#summary-statistics-of-a-dataframes-column"><i class="fa fa-check"></i><b>7.6</b> Summary Statistics of a Dataframe’s column</a></li>
 <li class="chapter" data-level="7.7" data-path="cheatsheet.html"><a href="cheatsheet.html#dataframe-transformations"><i class="fa fa-check"></i><b>7.7</b> Dataframe transformations</a></li>
-<li class="chapter" data-level="7.8" data-path="cheatsheet.html"><a href="cheatsheet.html#alternative-methods"><i class="fa fa-check"></i><b>7.8</b> Alternative methods</a></li>
+<li class="chapter" data-level="7.8" data-path="cheatsheet.html"><a href="cheatsheet.html#equivalent-ways"><i class="fa fa-check"></i><b>7.8</b> Equivalent ways</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
@@ -325,15 +325,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td>Create a vector with some elements</td>
 <td><p><code>vec = c(1, -4, -9, 12)</code></p>
-<p><code>names = c("chris", "hannah", "chris", NA)</code></p></td>
+<p><code>roster = c("chris", "hannah", "chris", NA)</code></p></td>
 </tr>
 <tr class="even">
 <td>Compute length of a vector</td>
-<td><code>length(vector)</code></td>
+<td><code>length(vec)</code></td>
 </tr>
 <tr class="odd">
-<td>Access the second element of <code>names</code></td>
-<td><code>names[2]</code></td>
+<td>Access the second element of <code>roster</code></td>
+<td><code>roster``[2]</code></td>
 </tr>
 </tbody>
 </table>
@@ -366,16 +366,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <td><code>vec &gt; 4 | vec &lt; -4</code></td>
 </tr>
 <tr class="odd">
-<td><code>names</code> is “chris”</td>
-<td><code>names == "chris"</code></td>
+<td><code>roster</code> is “chris”</td>
+<td><code>roster``== "chris"</code></td>
 </tr>
 <tr class="even">
-<td><code>names</code> is not “chris”</td>
-<td><code>names != "chris"</code></td>
+<td><code>roster</code> is not “chris”</td>
+<td><code>roster``!= "chris"</code></td>
 </tr>
 <tr class="odd">
-<td>The non-missing values of <code>names</code></td>
-<td><code>!is.na(names)</code></td>
+<td>The non-missing values of <code>roster</code></td>
+<td><code>!is.na(``roster``)</code></td>
 </tr>
 </tbody>
 </table>
@@ -384,8 +384,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.4</span> Subsetting vectors<a href="cheatsheet.html#subsetting-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
 <colgroup>
-<col width="51%" />
-<col width="48%" />
+<col width="46%" />
+<col width="53%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -407,8 +407,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <td><code>vec[vec &gt; 0]</code></td>
 </tr>
 <tr class="odd">
-<td>Subset <code>names</code> to have “chris” or “bob”</td>
-<td><code>vec[vec == "chris" | vec == "bob"]</code></td>
+<td>Subset <code>roster</code> to have “chris” or “bob”</td>
+<td><code>roster``[``roster``== "chris" |``roster``== "bob"]</code></td>
+</tr>
+<tr class="even">
+<td>Subset <code>names``roster</code>to have no missing data</td>
+<td><code>roster``[!is.na(``roster``)]</code></td>
 </tr>
 </tbody>
 </table>
@@ -440,33 +444,43 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <td>Dataframe</td>
 </tr>
 <tr class="odd">
+<td>Save a dataframe <code>dataframe</code> as “data.csv”</td>
+<td><code>write_csv(dataframe, "data.csv")</code></td>
+<td>No output</td>
+</tr>
+<tr class="even">
 <td>Compute the dimension of <code>dataframe</code></td>
 <td><code>dim(dataframe)</code></td>
 <td>Vector of length 2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Examine the column names of <code>dataframe</code></td>
 <td><code>colnames(dataframe)</code></td>
 <td>Vector</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Access a column “subtype” of <code>dataframe</code> as a vector</td>
 <td><code>dataframe$subtype</code></td>
 <td>Vector</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Access a column “subtype” of dataframe as a vector and look at its length</td>
 <td><code>length(dataframe$subtype)</code></td>
 <td>Numeric</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Subset <code>dataframe</code> to columns “subtype”, “diversity”, “outcome”</td>
 <td><code>select(dataframe, subtype, diversity, outcome)</code></td>
 <td>Dataframe</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Subset <code>dataframe</code> to rows such that the outcome is greater than zero, and the subtype is “lung”.</td>
 <td><code>filter(dataframe, outcome &gt; 0 &amp; subtype == "lung"</code>)</td>
+<td>Dataframe</td>
+</tr>
+<tr class="even">
+<td>Subset <code>dataframe</code> such that subtype has no missing values</td>
+<td><code>filter(datafarme, !is.na(subtype))</code></td>
 <td>Dataframe</td>
 </tr>
 <tr class="odd">
@@ -551,8 +565,40 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="alternative-methods" class="section level2 hasAnchor" number="7.8">
-<h2><span class="header-section-number">7.8</span> Alternative methods<a href="cheatsheet.html#alternative-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="equivalent-ways" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Equivalent ways<a href="cheatsheet.html#equivalent-ways" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table style="width:100%;">
+<colgroup>
+<col width="43%" />
+<col width="24%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>English</th>
+<th>Code</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subset <code>dataframe</code> to columns “subtype”, “outcome”, and subset to rows such that the subtype is “lung”. Store the new dataframe as <code>result</code>.</td>
+<td><p><code>temp = select(dataframe, subtype, outcome)</code></p>
+<p><code>result = filter(temp, subtype == "lung)</code></p></td>
+<td>Step by step using Tidyverse functions. Recommended.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>result = dataframe |&gt; select (subtype, outcome) |&gt; filter(subtype == "lung")</code></td>
+<td>Pipe syntax is useful for chaining multiple Tidyverse functions together. Also recommended.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>result = dataframe[dataframe$subtype == "lung", c("subtype", "outcome")]</code></td>
+<td>Base-R syntax of subsetting Dataframes. Notice the use of <code>$</code> to access a column from a Dataframe.</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
