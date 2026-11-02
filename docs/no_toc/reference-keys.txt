@@ -72,4 +72,5 @@ subsetting-vectors
 dataframes-1
 summary-statistics-of-a-dataframes-column
 dataframe-transformations
+alternative-methods
 references
